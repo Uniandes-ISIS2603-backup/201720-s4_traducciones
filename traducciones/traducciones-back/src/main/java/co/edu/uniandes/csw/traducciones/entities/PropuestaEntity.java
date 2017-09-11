@@ -13,8 +13,8 @@ import javax.persistence.Entity;
  * @author av.perezb
  */
 @Entity
-public class PropuestaEntity  extends BaseEntity implements Serializable {
-    
+public class PropuestaEntity extends BaseEntity implements Serializable {
+
     private String estado;
     private Double costo;
 
@@ -33,5 +33,5 @@ public class PropuestaEntity  extends BaseEntity implements Serializable {
     public void setCosto(Double costo) {
         this.costo = costo;
     }
-    
+
 }

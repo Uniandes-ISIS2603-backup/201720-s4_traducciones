@@ -14,9 +14,12 @@ import javax.persistence.Entity;
  * @author av.perezb
  */
 @Entity
-public class OfertaEntity extends BaseEntity implements Serializable  {
-    
-   private Integer cantidad;
+public class OfertaEntity extends BaseEntity implements Serializable {
+
+    private Integer cantidad;
+    private String descripcion;
+    private Integer codigo;
+    private Date fechaVigencia;
 
     public Integer getCantidad() {
         return cantidad;
@@ -49,8 +52,5 @@ public class OfertaEntity extends BaseEntity implements Serializable  {
     public void setFechaVigencia(Date fechaVigencia) {
         this.fechaVigencia = fechaVigencia;
     }
-            private String descripcion;
-            private Integer codigo;
-                    private Date fechaVigencia;
-    
+
 }

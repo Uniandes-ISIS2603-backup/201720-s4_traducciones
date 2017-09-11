@@ -5,9 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.persistence;
 
-import co.edu.uniandes.csw.traducciones.entities.DefaultEntity;
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
-import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -21,7 +19,6 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,9 +36,8 @@ public class OfertaPersistenceTest {
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de XYZ, el descriptor de la
-     * base de datos y el archivo beans.xml para resolver la inyección de
-     * dependencias.
+     * embebido. El jar contiene las clases de XYZ, el descriptor de la base de
+     * datos y el archivo beans.xml para resolver la inyección de dependencias.
      */
     @Deployment
     public static JavaArchive createDeployment() {
@@ -50,23 +46,22 @@ public class OfertaPersistenceTest {
                 .addPackage(OfertaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
-    }  
-    
-    
-    
+    }
+
     public OfertaPersistenceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
-    public void setUp() {try {
+    public void setUp() {
+        try {
             utx.begin();
             em.joinTransaction();
             clearData();
@@ -81,7 +76,7 @@ public class OfertaPersistenceTest {
             }
         }
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -91,15 +86,15 @@ public class OfertaPersistenceTest {
      */
     @Test
     public void testCreate() throws Exception {
-        
-        PodamFactory factory = new PodamFactoryImpl();
-    OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
-    OfertaEntity result = persistence.create(newEntity);
 
-    Assert.assertNotNull(result);
-    OfertaEntity entity = em.find(OfertaEntity.class, result.getId());
-    Assert.assertNotNull(entity);
-    Assert.assertEquals(newEntity.getName(), entity.getName());
+        PodamFactory factory = new PodamFactoryImpl();
+        OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
+        OfertaEntity result = persistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+        OfertaEntity entity = em.find(OfertaEntity.class, result.getId());
+        Assert.assertNotNull(entity);
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
     /**
@@ -108,16 +103,16 @@ public class OfertaPersistenceTest {
     @Test
     public void testUpdate() throws Exception {
         OfertaEntity entity = data.get(0);
-    PodamFactory factory = new PodamFactoryImpl();
-    OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
+        PodamFactory factory = new PodamFactoryImpl();
+        OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
 
-    newEntity.setId(entity.getId());
+        newEntity.setId(entity.getId());
 
-    persistence.update(newEntity);
+        persistence.update(newEntity);
 
-    OfertaEntity resp = em.find(OfertaEntity.class, entity.getId());
+        OfertaEntity resp = em.find(OfertaEntity.class, entity.getId());
 
-    Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
@@ -125,11 +120,11 @@ public class OfertaPersistenceTest {
      */
     @Test
     public void testDelete() throws Exception {
-        
+
         OfertaEntity entity = data.get(0);
-    persistence.delete(entity.getId());
-    OfertaEntity deleted = em.find(OfertaEntity.class, entity.getId());
-    Assert.assertNull(deleted);
+        persistence.delete(entity.getId());
+        OfertaEntity deleted = em.find(OfertaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
 
     /**
@@ -137,11 +132,11 @@ public class OfertaPersistenceTest {
      */
     @Test
     public void testFind() throws Exception {
-        
+
         OfertaEntity entity = data.get(0);
-    OfertaEntity newEntity = persistence.find(entity.getId());
-    Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getName(), newEntity.getName());
+        OfertaEntity newEntity = persistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
     }
 
     /**
@@ -149,23 +144,23 @@ public class OfertaPersistenceTest {
      */
     @Test
     public void testFindAll() throws Exception {
-        
+
         List<OfertaEntity> list = persistence.findAll();
-    Assert.assertEquals(data.size(), list.size());
-    for (OfertaEntity ent : list) {
-        boolean found = false;
-        for (OfertaEntity entity : data) {
-            if (ent.getId().equals(entity.getId())) {
-                found = true;
+        Assert.assertEquals(data.size(), list.size());
+        for (OfertaEntity ent : list) {
+            boolean found = false;
+            for (OfertaEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
             }
+            Assert.assertTrue(found);
         }
-        Assert.assertTrue(found);
     }
-    }
-    
+
     /**
-     * Inyección de la dependencia a la clase XYZPersistence cuyos métodos
-     * se van a probar.
+     * Inyección de la dependencia a la clase OfertaPersistence cuyos métodos se
+     * van a probar.
      */
     @Inject
     private OfertaPersistence persistence;
@@ -184,17 +179,16 @@ public class OfertaPersistenceTest {
     @Inject
     UserTransaction utx;
 
-     /**
+    /**
      *
      */
     private List<OfertaEntity> data = new ArrayList<OfertaEntity>();
-    
-       private void clearData() {
+
+    private void clearData() {
         em.createQuery("delete from OfertaEntity").executeUpdate();
     }
 
-
- private void insertData() {
+    private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
             OfertaEntity entity = factory.manufacturePojo(OfertaEntity.class);
@@ -203,6 +197,5 @@ public class OfertaPersistenceTest {
             data.add(entity);
         }
     }
-    
-}
 
+}
