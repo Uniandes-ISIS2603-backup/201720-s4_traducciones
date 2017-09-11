@@ -7,11 +7,13 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author av.perezb
  */
+@Entity
 public class OfertaEntity extends BaseEntity implements Serializable  {
     
    private Integer cantidad;

@@ -23,7 +23,7 @@ public class OfertaPersistence {
     
     
     private static final Logger 
-LOGGER = Logger.getLogger(DefaultPersistence.class.getName());
+LOGGER = Logger.getLogger(OfertaPersistence.class.getName());
 
     
 @PersistenceContext(unitName = "traduccionesPU")

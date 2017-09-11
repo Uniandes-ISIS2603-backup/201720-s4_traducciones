@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author av.perezb
  */
+@Entity
 public class PropuestaEntity  extends BaseEntity implements Serializable {
     
     private String estado;
