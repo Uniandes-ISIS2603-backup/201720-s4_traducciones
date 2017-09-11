@@ -36,8 +36,9 @@ public class OfertaPersistenceTest {
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de XYZ, el descriptor de la base de
-     * datos y el archivo beans.xml para resolver la inyección de dependencias.
+     * embebido. El jar contiene las clases de Oferta, el descriptor de la base
+     * de datos y el archivo beans.xml para resolver la inyección de
+     * dependencias.
      */
     @Deployment
     public static JavaArchive createDeployment() {
@@ -82,7 +83,7 @@ public class OfertaPersistenceTest {
     }
 
     /**
-     * Test of create method, of class DefaultPersistence.
+     * Test of create method, of class OfertaPersistence.
      */
     @Test
     public void testCreate() throws Exception {
@@ -98,7 +99,7 @@ public class OfertaPersistenceTest {
     }
 
     /**
-     * Test of update method, of class DefaultPersistence.
+     * Test of update method, of class OfertaPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
@@ -116,7 +117,7 @@ public class OfertaPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class DefaultPersistence.
+     * Test of delete method, of class OfertaPersistence.
      */
     @Test
     public void testDelete() throws Exception {
@@ -128,7 +129,7 @@ public class OfertaPersistenceTest {
     }
 
     /**
-     * Test of find method, of class DefaultPersistence.
+     * Test of find method, of class OfertaPersistence.
      */
     @Test
     public void testFind() throws Exception {
@@ -140,7 +141,7 @@ public class OfertaPersistenceTest {
     }
 
     /**
-     * Test of findAll method, of class DefaultPersistence.
+     * Test of findAll method, of class OfertaPersistence.
      */
     @Test
     public void testFindAll() throws Exception {

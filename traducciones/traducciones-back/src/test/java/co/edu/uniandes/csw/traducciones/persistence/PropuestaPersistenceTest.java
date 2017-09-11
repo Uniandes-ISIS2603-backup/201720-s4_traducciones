@@ -36,8 +36,9 @@ public class PropuestaPersistenceTest {
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de XYZ, el descriptor de la base de
-     * datos y el archivo beans.xml para resolver la inyección de dependencias.
+     * embebido. El jar contiene las clases de Propuesta, el descriptor de la
+     * base de datos y el archivo beans.xml para resolver la inyección de
+     * dependencias.
      */
     @Deployment
     public static JavaArchive createDeployment() {
@@ -82,7 +83,7 @@ public class PropuestaPersistenceTest {
     }
 
     /**
-     * Test of create method, of class DefaultPersistence.
+     * Test of create method, of class PropuestaPersistence.
      */
     @Test
     public void testCreate() throws Exception {
@@ -97,7 +98,7 @@ public class PropuestaPersistenceTest {
     }
 
     /**
-     * Test of update method, of class DefaultPersistence.
+     * Test of update method, of class PropuestaPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
@@ -115,7 +116,7 @@ public class PropuestaPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class DefaultPersistence.
+     * Test of delete method, of class PropuestaPersistence.
      */
     @Test
     public void testDelete() throws Exception {
@@ -127,7 +128,7 @@ public class PropuestaPersistenceTest {
     }
 
     /**
-     * Test of find method, of class DefaultPersistence.
+     * Test of find method, of class PropuestaPersistence.
      */
     @Test
     public void testFind() throws Exception {
@@ -158,8 +159,8 @@ public class PropuestaPersistenceTest {
     }
 
     /**
-     * Inyección de la dependencia a la clase PropuestaPersistence cuyos métodos se
-     * van a probar.
+     * Inyección de la dependencia a la clase PropuestaPersistence cuyos métodos
+     * se van a probar.
      */
     @Inject
     private PropuestaPersistence persistence;
