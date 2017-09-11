@@ -32,29 +32,29 @@ public class TrayectoriaLogic {
      * @throws BusinessLogicException
      */
     public TrayectoriaEntity createTrayectoria(TrayectoriaEntity entity) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de creación de cantante");
-        // Verifica la regla de negocio que dice que no puede haber dos cantantes con la misma canción
+        LOGGER.info("Inicia proceso de creación de HojaDeVida");
+        // Verifica la regla de negocio que dice que no puede haber dos HojaDeVidas con la misma canción
         if (persistence.findByName(entity.getName()) != null) {
-            throw new BusinessLogicException("Ya existe un cantante con el nombre \"" + entity.getName()+ "\"");
+            throw new BusinessLogicException("Ya existe un HojaDeVida con el nombre \"" + entity.getName()+ "\"");
         }
-        // Invoca la persistencia para crear la cantante
+        // Invoca la persistencia para crear la HojaDeVida
         persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de cantante");
+        LOGGER.info("Termina proceso de creación de HojaDeVida");
         return entity;
     }
 
     /**
      * 
-     * Obtener todas las cantantees existentes en la base de datos.
+     * Obtener todas las HojaDeVidaes existentes en la base de datos.
      *
-     * @return una lista de cantantees.
+     * @return una lista de HojaDeVidaes.
      */
     public List<TrayectoriaEntity> getTrayectorias() {
-        LOGGER.info("Inicia proceso de consultar todas las cantantes");
+        LOGGER.info("Inicia proceso de consultar todas las HojaDeVidas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<TrayectoriaEntity> cantantes = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las cantantes");
-        return cantantes;
+        List<TrayectoriaEntity> HojaDeVidas = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todas las HojaDeVidas");
+        return HojaDeVidas;
     }
     
     public TrayectoriaEntity getTrayectoriaId(Long id)

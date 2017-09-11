@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
-import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
+import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class HojaDeVidaPersistence {
-    private static final Logger LOGGER = Logger.getLogger(TrayectoriaPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(HojaDeVidaPersistence.class.getName());
 
     @PersistenceContext(unitName = "traduccionesPU")
     protected EntityManager em;
@@ -32,12 +32,12 @@ public class HojaDeVidaPersistence {
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public HojaDeVidaEntity create(HojaDeVidaEntity entity) {
-        LOGGER.info("Creando una trayectoria nueva");
-        /* Note que hacemos uso de un método propio de EntityManager para persistir la cantante en la base de datos.
+        LOGGER.info("Creando una HojaDeVida nueva");
+        /* Note que hacemos uso de un método propio de EntityManager para persistir la HojaDeVida en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
         em.persist(entity);
-        LOGGER.info("Creando una trayectoria nueva");
+        LOGGER.info("Creando una HojaDeVida nueva");
         return entity;
     }
 
@@ -67,7 +67,7 @@ public class HojaDeVidaPersistence {
      */
     public void delete(Long id) {
         LOGGER.log(Level.INFO, "Borrando hojaDeVida con id={0}", id);
-        // Se hace uso de mismo método que esta explicado en public HojaDeVidaEntity find(Long id) para obtener la trayectoria a borrar.
+        // Se hace uso de mismo método que esta explicado en public HojaDeVidaEntity find(Long id) para obtener la HojaDeVida a borrar.
         HojaDeVidaEntity entity = em.find(HojaDeVidaEntity.class, id);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
          EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
@@ -93,12 +93,12 @@ public class HojaDeVidaPersistence {
     /**
      * Devuelve todas las hojasDeVida de la base de datos.
      *
-     * @return una lista con todas las trayectorias que encuentre en la base de
+     * @return una lista con todas las HojaDeVidas que encuentre en la base de
      * datos, "select u from hojaDeVidaEntity u" es como un "select * from
      * hojaDeVidaEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
     public List<HojaDeVidaEntity> findAll() {
-        LOGGER.info("Consultando todas las trayectorias");
+        LOGGER.info("Consultando todas las HojaDeVidas");
         // Se crea un query para buscar todas las HojasDeVida en la base de datos.
         TypedQuery query = em.createQuery("select u from HojaDeVidaEntity u", HojaDeVidaEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de HojasDeVida.

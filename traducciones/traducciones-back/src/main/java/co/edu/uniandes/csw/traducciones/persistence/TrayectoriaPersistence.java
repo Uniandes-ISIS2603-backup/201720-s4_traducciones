@@ -33,7 +33,7 @@ public class TrayectoriaPersistence {
      */
     public TrayectoriaEntity create(TrayectoriaEntity entity) {
         LOGGER.info("Creando una trayectoria nueva");
-        /* Note que hacemos uso de un método propio de EntityManager para persistir la cantante en la base de datos.
+        /* Note que hacemos uso de un método propio de EntityManager para persistir la trayectoria en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
         em.persist(entity);

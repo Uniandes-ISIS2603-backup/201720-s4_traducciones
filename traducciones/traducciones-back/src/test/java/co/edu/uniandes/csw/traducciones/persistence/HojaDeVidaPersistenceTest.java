@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.persistence;
 
-import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
+import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -13,52 +13,45 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.junit.Arquillian;
 
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-
-import org.junit.runner.RunWith;
 /**
  *
  * @author ra.forero11
  */
-@RunWith(Arquillian.class)
-public class TrayectoriaPersistenceTest {
-
+public class HojaDeVidaPersistenceTest {
+    
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de TRAYECTORIA, el descriptor de la base de
+     * embebido. El jar contiene las clases de HojaDeVida, el descriptor de la base de
      * datos y el archivo beans.xml para resolver la inyecciÃ³n de dependencias.
      */
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(TrayectoriaEntity.class.getPackage())
-                .addPackage(TrayectoriaPersistence.class.getPackage())
+                .addPackage(HojaDeVidaEntity.class.getPackage())
+                .addPackage(HojaDeVidaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
 
     /**
-     * InyecciÃ³n de la dependencia a la clase TrayectoriaPersistence cuyos
+     * InyecciÃ³n de la dependencia a la clase HojaDeVidaPersistence cuyos
      * mÃ©todos se van a probar.
      */
     @Inject
-    private TrayectoriaPersistence persistence;
+    private HojaDeVidaPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -77,7 +70,7 @@ public class TrayectoriaPersistenceTest {
     /**
      *
      */
-    private List<TrayectoriaEntity> data = new ArrayList<TrayectoriaEntity>();
+    private List<HojaDeVidaEntity> data = new ArrayList<HojaDeVidaEntity>();
 
     @Before
     public void setUp() {
@@ -98,56 +91,56 @@ public class TrayectoriaPersistenceTest {
     }
 
     private void clearData() {
-        em.createQuery("delete from TRAYECTORIAEntity").executeUpdate();
+        em.createQuery("delete from HojaDeVidaEntity").executeUpdate();
     }
 
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            TrayectoriaEntity entity = factory.manufacturePojo(TrayectoriaEntity.class);
+            HojaDeVidaEntity entity = factory.manufacturePojo(HojaDeVidaEntity.class);
 
             em.persist(entity);
             data.add(entity);
         }
     }
-
-    public TrayectoriaPersistenceTest() {
+    public HojaDeVidaPersistenceTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
+   
     @After
     public void tearDown() {
     }
 
-    /**
-     * Test of create method, of class TrayectoriaPersistence.
+     /**
+     * Test of create method, of class HojaDeVidaPersistence.
      */
     @Test
-    public void createTrayectoriaEntityTest() throws Exception {
+    public void createHojaDeVidaEntityTest() throws Exception {
         PodamFactory factory = new PodamFactoryImpl();
-        TrayectoriaEntity newEntity = factory.manufacturePojo(TrayectoriaEntity.class);
-        TrayectoriaEntity result = persistence.create(newEntity);
+        HojaDeVidaEntity newEntity = factory.manufacturePojo(HojaDeVidaEntity.class);
+        HojaDeVidaEntity result = persistence.create(newEntity);
 
         Assert.assertNotNull(result);
-        TrayectoriaEntity entity = em.find(TrayectoriaEntity.class, result.getId());
+        HojaDeVidaEntity entity = em.find(HojaDeVidaEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
     @Test
-    public void getTrayectoriasTest() {
-        List<TrayectoriaEntity> list = persistence.findAll();
+    public void getHojasDeVidaTest() {
+        List<HojaDeVidaEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (TrayectoriaEntity ent : list) {
+        for (HojaDeVidaEntity ent : list) {
             boolean found = false;
-            for (TrayectoriaEntity entity : data) {
+            for (HojaDeVidaEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -157,44 +150,44 @@ public class TrayectoriaPersistenceTest {
     }
 
     @Test
-    public void getTrayectoriaTest() {
-        TrayectoriaEntity entity = data.get(0);
-        TrayectoriaEntity newEntity = persistence.find(entity.getId());
+    public void getHojaDeVidaTest() {
+        HojaDeVidaEntity entity = data.get(0);
+        HojaDeVidaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
 
     
     @Test
-    public void getTrayectoriaByNameTest() {
-        TrayectoriaEntity entity = data.get(0);
-        TrayectoriaEntity newEntity = persistence.findByName(entity.getName());
+    public void getHojaDeVidaByNameTest() {
+        HojaDeVidaEntity entity = data.get(0);
+        HojaDeVidaEntity newEntity = persistence.findByName(entity.getName());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
     
     @Test
-    public void updateTrayectoriaTest() {
-        TrayectoriaEntity entity = data.get(0);
+    public void updateHojaDeVidaTest() {
+        HojaDeVidaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        TrayectoriaEntity newEntity = factory.manufacturePojo(TrayectoriaEntity.class);
+        HojaDeVidaEntity newEntity = factory.manufacturePojo(HojaDeVidaEntity.class);
 
         newEntity.setId(entity.getId());
 
         persistence.update(newEntity);
 
-        TrayectoriaEntity resp = em.find(TrayectoriaEntity.class, entity.getId());
+        HojaDeVidaEntity resp = em.find(HojaDeVidaEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
   
     @Test
-    public void deleteTrayectoriaTest() {
-        TrayectoriaEntity entity = data.get(0);
+    public void deleteHojaDeVidaTest() {
+        HojaDeVidaEntity entity = data.get(0);
         persistence.delete(entity.getId());
-        TrayectoriaEntity deleted = em.find(TrayectoriaEntity.class, entity.getId());
+        HojaDeVidaEntity deleted = em.find(HojaDeVidaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
     
-
+    
 }
