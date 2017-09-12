@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
-import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

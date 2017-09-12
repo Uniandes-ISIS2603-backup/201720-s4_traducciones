@@ -17,8 +17,8 @@ import javax.persistence.Entity;
 public class TrayectoriaEntity extends BaseEntity implements Serializable{
     
     private String descripcion;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     
     /**
      * @return the descripcion
@@ -37,28 +37,28 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
     /**
      * @return the fechaInicio
      */
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
     /**
      * @param fechaInicio the fechaInicio to set
      */
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
     /**
      * @return the fechaFin
      */
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
     /**
      * @param fechaFin the fechaFin to set
      */
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
     

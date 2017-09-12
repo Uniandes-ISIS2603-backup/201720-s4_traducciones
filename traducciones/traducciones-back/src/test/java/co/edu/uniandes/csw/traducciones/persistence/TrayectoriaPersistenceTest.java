@@ -14,23 +14,14 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.junit.After;
-import org.junit.AfterClass;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.junit.Arquillian;
-
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-
-import org.junit.runner.RunWith;
 /**
  *
  * @author ra.forero11
@@ -41,7 +32,7 @@ public class TrayectoriaPersistenceTest {
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de TRAYECTORIA, el descriptor de la base de
+     * embebido. El jar contiene las clases de HojaDeVida, el descriptor de la base de
      * datos y el archivo beans.xml para resolver la inyecciÃ³n de dependencias.
      */
     @Deployment
@@ -54,7 +45,7 @@ public class TrayectoriaPersistenceTest {
     }
 
     /**
-     * InyecciÃ³n de la dependencia a la clase TrayectoriaPersistence cuyos
+     * InyecciÃ³n de la dependencia a la clase HojaDeVidaPersistence cuyos
      * mÃ©todos se van a probar.
      */
     @Inject
@@ -79,6 +70,8 @@ public class TrayectoriaPersistenceTest {
      */
     private List<TrayectoriaEntity> data = new ArrayList<TrayectoriaEntity>();
 
+    public TrayectoriaPersistenceTest() {
+    }
     @Before
     public void setUp() {
         try {
@@ -98,7 +91,7 @@ public class TrayectoriaPersistenceTest {
     }
 
     private void clearData() {
-        em.createQuery("delete from TRAYECTORIAEntity").executeUpdate();
+        em.createQuery("delete from TrayectoriaEntity").executeUpdate();
     }
 
     private void insertData() {
@@ -110,24 +103,11 @@ public class TrayectoriaPersistenceTest {
             data.add(entity);
         }
     }
+    
+    
 
-    public TrayectoriaPersistenceTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of create method, of class TrayectoriaPersistence.
+     /**
+     * Test of create method, of class HojaDeVidaPersistence.
      */
     @Test
     public void createTrayectoriaEntityTest() throws Exception {
@@ -174,7 +154,7 @@ public class TrayectoriaPersistenceTest {
     }
     
     @Test
-    public void updateTrayectoriaTest() {
+    public void updateHojaDeVidaTest() {
         TrayectoriaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         TrayectoriaEntity newEntity = factory.manufacturePojo(TrayectoriaEntity.class);
@@ -189,12 +169,13 @@ public class TrayectoriaPersistenceTest {
     }
   
     @Test
-    public void deleteTrayectoriaTest() {
+    public void deleteHojaDeVidaTest() {
         TrayectoriaEntity entity = data.get(0);
         persistence.delete(entity.getId());
         TrayectoriaEntity deleted = em.find(TrayectoriaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
     
 
 }

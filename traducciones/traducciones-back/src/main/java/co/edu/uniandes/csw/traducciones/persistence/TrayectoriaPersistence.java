@@ -20,7 +20,6 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class TrayectoriaPersistence {
-
     private static final Logger LOGGER = Logger.getLogger(TrayectoriaPersistence.class.getName());
 
     @PersistenceContext(unitName = "traduccionesPU")
@@ -113,9 +112,9 @@ public class TrayectoriaPersistence {
      * argumento. Si existe alguna devuelve la primera.
      */
     public TrayectoriaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando trayectoria por nombre ", name);
+       LOGGER.log(Level.INFO, "Consultando Trayectoria por nombre ", name);
 
-        // Se crea un query para buscar trayectorias con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        // Se crea un query para buscar HojasDeVidaEntity con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From TrayectoriaEntity e where e.name = :name", TrayectoriaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);

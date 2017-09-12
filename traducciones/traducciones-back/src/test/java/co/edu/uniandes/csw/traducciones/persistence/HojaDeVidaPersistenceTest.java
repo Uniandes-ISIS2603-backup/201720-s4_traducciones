@@ -13,15 +13,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -29,6 +27,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  *
  * @author ra.forero11
  */
+@RunWith(Arquillian.class)
 public class HojaDeVidaPersistenceTest {
     
     /**
@@ -72,6 +71,8 @@ public class HojaDeVidaPersistenceTest {
      */
     private List<HojaDeVidaEntity> data = new ArrayList<HojaDeVidaEntity>();
 
+    public HojaDeVidaPersistenceTest() {
+    }
     @Before
     public void setUp() {
         try {
@@ -103,21 +104,8 @@ public class HojaDeVidaPersistenceTest {
             data.add(entity);
         }
     }
-    public HojaDeVidaPersistenceTest() {
-    }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-   
-    @After
-    public void tearDown() {
-    }
 
      /**
      * Test of create method, of class HojaDeVidaPersistence.
