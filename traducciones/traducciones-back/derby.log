@@ -1,21 +1,11 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Mon Sep 11 19:36:04 COT 2017:
- Iniciando instancia a816c00e-015e-7383-b45a-00000f68b7a0 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\ra.forero11\AppData\Local\Temp\gfembed2069925385293335743tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
-Cargado desde file:/C:/Users/ra.forero11/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
+Mon Sep 11 22:44:12 COT 2017:
+ Iniciando instancia a816c00e-015e-742f-f18e-00000cdc8230 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\ga.garcia90\AppData\Local\Temp\gfembed301106243139767491tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@18b4aac2
+Cargado desde file:/C:/Users/ga.garcia90/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\ra.forero11\Documents\NetBeansProjects\Proyecto\traducciones\traducciones-back
-=======
-Mon Sep 11 17:50:01 COT 2017:
- Iniciando instancia a816c00e-015e-7322-9bc4-00000e256c18 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\av.perezb\AppData\Local\Temp\gfembed3016909439338578810tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
-Cargado desde file:/C:/Users/av.perezb/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\av.perezb\Documents\DESARROLLO DE SW\tallerMio\s4_traducciones\traducciones\traducciones-back
->>>>>>> 77af3112e6b5d948b5f37cfdfd8f32935007bdd0
+user.dir=C:\Users\ga.garcia90\Documents\NetBeansProjects\s4_traducciones\traducciones\traducciones-back
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1
