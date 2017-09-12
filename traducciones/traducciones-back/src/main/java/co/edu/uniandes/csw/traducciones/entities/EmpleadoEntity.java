@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 
 /**
@@ -15,18 +14,10 @@ import javax.persistence.Entity;
  */
 @Entity
 public class EmpleadoEntity extends BaseEntity implements Serializable{
-    private Integer tipo;
-    private Double calificacionPromedio;
-
-    //public List<AreaDeConocimientoEntity> getAreasDeConocimiento() {
-      //  return areasDeConocimiento;
-    //}
-
-    //public void setAreasDeConocimiento(List<AreaDeConocimientoEntity> areasDeConocimiento) {
-      //  this.areasDeConocimiento = areasDeConocimiento;
-    //}
     
-    //private List<AreaDeConocimientoEntity> areasDeConocimiento;
+        private Integer tipo;
+    
+    private Double calificacionPromedio;
 
     public Integer getTipo() {
         return tipo;
@@ -43,4 +34,5 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     public void setCalificacionPromedio(Double calificacionPromedio) {
         this.calificacionPromedio = calificacionPromedio;
     }
+    
 }
