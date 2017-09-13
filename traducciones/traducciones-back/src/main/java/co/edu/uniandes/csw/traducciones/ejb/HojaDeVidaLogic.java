@@ -50,7 +50,7 @@ public class HojaDeVidaLogic {
      *
      * @return una lista de HojaDeVidaes.
      */
-    public List<HojaDeVidaEntity> getHojaDeVidas() {
+    public List<HojaDeVidaEntity> getHojasDeVida() {
         LOGGER.info("Inicia proceso de consultar todas las HojaDeVidas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<HojaDeVidaEntity> HojaDeVidas = persistence.findAll();
