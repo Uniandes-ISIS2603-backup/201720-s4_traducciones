@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
+
 import java.io.Serializable;
 import javax.persistence.Entity;
 
