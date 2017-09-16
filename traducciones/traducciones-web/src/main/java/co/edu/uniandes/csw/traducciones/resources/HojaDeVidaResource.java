@@ -38,7 +38,7 @@ public class HojaDeVidaResource {
     HojaDeVidaLogic hojaDeVidaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
     
     /**
-     * POST http://localhost:8080/cantante-web/api/cantantes Ejemplo
+     * POST http://localhost:8080/traducciones-web/cantantes Ejemplo
      * json: { "name":"Diego", "codigo":"123"}
      *
      * @param hojaDeVida correponde a la representación java del objeto json
@@ -59,7 +59,7 @@ public class HojaDeVidaResource {
     
     /**
      * GET para todas las hojas de vida
-     * http://localhost:8080/cantante-web/api/hojadevida
+     * http://localhost:8080/traducciones-web/hojadevida
      *
      * @return la lista de todas las hojas de vida en objetos json DTO.
      * @throws BusinessLogicException
@@ -71,7 +71,7 @@ public class HojaDeVidaResource {
     
     /**
      * GET para una hoja de vida
-     * http://localhost:8080/cantante-web/api/trayectorias/1
+     * http://localhost:8080/traducciones-web/hojadevida/1
      *
      * @param id corresponde al id de la hoja de vida buscada.
      * @return La hoja de vida encontrada.
@@ -92,7 +92,7 @@ public class HojaDeVidaResource {
     }
     
      /**
-     * PUT http://localhost:8080/cantante-web/api/hojadevida/1 Ejemplo
+     * PUT http://localhost:8080/traducciones-web/hojadevida/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
      * @param id corresponde a la trayectoria a actualizar.
@@ -117,7 +117,7 @@ public class HojaDeVidaResource {
     }
 
     /**
-     * DELETE http://localhost:8080/cantante-web/api/hojadevida/1
+     * DELETE http://localhost:8080/traducciones-web/hojadevida/1
      *
      * @param id corresponde a la hoja de vida a borrar.
      * @throws BusinessLogicException

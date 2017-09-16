@@ -38,7 +38,7 @@ public class TrayectoriaResource {
     TrayectoriaLogic trayectoriaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
      
      /**
-     * POST http://localhost:8080/cantante-web/api/cantantes Ejemplo
+     * POST http://localhost:8080/traducciones-web/api/trayectorias Ejemplo
      * json: { "name":"Diego", "codigo":"123"}
      *
      * @param trayectoria correponde a la representación java del objeto json
@@ -59,7 +59,7 @@ public class TrayectoriaResource {
     
     /**
      * GET para todas las trayectorias
-     * http://localhost:8080/cantante-web/api/trayectorias
+     * http://localhost:8080/traducciones-web/trayectorias
      *
      * @return la lista de todas las trayectorias en objetos json DTO.
      * @throws BusinessLogicException
@@ -71,7 +71,7 @@ public class TrayectoriaResource {
     
     /**
      * GET para una trayectoria
-     * http://localhost:8080/cantante-web/api/trayectorias/1
+     * http://localhost:8080/traducciones-web/trayectorias/1
      *
      * @param id corresponde al id de la trayectoria buscada.
      * @return La trayectoria encontrada.
@@ -92,7 +92,7 @@ public class TrayectoriaResource {
     }
     
     /**
-     * PUT http://localhost:8080/cantante-web/api/trayectorias/1 Ejemplo
+     * PUT http://localhost:8080/traducciones-web/trayectorias/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
      * @param id corresponde a la trayectoria a actualizar.
@@ -117,7 +117,7 @@ public class TrayectoriaResource {
     }
 
     /**
-     * DELETE http://localhost:8080/cantante-web/api/trayectorias/1
+     * DELETE http://localhost:8080/traducciones-web/trayectorias/1
      *
      * @param id corresponde a la trayectoia a borrar.
      * @throws BusinessLogicException
