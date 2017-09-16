@@ -6,8 +6,9 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,7 +25,8 @@ import javax.ws.rs.WebApplicationException;
 
 @Path("empleados")
 @Produces("application/json")
-@Stateless
+@Consumes("application/json")
+@RequestScoped
 public class EmpleadoResource {
     
     @Inject
@@ -49,7 +51,7 @@ public class EmpleadoResource {
     public EmpleadoDetailDTO createEmpleado(EmpleadoDetailDTO empleado) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         EmpleadoEntity empleadoEntity = empleado.toEntity();
-        // Invoca la lógica para crear la city nueva
+        // Invoca la lógica para crear el empleado nuevo
         EmpleadoEntity nuevoEmpleado = empleadoLogic.createEmpleado(empleadoEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new EmpleadoDetailDTO(nuevoEmpleado);
@@ -57,7 +59,7 @@ public class EmpleadoResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public EmpleadoDetailDTO updateCity(@PathParam("id") Long id, EmpleadoDetailDTO empleado) throws BusinessLogicException {
+    public EmpleadoDetailDTO updateEmpleado(@PathParam("id") Long id, EmpleadoDetailDTO empleado) throws BusinessLogicException {
         empleado.setId(id);
         EmpleadoEntity entity = empleadoLogic.getEmpleado(id);
         if (entity == null) {
@@ -68,7 +70,7 @@ public class EmpleadoResource {
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteCity(@PathParam("id") Long id) {
+    public void deleteEmpleado(@PathParam("id") Long id) {
         EmpleadoEntity entity = empleadoLogic.getEmpleado(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso empleado: " + id + " no existe.", 404);
