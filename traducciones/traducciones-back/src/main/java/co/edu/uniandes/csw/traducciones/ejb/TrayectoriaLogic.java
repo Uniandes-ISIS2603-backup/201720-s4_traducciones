@@ -33,8 +33,8 @@ public class TrayectoriaLogic {
      */
     public TrayectoriaEntity createTrayectoria(TrayectoriaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Trayectoria");
-        // Verifica la regla de negocio que dice que no puede haber dos HojaDeVidas con la misma canción
-        // Invoca la persistencia para crear la HojaDeVida
+        // Verifica la regla de negocio que dice que no puede haber dos Trayectoria con la misma canción
+        // Invoca la persistencia para crear la Trayectoria
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Trayectoria");
         return entity;
@@ -42,16 +42,16 @@ public class TrayectoriaLogic {
 
     /**
      * 
-     * Obtener todas las HojaDeVidaes existentes en la base de datos.
+     * Obtener todas las Trayectoria existentes en la base de datos.
      *
-     * @return una lista de HojaDeVidaes.
+     * @return una lista de Trayectoria.
      */
     public List<TrayectoriaEntity> getTrayectorias() {
         LOGGER.info("Inicia proceso de consultar todas las Trayectorias");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<TrayectoriaEntity> HojaDeVidas = persistence.findAll();
+        List<TrayectoriaEntity> trayectorias = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las Trayectorias");
-        return HojaDeVidas;
+        return trayectorias;
     }
     
     public TrayectoriaEntity getTrayectoriaId(Long id)

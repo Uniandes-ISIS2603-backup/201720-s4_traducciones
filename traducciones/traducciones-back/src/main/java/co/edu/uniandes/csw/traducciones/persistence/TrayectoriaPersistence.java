@@ -114,7 +114,7 @@ public class TrayectoriaPersistence {
     public TrayectoriaEntity findByName(String name) {
        LOGGER.log(Level.INFO, "Consultando Trayectoria por nombre ", name);
 
-        // Se crea un query para buscar HojasDeVidaEntity con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        // Se crea un query para buscar TrayectoriaEntity con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From TrayectoriaEntity e where e.name = :name", TrayectoriaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);
