@@ -67,6 +67,7 @@ public class DefaultLogic {
      * @return una lista de Defaultes.
      */
     public List<DefaultEntity> getDefaults() {
+        
         LOGGER.info("Inicia proceso de consultar todas las Defaultes");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<DefaultEntity> Default = persistence.findAll();

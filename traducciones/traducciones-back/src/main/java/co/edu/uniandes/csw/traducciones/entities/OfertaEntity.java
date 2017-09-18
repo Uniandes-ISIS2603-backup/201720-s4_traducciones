@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -18,7 +19,8 @@ public class OfertaEntity extends BaseEntity implements Serializable {
 
     private Integer cantidad;
     private String descripcion;
-    private Integer codigo;
+    private String codigo;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
     public Integer getCantidad() {
@@ -37,11 +39,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Integer getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
