@@ -13,6 +13,7 @@ import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -31,7 +32,7 @@ import javax.ws.rs.WebApplicationException;
 @Path("trayectorias")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+@RequestScoped
 public class TrayectoriaResource {
     
      @Inject
@@ -49,12 +50,8 @@ public class TrayectoriaResource {
      */
     @POST
     public TrayectoriaDTO createTrayectoria(TrayectoriaDTO trayectoria) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        TrayectoriaEntity trayectoriaEntity = trayectoria.toEntity();
-        // Invoca la lógica para crear la trayectoria nueva
-        TrayectoriaEntity nuevaTrayectoria = trayectoriaLogic.createTrayectoria(trayectoriaEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new TrayectoriaDTO(nuevaTrayectoria);
+        
+        return new  TrayectoriaDTO(trayectoriaLogic.createTrayectoria(trayectoria.toEntity()));
     }
     
     /**

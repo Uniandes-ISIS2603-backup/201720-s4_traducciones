@@ -33,7 +33,6 @@ public class TrayectoriaLogic {
      */
     public TrayectoriaEntity createTrayectoria(TrayectoriaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Trayectoria");
-        // Verifica la regla de negocio que dice que no puede haber dos Trayectoria con la misma canción
         // Invoca la persistencia para crear la Trayectoria
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Trayectoria");

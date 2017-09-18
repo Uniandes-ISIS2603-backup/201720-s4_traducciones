@@ -13,6 +13,7 @@ import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -31,7 +32,7 @@ import javax.ws.rs.WebApplicationException;
 @Path("hojadevida")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+@RequestScoped
 public class HojaDeVidaResource {
     
     @Inject
