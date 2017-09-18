@@ -47,6 +47,12 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
+            <groupId>co.edu.uniandes.csw.traducciones</groupId>
+            <artifactId>traducciones-back</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>

@@ -23,7 +23,6 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.traducciones.mappers;
 
-
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
