@@ -47,6 +47,12 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
+            <groupId>co.edu.uniandes.csw.traducciones</groupId>
+            <artifactId>traducciones-logic</artifactId>
+            <version>0.1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -57,12 +63,6 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.0.1</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw.traducciones</groupId>
-            <artifactId>traducciones-back</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.graphene</groupId>

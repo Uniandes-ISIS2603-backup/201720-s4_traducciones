@@ -1,0 +1,245 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HojaDeVidaPostman",
+		"_postman_id": "7246fb9e-4727-3634-38c8-3e7acd67aa4e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar todas las Hojas de Vida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Counsulta todas las Hojas de Vida de la base de datos y las muestra en representacion json."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar una Hoja de Vida especifica existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Consulta una Hoja de Vida especifica existente en la base de datos y la muestra como json."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar una Hoja de Vida inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 500, Precondition failed\"]=responseCode.code===500"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/200",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Consulta una Hoja de Vida inexistente en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar una Hoja de Vida ya existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412, Precondition failed\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"descripcion\": \"Accountant I\",\n        \"formacionAcademica\": \"University of Central Oklahoma\",\n        \"id\": 1,\n        \"name\": \"Lutero Davidesco\",\n        \"perfilProfesional\": \"Plastic Products\"\n    }"
+				},
+				"description": "Agrega una Hoja de Vida con un id ya existente en la base de datos, falla la precondicion."
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar una nueva Hoja de Vida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, NOK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"descripcion\": \"Accountant IIIIII\",\n        \"formacionAcademica\": \"University of Prueba de post existente\",\n        \"id\": 101,\n        \"name\": \"Lutero Davidescoooooooo\",\n        \"perfilProfesional\": \"Plastic Productsssssssss\"\n    }"
+				},
+				"description": "Agrega una nueva Hoja de Vida a la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una Hoja de Vida existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"descripcion\": \"Accountant I prueba put\",\n        \"formacionAcademica\": \"University of Central Oklahoma prueba put\",\n        \"id\": 1,\n        \"name\": \"Lutero Davidesco prueba put\",\n        \"perfilProfesional\": \"Plastic Products prueba put\"\n    }"
+				},
+				"description": "Actualiza una Hoja de Vida existente en la base de datoss."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una Hoja de Vida inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 500, Precondition failed\"]=responseCode.code===500"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/300",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"descripcion\": \"Accountant I prueba put\",\n        \"formacionAcademica\": \"University of Central Oklahoma prueba put\",\n        \"id\": 200,\n        \"name\": \"Lutero Davidesco prueba put\",\n        \"perfilProfesional\": \"Plastic Products prueba put\"\n    }"
+				},
+				"description": "Actualiza una Hoja de Vida inexistente en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una Hoja de Vida inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 500, id inexistente\"]=responseCode.code===500"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/300",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Borra una Hoja de Vida inexistente de la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una Hoja de Vida existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204, OK\"]=responseCode.code===204"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Borra una Hoja de Vida existente de la base de datos."
+			},
+			"response": []
+		}
+	]
+}
