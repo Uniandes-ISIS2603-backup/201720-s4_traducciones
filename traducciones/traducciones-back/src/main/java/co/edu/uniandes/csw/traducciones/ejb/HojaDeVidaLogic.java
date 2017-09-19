@@ -34,10 +34,6 @@ public class HojaDeVidaLogic {
      */
     public HojaDeVidaEntity createHojaDeVida(HojaDeVidaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de HojaDeVida");
-        // Verifica la regla de negocio que dice que no puede haber dos HojaDeVidas con la misma canción
-        if (persistence.findByName(entity.getName()) != null) {
-            throw new BusinessLogicException("Ya existe un HojaDeVida con el nombre \"" + entity.getName()+ "\"");
-        }
         // Invoca la persistencia para crear la HojaDeVida
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de HojaDeVida");
