@@ -77,53 +77,26 @@ public class TrayectoriaPersistence {
     /**
      * Busca si hay alguna trayectoria con el id que se envía de argumento
      *
-     * @param id: id correspondiente a la trayectoria buscada.
+     * @param hojaDeVidaId id de la hoja de vida donde se busca la trayectoria
+     * @param trayectoriaId id de la trayectoria a buscar
      * @return una trayectoria.
      */
-    public TrayectoriaEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando trayectoria con id={0}", id);
-        /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
-        el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
-        Suponga que es algo similar a "select * from trayectoriaEntity where id=id;" - "SELECT * FROM table_codigo WHERE condition;" en SQL.
-         */
-        return em.find(TrayectoriaEntity.class, id);
-    }
-
-    /**
-     * Devuelve todas las trayectorias de la base de datos.
-     *
-     * @return una lista con todas las trayectorias que encuentre en la base de
-     * datos, "select u from trayectoriaEntity u" es como un "select * from
-     * trayectoriaEntity;" - "SELECT * FROM table_codigo" en SQL.
-     */
-    public List<TrayectoriaEntity> findAll() {
-        LOGGER.info("Consultando todas las trayectorias");
-        // Se crea un query para buscar todas las trayectorias en la base de datos.
-        TypedQuery query = em.createQuery("select u from TrayectoriaEntity u", TrayectoriaEntity.class);
-        // Note que en el query se hace uso del método getResultList() que obtiene una lista de trayectorias.
-        return query.getResultList();
-    }
-
-    /**
-     * Busca si hay alguna trayectoria con el nombre que se envía de argumento
-     *
-     * @param name: nombre de la trayectoria que se está buscando
-     * @return null si no existe ninguna trayectoria con el nombre del
-     * argumento. Si existe alguna devuelve la primera.
-     */
-    public TrayectoriaEntity findByName(String name) {
-       LOGGER.log(Level.INFO, "Consultando Trayectoria por nombre ", name);
-
-        // Se crea un query para buscar TrayectoriaEntity con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From TrayectoriaEntity e where e.name = :name", TrayectoriaEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<TrayectoriaEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
+    public TrayectoriaEntity find(Long hojaDeVidaId, Long trayectoriaId) {
+        TypedQuery<TrayectoriaEntity> q = em.createQuery("select p from TrayectoriaEntity p where (p.hojadevida.id = :hojaDeVidaId) and (p.id = :trayectoriaId)", TrayectoriaEntity.class);
+        q.setParameter("hojaDeVidaId", hojaDeVidaId);
+        q.setParameter("trayectoriaId", trayectoriaId);
+        List<TrayectoriaEntity> results = q.getResultList();
+        TrayectoriaEntity trayectorias = null;
+        if (results == null) {
+            trayectorias = null;
+        } else if (results.isEmpty()) {
+            trayectorias = null;
+        } else if (results.size() >= 1) {
+            trayectorias = results.get(0);
         }
+
+        return trayectorias;
     }
+
+    
 }

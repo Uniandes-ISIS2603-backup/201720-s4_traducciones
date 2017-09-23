@@ -6,9 +6,12 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
 import javax.persistence.Entity;
-import uk.co.jemos.podam.common.PodamExclude;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -19,11 +22,14 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
     
     private String descripcion;
     
-    @PodamExclude
+    @Temporal(TemporalType.DATE)   
     private Date fechaInicio;
     
-    @PodamExclude
+    @Temporal(TemporalType.DATE)
     private Date fechaFin;
+    
+    @ManyToOne
+    private HojaDeVidaEntity hojaDeVida;
     
     /**
      * @return the descripcion
@@ -65,6 +71,20 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
      */
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    /**
+     * @return the hojaDeVida
+     */
+    public HojaDeVidaEntity getHojaDeVida() {
+        return hojaDeVida;
+    }
+
+    /**
+     * @param hojaDeVida the hojaDeVida to set
+     */
+    public void setHojaDeVida(HojaDeVidaEntity hojaDeVida) {
+        this.hojaDeVida = hojaDeVida;
     }
     
     
