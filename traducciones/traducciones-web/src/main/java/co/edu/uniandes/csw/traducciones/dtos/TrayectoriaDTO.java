@@ -6,8 +6,7 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
-import java.sql.Date;
-import uk.co.jemos.podam.common.PodamExclude;
+import java.util.Date;
 
 /**
  *
@@ -19,10 +18,10 @@ public class TrayectoriaDTO {
     private String name;
     private String descripcion;
     
-    @PodamExclude
+    
     private Date fechaInicio;
     
-    @PodamExclude
+    
     private Date fechaFin;
 
     /**

@@ -12,7 +12,6 @@ import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -24,14 +23,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author ra.forero11
  */
-@Path("hojadevida")
-@Produces("application/json")
-@Consumes("application/json")
+@Path("/hojadevida")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class HojaDeVidaResource {
     
@@ -84,12 +84,12 @@ public class HojaDeVidaResource {
     @GET
     @Path("{id: \\d+}")
     public HojaDeVidaDTO getHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
-       if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
-       {
-           WebApplicationExceptionMapper ex=new WebApplicationExceptionMapper();
-           ex.toResponse(new WebApplicationException("No existe la hoja de vida con el id:"+id+" especidicado"));
-       }
-       return new HojaDeVidaDTO(hojaDeVidaLogic.getHojaDeVidaId(id));
+        HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(id);
+       if (entity == null) {
+            throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
+        }
+       
+       return new HojaDeVidaDTO(entity);
     }
     
      /**
@@ -111,8 +111,7 @@ public class HojaDeVidaResource {
         
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
-           WebApplicationExceptionMapper ex=new WebApplicationExceptionMapper();
-           ex.toResponse(new WebApplicationException("No existe la hoja de vida con el id:"+id+" especidicado"));
+           throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
        }
         return new HojaDeVidaDTO(hojaDeVidaLogic.updateHojaDeVida(id,hojaDeVida.toEntity()));
     }
@@ -132,10 +131,19 @@ public class HojaDeVidaResource {
     public void deleteHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
-           WebApplicationExceptionMapper ex=new WebApplicationExceptionMapper();
-           ex.toResponse(new WebApplicationException("No existe la hoja de vida con el id:"+id+" especidicado"));
+          throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
        }
        hojaDeVidaLogic.deleteHojaDeVidaId(id);
+    }
+    
+    
+     @Path("{idHojaDeVida: \\d+}/trayectorias")
+    public Class<TrayectoriaResource> getReviewResource(@PathParam("idHojaDeVida") Long hojaDeVidaId) {
+        HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(hojaDeVidaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /hojaDeVida/" + hojaDeVidaId + "/trayectorias no existe.", 404);
+        }
+        return TrayectoriaResource.class;
     }
     
      /**
