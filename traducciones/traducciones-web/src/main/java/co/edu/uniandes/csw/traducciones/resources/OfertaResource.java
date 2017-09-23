@@ -87,32 +87,36 @@ public class OfertaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public OfertaDTO getOferta(@PathParam("id"), Long id) throws BusinessLogicException, Exception {
+    public OfertaDTO getOferta(@PathParam("id") Long id) throws BusinessLogicException, Exception {
         
         OfertaEntity ofertaEntity = ofertaLogic.getOferta(id);
-        
-        if (ofertaEntity == null) {
-            throw new Exception("El recurso con id" + id + "no existe.");
-        }
-          
+      
+        return new OfertaDTO(ofertaEntity);
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /**
+     * GET para una oferta
+     *  http://localhost:8080/traducciones-web/api/ofertas/1
+     *
+     * @param id corresponde al id de la oferta buscada.
+     * @return La oferta encontrada. Ejemplo: { "type":
+     * "ofertaDTO", "id": 1, "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+     "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la editorial buscada se retorna un 404 con
+     * el mensaje.
+     */
+    @GET
+    @Path("{nombre: }")
+    public OfertaDTO getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException, Exception {
+        
+        OfertaEntity ofertaEntity = ofertaLogic.getOfertasNombre(nombre);
+      
+        return new OfertaDTO(ofertaEntity);
+        
+    }
     
     /**
      *

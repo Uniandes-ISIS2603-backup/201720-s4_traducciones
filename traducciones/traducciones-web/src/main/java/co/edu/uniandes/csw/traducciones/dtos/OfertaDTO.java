@@ -19,8 +19,9 @@ public class OfertaDTO {
     private String descripcion;
     private String codigo;
     private Date fechaVigencia;
-    
-    /**
+    private String nombre;
+
+       /**
      * Constructor por defecto
      */
     public OfertaDTO() {
@@ -35,6 +36,7 @@ public class OfertaDTO {
     public OfertaDTO(OfertaEntity oferta) {
         
         this.id = oferta.getId();
+        this.nombre = oferta.getName();
         this.cantidad = oferta.getCantidad();
         this.descripcion = oferta.getDescripcion();
         this.codigo = oferta.getCodigo();
@@ -54,6 +56,21 @@ public class OfertaDTO {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    /**
+     * @return el nombre de la oferta
+     */
+     public String getNombre() {
+        return nombre;
+    }
+
+     /**
+     * @param nombre el nombre para modificar
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
 
     /**
      * @return la cantidad

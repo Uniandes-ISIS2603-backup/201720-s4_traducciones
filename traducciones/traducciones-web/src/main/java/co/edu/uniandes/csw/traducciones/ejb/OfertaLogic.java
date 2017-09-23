@@ -75,18 +75,33 @@ public class OfertaLogic {
      * @param id Identificador de la oferta a consultar.
      * @return una OfertaEntity con los datos de la oferta consultada.
      */
-    public OfertaEntity getOferta (Long id) {
+    public OfertaEntity getOferta (Long id) throws BusinessLogicException {
         
         LOGGER.info("Inicia proceso de consultar una Oferta según el id recibido por parámetro");
         OfertaEntity oferta = persistenceOferta.find(id);
         
         if (oferta == null) {
-            LOGGER.log(Level.SEVERE, "La oferta con el id {0} no existe", id);
+            
+            throw new BusinessLogicException("La oferta con el id "+ id + "no existe.");
+            
         }
         LOGGER.info("Termina proceso de consultar una Oferta");
         
         return oferta;      
         
+    }
+    
+     public OfertaEntity getOfertasNombre(String nombre) throws BusinessLogicException {
+         
+        LOGGER.info("Inicia proceso de consultar una Oferta según el nombre recibido por parámetro");
+        OfertaEntity oferta;
+        oferta = persistenceOferta.findByName(nombre);
+        
+        if (oferta == null)
+        {
+          throw new BusinessLogicException("Ofertas con el nombre "+ nombre + "no existen.");   
+        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**
@@ -114,8 +129,7 @@ public class OfertaLogic {
         }
         persistenceOferta.delete(id);      
        
-    }
-    
+    }  
     
     
 }

@@ -102,9 +102,35 @@ WHERE condition; en SQL.
          */
         return em.find(OfertaEntity.class, id);
     }
-
+    
     /**
-     * Devuelve todas las Oferta de la base de datos.
+     * Busca si hay alguna oferta con el nombre que se envía de argumento
+     * @param name: Nombre de la oferta que se está buscando
+     * @return null si no existe ninguna editorial con el nombre del argumento.
+     * Si existen las retorna.
+     */
+     public List<OfertaEntity> findByName(String name) {
+        LOGGER.log(Level.INFO, "Consultando ofertas por nombre ", name);
+
+        // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name = :name", OfertaEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        // Se invoca el query se obtiene la lista resultado
+        List<OfertaEntity> sameName = query.getResultList();
+        
+        if (sameName == null ) {
+            return null;
+        } else if (sameName.isEmpty()) {
+             return null;
+        } else {
+            return sameName;
+        }
+        
+    }
+     
+     /**
+     * Devuelve todas las Ofertas de la base de datos.
      *
      * @return una lista con todas las Oferta que encuentre en la base de datos,
      * "select u from OfertaEntity u" es como un "select * from OfertaEntity;" -
