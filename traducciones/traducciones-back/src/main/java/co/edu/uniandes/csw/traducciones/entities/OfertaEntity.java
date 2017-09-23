@@ -16,6 +16,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class OfertaEntity extends BaseEntity implements Serializable {
+    
 
     private Integer cantidad;
     private String descripcion;
