@@ -6,13 +6,15 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author ra.forero11
  */
-public class CalificacionEntity extends BaseEntity implements Serializable{
-    
+@Entity
+public class CalificacionEntity extends BaseEntity implements Serializable {
+
     private double calificacion;
     private String comentario;
 

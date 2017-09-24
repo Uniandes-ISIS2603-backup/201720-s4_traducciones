@@ -12,13 +12,13 @@ import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
  * @author ra.forero11
  */
 public class CalificacionDTO {
-    
+
     private Long id;
     private String name;
     private String comentario;
     private double calificacion;
-            
-   /**
+
+    /**
      * Constructor por defecto
      */
     public CalificacionDTO() {
@@ -34,20 +34,76 @@ public class CalificacionDTO {
         this.id = calificacion.getId();
         this.name = calificacion.getName();
         this.comentario = calificacion.getComentario();
-        this.calificacion= calificacion.getCalificacion();
+        this.calificacion = calificacion.getCalificacion();
     }
-    
-     /**
+
+    /**
      * Convertir DTO a Entity
      *
      * @return Un Entity con los valores del DTO
      */
     public CalificacionEntity toEntity() {
         CalificacionEntity entity = new CalificacionEntity();
-        entity.setId(this.id);
-        entity.setName(this.name);
-        entity.setComentario(this.comentario);
-        entity.setCalificacion(this.calificacion);
+        entity.setId(this.getId());
+        entity.setName(this.getName());
+        entity.setComentario(this.getComentario());
+        entity.setCalificacion(this.getCalificacion());
         return entity;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
+
+    /**
+     * @param comentario the comentario to set
+     */
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    /**
+     * @return the calificacion
+     */
+    public double getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(double calificacion) {
+        this.calificacion = calificacion;
     }
 }
