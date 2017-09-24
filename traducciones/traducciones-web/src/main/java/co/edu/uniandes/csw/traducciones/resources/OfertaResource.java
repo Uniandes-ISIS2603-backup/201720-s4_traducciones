@@ -66,7 +66,7 @@ public class OfertaResource {
      * GET para todas las ofertas
      * http://localhost:8080/traducciones-web/api/ofertas
      * @return la lista de todas las ofertas en objetos json DTO.
-     * @throws BusinessLogicException
+     * @throws Exception
      */
     @GET
     public List<OfertaDTO> getOfertas() throws Exception {

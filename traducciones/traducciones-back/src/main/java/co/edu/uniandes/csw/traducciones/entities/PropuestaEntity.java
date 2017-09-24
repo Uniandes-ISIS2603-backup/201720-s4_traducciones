@@ -5,8 +5,11 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
+import co.edu.uniandes.csw.traducciones.enums.Estado;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 /**
  *
@@ -14,20 +17,21 @@ import javax.persistence.Entity;
  */
 @Entity
 public class PropuestaEntity extends BaseEntity implements Serializable {
-
-    private String estado;
+    
     private Double costo;
     
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+   
 
     public Double getCosto() {
         return costo;

@@ -47,12 +47,6 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>co.edu.uniandes.csw.traducciones</groupId>
-            <artifactId>traducciones-back</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>org.glassfish.main.extras</groupId>
             <artifactId>glassfish-embedded-all</artifactId>
             <version>4.1.1</version>

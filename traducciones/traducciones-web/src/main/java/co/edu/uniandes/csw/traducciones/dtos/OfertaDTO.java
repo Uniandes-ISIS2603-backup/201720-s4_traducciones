@@ -22,7 +22,7 @@ public class OfertaDTO {
     private Date fechaVigencia;
     private String nombre;
 
-       /**
+     /**
      * Constructor por defecto
      */
     public OfertaDTO() {
@@ -96,7 +96,7 @@ public class OfertaDTO {
     }
 
     /**
-     * @param cantidad la cantidad para modificar
+     * @param cantidadActual la cantidad para modificar
      */
     public void setCantActual(int cantidadActual) {
         this.cantActual = cantidadActual;
@@ -154,8 +154,8 @@ public class OfertaDTO {
         
         OfertaEntity entity = new OfertaEntity();
         entity.setId(this.id);
-        entity.setCantidadI(cantidadI);
-        entity.setCantActual(cantActual);
+        entity.setCantidadI(this.cantidadI);
+        entity.setCantActual(this.cantActual);
         entity.setDescripcion(this.descripcion);
         entity.setCodigo(this.codigo);
         entity.setFechaVigencia(this.fechaVigencia);

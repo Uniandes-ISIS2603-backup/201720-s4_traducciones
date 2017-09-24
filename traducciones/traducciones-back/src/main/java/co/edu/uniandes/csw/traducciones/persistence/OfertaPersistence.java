@@ -24,7 +24,6 @@ public class OfertaPersistence {
     private static final Logger LOGGER = Logger.getLogger(OfertaPersistence.class.getName());
 
     @PersistenceContext(unitName = "traduccionesPU")
-
     protected EntityManager em;
 
     /**

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -23,22 +24,23 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     private String descripcion;
     private String codigo;
     @Temporal(javax.persistence.TemporalType.DATE)
+    @PodamExclude
     private Date fechaVigencia;
 
     public Integer getCantidadI() {
         return cantidadI;
     }
 
-    public void setCantidadI(Integer cantidadI) {
-        this.cantidadI = cantidadI;
+    public void setCantidadI(Integer cantidad) {
+        this.cantidadI = cantidad;
     }
 
     public Integer getCantActual() {
         return cantActual;
     }
 
-    public void setCantActual(Integer cantActual) {
-        this.cantActual = cantActual;
+    public void setCantActual(Integer cant) {
+        this.cantActual = cant;
     }
     
     
