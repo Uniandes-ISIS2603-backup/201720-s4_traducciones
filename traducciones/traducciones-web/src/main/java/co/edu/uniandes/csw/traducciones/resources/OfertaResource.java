@@ -113,11 +113,13 @@ public class OfertaResource {
      */
     @GET
     @Path("{nombre: }")
-    public OfertaDTO getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException, Exception {
+    public List<OfertaDTO> getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException {
         
-        OfertaEntity ofertaEntity = ofertaLogic.getOfertasNombre(nombre);
+       List<OfertaEntity> ofertaEntity = ofertaLogic.getOfertasNombre(nombre);
+       List <OfertaDTO> rta = listEntity2DetailDTO(ofertaEntity);
       
-        return new OfertaDTO(ofertaEntity);
+       
+       return rta;
         
     }
     
@@ -151,7 +153,7 @@ public class OfertaResource {
     @Path("{id: \\d+}")
     public void deleteOferta(@PathParam("id") Long id) throws BusinessLogicException  {
         
-         LOGGER.log(Level.INFO, "Inicia proceso de borrar una editorial con id {0}", id);
+         LOGGER.log(Level.INFO, "Inicia proceso de borrar una oferta con id {0}", id);
         
          ofertaLogic.deleteOferta(id);
               

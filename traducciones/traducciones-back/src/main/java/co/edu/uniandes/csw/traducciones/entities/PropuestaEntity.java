@@ -17,6 +17,9 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
 
     private String estado;
     private Double costo;
+    
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
 
     public String getEstado() {
         return estado;

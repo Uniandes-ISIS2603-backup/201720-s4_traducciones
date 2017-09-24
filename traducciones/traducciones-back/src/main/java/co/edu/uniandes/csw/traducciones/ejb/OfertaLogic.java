@@ -94,22 +94,36 @@ public class OfertaLogic {
     public OfertaEntity updateOferta (OfertaEntity entity) throws BusinessLogicException {
         
         LOGGER.info("Inicia la modificaión de una oferta");
-        //IF LA OFERTA QUE SE VA A MODIFICAR YA FUE APLICADA LANZA EXCEPCIÓN
+        
+        if( entity.getCantActual()< entity.getCantidadI()) {
+            
+            throw new BusinessLogicException("No puede modificarse la oferta.");
+        }
   
         LOGGER.info("Finaliza la modificación");
         return persistenceOferta.update(entity);
         
     }
     
-    public void deleteOferta (Long id) throws Exception{
+    public void deleteOferta (Long id) throws BusinessLogicException{
         
         if (persistenceOferta.find(id) == null) {
             
-            throw new Exception("No se encontró ninguna oferta con ese id.");
+            throw new BusinessLogicException("No se encontró ninguna oferta con ese id.");
         }
         persistenceOferta.delete(id);      
        
     }
+
+    public List<OfertaEntity> getOfertasNombre(String nombre) {
+        
+           return persistenceOferta.findByName(nombre);
+    
+    
+    
+    
+    }
+
     
     
     
