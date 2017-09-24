@@ -117,15 +117,21 @@ public class OfertaLogic {
         //IF LA OFERTA QUE SE VA A MODIFICAR YA FUE APLICADA LANZA EXCEPCIÓN
   
         LOGGER.info("Finaliza la modificación");
+        
+        if (entity.getCantActual() < entity.getCantidadI())
+        {
+            throw new BusinessLogicException("La oferta no se puede modificar porque ya ha sido utilizada.");
+        }
+            
         return persistence.update(entity);
         
     }
     
-    public void deleteOferta (Long id) throws Exception{
+    public void deleteOferta (Long id) throws BusinessLogicException{
         
         if (persistence.find(id) == null) {
             
-            throw new Exception("No se encontró ninguna oferta con ese id.");
+            throw new BusinessLogicException("No se encontró ninguna oferta con ese id.");
         }
         persistence.delete(id);      
        

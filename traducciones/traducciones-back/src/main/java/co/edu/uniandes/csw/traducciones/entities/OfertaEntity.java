@@ -18,19 +18,30 @@ import javax.persistence.Temporal;
 public class OfertaEntity extends BaseEntity implements Serializable {
     
 
-    private Integer cantidad;
+    private Integer cantidadI;
+    private Integer cantActual;
     private String descripcion;
     private String codigo;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
-    public Integer getCantidad() {
-        return cantidad;
+    public Integer getCantidadI() {
+        return cantidadI;
     }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidadI(Integer cantidadI) {
+        this.cantidadI = cantidadI;
     }
+
+    public Integer getCantActual() {
+        return cantActual;
+    }
+
+    public void setCantActual(Integer cantActual) {
+        this.cantActual = cantActual;
+    }
+    
+    
 
     public String getDescripcion() {
         return descripcion;

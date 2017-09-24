@@ -15,7 +15,8 @@ import java.util.Date;
 public class OfertaDTO {
     
     private Long id;
-    private int cantidad;
+    private Integer cantidadI;
+    private Integer cantActual;
     private String descripcion;
     private String codigo;
     private Date fechaVigencia;
@@ -37,7 +38,8 @@ public class OfertaDTO {
         
         this.id = oferta.getId();
         this.nombre = oferta.getName();
-        this.cantidad = oferta.getCantidad();
+        this.cantidadI = oferta.getCantidadI();
+        this.cantActual = oferta.getCantActual();
         this.descripcion = oferta.getDescripcion();
         this.codigo = oferta.getCodigo();
         this.fechaVigencia = oferta.getFechaVigencia();
@@ -75,16 +77,32 @@ public class OfertaDTO {
     /**
      * @return la cantidad
      */
-    public int getCantidad() {
-        return cantidad;
+    public Integer getCantidadI() {
+        return cantidadI;
     }
 
     /**
      * @param cantidad la cantidad para modificar
      */
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidadI(int cantidad) {
+        this.cantidadI = cantidad;
     }
+    
+    /**
+     * @return la cantidad
+     */
+    public Integer getCantActual() {
+        return cantActual;
+    }
+
+    /**
+     * @param cantidad la cantidad para modificar
+     */
+    public void setCantActual(int cantidadActual) {
+        this.cantActual = cantidadActual;
+    }
+    
+    
 
     /**
      * @return la descripción
@@ -133,12 +151,14 @@ public class OfertaDTO {
      * @return Un Entity con los valores del DTO 
      */
     public OfertaEntity toEntity() {
+        
         OfertaEntity entity = new OfertaEntity();
         entity.setId(this.id);
-        entity.setCantidad(this.cantidad);
-        setDescripcion(this.descripcion);
-        setCodigo(this.codigo);
-        setFechaVigencia(this.fechaVigencia);
+        entity.setCantidadI(cantidadI);
+        entity.setCantActual(cantActual);
+        entity.setDescripcion(this.descripcion);
+        entity.setCodigo(this.codigo);
+        entity.setFechaVigencia(this.fechaVigencia);
         return entity;
     }
     

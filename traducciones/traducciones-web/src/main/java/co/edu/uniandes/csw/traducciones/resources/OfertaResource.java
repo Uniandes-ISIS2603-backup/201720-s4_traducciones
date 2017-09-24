@@ -12,12 +12,15 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -44,7 +47,7 @@ public class OfertaResource {
  * enviado en el llamado.
  * @return Devuelve el objeto json de entrada que contiene el id creado por
  * la base de datos y el tipo del objeto java. Ejemplo: { "type":
- * "ofertaDTO", "id": 1, "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+ * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
    "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
  * @throws BusinessLogicException
  */
@@ -78,7 +81,7 @@ public class OfertaResource {
      *
      * @param id corresponde al id de la oferta buscada.
      * @return La oferta encontrada. Ejemplo: { "type":
-     * "ofertaDTO", "id": 1, "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+     * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
      "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
      * @throws BusinessLogicException
      *
@@ -97,15 +100,15 @@ public class OfertaResource {
     
     /**
      * GET para una oferta
-     *  http://localhost:8080/traducciones-web/api/ofertas/1
+     *  http://localhost:8080/traducciones-web/api/ofertas/tradinglesfrances
      *
-     * @param id corresponde al id de la oferta buscada.
+     * @param nombre corresponde al nombre de la oferta buscada.
      * @return La oferta encontrada. Ejemplo: { "type":
-     * "ofertaDTO", "id": 1, "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+     * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
      "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la editorial buscada se retorna un 404 con
+     * En caso de no existir el nombre de la oferta buscada se retorna un 404 con
      * el mensaje.
      */
     @GET
@@ -117,6 +120,50 @@ public class OfertaResource {
         return new OfertaDTO(ofertaEntity);
         
     }
+    
+    /**
+     * PUT http://localhost:8080/traducciones-web/api/ofertas/1 Ejemplo
+     * json { "id": 1, "nombre": "traduccion inglesfrances", "cantidadI": "30", "cantActual": "29", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+     "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
+     * @param id corresponde a la editorial a actualizar.
+     * @param oferta corresponde a al objeto con los cambios que se van a
+     * realizar.
+     * @return La oferta actualizada.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la editorial a actualizar se retorna un
+     * 404 con el mensaje.
+     */
+    @PUT
+    @Path("{id: \\d+}")
+    public OfertaDTO updateOferta(@PathParam("id") Long id, OfertaDTO oferta) throws BusinessLogicException {
+        
+        oferta.setId(id);
+        ofertaLogic.getOferta(id);
+        
+        return new OfertaDTO(ofertaLogic.updateOferta(oferta.toEntity()));
+        
+        
+    }
+    
+
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteOferta(@PathParam("id") Long id) throws BusinessLogicException  {
+        
+         LOGGER.log(Level.INFO, "Inicia proceso de borrar una editorial con id {0}", id);
+        
+         ofertaLogic.deleteOferta(id);
+              
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      *

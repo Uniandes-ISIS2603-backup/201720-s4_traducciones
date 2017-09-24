@@ -52,6 +52,7 @@ en la base de datos. Es similar a "INSERT INTO table_codigo (column1, column2, c
      * @return un Oferta con los cambios aplicados.
      */
     public OfertaEntity update(OfertaEntity entity) {
+    
         LOGGER.log(Level.INFO, "Actualizando Oferta con id={0}", entity.getId());
 
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
