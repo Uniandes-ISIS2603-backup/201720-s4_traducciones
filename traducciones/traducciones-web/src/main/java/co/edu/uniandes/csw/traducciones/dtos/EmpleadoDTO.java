@@ -1,6 +1,10 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
+import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
+import java.util.List;
 
 /**
  *
@@ -22,7 +26,6 @@ public class EmpleadoDTO {
         this.name = entity.getName();
         this.tipo = entity.getTipo();
         this.calificacionPromedio = entity.getCalificacionPromedio();
-        
     }
     
     public Long getId() {
