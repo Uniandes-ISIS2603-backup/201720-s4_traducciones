@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -28,6 +29,7 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
     
+    @PodamExclude
     @ManyToOne
     private HojaDeVidaEntity hojaDeVida;
     

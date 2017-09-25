@@ -13,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -25,9 +26,11 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     private String perfilProfesional;
     private String formacionAcademica;
     
+    @PodamExclude
     @OneToOne
     private EmpleadoEntity empleado; 
     
+    @PodamExclude
     @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
 

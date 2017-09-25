@@ -39,6 +39,16 @@ public class TrayectoriaPersistence {
         LOGGER.info("Creando una trayectoria nueva");
         return entity;
     }
+    
+    public List<TrayectoriaEntity> findAll(){
+        TypedQuery query = em.createQuery("select u from TrayectoriaEntity u", TrayectoriaEntity.class);
+        return query.getResultList();
+    }
+    
+    public TrayectoriaEntity find(Long id) {
+        LOGGER.log(Level.INFO, "Consultando Oferta con id={0}", id);
+        return em.find(TrayectoriaEntity.class, id);
+    }
 
     /**
      * Actualiza una trayectoria.

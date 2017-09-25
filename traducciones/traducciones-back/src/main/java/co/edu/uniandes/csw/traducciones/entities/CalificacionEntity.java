@@ -8,16 +8,19 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author ra.forero11
  */
 @Entity
-public class CalificacionEntity extends BaseEntity implements Serializable {
+public class CalificacionEntity extends BaseEntity{
 
     private double calificacion;
     private String comentario;
+    
+    @PodamExclude
     @OneToOne
     private TrabajoEntity trabajo;
 

@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.TarjetaDeCreditoEntity;
 import javax.ejb.Stateless;
-import javax.persistence.PersistenceContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -25,7 +24,6 @@ public class TarjetaDeCreditoPersistence {
     private static final Logger LOGGER = Logger.getLogger(TarjetaDeCreditoPersistence.class.getName());
 
     @PersistenceContext(unitName = "traduccionesPU")
-    
     protected EntityManager em;
     
     public TarjetaDeCreditoEntity create(TarjetaDeCreditoEntity entity){
