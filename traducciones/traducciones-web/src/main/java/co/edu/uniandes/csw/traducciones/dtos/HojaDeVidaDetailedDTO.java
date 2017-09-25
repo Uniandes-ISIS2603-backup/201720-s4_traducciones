@@ -49,7 +49,7 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
      * Convierte un objeto HojaDeVidaDetailedDTO a HojaDeVidaEntity incluyendo los
      * atributos de HojaDeVidaDTO.
      *
-     * @return Nueva objeto AuthorEntity.
+     * @return Nueva objeto HojaDeVidaEntity.
      *
      */
     @Override

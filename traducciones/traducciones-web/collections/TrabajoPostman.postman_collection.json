@@ -1,14 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "CalificacionPostman",
-		"_postman_id": "795ab1c3-d32a-4d56-69fd-0fcb3f4b6234",
+		"name": "TrabajoPostman",
+		"_postman_id": "d381032e-0152-ab00-a69f-df8cc51d56de",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Consultar todas las Calificaciones",
+			"name": "Consultar todos los Trabajos",
 			"event": [
 				{
 					"listen": "test",
@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -30,7 +30,7 @@
 			"response": []
 		},
 		{
-			"name": "Consultar una Calificacion Existente",
+			"name": "Consultar un Trabajo Existente",
 			"event": [
 				{
 					"listen": "test",
@@ -43,7 +43,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/70",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/70",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -52,7 +52,7 @@
 			"response": []
 		},
 		{
-			"name": "Consultar una Calificacion inexistente",
+			"name": "Consultar una Trabajo Inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -65,7 +65,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/200",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/200",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -74,7 +74,7 @@
 			"response": []
 		},
 		{
-			"name": "Agregar una nueva Calificacion",
+			"name": "Agregar un nuevo Trabajo",
 			"event": [
 				{
 					"listen": "test",
@@ -87,7 +87,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos",
 				"method": "POST",
 				"header": [
 					{
@@ -98,14 +98,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"calificacion\": 100.5,\n        \"comentario\": \"Post.mp3\",\n        \"name\": \"Post\"\n    }"
+					"raw": " {\n        \"name\": \"Ethelda Prueba Post\",\n        \"terminado\": false\n    }"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Actualiza una Calificacion existente",
+			"name": "Actualiza un Trabajo existente",
 			"event": [
 				{
 					"listen": "test",
@@ -118,7 +118,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/60",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/60",
 				"method": "PUT",
 				"header": [
 					{
@@ -129,14 +129,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
+					"raw": " {\n        \"name\": \"Ethelda Prueba Put\",\n        \"terminado\": true\n    }"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Actualiza una Calificacion inexistente",
+			"name": "Actualiza un Trabajo inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -149,7 +149,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/500",
 				"method": "PUT",
 				"header": [
 					{
@@ -160,7 +160,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
+					"raw": " {\n        \"name\": \"Ethelda Prueba Put mal\",\n        \"terminado\": true\n    }"
 				},
 				"description": ""
 			},
@@ -180,7 +180,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/80",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/80",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -202,7 +202,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
+				"url": "http://localhost:8080/traducciones-web/api/trabajos/500",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
