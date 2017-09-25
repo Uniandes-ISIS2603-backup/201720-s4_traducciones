@@ -52,8 +52,7 @@ public class EmpleadoLogic {
     }
     
     public EmpleadoEntity getEmpleado(Long id) {
-        EmpleadoEntity empleado = persistence.find(id);
-        return empleado;
+        return  persistence.find(id);
     }
     
     
@@ -122,14 +121,16 @@ public class EmpleadoLogic {
     public void removeAreaDeConocimiento(Long areaDeConocimientoId, Long empleadoId) throws BusinessLogicException {
         List<AreaDeConocimientoEntity> areas = getEmpleado(empleadoId).getAreasdeconocimiento();
         boolean seBorro = false;
-        for(int i = 0; i<areas.size() && seBorro == false; i++){
+        for(int i = 0; i<areas.size() && !seBorro; i++){
             if(Objects.equals(areas.get(i).getId(), areaDeConocimientoId)){
                 areaDeConocimientoLogic.deleteAreaDeConocimiento(areas.get(i));
                 getEmpleado(empleadoId).getAreasdeconocimiento().remove(i);
                 seBorro = true;
             }
         }
-        if(!seBorro) throw new BusinessLogicException("Este empleado no tiene un area de conocimiento con el id:" + areaDeConocimientoId);
+        if(!seBorro){ 
+            throw new BusinessLogicException("Este empleado no tiene un area de conocimiento con el id:" + areaDeConocimientoId);
+        }
     }
     
     //Metodos HojaDeVida

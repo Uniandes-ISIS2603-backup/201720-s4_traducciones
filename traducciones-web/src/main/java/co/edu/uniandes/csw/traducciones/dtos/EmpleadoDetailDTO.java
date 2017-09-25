@@ -9,7 +9,7 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 public class EmpleadoDetailDTO extends EmpleadoDTO{
     
     public EmpleadoDetailDTO(){
-        
+        //Metodo constructor necesario
     }
     
     public EmpleadoDetailDTO(EmpleadoEntity entity){
@@ -18,7 +18,6 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     
     @Override
     public EmpleadoEntity toEntity() {
-        EmpleadoEntity e = super.toEntity();
-        return e;
+        return super.toEntity();
     }
 }
