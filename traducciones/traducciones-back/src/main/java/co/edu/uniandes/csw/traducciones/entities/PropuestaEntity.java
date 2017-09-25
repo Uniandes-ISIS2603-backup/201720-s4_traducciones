@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -17,6 +18,10 @@ import javax.persistence.Enumerated;
  */
 @Entity
 public class PropuestaEntity extends BaseEntity implements Serializable {
+    
+    
+    @OneToOne
+    private OfertaEntity oferta;
     
     private Double costo;
     

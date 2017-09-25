@@ -118,13 +118,7 @@ public class OfertaLogic {
     public List<OfertaEntity> getOfertasNombre(String nombre) {
         
            return persistenceOferta.findByName(nombre);
-    
-    
-    
-    
+   
     }
-
-    
-    
-    
+  
 }

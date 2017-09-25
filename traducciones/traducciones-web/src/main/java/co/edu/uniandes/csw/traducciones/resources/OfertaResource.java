@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -32,7 +31,6 @@ import javax.ws.rs.Produces;
 @Path("ofertas")
 @Produces("application/json")
 @Consumes("application/json")
-@RequestScoped
 public class OfertaResource {
     
      @Inject 
@@ -77,14 +75,14 @@ public class OfertaResource {
     
     /**
      * GET para una oferta
-     *  http://localhost:8080/traducciones-web/api/ofertas/1
-     *
+     * http://localhost:8080/traducciones-web/api/ofertas/1
+     * 
      * @param id corresponde al id de la oferta buscada.
      * @return La oferta encontrada. Ejemplo: { "type":
      * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
-     "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
+       "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
      * @throws BusinessLogicException
-     *
+     * 
      * En caso de no existir el id de la editorial buscada se retorna un 404 con
      * el mensaje.
      */

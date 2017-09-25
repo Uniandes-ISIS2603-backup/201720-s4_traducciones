@@ -1,0 +1,26 @@
+delete from PropuestaEntity;
+
+insert into PropuestaEntity (id, nombre, costo, estado) values (1, 'una oferta', 41.79, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (2, 'Trudeo', 92.23, 'ACEPTADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (3, 'Zoomlounge', 96.02, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (4, 'Twitterworks', 22.32, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (5, 'Gabcube', 9.73, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (6, 'Babblestorm', 88.21, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (7, 'Ozu', 32.43, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (978, 'Kimia', 27.77, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (979, 'Dabjam', 50.76, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (980, 'Camimbo', 30.49, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (981, 'Skimia', 43.18, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (982, 'Ntag', 9.88, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (983, 'Tazzy', 76.08, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (984, 'Kazio', 80.21, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (985, 'Oyondu', 35.81, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (986, 'Tazz', 3.89, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (987, 'Blogtags', 39.4, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (988, 'Kazio', 92.31, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (989, 'Trudoo', 70.43, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (990, 'Jabberstorm', 6.4, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (991, 'Divape', 36.94, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (992, 'Aimbo', 28.06, 'RECHAZADA');
+insert into PropuestaEntity (id, nombre, costo, estado) values (993, 'Meedoo', 2.46, 'EN_REVISION');
+insert into PropuestaEntity (id, nombre, costo, estado) values (994, 'Jayo', 48.44, 'RECHAZADA');
