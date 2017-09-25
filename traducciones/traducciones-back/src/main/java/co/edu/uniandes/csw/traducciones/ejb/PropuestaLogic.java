@@ -20,6 +20,7 @@ import javax.inject.Inject;
 @Stateless
 public class PropuestaLogic {
     
+    
     private static final Logger LOGGER = Logger.getLogger(OfertaLogic.class.getName());
     
     @Inject
@@ -113,4 +114,5 @@ public class PropuestaLogic {
        
     }
        
+
 }

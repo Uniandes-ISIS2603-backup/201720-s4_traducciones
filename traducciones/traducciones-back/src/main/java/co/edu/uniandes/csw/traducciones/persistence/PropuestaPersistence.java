@@ -20,7 +20,7 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class PropuestaPersistence {
-
+    
     private static final Logger LOGGER = Logger.getLogger(PropuestaPersistence.class.getName());
 
     @PersistenceContext(unitName = "traduccionesPU")
@@ -117,5 +117,5 @@ WHERE condition; en SQL.
 
         return query.getResultList();
     }
-
+    
 }

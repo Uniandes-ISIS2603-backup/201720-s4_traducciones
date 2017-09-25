@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.ejb;
 
+
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
