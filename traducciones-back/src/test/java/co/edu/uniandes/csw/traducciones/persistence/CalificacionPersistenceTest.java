@@ -5,12 +5,8 @@
  */
 package co.edu.uniandes.csw.traducciones.persistence;
 
-<<<<<<< HEAD:traducciones/traducciones-back/src/test/java/co/edu/uniandes/csw/traducciones/persistence/OfertaPersistenceTest.java
-import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;import java.util.ArrayList;
-=======
 import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
 import java.util.ArrayList;
->>>>>>> master:traducciones/traducciones-back/src/test/java/co/edu/uniandes/csw/traducciones/persistence/CalificacionPersistenceTest.java
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -139,8 +135,8 @@ public class CalificacionPersistenceTest {
     @Test
     public void testFindByName() throws Exception {
 
-        OfertaEntity entity = data.get(0);
-        List<OfertaEntity> newEntity = persistence.findByName(entity.getName());
+        CalificacionEntity entity = data.get(0);
+        List<CalificacionEntity> newEntity = (List<CalificacionEntity>) persistence.findByName(entity.getName());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.get(0));
     }

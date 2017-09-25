@@ -47,15 +47,6 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-<<<<<<< HEAD
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-all</artifactId>
-            <version>4.1.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-=======
->>>>>>> master
             <groupId>co.edu.uniandes.csw.traducciones</groupId>
             <artifactId>traducciones-logic</artifactId>
             <version>0.1.0</version>
