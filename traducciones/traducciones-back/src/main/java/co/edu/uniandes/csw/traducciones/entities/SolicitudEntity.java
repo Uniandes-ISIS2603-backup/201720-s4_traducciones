@@ -26,7 +26,11 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -35,10 +39,45 @@ import javax.persistence.Entity;
 @Entity
 public class SolicitudEntity extends BaseEntity implements Serializable {
    private String descripcion;
+   
+   @Temporal(javax.persistence.TemporalType.DATE)
    private Date fechaInicio;
+   @Temporal(javax.persistence.TemporalType.DATE)
    private Date fechaEntrega;
    private int numPalabras;
+   @OneToMany
+   private List<AreaDeConocimientoEntity> areasDeConocimiento;
+    @OneToOne
+    private IdiomaEntity idiomaEntrada;
+    @OneToOne
+    private PropuestaEntity propuestaElejida;
+    @OneToMany
+    private List<PropuestaEntity> propuestas;
+    public List<AreaDeConocimientoEntity> getAreasDeConocimiento() {
+        return areasDeConocimiento;
+    }
 
+    public void setAreasDeConocimiento(List<AreaDeConocimientoEntity> areasDeConocimiento) {
+        this.areasDeConocimiento = areasDeConocimiento;
+    }
+
+    public IdiomaEntity getIdiomaEntrada() {
+        return idiomaEntrada;
+    }
+
+    public void setIdiomaEntrada(IdiomaEntity idiomaEntrada) {
+        this.idiomaEntrada = idiomaEntrada;
+    }
+
+    public IdiomaEntity getIdiomaSalida() {
+        return idiomaSalida;
+    }
+
+    public void setIdiomaSalida(IdiomaEntity idiomaSalida) {
+        this.idiomaSalida = idiomaSalida;
+    }
+    @OneToOne
+    private IdiomaEntity idiomaSalida;
     public String getDescripcion() {
         return descripcion;
     }
