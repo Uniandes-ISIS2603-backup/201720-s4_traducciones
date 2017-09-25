@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,6 +25,8 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     private String perfilProfesional;
     private String formacionAcademica;
     
+    @OneToOne
+    private EmpleadoEntity empleado; 
     
     @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
@@ -82,6 +85,20 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
      */
     public void setTrayectorias(List<TrayectoriaEntity> trayectorias) {
         this.trayectorias = trayectorias;
+    }
+
+    /**
+     * @return the empleado
+     */
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * @param empleado the empleado to set
+     */
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
     }
 
     
