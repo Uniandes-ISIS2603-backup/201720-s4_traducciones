@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
 import javax.ejb.Stateless;
-import javax.persistence.PersistenceContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;

@@ -5,8 +5,15 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -19,6 +26,14 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     private String perfilProfesional;
     private String formacionAcademica;
     
+    @PodamExclude
+    @OneToOne
+    private EmpleadoEntity empleado; 
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
+
     /**
      * @return the descripcion
      */
@@ -59,6 +74,34 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
      */
     public void setFormacionAcademica(String formacionAcademica) {
         this.formacionAcademica = formacionAcademica;
+    }
+
+    /**
+     * @return the trayectorias
+     */
+    public List<TrayectoriaEntity> getTrayectorias() {
+        return trayectorias;
+    }
+
+    /**
+     * @param trayectorias the trayectorias to set
+     */
+    public void setTrayectorias(List<TrayectoriaEntity> trayectorias) {
+        this.trayectorias = trayectorias;
+    }
+
+    /**
+     * @return the empleado
+     */
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * @param empleado the empleado to set
+     */
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
     }
 
     
