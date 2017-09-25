@@ -1,14 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "TrayectoriaPostman",
-		"_postman_id": "02ade1d2-aeae-741a-6e4f-41e0bf7fa577",
+		"name": "CalificacionPostman",
+		"_postman_id": "795ab1c3-d32a-4d56-69fd-0fcb3f4b6234",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Consultar todas las Trayectorias",
+			"name": "Consultar todas las Calificaciones",
 			"event": [
 				{
 					"listen": "test",
@@ -21,16 +21,16 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Counsulta todas las trayectorias de la base de datos y las muestra en representacion json."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Consultar una trayectoria especifica existente",
+			"name": "Consultar una Calificacion Existente",
 			"event": [
 				{
 					"listen": "test",
@@ -43,16 +43,16 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias/75",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/70",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Consulta una trayectoria especifica existente en la base de datos y la muestra como json."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Consultar una trayectoria inexistente",
+			"name": "Consultar una Calificacion inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -65,29 +65,29 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/200",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/200",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Consulta una trayectoria inexistente en la base de datos."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Agregar una nueva trayectoria",
+			"name": "Agregar una nueva Calificacion",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200, NOK\"]=responseCode.code===200"
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
 						]
 					}
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
 				"method": "POST",
 				"header": [
 					{
@@ -98,14 +98,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"descripcion\": \"Prueba de post del recurso trayectoria en postman\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba post\"\n    }"
+					"raw": "{\n        \"calificacion\": 100.5,\n        \"comentario\": \"Post.mp3\",\n        \"name\": \"Post\"\n    }"
 				},
-				"description": "Agrega una nueva trayectoria a la base de datos."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Actualizar una trayectoria existente",
+			"name": "Actualiza una Calificacion existente",
 			"event": [
 				{
 					"listen": "test",
@@ -118,7 +118,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/70",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/60",
 				"method": "PUT",
 				"header": [
 					{
@@ -129,14 +129,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, existente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba put\"\n    }"
+					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
 				},
-				"description": "Actualiza una trayectoria existente en la base de datoss."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Actualizar una trayectoria inexistente",
+			"name": "Actualiza una Calificacion inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -149,7 +149,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
 				"method": "PUT",
 				"header": [
 					{
@@ -160,36 +160,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, inexistente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"id\": 300,\n        \"name\": \"Trayectoria prueba put\"\n    }"
+					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
 				},
-				"description": "Actualiza una trayectoria inexistente en la base de datos."
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Borrar una trayectoria inexistente",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 404, not found\"]=responseCode.code===404"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"description": "Borra una trayectoria inexistente de la base de datos."
-			},
-			"response": []
-		},
-		{
-			"name": "Borrar una trayectoria existente",
+			"name": "Borrar una Calificacion Existente",
 			"event": [
 				{
 					"listen": "test",
@@ -202,11 +180,33 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/80/trayectorias/80",
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/80",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"description": "Borra una trayectoria existente de la base de datos."
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una Calificacion Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404, not found\"]=responseCode.code===404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
 			},
 			"response": []
 		}

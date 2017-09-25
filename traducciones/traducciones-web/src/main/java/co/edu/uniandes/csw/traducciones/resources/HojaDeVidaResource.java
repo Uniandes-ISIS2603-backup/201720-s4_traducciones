@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDTO;
+import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.HojaDeVidaLogic;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
@@ -49,13 +50,13 @@ public class HojaDeVidaResource {
      * @throws BusinessLogicException
      */
     @POST
-    public HojaDeVidaDTO createHojaDeVida(HojaDeVidaDTO hojaDeVida) throws BusinessLogicException {
+    public HojaDeVidaDetailedDTO createHojaDeVida(HojaDeVidaDTO hojaDeVida) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         HojaDeVidaEntity hojaDeVidaEntity = hojaDeVida.toEntity();
         // Invoca la lógica para crear la hojaDeVida nueva
         HojaDeVidaEntity nuevaHojaDeVida = hojaDeVidaLogic.createHojaDeVida(hojaDeVidaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new HojaDeVidaDTO(nuevaHojaDeVida);
+        return new HojaDeVidaDetailedDTO(nuevaHojaDeVida);
     }
     
     /**
@@ -66,7 +67,7 @@ public class HojaDeVidaResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<HojaDeVidaDTO> getHojasDeVida() throws BusinessLogicException {
+    public List<HojaDeVidaDetailedDTO> getHojasDeVida() throws BusinessLogicException {
         return listEntity2DetailDTO(hojaDeVidaLogic.getHojasDeVida());
     }
     
@@ -83,13 +84,13 @@ public class HojaDeVidaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public HojaDeVidaDTO getHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
+    public HojaDeVidaDetailedDTO getHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
         HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(id);
        if (entity == null) {
             throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
         }
        
-       return new HojaDeVidaDTO(entity);
+       return new HojaDeVidaDetailedDTO(entity);
     }
     
      /**
@@ -107,13 +108,13 @@ public class HojaDeVidaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public HojaDeVidaDTO updateHojaDeVida(@PathParam("id") Long id, HojaDeVidaDTO hojaDeVida) throws BusinessLogicException {
+    public HojaDeVidaDetailedDTO updateHojaDeVida(@PathParam("id") Long id, HojaDeVidaDTO hojaDeVida) throws BusinessLogicException {
         
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
            throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
        }
-        return new HojaDeVidaDTO(hojaDeVidaLogic.updateHojaDeVida(id,hojaDeVida.toEntity()));
+        return new HojaDeVidaDetailedDTO(hojaDeVidaLogic.updateHojaDeVida(id,hojaDeVida.toEntity()));
     }
 
     /**
@@ -138,7 +139,7 @@ public class HojaDeVidaResource {
     
     
      @Path("{idHojaDeVida: \\d+}/trayectorias")
-    public Class<TrayectoriaResource> getReviewResource(@PathParam("idHojaDeVida") Long hojaDeVidaId) {
+    public Class<TrayectoriaResource> gettrayectoriaResource(@PathParam("idHojaDeVida") Long hojaDeVidaId) {
         HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(hojaDeVidaId);
         if (entity == null) {
             throw new WebApplicationException("El recurso /hojaDeVida/" + hojaDeVidaId + "/trayectorias no existe.", 404);
@@ -157,10 +158,10 @@ public class HojaDeVidaResource {
      * que vamos a convertir a DTO.
      * @return la lista de Hojas de vida en forma DTO (json)
      */
-    private List<HojaDeVidaDTO> listEntity2DetailDTO(List<HojaDeVidaEntity> entityList) {
-        List<HojaDeVidaDTO> list = new ArrayList<>();
+    private List<HojaDeVidaDetailedDTO> listEntity2DetailDTO(List<HojaDeVidaEntity> entityList) {
+        List<HojaDeVidaDetailedDTO> list = new ArrayList<>();
         for (HojaDeVidaEntity entity : entityList) {
-            list.add(new HojaDeVidaDTO(entity));
+            list.add(new HojaDeVidaDetailedDTO(entity));
         }
         return list;
     }

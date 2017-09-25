@@ -82,9 +82,9 @@ public class TrayectoriaPersistence {
      * @return una trayectoria.
      */
     public TrayectoriaEntity find(Long hojaDeVidaId, Long trayectoriaId) {
-        TypedQuery<TrayectoriaEntity> q = em.createQuery("select p from TrayectoriaEntity p where (p.hojadevida.id = :hojaDeVidaId) and (p.id = :trayectoriaId)", TrayectoriaEntity.class);
-        q.setParameter("hojaDeVidaId", hojaDeVidaId);
-        q.setParameter("trayectoriaId", trayectoriaId);
+        TypedQuery<TrayectoriaEntity> q = em.createQuery("select p from TrayectoriaEntity p where (p.hojadevida.id = :hojadevidaid) and (p.id = :trayectoriaid)", TrayectoriaEntity.class);
+        q.setParameter("hojadevidaid", hojaDeVidaId);
+        q.setParameter("trayectoriaid", trayectoriaId);
         List<TrayectoriaEntity> results = q.getResultList();
         TrayectoriaEntity trayectorias = null;
         if (results == null) {
