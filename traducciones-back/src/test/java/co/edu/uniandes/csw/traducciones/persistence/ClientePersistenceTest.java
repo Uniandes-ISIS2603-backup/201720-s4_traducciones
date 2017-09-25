@@ -22,6 +22,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+<<<<<<< HEAD:traducciones-back/src/test/java/co/edu/uniandes/csw/traducciones/persistence/ClientePersistenceTest.java
+=======
+import static org.junit.Assert.*;
+>>>>>>> juancgloria:traducciones-back/src/test/java/co/edu/uniandes/csw/traducciones/persistence/ClientePersistenceTest.java
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;

@@ -71,4 +71,21 @@ public class AreaDeConocimientoPersistence {
         em.remove(entity);
     }
     
+    public boolean existAreaDeConocimientoWithSameNameandDifferentId(Long id, String name) {
+        LOGGER.log(Level.INFO, "Consultando area de conocimiento por nombre y id", name);
+
+        // Se crea un query para buscar areas de conocimiento con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From AreaDeConocimientoEntity e where e.name = :name and e.id <> :id" , AreaDeConocimientoEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        query = query.setParameter("id", id);
+        // Se invoca el query se obtiene la lista resultado
+        List<AreaDeConocimientoEntity> sameName = query.getResultList();
+        if (sameName.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 }

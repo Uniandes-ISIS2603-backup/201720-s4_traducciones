@@ -70,4 +70,21 @@ public class EmpleadoPersistence {
         em.remove(entity);
     }
     
+    public boolean existEmpleadoWithSameNameandDifferentId(Long id, String name) {
+        LOGGER.log(Level.INFO, "Consultando empleado por nombre y id", name);
+
+        // Se crea un query para buscar empleados con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From EmpleadoEntity e where e.name = :name and e.id <> :id" , EmpleadoEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        query = query.setParameter("id", id);
+        // Se invoca el query se obtiene la lista resultado
+        List<EmpleadoEntity> sameName = query.getResultList();
+        if (sameName.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 }
