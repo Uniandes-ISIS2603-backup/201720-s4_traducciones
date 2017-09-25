@@ -80,7 +80,7 @@ public class PropuestaResource {
        "estado": "EN_REVISION"}
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la editorial buscada se retorna un 404 con
+     * En caso de no existir el id de la Propuesta buscada se retorna un 404 con
      * el mensaje.
      */
     @GET

@@ -10,7 +10,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
-import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *

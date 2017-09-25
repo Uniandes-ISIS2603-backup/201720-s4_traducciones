@@ -83,7 +83,7 @@ public class OfertaResource {
        "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
      * @throws BusinessLogicException
      * 
-     * En caso de no existir el id de la editorial buscada se retorna un 404 con
+     * En caso de no existir el id de la oferta buscada se retorna un 404 con
      * el mensaje.
      */
     @GET
@@ -125,13 +125,13 @@ public class OfertaResource {
      * PUT http://localhost:8080/traducciones-web/api/ofertas/1 Ejemplo
      * json { "id": 1, "nombre": "traduccion inglesfrances", "cantidadI": "30", "cantActual": "29", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
      "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
-     * @param id corresponde a la editorial a actualizar.
+     * @param id corresponde a la oferta a actualizar.
      * @param oferta corresponde a al objeto con los cambios que se van a
      * realizar.
      * @return La oferta actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la editorial a actualizar se retorna un
+     * En caso de no existir el id de la oferta a actualizar se retorna un
      * 404 con el mensaje.
      */
     @PUT
