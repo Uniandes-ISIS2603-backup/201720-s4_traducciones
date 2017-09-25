@@ -2,6 +2,7 @@ package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.AreaDeConocimientoDetailDTO;
 import co.edu.uniandes.csw.traducciones.dtos.EmpleadoDetailDTO;
+import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
@@ -104,6 +105,8 @@ public class EmpleadoResource {
         return list;
     }
     
+    //AREA DE CONOCIMIENTO
+    
     
     @GET
     @Path("{empleadoId: \\d+}/areasdeconocimiento")
@@ -146,5 +149,24 @@ public class EmpleadoResource {
             list.add(new EmpleadoDetailDTO(entity));
         }
         return list;
+    }
+    
+    //HOJA DE VIDA
+    
+    @GET
+    @Path("{empleadoId: \\d+}/hojadevida}")
+    public HojaDeVidaDetailedDTO getHojaDeVida(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException{
+       return new HojaDeVidaDetailedDTO(empleadoLogic.getHojaDeVida(empleadoId));
+    }
+    
+    @PUT
+    @Path("{empleadoId: \\d+}/hojadevida}")
+    public HojaDeVidaDetailedDTO replaceHojaDeVida(@PathParam("empleadoId") Long empleadoId, HojaDeVidaDetailedDTO hoja) throws BusinessLogicException{
+        return new HojaDeVidaDetailedDTO(empleadoLogic.updateHojaDeVida(empleadoId, hoja.toEntity()));
+    }
+    @DELETE
+    @Path("{empleadoId: \\d+}/hojadevida}")
+    public void removeHojaDeVida(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException{
+        empleadoLogic.removeHojaDeVida(empleadoId);
     }
 }

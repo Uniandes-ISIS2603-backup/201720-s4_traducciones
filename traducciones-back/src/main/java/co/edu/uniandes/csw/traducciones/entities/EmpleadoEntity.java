@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,6 +26,9 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     
     @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AreaDeConocimientoEntity> areasdeconocimiento = new ArrayList<AreaDeConocimientoEntity>();
+    
+    @OneToOne(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
+    private HojaDeVidaEntity hojadevida;
 
     public Integer getTipo() {
         return tipo;
@@ -49,5 +53,13 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     public void setAreasdeconocimiento(List<AreaDeConocimientoEntity> areasdeconocimiento) {
         this.areasdeconocimiento = areasdeconocimiento;
     }
- 
+
+    public HojaDeVidaEntity getHojadevida() {
+        return hojadevida;
+    }
+
+    public void setHojadevida(HojaDeVidaEntity hojadevida) {
+        this.hojadevida = hojadevida;
+    }
+    
 }
