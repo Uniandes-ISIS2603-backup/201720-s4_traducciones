@@ -39,7 +39,10 @@ import javax.persistence.Temporal;
 @Entity
 public class SolicitudEntity extends BaseEntity implements Serializable {
    private String descripcion;
-   
+   private int Tipo;
+
+   @OneToOne
+   private ClienteEntity cliente;
    @Temporal(javax.persistence.TemporalType.DATE)
    private Date fechaInicio;
    @Temporal(javax.persistence.TemporalType.DATE)
@@ -109,5 +112,34 @@ public class SolicitudEntity extends BaseEntity implements Serializable {
     public void setNumPalabras(int numPalabras) {
         this.numPalabras = numPalabras;
     }
-   
+     public int getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(int Tipo) {
+        this.Tipo = Tipo;
+    }
+
+    public PropuestaEntity getPropuestaElejida() {
+        return propuestaElejida;
+    }
+
+    public void setPropuestaElejida(PropuestaEntity propuestaElejida) {
+        this.propuestaElejida = propuestaElejida;
+    }
+
+    public List<PropuestaEntity> getPropuestas() {
+        return propuestas;
+    }
+
+    public void setPropuestas(List<PropuestaEntity> propuestas) {
+        this.propuestas = propuestas;
+    }
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
 }

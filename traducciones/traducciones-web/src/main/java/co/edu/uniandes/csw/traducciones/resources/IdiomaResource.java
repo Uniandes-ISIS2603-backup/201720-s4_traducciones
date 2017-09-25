@@ -42,8 +42,7 @@ public class IdiomaResource {
    
      * @param Idioma correponde a la representación java del objeto json
      * enviado en el llamado.
-     * @return Devuelve el objeto json de entrada que contiene el id creado por
- la base de datos y el tipo del objeto java. 
+     * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java. 
      * @throws BusinessLogicException
      */
     @POST
