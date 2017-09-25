@@ -20,7 +20,7 @@ insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hoj
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (68, 'Sceloporus magister', '2017-06-05 21:47:49', '2016-10-02 07:29:37', 'Desert spiny lizard', 68);
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (69, 'Tragelaphus angasi', '2017-05-13 17:04:29', '2017-03-11 04:43:10', 'Nyala', 69);
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (70, 'Pelecans onocratalus', '2017-07-19 16:23:58', '2017-01-20 19:54:01', 'Great white pelican', 70);
-insert into trayectoriaentity (id, descripicion, fechainicio, fechafin, name, hojadevida_id) values (71, 'Tiliqua scincoides', '2017-02-28 05:19:10', '2017-03-11 23:56:39', 'Blue-tongued lizard', 71);
+insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (71, 'Tiliqua scincoides', '2017-02-28 05:19:10', '2017-03-11 23:56:39', 'Blue-tongued lizard', 71);
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (72, 'Ovis canadensis', '2017-04-17 17:37:09', '2017-02-07 03:52:31', 'American bighorn sheep', 72);
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (73, 'Varanus salvator', '2016-09-28 11:21:33', '2016-11-10 12:42:44', 'Monitor, two-banded', 73);
 insert into trayectoriaentity (id, descripcion, fechainicio, fechafin, name, hojadevida_id) values (74, 'Ninox superciliaris', '2017-07-13 11:29:37', '2017-09-05 14:25:50', 'Owl, madagascar hawk', 74);

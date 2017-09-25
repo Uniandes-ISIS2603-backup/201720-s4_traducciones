@@ -40,6 +40,7 @@ public class TrayectoriaResource {
      * GET para todas las trayectorias
      * http://localhost:8080/traducciones-web/api/trayectorias
      *
+     * @param idHojaDeVida
      * @return la lista de todas las trayectorias en objetos json DTO.
      * @throws BusinessLogicException
      */
