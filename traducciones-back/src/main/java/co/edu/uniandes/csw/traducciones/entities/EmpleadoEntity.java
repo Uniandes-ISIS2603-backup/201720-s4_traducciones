@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -16,6 +19,11 @@ import javax.persistence.Entity;
 public class EmpleadoEntity extends BaseEntity implements Serializable{
     
         private Integer tipo;
+        @OneToMany(mappedBy = "empleado")
+        private List<AreaDeConocimientoEntity> areasdeconocimiento;
+        @OneToOne
+        private HojaDeVidaEntity hojadevida;
+        
     
     private Double calificacionPromedio;
 
@@ -34,5 +42,23 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     public void setCalificacionPromedio(Double calificacionPromedio) {
         this.calificacionPromedio = calificacionPromedio;
     }
+
+    public List<AreaDeConocimientoEntity> getAreasdeconocimiento() {
+        return areasdeconocimiento;
+    }
+
+    public void setAreasdeconocimiento(List<AreaDeConocimientoEntity> areasdeconocimiento) {
+        this.areasdeconocimiento = areasdeconocimiento;
+    }
+
+    public HojaDeVidaEntity getHojadevida() {
+        return hojadevida;
+    }
+
+    public void setHojadevida(HojaDeVidaEntity hojadevida) {
+        this.hojadevida = hojadevida;
+    }
+    
+    
     
 }
