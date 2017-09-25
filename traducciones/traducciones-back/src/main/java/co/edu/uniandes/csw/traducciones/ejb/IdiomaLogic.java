@@ -42,7 +42,7 @@ public class IdiomaLogic {
      *
      * @return una lista de Idiomaes.
      */
-    public List<IdiomaEntity> getHojasDeVida() {
+    public List<IdiomaEntity> getIdiomas() {
         LOGGER.info("Inicia proceso de consultar todas las Idiomas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<IdiomaEntity> Idiomas = persistence.findAll();
