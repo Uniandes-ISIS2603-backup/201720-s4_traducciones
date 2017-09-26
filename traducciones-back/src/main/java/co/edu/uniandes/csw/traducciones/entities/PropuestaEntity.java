@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 import co.edu.uniandes.csw.traducciones.enums.Estado;
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
@@ -15,6 +16,7 @@ import javax.persistence.OneToOne;
  *
  * @author av.perezb
  */
+@Entity
 public class PropuestaEntity extends BaseEntity implements Serializable {
 
     @OneToOne

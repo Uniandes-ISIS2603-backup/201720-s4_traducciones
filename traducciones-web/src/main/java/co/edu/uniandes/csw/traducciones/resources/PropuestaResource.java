@@ -12,9 +12,11 @@ import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.PropuestaPersistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -25,7 +27,7 @@ import javax.ws.rs.Produces;
  *Clase que implementa el recurso REST correspondiente a Propuesta
  * @author av.perezb
  */
-@Path("ofertas")
+@Path("propuestas")
 @Produces("application/json")
 @Consumes("application/json")
 public class PropuestaResource {
@@ -47,7 +49,19 @@ public class PropuestaResource {
     public List<PropuestaDTO> getPropuestas() throws Exception {
         
         return listEntity2DetailDTO(logic.getPropuestas());
+    
     }
+    
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deletePropuesta(@PathParam("id") Long id) throws BusinessLogicException  {
+        
+         LOGGER.log(Level.INFO, "Inicia proceso de borrar una oferta con id {0}", id);
+        
+         logic.deletePropuesta(id);
+              
+    }
+    
     
     
 /**
@@ -93,13 +107,7 @@ public class PropuestaResource {
         
     }
     
-    
-    
-    
-    
-    
-    
-    /**
+     /**
      *
      * lista de entidades a DTO.
      *

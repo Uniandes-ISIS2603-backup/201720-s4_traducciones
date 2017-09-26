@@ -23,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 /**
  * Clase que implementa el recurso REST correspondiente a "ofertas"
@@ -110,8 +111,8 @@ public class OfertaResource {
      * el mensaje.
      */
     @GET
-    @Path("{nombre: }")
-    public List<OfertaDTO> getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException {
+    @Path("{nombre: [a-zA-Z]+}")
+public List<OfertaDTO> getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException {
         
        List<OfertaEntity> ofertaEntity = ofertaLogic.getOfertasNombre(nombre);
        List <OfertaDTO> rta = listEntity2DetailDTO(ofertaEntity);
@@ -132,7 +133,8 @@ public class OfertaResource {
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la oferta a actualizar se retorna un
-     * 404 con el mensaje.
+     * 404 con el mens
+     * aje.
      */
     @PUT
     @Path("{id: \\d+}")
@@ -157,14 +159,7 @@ public class OfertaResource {
               
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+   
     /**
      *
      * lista de entidades a DTO.
