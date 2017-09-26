@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -15,9 +17,21 @@ import javax.persistence.Entity;
 public class PagoEntity extends BaseEntity {
     
     private long idEmpleado, idSolicitud;
+    
+    @PodamExclude
+    @OneToOne
+    private TarjetaDeCreditoEntity tarjeta;
 
     public long getIdEmpleado() {
         return idEmpleado;
+    }
+
+    public TarjetaDeCreditoEntity getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(TarjetaDeCreditoEntity tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
     public void setIdEmpleado(long idEmpleado) {

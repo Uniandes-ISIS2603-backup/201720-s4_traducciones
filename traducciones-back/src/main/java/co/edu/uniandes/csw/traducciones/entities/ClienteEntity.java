@@ -5,8 +5,10 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -15,23 +17,27 @@ import javax.persistence.Entity;
 @Entity
 public class ClienteEntity extends BaseEntity{
     
-    ArrayList pagos, tarjetas;
+    @PodamExclude
+    @OneToMany
+    private List<PagoEntity> pagos;
+    
+    @PodamExclude
+    @OneToMany
+    private List<TarjetaDeCreditoEntity> tarjetas;
 
-    public ArrayList<PagoEntity> getPagos() {
+    public List<PagoEntity> getPagos() {
         return pagos;
     }
 
-    public void setPagos(ArrayList<PagoEntity> pagos) {
+    public void setPagos(List<PagoEntity> pagos) {
         this.pagos = pagos;
     }
 
-    public ArrayList<TarjetaDeCreditoEntity> getTarjetas() {
+    public List<TarjetaDeCreditoEntity> getTarjetas() {
         return tarjetas;
     }
 
-    public void setTarjetas(ArrayList<TarjetaDeCreditoEntity> tarjetas) {
+    public void setTarjetas(List<TarjetaDeCreditoEntity> tarjetas) {
         this.tarjetas = tarjetas;
     }
-    
-    
 }

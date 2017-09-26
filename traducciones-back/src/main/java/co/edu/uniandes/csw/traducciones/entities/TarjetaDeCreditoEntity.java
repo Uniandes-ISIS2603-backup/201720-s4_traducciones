@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
+import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -16,6 +19,16 @@ public class TarjetaDeCreditoEntity extends BaseEntity {
     
     private int numero, codigoSeguridad;
     private String compañia, nombres, apellidos;
+    @Temporal(TemporalType.DATE)
+    private Date fechaExpiracion;
+
+    public Date getFechaExpiracion() {
+        return fechaExpiracion;
+    }
+
+    public void setFechaExpiracion(Date fechaExpiracion) {
+        this.fechaExpiracion = fechaExpiracion;
+    }
 
     public int getNumero() {
         return numero;
