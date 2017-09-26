@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
@@ -17,14 +17,14 @@ import java.util.List;
 public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
     
     private List<TrayectoriaDTO> trayectorias;
-
+    
     /**
      *
      */
     public HojaDeVidaDetailedDTO() {
-        super();
+        //metodo obligatorio
     }
-
+    
     /**
      * Crea un objeto HojaDeVidaDetailedDTO a partir de un objeto HojaDeVidaEntity
      * incluyendo los atributos de HojaDeVidaDetailedDTO.
@@ -35,16 +35,16 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
      */
     public HojaDeVidaDetailedDTO(HojaDeVidaEntity entity) {
         super(entity);
-        if (entity != null) {
-            trayectorias = new ArrayList<>();
+        trayectorias = new ArrayList<TrayectoriaDTO>();
+        if (entity.getTrayectorias() != null) {
             for (TrayectoriaEntity entityTrayectorias : entity.getTrayectorias()) {
                 trayectorias.add(new TrayectoriaDTO(entityTrayectorias));
             }
-
+            
         }
-
+        
     }
-
+    
     /**
      * Convierte un objeto HojaDeVidaDetailedDTO a HojaDeVidaEntity incluyendo los
      * atributos de HojaDeVidaDTO.
@@ -62,17 +62,19 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
             }
             entity.setTrayectorias(trayectoriasEntity);
         }
-
+        else{
+            entity.setTrayectorias(new ArrayList<TrayectoriaEntity>());
+        }
         return entity;
     }
-
+    
     /**
-     * @return the trayectorias     * 
+     * @return the trayectorias     *
      */
     public List<TrayectoriaDTO> getTrayectorias() {
         return trayectorias;
     }
-
+    
     /**
      * @param trayectorias the trayectorias to set
      */

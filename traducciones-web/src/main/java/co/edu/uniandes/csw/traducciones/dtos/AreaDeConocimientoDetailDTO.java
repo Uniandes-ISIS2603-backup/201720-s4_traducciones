@@ -13,15 +13,24 @@ import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
  */
 public class AreaDeConocimientoDetailDTO extends AreaDeConocimientoDTO{
     
+    private EmpleadoDTO empleado;
+    
     public AreaDeConocimientoDetailDTO(){
-        
+        //constructor default
     }
     public AreaDeConocimientoDetailDTO(AreaDeConocimientoEntity entity){
         super(entity);
+       if(entity.getEmpleado() != null){
+        empleado = new EmpleadoDTO(entity.getEmpleado());
+        }
     }
     
+    @Override
     public AreaDeConocimientoEntity toEntity(){
         AreaDeConocimientoEntity e = super.toEntity();
+        if(empleado != null){
+        e.setEmpleado(empleado.toEntity());
+        }
         return e;
     }
 
