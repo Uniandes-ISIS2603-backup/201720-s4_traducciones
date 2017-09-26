@@ -1,11 +1,14 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-package co.edu.uniandes.csw.traducciones.persistence;
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package co.edu.uniandes.csw.traducciones.logic;
 
-import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.traducciones.ejb.AreaDeConocimientoLogic;
+import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
+import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.traducciones.persistence.AreaDeConocimientoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -31,10 +34,13 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jc.gloria
  */
 @RunWith(Arquillian.class)
-public class EmpleadoPersistenceTest {
+public class AreaDeConocimientoLogicTest {
     
     @Inject
-    private EmpleadoPersistence persistence;
+    private AreaDeConocimientoLogic logic;
+
+   @Inject
+    private AreaDeConocimientoPersistence persistence;
     
     @PersistenceContext
     private EntityManager em;
@@ -42,28 +48,26 @@ public class EmpleadoPersistenceTest {
     @Inject
     private UserTransaction utx;
     
-    private List<EmpleadoEntity> data = new ArrayList<EmpleadoEntity>();
+    private List<AreaDeConocimientoEntity> data = new ArrayList<AreaDeConocimientoEntity>();
     
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EmpleadoEntity.class.getPackage())
-                .addPackage(EmpleadoPersistence.class.getPackage())
+                .addPackage(AreaDeConocimientoEntity.class.getPackage())
+                .addPackage(AreaDeConocimientoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    public EmpleadoPersistenceTest() {
-    }
     
     private void clearData() {
-        em.createQuery("delete from EmpleadoEntity").executeUpdate();
+        em.createQuery("delete from AreaDeConocimientoEntity").executeUpdate();
     }
     
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            EmpleadoEntity entity = factory.manufacturePojo(EmpleadoEntity.class);
+            AreaDeConocimientoEntity entity = factory.manufacturePojo(AreaDeConocimientoEntity.class);
             
             em.persist(entity);
             data.add(entity);
@@ -101,24 +105,24 @@ public class EmpleadoPersistenceTest {
     }
     
     @Test
-    public void createEmpleadoEntityTest() {
+    public void createAreaDeConocimientoTest() throws BusinessLogicException {
         PodamFactory factory = new PodamFactoryImpl();
-        EmpleadoEntity newEntity = factory.manufacturePojo(EmpleadoEntity.class);
-        EmpleadoEntity result = persistence.create(newEntity);
+        AreaDeConocimientoEntity newEntity = factory.manufacturePojo(AreaDeConocimientoEntity.class);
+        AreaDeConocimientoEntity result = logic.createAreaDeConocimiento(newEntity);
         
         Assert.assertNotNull(result);
-        EmpleadoEntity entity = em.find(EmpleadoEntity.class, result.getId());
+        AreaDeConocimientoEntity entity = em.find(AreaDeConocimientoEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
     
     @Test
-    public void getEmpleadosTest() {
-        List<EmpleadoEntity> list = persistence.findAll();
+    public void getAreasDeConocimientosTest() {
+        List<AreaDeConocimientoEntity> list = logic.getAreasDeConocimientos();
         Assert.assertEquals(data.size(), list.size());
-        for (EmpleadoEntity ent : list) {
+        for (AreaDeConocimientoEntity ent : list) {
             boolean found = false;
-            for (EmpleadoEntity entity : data) {
+            for (AreaDeConocimientoEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -128,42 +132,35 @@ public class EmpleadoPersistenceTest {
     }
     
     @Test
-    public void getEmpleadoTest() {
-        EmpleadoEntity entity = data.get(0);
-        EmpleadoEntity newEntity = persistence.find(entity.getId());
+    public void getAreaDeConocimientoTest() throws BusinessLogicException {
+        AreaDeConocimientoEntity entity = data.get(0);
+        AreaDeConocimientoEntity newEntity = logic.getAreaDeConocimiento(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
     
-    @Test
-    public void getEmpleadoByNameTest() {
-        EmpleadoEntity entity = data.get(0);
-        EmpleadoEntity newEntity = persistence.findByName(entity.getName());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
     
     @Test
-    public void updateEmpleadoTest() {
-        EmpleadoEntity entity = data.get(0);
+    public void updateAreaDeConocimientoTest() throws BusinessLogicException {
+        AreaDeConocimientoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        EmpleadoEntity newEntity = factory.manufacturePojo(EmpleadoEntity.class);
+        AreaDeConocimientoEntity newEntity = factory.manufacturePojo(AreaDeConocimientoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        persistence.update(newEntity);
+        logic.updateAreaDeConocimiento(newEntity.getId(), newEntity);
         
-        EmpleadoEntity resp = em.find(EmpleadoEntity.class, entity.getId());
+        AreaDeConocimientoEntity resp = em.find(AreaDeConocimientoEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
     
     @Test
-    public void deleteEntityTest() {
-        EmpleadoEntity entity = data.get(0);
-        //el parametro de persistence.delete es un EmpleadoEntity. Asi que no se puede entity.getID()
-        persistence.delete(entity.getId());
-        EmpleadoEntity deleted = em.find(EmpleadoEntity.class, entity.getId());
+    public void deleteAreaDeConocimientoTest() throws BusinessLogicException {
+        AreaDeConocimientoEntity entity = data.get(0);
+        //el parametro de persistence.delete es un AreaDeConocimientoEntity. Asi que no se puede entity.getID()
+        logic.deleteAreaDeConocimiento(entity);
+        AreaDeConocimientoEntity deleted = em.find(AreaDeConocimientoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 }

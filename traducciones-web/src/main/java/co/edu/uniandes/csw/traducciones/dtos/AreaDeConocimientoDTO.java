@@ -18,6 +18,7 @@ public class AreaDeConocimientoDTO {
     private String descripcion;
     
     public AreaDeConocimientoDTO(){
+        //Metodo obligatorio 
     }
     
     public AreaDeConocimientoDTO(AreaDeConocimientoEntity entity){

@@ -5,6 +5,7 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.EmpleadoPersistence;
+import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.logging.Logger;
@@ -52,7 +53,7 @@ public class EmpleadoLogic {
     }
     
     public EmpleadoEntity getEmpleado(Long id) {
-        return  persistence.find(id);
+        return persistence.find(id);
     }
     
     
@@ -96,8 +97,13 @@ public class EmpleadoLogic {
         throw new BusinessLogicException("El empleado no tiene un area de conocimiento con el id: " + areadeconocimientoId);
     }
     
-    public List<AreaDeConocimientoEntity> getAreasDeConocimiento(Long empleadoId) {
-        return getEmpleado(empleadoId).getAreasdeconocimiento();
+    public List<AreaDeConocimientoEntity> getAreasDeConocimiento(Long empleadoId) throws BusinessLogicException {
+        if(getEmpleado(empleadoId) == null){
+            throw new BusinessLogicException("El empleado no existe");
+        }
+        else{
+            return getEmpleado(empleadoId).getAreasdeconocimiento();
+        }
     }
     
     public AreaDeConocimientoEntity addAreaDeConocimiento(AreaDeConocimientoEntity area, Long empleadoId) throws BusinessLogicException {
@@ -128,28 +134,22 @@ public class EmpleadoLogic {
                 seBorro = true;
             }
         }
-        if(!seBorro){ 
+        if(!seBorro){
             throw new BusinessLogicException("Este empleado no tiene un area de conocimiento con el id:" + areaDeConocimientoId);
         }
     }
     
     //Metodos HojaDeVida
     
-    public HojaDeVidaEntity getHojaDeVida(Long empleadoId) throws BusinessLogicException {
-        HojaDeVidaEntity hoja = null;
-        try{
-            hoja = getEmpleado(empleadoId).getHojadevida();
-        }
-        catch(Exception e){
-            throw new BusinessLogicException("El empleado no tiene una hoja de vida asociada");
-        }
-        return hoja;
-    }
-    
     public HojaDeVidaEntity addHojaDeVida(HojaDeVidaEntity hoja, Long empleadoId) throws BusinessLogicException {
+        if(!getEmpleado(empleadoId).getHojadevida().isEmpty()){
+            throw new BusinessLogicException("Este empleado ya tiene una hoja de vida asociada");
+        }
         hoja.setEmpleado(getEmpleado(empleadoId));
         hojaDeVidaLogic.createHojaDeVida(hoja);
-        getEmpleado(empleadoId).setHojadevida(hoja);
+        List<HojaDeVidaEntity> hojadevida = new ArrayList<>();
+        hojadevida.add(hoja);
+        getEmpleado(empleadoId).setHojadevida(hojadevida);
         return hoja;
     }
     
@@ -157,11 +157,14 @@ public class EmpleadoLogic {
         if(getEmpleado(empleadoId).getHojadevida() == null){
             throw new BusinessLogicException("El empleado no tiene una hoja de vida asociada");
         }
-        return hojaDeVidaLogic.updateHojaDeVida(getEmpleado(empleadoId).getHojadevida().getId(), entity);
+        return hojaDeVidaLogic.updateHojaDeVida(getEmpleado(empleadoId).getHojadevida().get(0).getId(), entity);
     }
     
     public void removeHojaDeVida(Long empleadoId) throws BusinessLogicException {
-        hojaDeVidaLogic.deleteHojaDeVidaId(getEmpleado(empleadoId).getHojadevida().getId());
+        if(getEmpleado(empleadoId).getHojadevida().isEmpty() || getEmpleado(empleadoId) == null){
+            throw new BusinessLogicException("El empleado no tiene una hoja de vida asociada");
+        }
+        hojaDeVidaLogic.deleteHojaDeVidaId(getEmpleado(empleadoId).getHojadevida().get(0).getId());
         getEmpleado(empleadoId).setHojadevida(null);
     }
 }

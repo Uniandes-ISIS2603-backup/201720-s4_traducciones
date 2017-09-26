@@ -47,7 +47,6 @@ public class EmpleadoResource {
     @GET
     @Path("{id: \\d+}")
     public EmpleadoDetailDTO getEmpleado(@PathParam("id") Long id) {
-        System.out.println("entro al get");
         EmpleadoEntity entity = empleadoLogic.getEmpleado(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso empleado: " + id + " no existe.", 404);
@@ -79,7 +78,6 @@ public class EmpleadoResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteEmpleado(@PathParam("id") Long id) {
-        System.out.println("entro a delete");
         EmpleadoEntity entity = empleadoLogic.getEmpleado(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso empleado: " + id + " no existe.", 404);
@@ -110,7 +108,7 @@ public class EmpleadoResource {
     
     @GET
     @Path("{empleadoId: \\d+}/areasdeconocimiento")
-    public List<AreaDeConocimientoDetailDTO> listAreasDeConocimiento(@PathParam("empleadoId") Long empleadoId) {
+    public List<AreaDeConocimientoDetailDTO> listAreasDeConocimiento(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException {
         if(empleadoLogic.getAreasDeConocimiento(empleadoId).isEmpty()){
             throw new WebApplicationException("Este empleado no tiene areas de conocimiento asociadas", 404);
         }
@@ -125,16 +123,15 @@ public class EmpleadoResource {
     
     @POST
     @Path("{empleadoId: \\d+}/areasdeconocimiento")
-    public AreaDeConocimientoDetailDTO addAreaDeConocimiento(AreaDeConocimientoDetailDTO area, @PathParam("empleadoId") Long empleadoId ) throws BusinessLogicException {
-        empleadoLogic.addAreaDeConocimiento(area.toEntity(),empleadoId);
-        return area;
+    public AreaDeConocimientoDetailDTO addAreaDeConocimiento(@PathParam("empleadoId") Long empleadoId, AreaDeConocimientoDetailDTO area) throws BusinessLogicException {
+       return new AreaDeConocimientoDetailDTO(empleadoLogic.addAreaDeConocimiento(area.toEntity(),empleadoId));
+        
     }
     
     @PUT
     @Path("{empleadoId: \\d+}/areasdeconocimiento/{areasdeconocimientoId: \\d+}")
     public AreaDeConocimientoDetailDTO replaceAreaDeConocimiento(@PathParam("empleadoId") Long empleadoId, @PathParam("areasdeconocimientoId") Long areasdeconocimientoId, AreaDeConocimientoDetailDTO area) throws BusinessLogicException {
-         empleadoLogic.updateAreaDeConocimiento(areasdeconocimientoId, empleadoId, area.toEntity());
-         return area;
+        return new AreaDeConocimientoDetailDTO(empleadoLogic.updateAreaDeConocimiento(areasdeconocimientoId, empleadoId, area.toEntity()));
     }
     
     @DELETE
@@ -153,19 +150,21 @@ public class EmpleadoResource {
     
     //HOJA DE VIDA
     
-    @GET
-    @Path("{empleadoId: \\d+}/hojadevida}")
-    public HojaDeVidaDetailedDTO getHojaDeVida(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException{
-       return new HojaDeVidaDetailedDTO(empleadoLogic.getHojaDeVida(empleadoId));
-    }
     
     @PUT
-    @Path("{empleadoId: \\d+}/hojadevida}")
+    @Path("{empleadoId: \\d+}/hojadevida")
     public HojaDeVidaDetailedDTO replaceHojaDeVida(@PathParam("empleadoId") Long empleadoId, HojaDeVidaDetailedDTO hoja) throws BusinessLogicException{
         return new HojaDeVidaDetailedDTO(empleadoLogic.updateHojaDeVida(empleadoId, hoja.toEntity()));
     }
+    
+    @POST
+    @Path("{empleadoId: \\d+}/hojadevida")
+    public HojaDeVidaDetailedDTO addHojaDeVida(@PathParam("empleadoId") Long empleadoId, HojaDeVidaDetailedDTO hoja) throws BusinessLogicException{
+        return new HojaDeVidaDetailedDTO(empleadoLogic.addHojaDeVida(hoja.toEntity(), empleadoId));
+    }
+    
     @DELETE
-    @Path("{empleadoId: \\d+}/hojadevida}")
+    @Path("{empleadoId: \\d+}/hojadevida")
     public void removeHojaDeVida(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException{
         empleadoLogic.removeHojaDeVida(empleadoId);
     }

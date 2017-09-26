@@ -1,28 +1,31 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-package co.edu.uniandes.csw.traducciones.persistence;
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package co.edu.uniandes.csw.traducciones.logic;
 
+import co.edu.uniandes.csw.traducciones.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.traducciones.persistence.EmpleadoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.jboss.arquillian.junit.Arquillian;
 import org.junit.runner.RunWith;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.Assert;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -30,11 +33,12 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  *
  * @author jc.gloria
  */
+    
 @RunWith(Arquillian.class)
-public class EmpleadoPersistenceTest {
+public class EmpleadoLogicTest {
     
     @Inject
-    private EmpleadoPersistence persistence;
+    private EmpleadoLogic logic;
     
     @PersistenceContext
     private EntityManager em;
@@ -42,7 +46,7 @@ public class EmpleadoPersistenceTest {
     @Inject
     private UserTransaction utx;
     
-    private List<EmpleadoEntity> data = new ArrayList<EmpleadoEntity>();
+    private List<EmpleadoEntity> data = new ArrayList<>();
     
     @Deployment
     public static JavaArchive createDeployment() {
@@ -53,7 +57,8 @@ public class EmpleadoPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    public EmpleadoPersistenceTest() {
+    public EmpleadoLogicTest() {
+        //constructor default
     }
     
     private void clearData() {
@@ -101,10 +106,10 @@ public class EmpleadoPersistenceTest {
     }
     
     @Test
-    public void createEmpleadoEntityTest() {
+    public void createEmpleadoTest() throws BusinessLogicException {
         PodamFactory factory = new PodamFactoryImpl();
         EmpleadoEntity newEntity = factory.manufacturePojo(EmpleadoEntity.class);
-        EmpleadoEntity result = persistence.create(newEntity);
+        EmpleadoEntity result = logic.createEmpleado(newEntity);
         
         Assert.assertNotNull(result);
         EmpleadoEntity entity = em.find(EmpleadoEntity.class, result.getId());
@@ -114,7 +119,7 @@ public class EmpleadoPersistenceTest {
     
     @Test
     public void getEmpleadosTest() {
-        List<EmpleadoEntity> list = persistence.findAll();
+        List<EmpleadoEntity> list = logic.getEmpleados();
         Assert.assertEquals(data.size(), list.size());
         for (EmpleadoEntity ent : list) {
             boolean found = false;
@@ -130,28 +135,20 @@ public class EmpleadoPersistenceTest {
     @Test
     public void getEmpleadoTest() {
         EmpleadoEntity entity = data.get(0);
-        EmpleadoEntity newEntity = persistence.find(entity.getId());
+        EmpleadoEntity newEntity = logic.getEmpleado(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
     
     @Test
-    public void getEmpleadoByNameTest() {
-        EmpleadoEntity entity = data.get(0);
-        EmpleadoEntity newEntity = persistence.findByName(entity.getName());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
-    
-    @Test
-    public void updateEmpleadoTest() {
+    public void updateEmpleadoTest() throws BusinessLogicException {
         EmpleadoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         EmpleadoEntity newEntity = factory.manufacturePojo(EmpleadoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        persistence.update(newEntity);
+        logic.updateEmpleado(newEntity.getId(), newEntity);
         
         EmpleadoEntity resp = em.find(EmpleadoEntity.class, entity.getId());
         
@@ -162,8 +159,9 @@ public class EmpleadoPersistenceTest {
     public void deleteEntityTest() {
         EmpleadoEntity entity = data.get(0);
         //el parametro de persistence.delete es un EmpleadoEntity. Asi que no se puede entity.getID()
-        persistence.delete(entity.getId());
+        logic.deleteEmpleado(entity);
         EmpleadoEntity deleted = em.find(EmpleadoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 }
+    

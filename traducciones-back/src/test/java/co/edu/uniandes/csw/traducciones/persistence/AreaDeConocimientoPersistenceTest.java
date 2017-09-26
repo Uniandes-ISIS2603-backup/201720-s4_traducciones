@@ -34,7 +34,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class AreaDeConocimientoPersistenceTest {
     
-     @Inject
+    @Inject
     private AreaDeConocimientoPersistence persistence;
     
     @PersistenceContext
@@ -55,6 +55,7 @@ public class AreaDeConocimientoPersistenceTest {
     }
     
     public AreaDeConocimientoPersistenceTest() {
+        //constructor default
     }
     
     private void clearData() {
