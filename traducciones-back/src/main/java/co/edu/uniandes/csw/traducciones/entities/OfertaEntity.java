@@ -54,5 +54,5 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     public void setFechaVigencia(Date fechaVigencia) {
         this.fechaVigencia = fechaVigencia;
     }
-
+    
 }

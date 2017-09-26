@@ -1,10 +1,6 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
-import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
-import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
-import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
-import java.util.List;
 
 /**
  *
@@ -19,6 +15,7 @@ public class EmpleadoDTO {
     private Double calificacionPromedio;
     
     public EmpleadoDTO(){
+        //Metodo default
     }
     
     public EmpleadoDTO(EmpleadoEntity entity){

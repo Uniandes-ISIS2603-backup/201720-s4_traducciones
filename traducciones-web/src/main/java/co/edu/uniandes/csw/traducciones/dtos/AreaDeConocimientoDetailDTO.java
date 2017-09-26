@@ -18,6 +18,7 @@ public class AreaDeConocimientoDetailDTO extends AreaDeConocimientoDTO{
     public AreaDeConocimientoDetailDTO(){
         //constructor default
     }
+
     public AreaDeConocimientoDetailDTO(AreaDeConocimientoEntity entity){
         super(entity);
        if(entity.getEmpleado() != null){
