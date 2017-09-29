@@ -156,6 +156,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
          entity.setDescripcion(this.descripcion);
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
+         entity.setName(this.nombre);
          return entity;
      }
      

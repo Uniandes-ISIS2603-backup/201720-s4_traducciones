@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -139,6 +140,7 @@ WHERE condition; en SQL.
        
         List<OfertaEntity> sameName = query.getResultList();
         
+                
         return sameName;
 
     }

@@ -8,7 +8,9 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +19,19 @@ import javax.persistence.Temporal;
 @Entity
 public class OfertaEntity extends BaseEntity implements Serializable {
 
+    
+    @PodamExclude
+    @OneToOne
+    private PropuestaEntity propuesta;
+
+    public PropuestaEntity getPropuesta() {
+        return propuesta;
+    }
+
+    public void setPropuesta(PropuestaEntity propuesta) {
+        this.propuesta = propuesta;
+    }
+    
     private Integer cantidadInicial;
     private Integer cantidadActual;
     private String descripcion;

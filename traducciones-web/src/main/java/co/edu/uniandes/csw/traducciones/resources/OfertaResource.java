@@ -46,7 +46,7 @@
   * enviado en el llamado.
   * @return Devuelve el objeto json de entrada que contiene el id creado por
   * la base de datos y el tipo del objeto java. Ejemplo: { "type":
-  * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
+  * "ofertaDTO", "id": 1, "nombre": "traduccion ingles frances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30%.",
     "codigo": "AB32SD", "fechaVigencia": "25/09/2017"}
   * @throws BusinessLogicException
   */
