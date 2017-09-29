@@ -1,0 +1,214 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TrayectoriaPostman",
+		"_postman_id": "02ade1d2-aeae-741a-6e4f-41e0bf7fa577",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar todas las Trayectorias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Counsulta todas las trayectorias de la base de datos y las muestra en representacion json."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar una trayectoria especifica existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias/75",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Consulta una trayectoria especifica existente en la base de datos y la muestra como json."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar una trayectoria inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404, not found\"]=responseCode.code===404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/200",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Consulta una trayectoria inexistente en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar una nueva trayectoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, NOK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"descripcion\": \"Prueba de post del recurso trayectoria en postman\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba post\"\n    }"
+				},
+				"description": "Agrega una nueva trayectoria a la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una trayectoria existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200, OK\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/70",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, existente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba put\"\n    }"
+				},
+				"description": "Actualiza una trayectoria existente en la base de datoss."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una trayectoria inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404, not found\"]=responseCode.code===404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, inexistente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"id\": 300,\n        \"name\": \"Trayectoria prueba put\"\n    }"
+				},
+				"description": "Actualiza una trayectoria inexistente en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una trayectoria inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404, not found\"]=responseCode.code===404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Borra una trayectoria inexistente de la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una trayectoria existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204, OK\"]=responseCode.code===204"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/hojadevida/80/trayectorias/80",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Borra una trayectoria existente de la base de datos."
+			},
+			"response": []
+		}
+	]
+}
