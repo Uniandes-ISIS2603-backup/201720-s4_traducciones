@@ -34,7 +34,10 @@ public class OfertaLogic {
         // Invoca la persistencia para crear la oferta
         
         //SI LA INFORMACIÓN NO ES VÁLIDA LANZA EXCEPCIÓN(?)
-        
+        if (persistenceOferta.find(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("Ya existe una oferta con ese id");
+        }
         persistenceOferta.create(entity);
         LOGGER.info("Termina proceso de creación de una oferta");
         return entity;
@@ -71,10 +74,15 @@ public class OfertaLogic {
      * @param id Identificador de la oferta a consultar.
      * @return una OfertaEntity con los datos de la oferta consultada.
      */
-    public OfertaEntity getOferta (Long id) {
+    public OfertaEntity getOferta (Long id) throws BusinessLogicException {
         
         LOGGER.info("Inicia proceso de consultar una Oferta según el id recibido por parámetro");
         OfertaEntity oferta = persistenceOferta.find(id);
+        
+        if(oferta == null)
+        {
+            throw new BusinessLogicException("No existen ofertas con ese id.");
+        }
         LOGGER.info("Termina proceso de consultar una Oferta");
         
         return oferta;      
@@ -90,13 +98,18 @@ public class OfertaLogic {
      **/
     public OfertaEntity updateOferta (OfertaEntity entity) throws BusinessLogicException {
         
-        LOGGER.info("Inicia la modificaión de una oferta");
+        LOGGER.info("Inicia la modificación de una oferta");
         
         if( entity.getCantidadActual()< entity.getCantidadInicial()) {
             
-            throw new BusinessLogicException("No puede modificarse la oferta.");
+            throw new BusinessLogicException("No puede modificarse la oferta porque ya fue utilizada.");
+      }
+        
+        if (persistenceOferta.find(entity.getId())== null)
+        {
+            throw new BusinessLogicException("No existe una oferta con ese id.");
         }
-  
+         
         LOGGER.info("Finaliza la modificación");
         return persistenceOferta.update(entity);
         

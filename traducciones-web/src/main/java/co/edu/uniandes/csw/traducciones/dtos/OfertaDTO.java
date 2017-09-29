@@ -12,8 +12,8 @@ package co.edu.uniandes.csw.traducciones.dtos;
  public class OfertaDTO {
      
      private Long id;
-     private Integer cantidadI;
-     private Integer cantActual;
+     private Integer cantidadInicial;
+     private Integer cantidadActual;
      private String descripcion;
      private String codigo;
      private Date fechaVigencia;
@@ -34,9 +34,9 @@ package co.edu.uniandes.csw.traducciones.dtos;
      public OfertaDTO(OfertaEntity oferta) {
          
          this.id = oferta.getId();
-        this.nombre = oferta.getName();
-         this.cantidadI = oferta.getCantidadInicial();
-         this.cantActual = oferta.getCantidadActual();
+         this.nombre = oferta.getName();
+         this.cantidadInicial = oferta.getCantidadInicial();
+         this.cantidadActual = oferta.getCantidadActual();
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
@@ -74,29 +74,29 @@ package co.edu.uniandes.csw.traducciones.dtos;
      /**
       * @return la cantidad
       */
-     public Integer getCantidadI() {
-         return cantidadI;
+     public Integer getCantidadInicial() {
+         return cantidadInicial;
      }
  
      /**
       * @param cantidad la cantidad para modificar
       */
-     public void setCantidadI(int cantidad) {
-         this.cantidadI = cantidad;
+     public void setCantidadInicial(Integer cantidad) {
+         this.cantidadInicial = cantidad;
      }
     
      /**
       * @return la cantidad
       */
-     public Integer getCantActual() {
-         return cantActual;
+     public Integer getCantidadActual() {
+         return cantidadActual;
      }
  
      /**
-      * @param cantidadActual la cantidad para modificar
+      * @param cantidad la cantidad para modificar
       */
-     public void setCantActual(int cantidadActual) {
-         this.cantActual = cantidadActual;
+     public void setCantidadActual(Integer cantidad) {
+         this.cantidadActual = cantidad;
      }
      
      
@@ -151,8 +151,8 @@ package co.edu.uniandes.csw.traducciones.dtos;
          
          OfertaEntity entity = new OfertaEntity();
          entity.setId(this.id);
-         entity.setCantidadInicial(this.cantidadI);
-         entity.setCantidadActual(this.cantActual);
+         entity.setCantidadInicial(this.cantidadInicial);
+         entity.setCantidadActual(this.cantidadActual);
          entity.setDescripcion(this.descripcion);
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);

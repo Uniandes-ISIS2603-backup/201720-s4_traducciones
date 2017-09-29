@@ -37,7 +37,7 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     }
 
     public void setCantidadActual(Integer cantidadA) {
-        this.cantidadInicial = cantidadA;
+        this.cantidadActual = cantidadA;
     }
 
     public String getDescripcion() {

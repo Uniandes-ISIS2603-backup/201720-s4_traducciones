@@ -88,7 +88,7 @@
       * el mensaje.
       */
     @GET
-     @Path("{id: \\d+}")
+    @Path("{id: \\d+}")
      public OfertaDTO getOferta(@PathParam("id") Long id) throws BusinessLogicException, Exception {
          
          OfertaEntity ofertaEntity = ofertaLogic.getOferta(id);
@@ -132,23 +132,24 @@
      * @return La oferta actualizada.
       * @throws BusinessLogicException
       *
-      * En caso de no existir el id de la oferta a actualizar se retorna un
-      * 404 con el mens
+      * En caso de no existir el id de la oferta a actualizar.
       * aje.
       */
      @PUT
      @Path("{id: \\d+}")
      public OfertaDTO updateOferta(@PathParam("id") Long id, OfertaDTO oferta) throws BusinessLogicException {
-        
-         oferta.setId(id);
-         ofertaLogic.getOferta(id);
-       
-        return new OfertaDTO(ofertaLogic.updateOferta(oferta.toEntity()));
-         
-         
-     }
+             
+     oferta.setId(id);
      
-      @DELETE
+     
+       OfertaEntity ofertaUpdated = ofertaLogic.updateOferta(oferta.toEntity());
+       
+       OfertaDTO updated = new OfertaDTO(ofertaUpdated);
+    
+       return updated;
+    }
+       
+     @DELETE
      @Path("{id: \\d+}")
      public void deleteOferta(@PathParam("id") Long id) throws BusinessLogicException  {
          
