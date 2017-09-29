@@ -20,7 +20,7 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     private Integer cantidadInicial;
     private Integer cantidadActual;
     private String descripcion;
-    private Integer codigo;
+    private String codigo;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
@@ -48,12 +48,12 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Integer getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String cod) {
+        this.codigo = cod;
     }
 
     public Date getFechaVigencia() {

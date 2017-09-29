@@ -112,8 +112,13 @@ public class OfertaLogic {
        
     }
 
-    public List<OfertaEntity> getOfertasNombre(String nombre) {
+    public List<OfertaEntity> getOfertasNombre(String nombre) throws BusinessLogicException {
         
+           if (persistenceOferta.findByName(nombre) == null)
+           {
+               throw new BusinessLogicException("No hay ofertas con ese nombre");
+           }
+           
            return persistenceOferta.findByName(nombre);
    
     }
