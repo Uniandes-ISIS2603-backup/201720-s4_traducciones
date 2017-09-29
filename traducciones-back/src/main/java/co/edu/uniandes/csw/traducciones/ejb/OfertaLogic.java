@@ -33,7 +33,6 @@ public class OfertaLogic {
         LOGGER.info("Inicia el proceso de creación de una oferta");
         // Invoca la persistencia para crear la oferta
         
-        //SI LA INFORMACIÓN NO ES VÁLIDA LANZA EXCEPCIÓN(?)
         if (persistenceOferta.find(entity.getId())!= null)
         {
             throw new BusinessLogicException("Ya existe una oferta con ese id");

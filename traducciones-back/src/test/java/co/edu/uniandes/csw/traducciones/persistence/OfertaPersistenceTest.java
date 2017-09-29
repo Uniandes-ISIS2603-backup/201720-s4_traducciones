@@ -137,7 +137,19 @@ public class OfertaPersistenceTest {
         OfertaEntity entity = data.get(0);
         OfertaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getId(), newEntity.getId());
+    }
+    
+    /**
+     * Test of find method, of class OfertaPersistence.
+     */
+    @Test
+    public void testFindByName () throws Exception {
+
+        OfertaEntity entity = data.get(0);
+        List<OfertaEntity> newEntity = persistence.findByName(entity.getName());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.get(0).getName());
     }
 
     /**

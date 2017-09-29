@@ -132,7 +132,7 @@ WHERE condition; en SQL.
         LOGGER.log(Level.INFO, "Consultando Oferta por nombre ", name);
         
         // Se crea un query para buscar Ofertaes con el nombre que recibe el mÃ©todo como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name = :name ", OfertaEntity.class);
+        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name LIKE CONCAT('%',:name,'%')", OfertaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);
         // Se invoca el query se obtiene la lista resultado
