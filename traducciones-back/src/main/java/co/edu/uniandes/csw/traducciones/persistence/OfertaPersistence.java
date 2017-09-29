@@ -119,5 +119,28 @@ WHERE condition; en SQL.
 
         return query.getResultList();
     }
+    
+    
+    /**
+     * Busca si hay alguna Oferta con el nombre que se envía de argumento
+     *
+     * @param name: Nombre de la Oferta que se está buscando
+     * @return null si no existe ninguna Oferta con el nombre del argumento. Si
+     * existe alguna devuelve la lista.
+     */
+    public List<OfertaEntity> findByName(String name) {
+        LOGGER.log(Level.INFO, "Consultando Oferta por nombre ", name);
+
+        // Se crea un query para buscar Ofertaes con el nombre que recibe el mÃ©todo como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name = :name", OfertaEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        // Se invoca el query se obtiene la lista resultado
+       
+        List<OfertaEntity> sameName = query.getResultList();
+        
+        return sameName;
+
+    }
 
 }
