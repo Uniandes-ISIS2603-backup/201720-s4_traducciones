@@ -1,4 +1,4 @@
-delete from EMPLEADOENTITY;
+delete from EMPLEADOENTITY WHERE name= 'Juan Carlos';
 insert into EMPLEADOENTITY (name, calificacionPromedio, tipo,id) values ('Job', 75.8, 3,50);
 insert into EMPLEADOENTITY (name, calificacionPromedio, tipo,id) values ('Cyrille', 99.5, 2,51);
 insert into EMPLEADOENTITY (name, calificacionPromedio, tipo,id) values ('Kin', 75.3, 2,52);
