@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
 import co.edu.uniandes.csw.traducciones.entities.PagoEntity;
 import co.edu.uniandes.csw.traducciones.entities.TarjetaDeCreditoEntity;
 import co.edu.uniandes.csw.traducciones.persistence.ClientePersistence;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import java.util.logging.Level;
@@ -63,8 +64,8 @@ public class ClienteLogic {
      */
     public ClienteEntity createCliente(ClienteEntity entity) {
         LOGGER.log(Level.INFO, "Inicia proceso de crear un cliente ");
-        
-        return persistence.create(entity);
+        persistence.create(entity);
+        return entity;
     }
 
     /**
@@ -139,7 +140,13 @@ public class ClienteLogic {
             LOGGER.log(Level.SEVERE, "El pago con el id {0} no existe", pagoId);
         
         ClienteEntity cliente = getCliente(clienteId);
+        if(cliente == null)
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+        
         List<PagoEntity> pagosCliente = cliente.getPagos();
+        if(pagosCliente == null){
+            pagosCliente = new ArrayList<>();
+        }
         pagosCliente.add(pago);
         LOGGER.log(Level.INFO, "Termina proceso de agregar un pago al cliente con id = {0}", clienteId);
         return pago;
@@ -154,7 +161,13 @@ public class ClienteLogic {
      */
     public void removePago(Long clienteId, Long pagoId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar un pago del cliente con id = {0}", clienteId);
+        if(getCliente(clienteId)==null){
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+        }
         List<PagoEntity> pagos = getCliente(clienteId).getPagos();
+        if(pagos == null){
+            return;
+        }
         pagos.remove(pagoLogic.getPago(pagoId));
         LOGGER.log(Level.INFO, "Termina el proceso de borrar un pago del cliente con id = {0}", clienteId);
     }
@@ -170,6 +183,9 @@ public class ClienteLogic {
      */
     public List<TarjetaDeCreditoEntity> listTarjetas(Long clienteId) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar todos las tarjetas del cliente con id = {0}", clienteId);
+        if(getCliente(clienteId) == null){
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+        }
         return getCliente(clienteId).getTarjetas();
     }
 
@@ -183,14 +199,28 @@ public class ClienteLogic {
      */
     public TarjetaDeCreditoEntity getTarjeta(Long clienteId, Long tarjetaId) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar una tarjeta con id = {0}", tarjetaId);
-        List<TarjetaDeCreditoEntity> list = getCliente(clienteId).getTarjetas();
-        TarjetaDeCreditoEntity tarjetaEntity = new TarjetaDeCreditoEntity();
-        tarjetaEntity.setId(tarjetaId);
-        int index = list.indexOf(tarjetaEntity);
-        if (index >= 0) {
-            return list.get(index);
+        if(getCliente(clienteId)== null){
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+            return null;
         }
-        return null;
+        if(tarjetaLogic.getTarjeta(tarjetaId) == null){
+            LOGGER.log(Level.SEVERE, "La tarjeta con el id {0} no existe", tarjetaId);
+            return null;
+        }
+        ClienteEntity cliente = getCliente(clienteId);
+        List<TarjetaDeCreditoEntity> list = cliente.getTarjetas();
+        if(list == null){
+            LOGGER.log(Level.SEVERE, "BusinessLogicException: El cliente no tiene tarjetas de crédito");
+            return null;
+        }
+        TarjetaDeCreditoEntity tarjetaCliente = new TarjetaDeCreditoEntity();
+        for(TarjetaDeCreditoEntity tarjeta : list){
+            if(tarjeta.getId().equals(tarjetaId)){
+                tarjetaCliente = tarjeta;
+                break;
+            }
+        }
+        return tarjetaCliente;
     }
 
     /**
@@ -208,7 +238,15 @@ public class ClienteLogic {
             LOGGER.log(Level.SEVERE, "La tarjeta con el id {0} no existe", tarjetaId);
         
         ClienteEntity cliente = getCliente(clienteId);
+        if(cliente == null)
+        {
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+            return null;
+        }
         List<TarjetaDeCreditoEntity> tarjetasCliente = cliente.getTarjetas();
+        if(tarjetasCliente == null){
+            tarjetasCliente = new ArrayList<>();
+        }
         tarjetasCliente.add(tarjeta);
         LOGGER.log(Level.INFO, "Termina proceso de agregar una tarjeta al cliente con id = {0}", clienteId);
         return tarjeta;
@@ -223,8 +261,14 @@ public class ClienteLogic {
      */
     public void removeTarjeta(Long clienteId, Long tarjetaId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una tarjeta del cliente con id = {0}", clienteId);
-        List<TarjetaDeCreditoEntity> tarjetas = getCliente(clienteId).getTarjetas();
-        tarjetas.remove(tarjetaLogic.getTarjeta(tarjetaId));
+        if(getCliente(clienteId) != null){
+            if(tarjetaLogic.getTarjeta(tarjetaId) != null){
+                List<TarjetaDeCreditoEntity> tarjetas = getCliente(clienteId).getTarjetas();
+                if(tarjetas != null){
+                    tarjetas.remove(tarjetaLogic.getTarjeta(tarjetaId));
+                }                
+            }            
+        }
         LOGGER.log(Level.INFO, "Termina el proceso de borrar una tarjeta del cliente con id = {0}", clienteId);
     }
 }

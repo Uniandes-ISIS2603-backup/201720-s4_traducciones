@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.traducciones.resources;
 import co.edu.uniandes.csw.traducciones.dtos.PagoDTO;
 import co.edu.uniandes.csw.traducciones.ejb.ClienteLogic;
 import co.edu.uniandes.csw.traducciones.entities.PagoEntity;
-import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -16,7 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -62,6 +60,10 @@ public class ClientePagosResource {
     @DELETE
     @Path("{pagoId: \\d+}")
     public void deletePago(@PathParam("clienteId")Long clienteId, @PathParam("pagoId")Long pagoId){
+        if(getPago(clienteId, pagoId) == null){
+            throw new WebApplicationException("El pago con el id " + pagoId + " no existe o no está asociado"
+                    + " al cliente con el id " + clienteId, 404);
+        }
         clienteLogic.removePago(clienteId, pagoId);
     }
     
