@@ -5,11 +5,9 @@
  */
 package co.edu.uniandes.csw.traducciones.resources;
 
-import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
 import co.edu.uniandes.csw.traducciones.ejb.OfertaLogic;
 import co.edu.uniandes.csw.traducciones.ejb.PropuestaLogic;
-import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.PropuestaPersistence;
@@ -22,6 +20,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -31,7 +30,7 @@ import javax.ws.rs.Produces;
  *
  * @author av.perezb
  */
-@Path("propuestas/{id: \\d+/ofertas")
+@Path("propuestas/{id: \\d+}/ofertas")
 @Produces("application/json")
 @Consumes("application/json")
 public class PropuestaResource {
@@ -99,13 +98,23 @@ public class PropuestaResource {
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * @throws BusinessLogicException
      */
-    @POST
+    @PUT
     @Path(("/{idOferta: \\d+}"))
     public PropuestaDetailDTO agregarOferta(@PathParam("id") Long idPropuesta, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
        
         return new PropuestaDetailDTO(logic.agregarOferta(idPropuesta, idOferta));
       
     }
+    
+    @DELETE
+    @Path("propuestas/{id: \\d+}")
+    public void deletePropuesta(@PathParam("id") Long idPropuesta, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
+        
+        
+        logic.deleteOferta(idPropuesta, idOferta);
+        
+    }
+    
 
     /**
      * GET para una oferta
@@ -121,8 +130,8 @@ public class PropuestaResource {
      * el mensaje.
      */
     @GET
-    @Path("{id: \\d+}")
-    public PropuestaDetailDTO getOferta(@PathParam("id") Long id) throws BusinessLogicException, Exception {
+    @Path("{idProp: \\d+}")
+    public PropuestaDetailDTO getPropuesta(@PathParam("idProp") Long id) throws BusinessLogicException {
 
         PropuestaEntity ofertaEntity = logic.getPropuesta(id);
 
