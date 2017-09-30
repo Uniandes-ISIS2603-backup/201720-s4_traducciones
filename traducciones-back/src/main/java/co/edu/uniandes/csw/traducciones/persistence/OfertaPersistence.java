@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +37,7 @@ public class OfertaPersistence {
 
         LOGGER.info("Creando una Oferta nueva");
         /* Note que hacemos uso de un método propio de EntityManager para persistir la Oferta 
-en la base de datos. Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3,...);" en SQL.
+        en la base de datos. Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3,...);" en SQL.
          */
         em.persist(entity);
 
@@ -130,15 +131,16 @@ WHERE condition; en SQL.
      */
     public List<OfertaEntity> findByName(String name) {
         LOGGER.log(Level.INFO, "Consultando Oferta por nombre ", name);
-
+        
         // Se crea un query para buscar Ofertaes con el nombre que recibe el mÃ©todo como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name = :name", OfertaEntity.class);
+        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name LIKE CONCAT('%',:name,'%')", OfertaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);
         // Se invoca el query se obtiene la lista resultado
        
         List<OfertaEntity> sameName = query.getResultList();
         
+                
         return sameName;
 
     }

@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -15,6 +17,21 @@ import javax.persistence.Entity;
 @Entity
 public class PropuestaEntity extends BaseEntity implements Serializable {
 
+    @PodamExclude
+    @OneToOne
+    private OfertaEntity oferta;
+
+    
+    
+    public OfertaEntity getOferta() {
+        return oferta;
+    }
+
+    public void setOferta(OfertaEntity oferta) {
+        this.oferta = oferta;
+    }
+    
+    
     private String estado;
     private Double costo;
 

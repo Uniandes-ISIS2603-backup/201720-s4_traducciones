@@ -60,7 +60,7 @@ public class PagoResource {
             if(dto.getIdSolicitud() != null){
                 boolean noCumpleRegla = false;
                 for(PagoDTO pago : getPagos()){
-                    if(pago.getIdSolicitud() == dto.getIdSolicitud()){
+                    if(pago.getIdSolicitud().equals(dto.getIdSolicitud())){
                         noCumpleRegla = true;
                         break;
                     }

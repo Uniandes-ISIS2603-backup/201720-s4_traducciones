@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="6" failures="0" name="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" time="17.207" errors="3" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="test" value="co.edu.uniandes.csw.traducciones.persistence.**.*Test"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\ne.ortega\Documents\NetBeansProjects\s4_traducciones\traducciones-back"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\NEEF9C~1.ORT\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\ne.ortega"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="ne.ortega"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_144\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=co.edu.uniandes.csw.traducciones.persistence.**.*Test -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 8.2\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="getTrabajosTest" time="0.187"/>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="updateTrabajoTest" time="0.172">
+    <error type="javax.persistence.TransactionRequiredException">javax.persistence.TransactionRequiredException
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTxRequiredCheck(EntityManagerWrapper.java:161)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTransactionScopedTxCheck(EntityManagerWrapper.java:151)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.merge(EntityManagerWrapper.java:299)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence.update(TrabajoPersistence.java:56)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest.updateTrabajoTest(TrabajoPersistenceTest.java:165)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.jboss.arquillian.junit.Arquillian$8$1.invoke(Arquillian.java:374)
+	at org.jboss.arquillian.container.test.impl.execution.LocalTestExecuter.execute(LocalTestExecuter.java:60)
+	at sun.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.execution.ContainerTestExecuter.execute(ContainerTestExecuter.java:38)
+	at sun.reflect.GeneratedMethodAccessor105.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.test(EventTestRunnerAdaptor.java:136)
+	at org.jboss.arquillian.junit.Arquillian$8.evaluate(Arquillian.java:367)
+	at org.jboss.arquillian.junit.Arquillian$4.evaluate(Arquillian.java:245)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$5.evaluate(Arquillian.java:259)
+	at org.jboss.arquillian.junit.Arquillian$7$1.invoke(Arquillian.java:319)
+	at org.jboss.arquillian.container.test.impl.execution.BeforeLifecycleEventExecuter.on(BeforeLifecycleEventExecuter.java:35)
+	at sun.reflect.GeneratedMethodAccessor72.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.fireCustomLifecycle(EventTestRunnerAdaptor.java:159)
+	at org.jboss.arquillian.junit.Arquillian$7.evaluate(Arquillian.java:312)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:204)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:218)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:166)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.jboss.arquillian.junit.container.JUnitTestRunner.execute(JUnitTestRunner.java:66)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.executeTest(ServletTestRunner.java:170)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.execute(ServletTestRunner.java:135)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.doGet(ServletTestRunner.java:98)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1682)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:318)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:160)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:734)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:673)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:99)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:174)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:415)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:282)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:459)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:167)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:201)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:175)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:235)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:561)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:565)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:545)
+	at java.lang.Thread.run(Thread.java:748)
+</error>
+    <system-err>sep 29, 2017 10:55:38 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFORMACIÓN: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@143638f: startup date [Fri Sep 29 22:55:38 COT 2017]; root of context hierarchy
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-integration-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.IntegrationRegistrar registerHeaderChannelRegistry
+INFORMACIÓN: No bean named &apos;integrationHeaderChannelRegistry&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerErrorChannel
+INFORMACIÓN: No bean named &apos;errorChannel&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerTaskScheduler
+INFORMACIÓN: No bean named &apos;taskScheduler&apos; has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.config.PropertiesFactoryBean loadProperties
+INFORMACIÓN: Loading properties file from URL [jar:file:/C:/Users/ne.ortega/.m2/repository/org/springframework/integration/spring-integration-core/4.1.3.RELEASE/spring-integration-core-4.1.3.RELEASE.jar!/META-INF/spring.integration.default.properties]
+sep 29, 2017 10:55:38 PM org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler initialize
+INFORMACIÓN: Initializing ExecutorService  &apos;taskScheduler&apos;
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase -2147483648
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase 0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {router} as a subscriber to the &apos;podamInputChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.podamInputChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;booleanChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.booleanChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;byteChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.byteChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;charChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.charChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#3
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;shortChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.shortChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#4
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;intChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.intChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#5
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;longChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.longChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#6
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;floatChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.floatChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#7
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;doubleChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.doubleChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#8
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;stringChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.stringChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#9
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;enumChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.enumChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#10
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;genericTypeChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.genericTypeChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#11
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;errorChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.PublishSubscribeChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@143638f.errorChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started _org.springframework.integration.errorLogger
+sep 29, 2017 10:55:38 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFORMACIÓN: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2: startup date [Fri Sep 29 22:55:38 COT 2017]; root of context hierarchy
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-integration-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.IntegrationRegistrar registerHeaderChannelRegistry
+INFORMACIÓN: No bean named &apos;integrationHeaderChannelRegistry&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerErrorChannel
+INFORMACIÓN: No bean named &apos;errorChannel&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerTaskScheduler
+INFORMACIÓN: No bean named &apos;taskScheduler&apos; has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.config.PropertiesFactoryBean loadProperties
+INFORMACIÓN: Loading properties file from URL [jar:file:/C:/Users/ne.ortega/.m2/repository/org/springframework/integration/spring-integration-core/4.1.3.RELEASE/spring-integration-core-4.1.3.RELEASE.jar!/META-INF/spring.integration.default.properties]
+sep 29, 2017 10:55:38 PM org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler initialize
+INFORMACIÓN: Initializing ExecutorService  &apos;taskScheduler&apos;
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase -2147483648
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase 0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {router} as a subscriber to the &apos;podamInputChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.podamInputChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;booleanChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.booleanChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;byteChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.byteChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;charChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.charChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#3
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;shortChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.shortChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#4
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;intChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.intChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#5
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;longChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.longChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#6
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;floatChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.floatChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#7
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;doubleChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.doubleChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#8
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;stringChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.stringChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#9
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;enumChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.enumChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#10
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;genericTypeChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.genericTypeChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#11
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;errorChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.PublishSubscribeChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@4db16ea2.errorChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started _org.springframework.integration.errorLogger
+sep 29, 2017 10:55:38 PM co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence update
+INFORMACIÓN: Actualizando trabajo con id=5
+</system-err>
+  </testcase>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="createTrabajoEntityTest" time="0.265">
+    <error type="javax.persistence.TransactionRequiredException">javax.persistence.TransactionRequiredException
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTxRequiredCheck(EntityManagerWrapper.java:161)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTransactionScopedTxCheck(EntityManagerWrapper.java:151)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.persist(EntityManagerWrapper.java:281)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence.create(TrabajoPersistence.java:37)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest.createTrabajoEntityTest(TrabajoPersistenceTest.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.jboss.arquillian.junit.Arquillian$8$1.invoke(Arquillian.java:374)
+	at org.jboss.arquillian.container.test.impl.execution.LocalTestExecuter.execute(LocalTestExecuter.java:60)
+	at sun.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.execution.ContainerTestExecuter.execute(ContainerTestExecuter.java:38)
+	at sun.reflect.GeneratedMethodAccessor105.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.test(EventTestRunnerAdaptor.java:136)
+	at org.jboss.arquillian.junit.Arquillian$8.evaluate(Arquillian.java:367)
+	at org.jboss.arquillian.junit.Arquillian$4.evaluate(Arquillian.java:245)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$5.evaluate(Arquillian.java:259)
+	at org.jboss.arquillian.junit.Arquillian$7$1.invoke(Arquillian.java:319)
+	at org.jboss.arquillian.container.test.impl.execution.BeforeLifecycleEventExecuter.on(BeforeLifecycleEventExecuter.java:35)
+	at sun.reflect.GeneratedMethodAccessor72.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.fireCustomLifecycle(EventTestRunnerAdaptor.java:159)
+	at org.jboss.arquillian.junit.Arquillian$7.evaluate(Arquillian.java:312)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:204)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:218)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:166)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.jboss.arquillian.junit.container.JUnitTestRunner.execute(JUnitTestRunner.java:66)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.executeTest(ServletTestRunner.java:170)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.execute(ServletTestRunner.java:135)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.doGet(ServletTestRunner.java:98)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1682)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:318)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:160)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:734)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:673)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:99)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:174)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:415)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:282)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:459)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:167)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:201)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:175)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:235)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:561)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:565)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:545)
+	at java.lang.Thread.run(Thread.java:748)
+</error>
+    <system-err>sep 29, 2017 10:55:38 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFORMACIÓN: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd: startup date [Fri Sep 29 22:55:38 COT 2017]; root of context hierarchy
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-integration-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.IntegrationRegistrar registerHeaderChannelRegistry
+INFORMACIÓN: No bean named &apos;integrationHeaderChannelRegistry&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerErrorChannel
+INFORMACIÓN: No bean named &apos;errorChannel&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerTaskScheduler
+INFORMACIÓN: No bean named &apos;taskScheduler&apos; has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.config.PropertiesFactoryBean loadProperties
+INFORMACIÓN: Loading properties file from URL [jar:file:/C:/Users/ne.ortega/.m2/repository/org/springframework/integration/spring-integration-core/4.1.3.RELEASE/spring-integration-core-4.1.3.RELEASE.jar!/META-INF/spring.integration.default.properties]
+sep 29, 2017 10:55:38 PM org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler initialize
+INFORMACIÓN: Initializing ExecutorService  &apos;taskScheduler&apos;
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase -2147483648
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase 0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {router} as a subscriber to the &apos;podamInputChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.podamInputChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;booleanChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.booleanChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;byteChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.byteChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;charChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.charChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#3
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;shortChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.shortChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#4
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;intChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.intChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#5
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;longChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.longChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#6
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;floatChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.floatChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#7
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;doubleChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.doubleChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#8
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;stringChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.stringChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#9
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;enumChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.enumChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#10
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;genericTypeChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.genericTypeChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#11
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;errorChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.PublishSubscribeChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@5a97ecdd.errorChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started _org.springframework.integration.errorLogger
+sep 29, 2017 10:55:38 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFORMACIÓN: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95: startup date [Fri Sep 29 22:55:38 COT 2017]; root of context hierarchy
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-integration-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.IntegrationRegistrar registerHeaderChannelRegistry
+INFORMACIÓN: No bean named &apos;integrationHeaderChannelRegistry&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerErrorChannel
+INFORMACIÓN: No bean named &apos;errorChannel&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerTaskScheduler
+INFORMACIÓN: No bean named &apos;taskScheduler&apos; has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.config.PropertiesFactoryBean loadProperties
+INFORMACIÓN: Loading properties file from URL [jar:file:/C:/Users/ne.ortega/.m2/repository/org/springframework/integration/spring-integration-core/4.1.3.RELEASE/spring-integration-core-4.1.3.RELEASE.jar!/META-INF/spring.integration.default.properties]
+sep 29, 2017 10:55:38 PM org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler initialize
+INFORMACIÓN: Initializing ExecutorService  &apos;taskScheduler&apos;
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase -2147483648
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase 0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {router} as a subscriber to the &apos;podamInputChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.podamInputChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;booleanChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.booleanChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;byteChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.byteChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;charChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.charChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#3
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;shortChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.shortChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#4
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;intChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.intChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#5
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;longChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.longChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#6
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;floatChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.floatChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#7
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;doubleChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.doubleChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#8
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;stringChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.stringChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#9
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;enumChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.enumChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#10
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;genericTypeChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.genericTypeChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#11
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;errorChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.PublishSubscribeChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@2b5c8d95.errorChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started _org.springframework.integration.errorLogger
+sep 29, 2017 10:55:38 PM co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence create
+INFORMACIÓN: Creando una trabajo nueva
+</system-err>
+  </testcase>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="getTrabajoTest" time="0.109"/>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="deleteTrabajoTest" time="0.109">
+    <error type="javax.persistence.TransactionRequiredException">javax.persistence.TransactionRequiredException
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTxRequiredCheck(EntityManagerWrapper.java:161)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.doTransactionScopedTxCheck(EntityManagerWrapper.java:151)
+	at com.sun.enterprise.container.common.impl.EntityManagerWrapper.remove(EntityManagerWrapper.java:317)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence.delete(TrabajoPersistence.java:73)
+	at co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest.deleteTrabajoTest(TrabajoPersistenceTest.java:175)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.jboss.arquillian.junit.Arquillian$8$1.invoke(Arquillian.java:374)
+	at org.jboss.arquillian.container.test.impl.execution.LocalTestExecuter.execute(LocalTestExecuter.java:60)
+	at sun.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.execution.ContainerTestExecuter.execute(ContainerTestExecuter.java:38)
+	at sun.reflect.GeneratedMethodAccessor105.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.test(EventTestRunnerAdaptor.java:136)
+	at org.jboss.arquillian.junit.Arquillian$8.evaluate(Arquillian.java:367)
+	at org.jboss.arquillian.junit.Arquillian$4.evaluate(Arquillian.java:245)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$5.evaluate(Arquillian.java:259)
+	at org.jboss.arquillian.junit.Arquillian$7$1.invoke(Arquillian.java:319)
+	at org.jboss.arquillian.container.test.impl.execution.BeforeLifecycleEventExecuter.on(BeforeLifecycleEventExecuter.java:35)
+	at sun.reflect.GeneratedMethodAccessor72.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:145)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:116)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.fireCustomLifecycle(EventTestRunnerAdaptor.java:159)
+	at org.jboss.arquillian.junit.Arquillian$7.evaluate(Arquillian.java:312)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:204)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:426)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:54)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:218)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:166)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.jboss.arquillian.junit.container.JUnitTestRunner.execute(JUnitTestRunner.java:66)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.executeTest(ServletTestRunner.java:170)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.execute(ServletTestRunner.java:135)
+	at org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner.doGet(ServletTestRunner.java:98)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1682)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:318)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:160)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:734)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:673)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:99)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:174)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:415)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:282)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:459)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:167)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:201)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:175)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:235)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:561)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:565)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:545)
+	at java.lang.Thread.run(Thread.java:748)
+</error>
+    <system-err>sep 29, 2017 10:55:38 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFORMACIÓN: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738: startup date [Fri Sep 29 22:55:38 COT 2017]; root of context hierarchy
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMACIÓN: Loading XML bean definitions from class path resource [META-INF/spring/podam-integration-config.xml]
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.IntegrationRegistrar registerHeaderChannelRegistry
+INFORMACIÓN: No bean named &apos;integrationHeaderChannelRegistry&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerErrorChannel
+INFORMACIÓN: No bean named &apos;errorChannel&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+sep 29, 2017 10:55:38 PM org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor registerTaskScheduler
+INFORMACIÓN: No bean named &apos;taskScheduler&apos; has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+sep 29, 2017 10:55:38 PM org.springframework.beans.factory.config.PropertiesFactoryBean loadProperties
+INFORMACIÓN: Loading properties file from URL [jar:file:/C:/Users/ne.ortega/.m2/repository/org/springframework/integration/spring-integration-core/4.1.3.RELEASE/spring-integration-core-4.1.3.RELEASE.jar!/META-INF/spring.integration.default.properties]
+sep 29, 2017 10:55:38 PM org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler initialize
+INFORMACIÓN: Initializing ExecutorService  &apos;taskScheduler&apos;
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase -2147483648
+sep 29, 2017 10:55:38 PM org.springframework.context.support.DefaultLifecycleProcessor start
+INFORMACIÓN: Starting beans in phase 0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {router} as a subscriber to the &apos;podamInputChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.podamInputChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;booleanChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.booleanChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;byteChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.byteChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;charChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.charChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#3
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;shortChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.shortChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#4
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;intChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.intChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#5
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;longChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.longChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#6
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;floatChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.floatChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#7
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;doubleChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.doubleChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#8
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;stringChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.stringChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#9
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;enumChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.enumChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#10
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {service-activator} as a subscriber to the &apos;genericTypeChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.DirectChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.genericTypeChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started org.springframework.integration.config.ConsumerEndpointFactoryBean#11
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer logComponentSubscriptionEvent
+INFORMACIÓN: Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;errorChannel&apos; channel
+sep 29, 2017 10:55:38 PM org.springframework.integration.channel.PublishSubscribeChannel adjustCounterIfNecessary
+INFORMACIÓN: Channel &apos;org.springframework.context.support.ClassPathXmlApplicationContext@6f8d2738.errorChannel&apos; has 1 subscriber(s).
+sep 29, 2017 10:55:38 PM org.springframework.integration.endpoint.EventDrivenConsumer start
+INFORMACIÓN: started _org.springframework.integration.errorLogger
+sep 29, 2017 10:55:38 PM co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence delete
+INFORMACIÓN: Borrando trabajo con id=15
+</system-err>
+  </testcase>
+  <testcase classname="co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistenceTest" name="getTrabajoByNameTest" time="0.141"/>
+</testsuite>

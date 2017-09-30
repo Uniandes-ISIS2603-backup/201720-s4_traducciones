@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -18,9 +19,11 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     
     private boolean terminado;
     
+    @PodamExclude
     @OneToOne
     private CalificacionEntity calificacion;
     
+    @PodamExclude
     @OneToOne
     private PagoEntity pago;
 
