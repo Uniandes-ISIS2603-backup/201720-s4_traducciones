@@ -5,8 +5,11 @@
  */
 package co.edu.uniandes.csw.traducciones.ejb;
 
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
+import co.edu.uniandes.csw.traducciones.enums.Estado;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
 import co.edu.uniandes.csw.traducciones.persistence.PropuestaPersistence;
 import java.util.List;
 import java.util.logging.Logger;
@@ -21,9 +24,39 @@ import javax.ejb.Stateless;
 public class PropuestaLogic {
         
     private static final Logger LOGGER = Logger.getLogger(PropuestaLogic.class.getName());
+   private OfertaPersistence ofertaPers;
+    
     
     @Inject
     private PropuestaPersistence persistencePropuesta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    
+    public PropuestaEntity agregarOferta(Long id, Long idOferta) throws BusinessLogicException
+    {
+        
+        OfertaEntity ofertita = ofertaPers.find(id);
+        
+        if(ofertita.getCantidadActual() < 0)
+        {
+            throw new BusinessLogicException("La oferta ya no está disponible");
+        }
+        PropuestaEntity propuesta = getPropuesta(id);
+        
+        if(propuesta.getOferta() != null) 
+        {
+            throw new BusinessLogicException("La propuesta"+ id + "ya tiene una oferta agregada.");
+        }
+ 
+        if(propuesta.getEstado().equals(Estado.ACEPTADA))
+        {
+            throw new BusinessLogicException("No se puede agregar una oferta a esta propuesta");
+                    
+        }
+        
+        ofertita.setCantidadActual(ofertita.getCantidadActual() - 1);
+        ofertita.setPropuesta(propuesta);
+        
+        return propuesta;
+    }
     
     /**
      *
@@ -51,18 +84,18 @@ public class PropuestaLogic {
      *
      * @return una lista de Propuestas.
      */
-    public List<PropuestaEntity> getPropuestas() throws Exception {
+    public List<PropuestaEntity> getPropuestas() throws BusinessLogicException {
         
         LOGGER.info("Inicia proceso de consultar todas las Propuestas");
          // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-         
+       
         List<PropuestaEntity> listaPropuestas = persistencePropuesta.findAll();
         LOGGER.info("Termina proceso de consultar todas las Propuestas");
         
         if (listaPropuestas.size()== 0)
         {
                         
-             throw new Exception("No hay Propuestas existentes por mostrar.");
+             throw new BusinessLogicException("No hay Propuestas existentes por mostrar.");
            
         }
         
@@ -115,4 +148,19 @@ public class PropuestaLogic {
         persistencePropuesta.delete(id);      
        
     }  
+
+    public String deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
+        
+        
+        PropuestaEntity propuesta = persistencePropuesta.find(idPropuesta);
+        
+        if (!(propuesta.getOferta()!= null && (propuesta.getOferta().getId()== idOferta)))
+        {
+            throw new BusinessLogicException("La propuesta no tiene esta oferta.");
+        }
+       
+       propuesta.setOferta(null);
+       return "Se eliminó la oferta" ;
+        
+    }
 }
