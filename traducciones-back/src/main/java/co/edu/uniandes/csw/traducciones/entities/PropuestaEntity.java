@@ -30,15 +30,15 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
         this.oferta = oferta;
     }
         
-    private Estado estado;
+    private String estado;
     
     private Double costo;
 
-    public Estado getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

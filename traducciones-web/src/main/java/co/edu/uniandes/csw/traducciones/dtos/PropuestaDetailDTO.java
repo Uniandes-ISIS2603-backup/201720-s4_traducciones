@@ -12,9 +12,6 @@ import javax.persistence.Enumerated;
  */
    public class PropuestaDetailDTO extends PropuestaDTO {
      
-     private double costo;
-     @Enumerated(EnumType.STRING)
-     private Estado estado;
      
      private OfertaDTO oferta;
 
@@ -23,7 +20,6 @@ import javax.persistence.Enumerated;
       * Constructor por defecto
       */
      public PropuestaDetailDTO() {
-         
      }
      
       /**
@@ -31,11 +27,9 @@ import javax.persistence.Enumerated;
       * (Crea un nuevo DetailDTO con los valores que recibe en la entidad que viene de argumento.
       * @param propuesta: Es la entidad que se va a convertir a DTO 
       */
-     public PropuestaDetailDTO(PropuestaEntity propuesta) {
-      
-         this.costo = propuesta.getCosto();
-         this.estado = propuesta.getEstado();
-         this.oferta = new OfertaDTO(propuesta.getOferta());
+     public PropuestaDetailDTO(PropuestaEntity entity) {
+         super(entity);
+         this.oferta = new OfertaDTO(entity.getOferta());
          
      } 
      
@@ -46,32 +40,15 @@ import javax.persistence.Enumerated;
     public void setOferta(OfertaDTO oferta) {
         this.oferta = oferta;
     }
-     
-     public double getCosto() {
-         return costo;
-     }
- 
-     public void setCosto(double costo) {
-         this.costo = costo;
-     }
- 
-     public Estado getEstado() {
-        return estado;
-    }
-
-     public void setEstado(Estado estado) {
-        this.estado = estado;
-     }
-      
+    
      /**
       * Convertir DetailDTO a Entity
       * @return Un Entity con los valores del DTO 
       */
      public PropuestaEntity toEntity() {
          
-         PropuestaEntity entity = new PropuestaEntity();
-         entity.setCosto(this.costo);
-         entity.setEstado(this.estado);
+         PropuestaEntity entity = super.toEntity();
+         entity.setOferta(this.getOferta().toEntity());
          
          return entity;
      }

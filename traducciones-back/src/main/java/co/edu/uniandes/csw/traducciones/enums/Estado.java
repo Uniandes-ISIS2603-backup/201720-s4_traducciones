@@ -13,17 +13,17 @@ package co.edu.uniandes.csw.traducciones.enums;
 public enum Estado {
     
     /**
-     * La propuesta aún está en revisión.
+     * La propuesta aún está en revisión. Representado por el número 1.
      */
     EN_REVISION,
     
     /**
-     * La propuesta fue aceptada por el cliente.
+     * La propuesta fue aceptada por el cliente. Representado por el número 2.
      */
     ACEPTADA,
     
     /**
-     * La propuesta fue rechazada por el cliente, es decir, el cliente aceptó otra propuesta.
+     * La propuesta fue rechazada por el cliente, es decir, el cliente aceptó otra propuesta. Representado por el número 3.
      */
     RECHAZADA;
     

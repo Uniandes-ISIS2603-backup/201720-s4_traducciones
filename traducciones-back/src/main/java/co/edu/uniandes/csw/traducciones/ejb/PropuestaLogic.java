@@ -84,18 +84,18 @@ public class PropuestaLogic {
      *
      * @return una lista de Propuestas.
      */
-    public List<PropuestaEntity> getPropuestas() throws Exception {
+    public List<PropuestaEntity> getPropuestas() throws BusinessLogicException {
         
         LOGGER.info("Inicia proceso de consultar todas las Propuestas");
          // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-         
+       
         List<PropuestaEntity> listaPropuestas = persistencePropuesta.findAll();
         LOGGER.info("Termina proceso de consultar todas las Propuestas");
         
         if (listaPropuestas.size()== 0)
         {
                         
-             throw new Exception("No hay Propuestas existentes por mostrar.");
+             throw new BusinessLogicException("No hay Propuestas existentes por mostrar.");
            
         }
         

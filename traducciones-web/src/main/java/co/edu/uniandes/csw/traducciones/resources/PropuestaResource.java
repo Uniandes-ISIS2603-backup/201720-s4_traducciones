@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.resources;
 
+import co.edu.uniandes.csw.traducciones.dtos.PropuestaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
 import co.edu.uniandes.csw.traducciones.ejb.OfertaLogic;
 import co.edu.uniandes.csw.traducciones.ejb.PropuestaLogic;
@@ -30,7 +31,7 @@ import javax.ws.rs.Produces;
  *
  * @author av.perezb
  */
-@Path("propuestas/{id: \\d+}/ofertas")
+@Path("propuestas")
 @Produces("application/json")
 @Consumes("application/json")
 public class PropuestaResource {
@@ -79,14 +80,14 @@ public class PropuestaResource {
      * @throws BusinessLogicException
      */
     @POST
-    public PropuestaDetailDTO createPropuesta(PropuestaDetailDTO propuesta) throws BusinessLogicException {
+    public PropuestaDTO createPropuesta(PropuestaDTO propuesta) throws BusinessLogicException {
 
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         PropuestaEntity propuestaEntity = propuesta.toEntity();
         // Invoca la lógica para crear la nueva oferta
         PropuestaEntity nuevaOferta = logic.createPropuesta(propuestaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new PropuestaDetailDTO(nuevaOferta);
+        return new PropuestaDTO(nuevaOferta);
     }
 
     /**
@@ -108,9 +109,8 @@ public class PropuestaResource {
     
     @DELETE
     @Path("propuestas/{id: \\d+}")
-    public void deletePropuesta(@PathParam("id") Long idPropuesta, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
-        
-        
+    public void deleteOferta(@PathParam("id") Long idPropuesta, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
+                
         logic.deleteOferta(idPropuesta, idOferta);
         
     }

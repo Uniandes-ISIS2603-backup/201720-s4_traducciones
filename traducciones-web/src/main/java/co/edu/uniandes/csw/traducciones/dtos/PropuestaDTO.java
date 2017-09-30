@@ -15,6 +15,10 @@ public class PropuestaDTO {
     
      private Long id;
      private String nombre;
+     
+     private double costo;
+        
+     private String estado;
     
     /**
     * Constructor por defecto
@@ -38,6 +42,23 @@ public class PropuestaDTO {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+     
+     public double getCosto() {
+         return costo;
+     }
+ 
+     public void setCosto(double costo) {
+         this.costo = costo;
+     }
+ 
+     public String getEstado() {
+        return estado;
+    }
+
+     public void setEstado(String estado) {
+        this.estado = estado;
+     }
+      
     
        /**
       * Conviertir Entity a DTO
@@ -48,6 +69,8 @@ public class PropuestaDTO {
       
          this.id = propuesta.getId();
          this.nombre = propuesta.getName();
+         this.costo = propuesta.getCosto();
+         this.estado = propuesta.getEstado();
                 
      } 
      
@@ -58,7 +81,8 @@ public class PropuestaDTO {
      public PropuestaEntity toEntity() {
          
          PropuestaEntity entity = new PropuestaEntity();
-         
+         entity.setId(this.id);
+         entity.setName(this.nombre);
          return entity;
      }
      
