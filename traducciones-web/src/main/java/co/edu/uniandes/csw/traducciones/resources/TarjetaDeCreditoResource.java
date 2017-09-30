@@ -57,8 +57,22 @@ public class TarjetaDeCreditoResource {
     
     @POST
     public TarjetaDTO createTarjeta(TarjetaDTO dto) throws BusinessLogicException{
-        TarjetaDeCreditoEntity entity = dto.toEntity();
-        tarjetaLogic.createTarjeta(entity);
+        if(dto != null){
+            boolean noCumpleRegla = false;
+            for(TarjetaDTO tarjeta : getTarjetas()){
+                if(tarjeta.getCodigoSeguridad() == dto.getCodigoSeguridad() || tarjeta.getNumero() == dto.getNumero() || tarjeta.getFechaExpiracion() == dto.getFechaExpiracion()){
+                    noCumpleRegla = true;
+                    break;
+                }
+            }
+            if(noCumpleRegla){
+                throw new BusinessLogicException("La tarjeta ingresada tiene el mismo número, código seguridad o fecha de expiración de alguna otra");
+            }
+            else{
+                TarjetaDeCreditoEntity entity = dto.toEntity();
+                tarjetaLogic.createTarjeta(entity);
+            }
+        }
         return dto;
     }
     
@@ -66,16 +80,34 @@ public class TarjetaDeCreditoResource {
     @Path("{tarjetaId: \\d+}")
     public TarjetaDTO updateTarjeta(@PathParam("tarjetaId")Long tarjetaId, TarjetaDTO dto) throws BusinessLogicException{
         dto.setId(tarjetaId);
+        TarjetaDeCreditoEntity newEntity = dto.toEntity();
         TarjetaDeCreditoEntity entity = tarjetaLogic.getTarjeta(tarjetaId);
-        if(entity == null)
+        if(entity == null){
             throw new WebApplicationException("El recurso /tarjetas/" + tarjetaId + " no existe", 404);
+        }
+        if(newEntity.getApellidos() == null){
+            newEntity.setApellidos(entity.getApellidos());
+        }
+        if(newEntity.getNombres() == null){
+            newEntity.setNombres(entity.getNombres());
+        }
+        if(newEntity.getCompañia() == null){
+            newEntity.setCompañia(entity.getCompañia());
+        }
         
-        return new TarjetaDTO(tarjetaLogic.updateTarjeta(tarjetaId, entity));
+        newEntity.setCodigoSeguridad(entity.getCodigoSeguridad());
+        newEntity.setFechaExpiracion(entity.getFechaExpiracion());
+        newEntity.setNumero(entity.getNumero());
+        
+        return new TarjetaDTO(tarjetaLogic.updateTarjeta(tarjetaId, newEntity));
     }
     
     @DELETE
     @Path("{tarjetaId: \\d+}")
     public void deleteTarjeta(@PathParam("tarjetaId")Long tarjetaId){
+        if(getTarjeta(tarjetaId) == null){
+            throw new WebApplicationException("La tarjeta con el id " + tarjetaId + " no existe", 404);
+        }
         tarjetaLogic.deleteTarjeta(tarjetaId);
     }
 }

@@ -6,12 +6,8 @@
 package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.ClienteDetailDTO;
-import co.edu.uniandes.csw.traducciones.dtos.TarjetaDTO;
 import co.edu.uniandes.csw.traducciones.ejb.ClienteLogic;
-import co.edu.uniandes.csw.traducciones.dtos.PagoDTO;
 import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
-import co.edu.uniandes.csw.traducciones.entities.PagoEntity;
-import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -53,8 +49,7 @@ public class ClienteResource {
     
     @GET
     @Path("{clienteId: \\d+}")
-    public ClienteDetailDTO getCliente(@PathParam("clienteId")Long clienteId)
-    {
+    public ClienteDetailDTO getCliente(@PathParam("clienteId")Long clienteId){
         return new ClienteDetailDTO(clienteLogic.getCliente(clienteId));
     }
     
@@ -75,31 +70,40 @@ public class ClienteResource {
         if(entityNew.getName().equals("")){
             entityNew.setName(entityOld.getName());
         }
-        entityNew.setPagos(entityOld.getPagos());
-        entityNew.setTarjetas(entityOld.getTarjetas());
-        
+        if(entityOld.getPagos() != null){
+            entityNew.setPagos(entityOld.getPagos());
+        }
+        if(entityOld.getTarjetas() != null){
+            entityNew.setTarjetas(entityOld.getTarjetas());
+        }
+         
         return new ClienteDetailDTO(clienteLogic.updateCliente(entityNew));
     }
     
     @DELETE
     @Path("{clienteId: \\d+}")
     public void deleteCliente(@PathParam("clienteId")Long clienteId){
+        if(getCliente(clienteId) == null){
+            throw new WebApplicationException("El cliente con el id " + clienteId + " no existe");
+        }
         clienteLogic.deleteCliente(clienteId);
     }
     
     @Path("{clienteId: \\d+}/pagos")
     public Class<ClientePagosResource> getClientePagosResource(@PathParam("clienteId")Long clienteId){
         ClienteEntity entity = clienteLogic.getCliente(clienteId);
-        if(entity == null)
+        if(entity == null){
             throw new WebApplicationException("El cliente con el id " + clienteId + " no existe", 404);
+        }
         return ClientePagosResource.class;
     }
     
     @Path("{clienteId: \\d+}/tarjetas")
     public Class<ClienteTarjetasResource> getClienteTarjetasResource(@PathParam("clienteId")Long clienteId){
         ClienteEntity entity = clienteLogic.getCliente(clienteId);
-        if(entity == null)
+        if(entity == null){
             throw new WebApplicationException("El cliente con el id " + clienteId + " no existe", 404);
+        }
         return ClienteTarjetasResource.class;
     }
 }
