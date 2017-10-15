@@ -1,5 +1,6 @@
 delete from trayectoriaentity;
 delete from HojaDeVidaEntity;
+delete from EMPLEADOENTITY;
 insert into HojaDeVidaEntity (id, name, descripcion, perfilProfesional, formacionAcademica) values (50, 'Felic Prate', 'Librarian', 'Integrated oil Companies', 'Universidade de Aveiro');
 insert into HojaDeVidaEntity (id, name, descripcion, perfilProfesional, formacionAcademica) values (51, 'Karla Winspear', 'VP Quality Control', 'Other Specialty Stores', 'University of East Srarajevo');
 insert into HojaDeVidaEntity (id, name, descripcion, perfilProfesional, formacionAcademica) values (52, 'Jack Mumbray', 'Senior Financial Analyst', 'n/a', 'Instituto Politécnico do Cávado e do Ave');

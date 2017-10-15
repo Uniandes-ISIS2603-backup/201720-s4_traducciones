@@ -3,6 +3,8 @@ package co.edu.uniandes.csw.traducciones.ejb;
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.EmpleadoPersistence;
 import java.util.ArrayList;
@@ -31,6 +33,12 @@ public class EmpleadoLogic {
     
     @Inject
     private HojaDeVidaLogic hojaDeVidaLogic;
+    
+    @Inject
+    private OfertaLogic ofertaLogic;
+    
+    @Inject
+    private PropuestaLogic propuestaLogic;
     
     public EmpleadoEntity createEmpleado(EmpleadoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de empleado");
@@ -167,4 +175,113 @@ public class EmpleadoLogic {
         hojaDeVidaLogic.deleteHojaDeVidaId(getEmpleado(empleadoId).getHojadevida().get(0).getId());
         getEmpleado(empleadoId).setHojadevida(null);
     }
+    
+    //Metodos Oferta
+    
+    public OfertaEntity getOferta(Long empleadoId, Long ofertaId) throws BusinessLogicException {
+        List<OfertaEntity> ofertas = getEmpleado(empleadoId).getOfertas();
+        for(int i = 0; i<ofertas.size(); i++){
+            if(Objects.equals(ofertas.get(i).getId(), ofertaId)){
+                return ofertas.get(i);
+            }
+        }
+        throw new BusinessLogicException("El empleado no tiene una oferta con el id: " + ofertaId);
+    }
+    
+    public List<OfertaEntity> getOfertas(Long empleadoId) throws BusinessLogicException {
+        if(getEmpleado(empleadoId) == null){
+            throw new BusinessLogicException("El empleado no existe");
+        }
+        else{
+            return getEmpleado(empleadoId).getOfertas();
+        }
+    }
+    
+    public OfertaEntity addOferta(OfertaEntity oferta, Long empleadoId) throws BusinessLogicException {
+        oferta.setEmpleado(getEmpleado(empleadoId));
+        ofertaLogic.createOferta(oferta);
+        getEmpleado(empleadoId).getOfertas().add(oferta);
+        return oferta;
+    }
+    
+    public OfertaEntity updateOferta(Long ofertaId, Long empleadoId, OfertaEntity oferta) throws BusinessLogicException {
+        List<OfertaEntity> ofertas = getEmpleado(empleadoId).getOfertas();
+        for(int i = 0; i<ofertas.size(); i++){
+            if(Objects.equals(ofertas.get(i).getId(), ofertaId)){
+                ofertaLogic.updateOferta(oferta);
+                return ofertas.get(i);
+            }
+        }
+        throw new BusinessLogicException("El empleado no tiene una oferta con el id: " + ofertaId);
+    }
+    
+    public void removeOferta(Long ofertaId, Long empleadoId) throws BusinessLogicException {
+        List<OfertaEntity> ofertas = getEmpleado(empleadoId).getOfertas();
+        boolean seBorro = false;
+        for(int i = 0; i<ofertas.size() && !seBorro; i++){
+            if(Objects.equals(ofertas.get(i).getId(), ofertaId)){
+                ofertaLogic.deleteOferta(ofertaId);
+                getEmpleado(empleadoId).getOfertas().remove(i);
+                seBorro = true;
+            }
+        }
+        if(!seBorro){
+            throw new BusinessLogicException("Este empleado no tiene una oferta con el id:" + ofertaId);
+        }
+    }
+    
+    //Metodos Propuesta
+    
+    public PropuestaEntity getPropuesta(Long empleadoId, Long propuestaId) throws BusinessLogicException {
+        List<PropuestaEntity> propuestas = getEmpleado(empleadoId).getPropuestas();
+        for(int i = 0; i<propuestas.size(); i++){
+            if(Objects.equals(propuestas.get(i).getId(), propuestaId)){
+                return propuestas.get(i);
+            }
+        }
+        throw new BusinessLogicException("El empleado no tiene una Propuesta con el id: " + propuestaId);
+    }
+    
+    public List<PropuestaEntity> getPropuestas(Long empleadoId) throws BusinessLogicException {
+        if(getEmpleado(empleadoId) == null){
+            throw new BusinessLogicException("El empleado no existe");
+        }
+        else{
+            return getEmpleado(empleadoId).getPropuestas();
+        }
+    }
+    
+    public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long empleadoId) throws BusinessLogicException {
+        propuesta.setEmpleado(getEmpleado(empleadoId));
+        propuestaLogic.createPropuesta(propuesta);
+        getEmpleado(empleadoId).getPropuestas().add(propuesta);
+        return propuesta;
+    }
+    
+    public PropuestaEntity updatePropuesta(Long propuestaId, Long empleadoId, PropuestaEntity propuesta) throws BusinessLogicException {
+        List<PropuestaEntity> propuestas = getEmpleado(empleadoId).getPropuestas();
+        for(int i = 0; i<propuestas.size(); i++){
+            if(Objects.equals(propuestas.get(i).getId(), propuestaId)){
+                propuestaLogic.updatePropuesta(propuesta);
+                return propuestas.get(i);
+            }
+        }
+        throw new BusinessLogicException("El empleado no tiene una Propuesta con el id: " + propuestaId);
+    }
+    
+    public void removePropuesta(Long propuestaId, Long empleadoId) throws BusinessLogicException {
+        List<PropuestaEntity> propuestas = getEmpleado(empleadoId).getPropuestas();
+        boolean seBorro = false;
+        for(int i = 0; i<propuestas.size() && !seBorro; i++){
+            if(Objects.equals(propuestas.get(i).getId(), propuestaId)){
+                propuestaLogic.deletePropuesta(propuestaId);
+                getEmpleado(empleadoId).getPropuestas().remove(i);
+                seBorro = true;
+            }
+        }
+        if(!seBorro){
+            throw new BusinessLogicException("Este empleado no tiene una Propuesta con el id:" + propuestaId);
+        }
+    }
+    
 }

@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -23,6 +24,10 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToOne
     private PropuestaEntity propuesta;
+    
+    @PodamExclude
+    @ManyToOne 
+    private EmpleadoEntity empleado;
 
     public PropuestaEntity getPropuesta() {
         return propuesta;
@@ -78,5 +83,15 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     public void setFechaVigencia(Date fechaVigencia) {
         this.fechaVigencia = fechaVigencia;
     }
+
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
+    }
+    
+    
     
 }
