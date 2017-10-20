@@ -36,13 +36,14 @@ public class TarjetaDeCreditoLogic {
         TarjetaDeCreditoEntity tarjeta = persistence.find(id);
         if (tarjeta == null) {
             LOGGER.log(Level.SEVERE, "La tarjeta con el id {0} no existe", id);
+            return null;
         }
         LOGGER.log(Level.INFO, "Termina proceso de consultar tarjeta con id={0}", id);
         return tarjeta;
     }
 
     public TarjetaDeCreditoEntity createTarjeta(TarjetaDeCreditoEntity entity) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de creación de tarjeta");
+        LOGGER.info("Inicia proceso de creación de tarjeta");   
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de tarjeta");
         return entity;

@@ -8,6 +8,10 @@ package co.edu.uniandes.csw.traducciones.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
+=======
+import javax.persistence.OneToOne;
+>>>>>>> master
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -20,7 +24,15 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
    @PodamExclude
    @ManyToOne
     private OfertaEntity oferta;
+<<<<<<< HEAD
 
+=======
+    
+    @PodamExclude
+    @ManyToOne 
+    private EmpleadoEntity empleado;
+  
+>>>>>>> master
     public OfertaEntity getOferta() {
         return oferta;
     }
@@ -48,5 +60,15 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
     public void setCosto(Double costo) {
         this.costo = costo;
     }
+
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
+    }
+    
+    
 
 }

@@ -3,9 +3,13 @@ package co.edu.uniandes.csw.traducciones.resources;
 import co.edu.uniandes.csw.traducciones.dtos.AreaDeConocimientoDetailDTO;
 import co.edu.uniandes.csw.traducciones.dtos.EmpleadoDetailDTO;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
+import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
+import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
 import co.edu.uniandes.csw.traducciones.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.EmpleadoPersistence;
 import java.util.ArrayList;
@@ -85,7 +89,7 @@ public class EmpleadoResource {
         empleadoLogic.deleteEmpleado(entity);
     }
     
-    //SECCION DE AREAS DE CONOCIMIENTO
+    //Convertidores de Listas
     
     private List<AreaDeConocimientoDetailDTO> areasdeconocimientoListEntity2DTO(List<AreaDeConocimientoEntity> entityList) {
         List<AreaDeConocimientoDetailDTO> list = new ArrayList<AreaDeConocimientoDetailDTO>();
@@ -102,6 +106,39 @@ public class EmpleadoResource {
         }
         return list;
     }
+    
+    private List<PropuestaDetailDTO> propuestasListEntity2DTO(List<PropuestaEntity> entityList) {
+        List<PropuestaDetailDTO> list = new ArrayList<>();
+        for (PropuestaEntity entity : entityList) {
+            list.add(new PropuestaDetailDTO(entity));
+        }
+        return list;
+    }
+    
+    private List<PropuestaEntity> propuestasListDTO2Entity(List<PropuestaDetailDTO> dtos) {
+        List<PropuestaEntity> list = new ArrayList<>();
+        for (PropuestaDetailDTO dto : dtos) {
+            list.add(dto.toEntity());
+        }
+        return list;
+    }
+    
+    private List<OfertaDTO> ofertasListEntity2DTO(List<OfertaEntity> entityList) {
+        List<OfertaDTO> list = new ArrayList<>();
+        for (OfertaEntity entity : entityList) {
+            list.add(new OfertaDTO(entity));
+        }
+        return list;
+    }
+    
+    private List<OfertaEntity> ofertasListDTO2Entity(List<OfertaDTO> dtos) {
+        List<OfertaEntity> list = new ArrayList<>();
+        for (OfertaDTO dto : dtos) {
+            list.add(dto.toEntity());
+        }
+        return list;
+    }
+    
     
     //AREA DE CONOCIMIENTO
     
@@ -147,6 +184,83 @@ public class EmpleadoResource {
         }
         return list;
     }
+    
+    //PROPUESTA
+    
+    
+    @GET
+    @Path("{empleadoId: \\d+}/propuestas")
+    public List<PropuestaDetailDTO> listPropuestas(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException {
+        if(empleadoLogic.getPropuestas(empleadoId).isEmpty()){
+            throw new WebApplicationException("Este empleado no tiene propuestas asociadas", 404);
+        }
+        return propuestasListEntity2DTO(empleadoLogic.getPropuestas(empleadoId));
+    }
+    
+    @GET
+    @Path("{empleadoId: \\d+}/propuestas/{propuestasId: \\d+}")
+    public PropuestaDetailDTO getPropuesta(@PathParam("empleadoId") Long empleadoId, @PathParam("propuestasId") Long propuestasId) throws BusinessLogicException {
+        return new PropuestaDetailDTO(empleadoLogic.getPropuesta(empleadoId, propuestasId));
+    }
+    
+    @POST
+    @Path("{empleadoId: \\d+}/propuestas")
+    public PropuestaDetailDTO addPropuesta(@PathParam("empleadoId") Long empleadoId, PropuestaDetailDTO propuesta) throws BusinessLogicException {
+       return new PropuestaDetailDTO(empleadoLogic.addPropuesta(propuesta.toEntity(),empleadoId));
+        
+    }
+    
+    @PUT
+    @Path("{empleadoId: \\d+}/propuestas/{propuestasId: \\d+}")
+    public PropuestaDetailDTO replacePropuesta(@PathParam("empleadoId") Long empleadoId, @PathParam("propuestasId") Long propuestasId, PropuestaDetailDTO propuesta) throws BusinessLogicException {
+        return new PropuestaDetailDTO(empleadoLogic.updatePropuesta(propuestasId, empleadoId, propuesta.toEntity()));
+    }
+    
+    @DELETE
+    @Path("{empleadoId: \\d+}/propuestas/{propuestasId: \\d+}")
+    public void removePropuesta(@PathParam("empleadoId") Long empleadoId, @PathParam("propuestasId") Long propuestasId) throws BusinessLogicException {
+        empleadoLogic.removePropuesta(propuestasId, empleadoId);
+    }
+    
+    //OFERTA
+    
+    
+    @GET
+    @Path("{empleadoId: \\d+}/ofertas")
+    public List<OfertaDTO> listOfertas(@PathParam("empleadoId") Long empleadoId) throws BusinessLogicException {
+        if(empleadoLogic.getOfertas(empleadoId).isEmpty()){
+            throw new WebApplicationException("Este empleado no tiene ofertas asociadas", 404);
+        }
+        return ofertasListEntity2DTO(empleadoLogic.getOfertas(empleadoId));
+    }
+    
+    @GET
+    @Path("{empleadoId: \\d+}/ofertas/{ofertasId: \\d+}")
+    public OfertaDTO getOferta(@PathParam("empleadoId") Long empleadoId, @PathParam("ofertasId") Long ofertasId) throws BusinessLogicException {
+        return new OfertaDTO(empleadoLogic.getOferta(empleadoId, ofertasId));
+    }
+    
+    @POST
+    @Path("{empleadoId: \\d+}/ofertas")
+    public OfertaDTO addOferta(@PathParam("empleadoId") Long empleadoId, OfertaDTO oferta) throws BusinessLogicException {
+       return new OfertaDTO(empleadoLogic.addOferta(oferta.toEntity(),empleadoId));
+        
+    }
+    
+    @PUT
+    @Path("{empleadoId: \\d+}/ofertas/{ofertasId: \\d+}")
+    public OfertaDTO replaceOferta(@PathParam("empleadoId") Long empleadoId, @PathParam("ofertasId") Long ofertasId, OfertaDTO oferta) throws BusinessLogicException {
+        return new OfertaDTO(empleadoLogic.updateOferta(ofertasId, empleadoId, oferta.toEntity()));
+    }
+    
+    @DELETE
+    @Path("{empleadoId: \\d+}/ofertas/{ofertasId: \\d+}")
+    public void removeOferta(@PathParam("empleadoId") Long empleadoId, @PathParam("ofertasId") Long ofertasId) throws BusinessLogicException {
+        empleadoLogic.removeOferta(ofertasId,empleadoId);
+    }
+
+    
+
     
     //HOJA DE VIDA
     

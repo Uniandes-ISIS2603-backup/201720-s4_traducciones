@@ -27,6 +27,14 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HojaDeVidaEntity> hojadevida;
     
+    @PodamExclude
+    @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PropuestaEntity> propuestas;
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OfertaEntity> ofertas;
+    
     private Integer tipo;
     private Double calificacionPromedio;
     
@@ -61,5 +69,23 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     public void setHojadevida(List<HojaDeVidaEntity> hojadevida) {
         this.hojadevida = hojadevida;
     }
+
+    public List<PropuestaEntity> getPropuestas() {
+        return propuestas;
+    }
+
+    public void setPropuestas(List<PropuestaEntity> propuestas) {
+        this.propuestas = propuestas;
+    }
+
+    public List<OfertaEntity> getOfertas() {
+        return ofertas;
+    }
+
+    public void setOfertas(List<OfertaEntity> ofertas) {
+        this.ofertas = ofertas;
+    }
+    
+    
   
 }

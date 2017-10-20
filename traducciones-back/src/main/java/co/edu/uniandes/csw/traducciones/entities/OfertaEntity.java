@@ -11,7 +11,11 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+import javax.persistence.OneToOne;
+>>>>>>> master
 import javax.persistence.Temporal;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -27,8 +31,25 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     private PropuestaEntity propuesta;
     
     @PodamExclude
+<<<<<<< HEAD
     @OneToMany(mappedBy = "oferta")
     private List<PropuestaEntity> propuestas = new ArrayList<PropuestaEntity>();
+=======
+    @OneToOne
+    private PropuestaEntity propuesta;
+    
+    @PodamExclude
+    @ManyToOne 
+    private EmpleadoEntity empleado;
+
+    public PropuestaEntity getPropuesta() {
+        return propuesta;
+    }
+
+    public void setPropuesta(PropuestaEntity propuesta) {
+        this.propuesta = propuesta;
+    }
+>>>>>>> master
     
     private Integer cantidadInicial;
     private Integer cantidadActual;
@@ -76,6 +97,16 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     public void setFechaVigencia(Date fechaVigencia) {
         this.fechaVigencia = fechaVigencia;
     }
+
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
+    }
+    
+    
     
     public List<PropuestaEntity> getPropuestas() {
         return propuestas;

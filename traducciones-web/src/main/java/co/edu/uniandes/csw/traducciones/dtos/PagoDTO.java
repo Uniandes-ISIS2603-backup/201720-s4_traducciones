@@ -56,7 +56,9 @@ public class PagoDTO {
         this.id = entity.getId();
         this.idEmpleado = entity.getIdEmpleado();
         this.idSolicitud = entity.getIdSolicitud();
-        this.tarjeta = new TarjetaDTO(entity.getTarjeta());
+        if(entity.getTarjeta() != null){
+            this.tarjeta = new TarjetaDTO(entity.getTarjeta());
+        }
     }
     
     public PagoEntity toEntity(){
@@ -64,7 +66,9 @@ public class PagoDTO {
         entity.setId(this.id);
         entity.setIdEmpleado(this.idEmpleado);
         entity.setIdSolicitud(this.idSolicitud);
-        entity.setTarjeta(this.tarjeta.toEntity());
+        if(this.tarjeta != null){
+            entity.setTarjeta(this.tarjeta.toEntity());
+        }
         return entity;
     }
 }

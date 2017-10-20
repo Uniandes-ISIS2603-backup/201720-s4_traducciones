@@ -86,9 +86,11 @@ public class PagoLogic {
         PagoEntity pago = persistence.find(id);
         if(pago == null){
             LOGGER.log(Level.SEVERE, "El pago con el id{0} no existe", id);
-            return null;
-        }    
-        pago.setTarjeta(tarjeta);
-        return tarjeta;
+        }
+        else if(tarjeta != null){
+            pago.setTarjeta(tarjeta);
+            return tarjeta;
+        }
+        return null;
     }
 }

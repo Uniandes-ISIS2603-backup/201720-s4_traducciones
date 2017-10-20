@@ -48,13 +48,17 @@ public class ClienteDetailDTO extends ClienteDTO {
         super(entity);
         if(entity!=null){
             pagos = new ArrayList<>();
-            for(PagoEntity pago : entity.getPagos()){
+            if(entity.getPagos() != null){
+                for(PagoEntity pago : entity.getPagos()){
                 pagos.add(new PagoDTO(pago));
-            }
+                }
+            }     
             tarjetas = new ArrayList<>();
-            for(TarjetaDeCreditoEntity tarjeta : entity.getTarjetas()){
+            if(entity.getTarjetas() != null){
+                for(TarjetaDeCreditoEntity tarjeta : entity.getTarjetas()){
                 tarjetas.add(new TarjetaDTO(tarjeta));
-            }
+                }
+            }  
         }
     }
     
@@ -62,14 +66,14 @@ public class ClienteDetailDTO extends ClienteDTO {
     public ClienteEntity toEntity(){
         ClienteEntity entity = super.toEntity();
         List<PagoEntity> pagosEnt = new ArrayList<>();
-        if(!pagos.isEmpty()){
+        if(pagos != null){
             for(PagoDTO dto : pagos){
                 pagosEnt.add(dto.toEntity());
             }
             entity.setPagos(pagosEnt);
         }
         List<TarjetaDeCreditoEntity> tarjetasEnt = new ArrayList<>();
-        if(!tarjetas.isEmpty()){
+        if(tarjetas != null){
             for(TarjetaDTO dto : tarjetas){
                 tarjetasEnt.add(dto.toEntity());
             }

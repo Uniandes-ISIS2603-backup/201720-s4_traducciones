@@ -16,6 +16,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -37,13 +38,13 @@ public class ClienteTarjetasResource {
     }
     
     @GET
-    public List<TarjetaDTO> getPagos(@PathParam("clienteId")Long clienteId){
+    public List<TarjetaDTO> getTarjetas(@PathParam("clienteId")Long clienteId){
         return tarjetasEntity2DTO(clienteLogic.listTarjetas(clienteId));
     }
     
     @GET
     @Path("{tarjetaId: \\d+}")
-    public TarjetaDTO getPago(@PathParam("clienteId")Long clienteId, @PathParam("tarjetaId")Long tarjetaId){
+    public TarjetaDTO getTarjeta(@PathParam("clienteId")Long clienteId, @PathParam("tarjetaId")Long tarjetaId){
         return new TarjetaDTO(clienteLogic.getTarjeta(clienteId, tarjetaId));
     }
     
@@ -56,7 +57,9 @@ public class ClienteTarjetasResource {
     @DELETE
     @Path("{tarjetaId: \\d+}")
     public void deleteTarjeta(@PathParam("clienteId")Long clienteId, @PathParam("tarjetaId")Long tarjetaId){
+        if(getTarjeta(clienteId, tarjetaId) == null){
+            throw new WebApplicationException("La tarjeta con el id " + tarjetaId + " no existe", 404);
+        }
         clienteLogic.removeTarjeta(clienteId, tarjetaId);
     }
-    
 }
