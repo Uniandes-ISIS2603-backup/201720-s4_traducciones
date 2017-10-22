@@ -23,8 +23,6 @@
  import javax.ws.rs.Path;
  import javax.ws.rs.PathParam;
  import javax.ws.rs.Produces;
- import javax.ws.rs.QueryParam;
- 
  /**
   * Clase que implementa el recurso REST correspondiente a "ofertas"
   * @author av.perezb

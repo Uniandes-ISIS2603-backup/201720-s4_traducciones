@@ -149,17 +149,17 @@ public class PropuestaLogic {
        
     }  
 
-    public String deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
+    public String deleteOferta(Long idPropuesta, PropuestaEntity idOferta) throws BusinessLogicException {
         
         
-        PropuestaEntity propuesta = persistencePropuesta.find(idPropuesta);
+     //   PropuestaEntity propuesta = persistencePropuesta.find(idPropuesta);
         
-        if (!(propuesta.getOferta()!= null && (propuesta.getOferta().getId()== idOferta)))
-        {
-            throw new BusinessLogicException("La propuesta no tiene esta oferta.");
-        }
+      //  if (!(propuesta.getOferta()!= null && (propuesta.getOferta().getId()== idOferta)))
+      //  {
+       //     throw new BusinessLogicException("La propuesta no tiene esta oferta.");
+       // }
        
-       propuesta.setOferta(null);
+     //  propuesta.setOferta(ofertaPers.find(idPropuesta));
        return "Se eliminó la oferta" ;
         
     }

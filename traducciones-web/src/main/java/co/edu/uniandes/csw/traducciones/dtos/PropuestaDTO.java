@@ -14,6 +14,7 @@ import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 public class PropuestaDTO {
     
      private Long id;
+     
      private String nombre;
      
      private double costo;
