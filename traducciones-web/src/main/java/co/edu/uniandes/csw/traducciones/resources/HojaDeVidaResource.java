@@ -74,7 +74,6 @@ public class HojaDeVidaResource {
     /**
      * GET para una hoja de vida
      * http://localhost:8080/traducciones-web/hojadevida/1
-     *
      * @param id corresponde al id de la hoja de vida buscada.
      * @return La hoja de vida encontrada.
      * @throws BusinessLogicException

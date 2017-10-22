@@ -19,7 +19,7 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
 
    @PodamExclude
    @ManyToOne
-    private OfertaEntity oferta;
+   private OfertaEntity oferta;
 
     
     @PodamExclude
