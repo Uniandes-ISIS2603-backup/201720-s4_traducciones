@@ -27,7 +27,6 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     private PropuestaEntity propuesta;
     
     @PodamExclude
-
     @OneToMany(mappedBy = "oferta")
     private List<PropuestaEntity> propuestas = new ArrayList<PropuestaEntity>();
     

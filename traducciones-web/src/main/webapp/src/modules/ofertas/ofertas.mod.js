@@ -9,9 +9,8 @@ var mod = ng.module("ofertasModule", []);
     mod.constant("ofertasContext", "api/ofertas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/ofertas/';
-            $urlRouterProvider.otherwise("/ofertasList");
 
-            $stateProvider.state('ofertasList', {
+            $stateProvider.state('listaOfertas', {
                 url: '/ofertas',
                 views: {
                     'mainView': {

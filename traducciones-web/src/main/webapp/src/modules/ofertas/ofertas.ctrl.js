@@ -5,17 +5,18 @@
  */
 (function (ng) {
 
-    var mod = ng.module("ofertaModule");
+    var mod = ng.module("ofertasModule");
 
     mod.controller("ofertasCtrl", ['$scope', '$state', '$stateParams', '$http', 'ofertasContext', function ($scope, $state, $stateParams, $http, context) {
 
             // inicialmente el listado de ofertas está vacio
-            $scope.records = [];
+            $scope.ofertasRecords = [];
             // carga las ofertas
-            $http.get(context + '/' + id ).then(function (response) {
-                $scope.records = response.data;
+            $http.get(context).then(function (response)
+            {
+                $scope.ofertasRecords = response.data;
             });
-
-
-        }]);
-})(window.angular);
+        }
+    ]);
+}
+)(window.angular);

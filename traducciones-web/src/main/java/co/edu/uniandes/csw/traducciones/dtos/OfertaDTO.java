@@ -2,6 +2,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
 
 
  
+import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
  import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
  import java.util.Date;
  
@@ -18,6 +19,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
+     private EmpleadoEntity empleado;
  
       /**
       * Constructor por defecto
@@ -157,6 +159,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
+         entity.setEmpleado(this.empleado);
          return entity;
      }
      

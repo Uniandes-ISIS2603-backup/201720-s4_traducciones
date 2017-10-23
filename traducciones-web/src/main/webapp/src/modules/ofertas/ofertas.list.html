@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <table class="table table-striped" class="col-md-4">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="record in records">
-                <td id="{{$index}}-name">{{record.name}}</td>
-                <td>
-                    <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="ofertaEdit({ofertaId: record.id})"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Eliminar</button>
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>    
+                    <th>Descripción</th>  
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat=" oferta in ofertasRecords">
+                    <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
+                    <td id="{{$index}}-descripcion">{{oferta.descripcion}}</td>                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
