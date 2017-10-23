@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>    
+                    <th>Tipo</th>  
+                    <th>Calificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="empleado in empleadosRecords">
+                    <td id="{{$index}}-name"><a ui-sref="empleadoDetail({empleadoId: empleado.name})">{{empleado.name}}</a></td>
+                    <td id="{{$index}}-tipo"><a ui-sref="empleadoDetail({empleadoId: empleado.tipo})">{{empleado.tipo}}</a></td>
+                    <td id="{{$index}}-calificacionPromedio"><a ui-sref="empleadoDetail({empleadoId: empleado.calificacionPromedio})">{{empleado.calificacionPromedio}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

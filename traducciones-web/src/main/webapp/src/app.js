@@ -10,6 +10,7 @@
        
         // Internal modules dependencies       
         'ofertasModule',
+        'empleadoModule'
         
 
     ]);
