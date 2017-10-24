@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>    
+                    <th>Descripcion</th>  
+                    <th>Empleado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="areadeconocimiento in areasRecords">
+                    <td id="{{$index}}-name"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.name})">{{areadeconocimiento.name}}</a></td>
+                    <td id="{{$index}}-descripcion"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.descripcion})">{{areadeconocimiento.descripcion}}</a></td>
+                    <td id="{{$index}}-nombreEmpleado"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.nombreEmpleado})">{{areadeconocimiento.nombreEmpleado}}</a></td>
+                    <td id="{{$index}}-actions">
+                                    <a class="btn btn-danger btn-sm" ui-sref="areadeconocimientoDelete({areadeconocimientoId: areadeconocimiento.id})">Delete<span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

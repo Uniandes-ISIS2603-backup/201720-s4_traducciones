@@ -6,6 +6,7 @@
                     <th>Nombre</th>    
                     <th>Tipo</th>  
                     <th>Calificacion</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -13,6 +14,9 @@
                     <td id="{{$index}}-name"><a ui-sref="empleadoDetail({empleadoId: empleado.name})">{{empleado.name}}</a></td>
                     <td id="{{$index}}-tipo"><a ui-sref="empleadoDetail({empleadoId: empleado.tipo})">{{empleado.tipo}}</a></td>
                     <td id="{{$index}}-calificacionPromedio"><a ui-sref="empleadoDetail({empleadoId: empleado.calificacionPromedio})">{{empleado.calificacionPromedio}}</a></td>
+                    <td id="{{$index}}-actions">
+                                    <a class="btn btn-danger btn-sm" ui-sref="empleadoDelete({empleadoId: empleado.id})">Delete<span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
                 </tr>
             </tbody>
         </table>
