@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.traducciones.ejb;
 
 import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
 import co.edu.uniandes.csw.traducciones.entities.PagoEntity;
+import co.edu.uniandes.csw.traducciones.entities.SolicitudEntity;
 import co.edu.uniandes.csw.traducciones.entities.TarjetaDeCreditoEntity;
 import co.edu.uniandes.csw.traducciones.persistence.ClientePersistence;
 import java.util.ArrayList;
@@ -28,6 +29,9 @@ public class ClienteLogic {
 
     @Inject
     private PagoLogic pagoLogic;
+    
+    @Inject
+    private SolicitudLogic solicitudLogic;
     
     @Inject
     private TarjetaDeCreditoLogic tarjetaLogic;
@@ -270,5 +274,86 @@ public class ClienteLogic {
             }            
         }
         LOGGER.log(Level.INFO, "Termina el proceso de borrar una tarjeta del cliente con id = {0}", clienteId);
+    }
+    
+    /**
+     * Obtiene una colección de instancias de SolicitudEntity asociadas a una
+     * instancia de Cliente
+     *
+     * @param clienteId Identificador de la instancia de Cliente
+     * @return Colección de instancias de SolicitudEntity asociadas a la instancia de
+     * Cliente
+     * @generated
+     */
+    public List<SolicitudEntity> listSolicitudes(Long clienteId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las solicitudes del cliente con id = {0}", clienteId);
+        return getCliente(clienteId).getSolicitudes();
+    }
+
+    /**
+     * Obtiene una instancia de SolicitudEntity asociada a una instancia de Cliente
+     *
+     * @param clienteId Identificador de la instancia de Cliente
+     * @param solicitudId Identificador de la instancia de Solicitud
+     * @return
+     * @generated
+     */
+    public SolicitudEntity getSolicitud(Long clienteId, Long solicitudId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar una solicitud con id = {0}", solicitudId);
+        List<SolicitudEntity> list = getCliente(clienteId).getSolicitudes();
+        SolicitudEntity solicitudEntity = new SolicitudEntity();
+        solicitudEntity.setId(solicitudId);
+        int index = list.indexOf(solicitudEntity);
+        if (index >= 0) {
+            return list.get(index);
+        }
+        return null;
+    }
+
+    /**
+     * Asocia una Solicitud existente a un Cliente
+     *
+     * @param clienteId Identificador de la instancia de Cliente
+     * @param solicitudId Identificador de la instancia de Solicitud
+     * @return Instancia de SolicitudEntity que fue asociada a Cliente
+     * @generated
+     */
+    public SolicitudEntity addSolicitud(Long clienteId, Long solicitudId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de agregar una solicitud al cliente con id = {0}", clienteId);
+        SolicitudEntity solicitud = solicitudLogic.getSolicitudId(solicitudId);
+        if(solicitud == null)
+            LOGGER.log(Level.SEVERE, "La solicitud con el id {0} no existe", solicitudId);
+        
+        ClienteEntity cliente = getCliente(clienteId);
+        if(cliente == null)
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+        
+        List<SolicitudEntity> solicitudesCliente = cliente.getSolicitudes();
+        if(solicitudesCliente == null){
+            solicitudesCliente = new ArrayList<>();
+        }
+        solicitudesCliente.add(solicitud);
+        LOGGER.log(Level.INFO, "Termina proceso de agregar una solicitud al cliente con id = {0}", clienteId);
+        return solicitud;
+    }
+
+    /**
+     * Desasocia una Solicitud existente de un Cliente
+     *
+     * @param clienteId Identificador de la instancia de Cliente
+     * @param solicitudId Identificador de la instancia de Solicitud
+     * @generated
+     */
+    public void removeSolicitud(Long clienteId, Long solicitudId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una solicitud del cliente con id = {0}", clienteId);
+        if(getCliente(clienteId)==null){
+            LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
+        }
+        List<SolicitudEntity> solicitudes = getCliente(clienteId).getSolicitudes();
+        if(solicitudes == null){
+            return;
+        }
+        solicitudes.remove(solicitudLogic.getSolicitudId(solicitudId));
+        LOGGER.log(Level.INFO, "Termina el proceso de borrar una solicitud del cliente con id = {0}", clienteId);
     }
 }

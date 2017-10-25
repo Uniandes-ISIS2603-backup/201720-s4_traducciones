@@ -1,0 +1,223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PagoPostman",
+		"_postman_id": "335e5788-05fc-e005-4643-e2a353e3be5d",
+		"description": "Pruebas del recurso Pago.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene todos los pagos. El código de respuesta debe ser 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/1013",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene un pago en específico. El código de respuesta debe ser 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un pago que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/5",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene un pago que no existe en la lista de pagos. El código de respuesta debe ser 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un Pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1135,\n\t\"idSolicitud\": 155,\n\t\"idEmpleado\": 174\n}"
+				},
+				"description": "Crea un nuevo pago. El código de respuesta debe ser 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un pago existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1125,\n\t\"idSolicitud\": 135,\n\t\"idEmpleado\": 134\n}"
+				},
+				"description": "Intenta crear un pago que ya existe. El código de respuesta debe ser 412."
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/36",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Intenta eliminar un pago que no existe dentro de la base de datos. El código de respuesta debe ser 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/1012",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idSolicitud\": 123,\n\t\"idEmpleado\": 136\n}"
+				},
+				"description": "Actualiza un pago y también verifica que el id de la solicitud no sea modificable validando una regla de negocio. El código de respuesta debe ser 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/pagos/9",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idSolicitud\": 123,\n\t\"idEmpleado\": 456\n}"
+				},
+				"description": "Intenta actualizar un pago que no existe en la base de datos. El código de respuesta debe ser 404."
+			},
+			"response": []
+		}
+	]
+}
