@@ -1,0 +1,25 @@
+<p>prueba2</p>
+<div class="col-md-4">
+    <div class="container-fluid">   
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Terminado</th>
+                    <th>Prueba1</th>
+                    <th>Prueba2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="trabajo in trabajosRecords">
+                    <td id="{{$index}}-name">{{trabajo.id}}</td>
+                    <td id="{{$index}}-name"><a ui-sref="trabajosDetail({trabajoId: trabajo.id})">{{trabajo.name}}</a></td>
+                    <td id="{{$index}}-name"><a ui-sref="trabajosDetail({trabajoId: trabajo.id})">{{trabajo.terminado}}</td>
+                    <td id="{{$index}}-name">{{prueba1}}</td>
+                    <td id="{{$index}}-name">{{prueba2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
