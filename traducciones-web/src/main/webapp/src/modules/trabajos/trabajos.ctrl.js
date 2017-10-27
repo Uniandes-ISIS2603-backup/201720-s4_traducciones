@@ -16,7 +16,7 @@
                 $scope.trabajosRecords = response.data;
                 $scope.idActual="nnnnnnnnnnnn";
                 $scope.prueba1 = response.data[1];
-                    $scope.prueba2=response.data.calificacion.calificacion;
+                    
             });
 
             

@@ -17,7 +17,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CalificacionEntity extends BaseEntity{
 
-    private double calificacion;
+    private double valor;
     private String comentario;
     
     @PodamExclude
@@ -25,17 +25,17 @@ public class CalificacionEntity extends BaseEntity{
     private TrabajoEntity trabajo;
 
     /**
-     * @return the calificacion
+     * @return the valor
      */
-    public double getCalificacion() {
-        return calificacion;
+    public double getValor() {
+        return valor;
     }
 
     /**
-     * @param calificacion the calificacion to set
+     * @param valor the valor to set
      */
-    public void setCalificacion(double calificacion) {
-        this.calificacion = calificacion;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     /**
