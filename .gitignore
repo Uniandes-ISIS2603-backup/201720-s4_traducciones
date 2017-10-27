@@ -3,3 +3,11 @@
 /traducciones/traducciones-back/nbproject/
 /traducciones/traducciones-back/target/
 traducciones/traducciones-back/derby.log
+traducciones-back/target/traducciones-logic-0.1.0.jar
+traducciones-back/target/test-classes/co/edu/uniandes/csw/traducciones/persistence/OfertaPersistenceTest.class
+traducciones-back/target/maven-archiver/pom.properties
+traducciones-back/target/classes/co/edu/uniandes/csw/traducciones/persistence/TrabajoPersistence.class
+traducciones-back/target/classes/co/edu/uniandes/csw/traducciones/entities/TrabajoEntity.class
+traducciones-back/target/classes/co/edu/uniandes/csw/traducciones/entities/CalificacionEntity.class
+traducciones-back/target/classes/co/edu/uniandes/csw/traducciones/ejb/OfertaLogic.class
+traducciones-back/target/classes/co/edu/uniandes/csw/traducciones/ejb/CalificacionLogic.class
