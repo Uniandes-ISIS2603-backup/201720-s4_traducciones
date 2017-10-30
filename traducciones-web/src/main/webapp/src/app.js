@@ -4,7 +4,8 @@
         'ui.router',
        'ui.bootstrap',
         // Internal modules dependencies       
-        'trabajoModule'
+        'trabajoModule',
+        'hojaModule'
         
 
     ]);

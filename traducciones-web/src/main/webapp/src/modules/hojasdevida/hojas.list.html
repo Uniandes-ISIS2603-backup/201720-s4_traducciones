@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de hojas</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="hojaCreate"><span class="glyphicon glyphicon-plus-sign"></span>Añadir Informacion de Empleado</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Formacion academica</th>
+                                <th>Perfil Profesional</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="hoja in hojasRecords">
+                                <td id="{{$index}}-name">{{hoja.id}}</td>
+                                <td id="{{$index}}-name"><a ui-sref="hojasDetail({hojaId: hoja.id})">{{hoja.name}}</a></td>
+                                <td id="{{$index}}-name" ><textarea rows="4" cols="50">{{hoja.descripcion}}</textarea></td>
+                                <td id="{{$index}}-name">{{hoja.formacionAcademica}}</td>
+                                <td id="{{$index}}-name">{{hoja.perfilProfesional}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: hoja.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: hoja.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<p>{{idActual}}</p>

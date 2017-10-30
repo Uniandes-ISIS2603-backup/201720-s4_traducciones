@@ -35,6 +35,39 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('trabajoCreate', {
+                url: '/create',
+                parent: 'trabajos',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/trabajos.new.html',
+                        controller: 'trabajosNewCtrl'
+                    }
+                }
+            }).state('trabajoUpdate', {
+                url: '/update/{trabajoId:int}',
+                parent: 'trabajos',
+                param: {
+                    trabajoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/trabajos.new.html',
+                        controller: 'trabajosUpdateCtrl'
+                    }
+                }
+            }).state('trabajoDelete', {
+                url: '/delete/{trabajoId:int}',
+                parent: 'trabajos',
+                param: {
+                    trabajoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/trabajos.delete.html',
+                        controller: 'trabajosDeleteCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
