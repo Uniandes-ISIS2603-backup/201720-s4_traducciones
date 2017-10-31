@@ -1,7 +1,10 @@
-this.terminadoBool = function (bool) {
+this.terminadoBool = function (bool,id) {
                         if (bool) {
-                            return "Terminado";
+                            document.getElementById(id).innerHTML="Terminado";
                         } else {
-                            return "No Terminado";
+                            document.getElementById(id).innerHTML= "No Terminado";
                         }
+                        
                     };
+                    
+                    

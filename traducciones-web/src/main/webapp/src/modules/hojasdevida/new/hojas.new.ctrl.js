@@ -8,7 +8,9 @@
                 $http.post(hojasContext, {
                     name: $scope.hojaName,
                     id:$scope.hojaId,
-                    terminado: $scope.hojaTerminado
+                    descripcion: $scope.hojaDescripcion,
+                    perfilProfesional: $scope.hojaPerfilProfesional,
+                    formacionAcademica: $scope.hojaFormacionAcademica
                 }).then(function (response) {
                     //Author created successfully
                     $state.go('hojasList', {hojaId: response.data.id}, {reload: true});

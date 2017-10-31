@@ -24,7 +24,7 @@
                             <tr ng-repeat="hoja in hojasRecords">
                                 <td id="{{$index}}-name">{{hoja.id}}</td>
                                 <td id="{{$index}}-name"><a ui-sref="hojasDetail({hojaId: hoja.id})">{{hoja.name}}</a></td>
-                                <td id="{{$index}}-name" ><textarea rows="4" cols="50">{{hoja.descripcion}}</textarea></td>
+                                <td id="{{$index}}-name" >{{hoja.descripcion}}</td>
                                 <td id="{{$index}}-name">{{hoja.formacionAcademica}}</td>
                                 <td id="{{$index}}-name">{{hoja.perfilProfesional}}</td>
                                 <td id="{{$index}}-actions">

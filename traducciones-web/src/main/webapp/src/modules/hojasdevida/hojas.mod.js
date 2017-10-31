@@ -1,6 +1,6 @@
 (function (ng) {
     var mod = ng.module("hojaModule", ['ui.router']);
-    mod.constant("hojasContext", "api/hojas");
+    mod.constant("hojasContext", "api/hojadevida");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/hojasdevida/';
             $urlRouterProvider.otherwise("/hojasList");

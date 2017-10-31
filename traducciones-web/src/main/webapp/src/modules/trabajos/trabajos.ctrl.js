@@ -7,18 +7,17 @@
                 $http.get(trabajoContext + '/' + $state.params.trabajoId).then(function (response) {
                     $scope.currentTrabajo = response.data;
                     var bool=response.data.terminado;
-                    $scope.terminadoBool = function () {
+                });
+            }
+            $http.get(trabajoContext).then(function (response) {
+                $scope.trabajosRecords = response.data;
+                $scope.terminadoBool = function (bool) {
                         if (bool) {
                             return "Terminado";
                         } else {
                             return "No Terminado";
                         }
                     };
-                });
-            }
-            $http.get(trabajoContext).then(function (response) {
-                $scope.trabajosRecords = response.data;
-                
             });
         }
     ]);

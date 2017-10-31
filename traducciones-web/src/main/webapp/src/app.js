@@ -5,7 +5,10 @@
        'ui.bootstrap',
         // Internal modules dependencies       
         'trabajoModule',
-        'hojaModule'
+        'hojaModule',
+        'ofertasModule',
+        'empleadoModule',
+        'areadeconocimientoModule'
         
 
     ]);
