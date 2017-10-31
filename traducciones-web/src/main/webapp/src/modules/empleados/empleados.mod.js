@@ -3,7 +3,7 @@
     mod.constant("empleadosContext", "api/empleados");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/empleados/';
-            var basePathAreaDeConocimiento = 'src/modules/areasdeconocimiento/';
+            var basePathArea = 'src/modules/areasdeconocimiento/';
             $urlRouterProvider.otherwise("/empleadosList");
             
             $stateProvider.state('empleados', {
@@ -32,7 +32,7 @@
                 },
                 views: {
                     'listView': {
-                        templateUrl: basePathAreaDeConocimiento + 'areasdeconocimiento.detailedList.html',
+                        templateUrl: basePathArea + 'areasdeconocimiento.detailedList.html',
                         controller: 'areasDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
@@ -46,8 +46,7 @@
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/update/empleados.update.html',
-                        controller: 'empleadoUpdateCtrl',
-                        
+                        controller: 'empleadoUpdateCtrl'   
                     }
                 }
             }).state('empleadoDelete', {
@@ -71,6 +70,42 @@
                         controller: 'empleadoCreateCtrl'
                     }
                 }
+            }).state('areadeconocimientoDelete', {
+                url: '/areadelete/{areadeconocimientoId:int}',
+                parent: 'empleados',
+                param: {
+                    areadeconocimientoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathArea + '/delete/areasdeconocimiento.delete.html',
+                        controller: 'areadeconocimientoDeleteCtrl'
+                    }
+                } 
+            }).state('areadeconocimientoCreate', {
+                url: '/areacreate/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathArea + '/create/areasdeconocimiento.create.html',
+                        controller: 'areadeconocimientoCreateCtrl'
+                    }
+                } 
+            }).state('areadeconocimientoUpdate', {
+                url: '/areaupdate/{areadeconocimientoId:int}',
+                parent: 'empleados',
+                param: {
+                    areadeconocimientoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathArea + '/update/areasdeconocimiento.update.html',
+                        controller: 'areadeconocimientoUpdateCtrl'
+                    }
+                } 
             });
         }]);
 })(window.angular);

@@ -7,6 +7,7 @@
             //obtener nombre del empleado
             $http.get(empleadosContext + '/' + idEmpleado).then(function(response){
                 $scope.nombreEmpleado = response.data.name;
+                $scope.idEmpleado = response.data.id;
             });
             
             $http.get(empleadosContext + '/' + idEmpleado + "/areasdeconocimiento").then(function (response) {

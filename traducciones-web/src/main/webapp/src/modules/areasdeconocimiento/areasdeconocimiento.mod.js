@@ -23,18 +23,7 @@
                         templateUrl: basePath + 'areasdeconocimiento.list.html'
                     }
                 }
-            }).state('areadeconocimientoDelete', {
-                url: '/delete/{areadeconocimientoId:int}',
-                parent: 'areasdeconocimiento',
-                param: {
-                    areadeconocimientoId: null
-                },
-                views: {
-                    'detailView': {
-                        templateUrl: basePath + '/delete/areasdeconocimiento.delete.html',
-                        controller: 'areadeconocimientoDeleteCtrl'
-                    }
-                }  
+             
             });
         }]);
 })(window.angular);

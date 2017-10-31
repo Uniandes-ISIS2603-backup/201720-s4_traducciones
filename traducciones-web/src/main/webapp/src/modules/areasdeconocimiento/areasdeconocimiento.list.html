@@ -11,9 +11,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="areadeconocimiento in areasRecords">
-                    <td id="{{$index}}-name"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.name})">{{areadeconocimiento.name}}</a></td>
-                    <td id="{{$index}}-descripcion"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.descripcion})">{{areadeconocimiento.descripcion}}</a></td>
-                    <td id="{{$index}}-nombreEmpleado"><a ui-sref="areadeconocimientoDetail({areadeconocimientoId: areadeconocimiento.nombreEmpleado})">{{areadeconocimiento.nombreEmpleado}}</a></td>
+                    <td id="{{$index}}-name">{{areadeconocimiento.name}}</td>
+                    <td id="{{$index}}-descripcion">{{areadeconocimiento.descripcion}}</td>
+                    <td id="{{$index}}-nombreEmpleado">{{areadeconocimiento.nombreEmpleado}}</td>
                 </tr>
             </tbody>
         </table>
