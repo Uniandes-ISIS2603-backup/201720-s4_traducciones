@@ -24,8 +24,34 @@
                         templateUrl: basePath + 'empleados.list.html'
                     }
                 }
+            }).state('empleadoAreas', {
+                url: '/empleadoareas/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathAreaDeConocimiento + 'areasdeconocimiento.detailedList.html',
+                        controller: 'areasDetailedCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('empleadoUpdate', {
+                url: '/empleadoupdate/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/update/empleados.update.html',
+                        controller: 'empleadoUpdateCtrl',
+                        
+                    }
+                }
             }).state('empleadoDelete', {
-                url: '/delete/{empleadoId:int}',
+                url: '/empleadodelete/{empleadoId:int}',
                 parent: 'empleados',
                 param: {
                     empleadoId: null
@@ -35,7 +61,16 @@
                         templateUrl: basePath + '/delete/empleados.delete.html',
                         controller: 'empleadoDeleteCtrl'
                     }
-                }  
+                } 
+            }).state('empleadoCreate', {
+                url: '/empleadocreate',
+                parent: 'empleados',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/create/empleados.create.html',
+                        controller: 'empleadoCreateCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
