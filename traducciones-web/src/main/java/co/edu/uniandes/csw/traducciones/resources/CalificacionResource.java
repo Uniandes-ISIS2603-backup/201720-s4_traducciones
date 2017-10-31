@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.traducciones.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.traducciones.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -29,6 +28,11 @@ import javax.ws.rs.WebApplicationException;
  * @author ra.forero11
  */
 public class CalificacionResource {
+    
+    
+    private final String TRABAJOS="E l recurso /trabajos/";
+    private final String CALIFICACIONES="/calificacion/";
+    private final String NOEXISTE="no existe.";
 
     @Inject
     CalificacionLogic calificacionLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -57,7 +61,7 @@ public class CalificacionResource {
         calificacion.setId(id);
         CalificacionEntity entity = calificacionLogic.getCalificacion(idTrabajo);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /trabajos/" + idTrabajo + "/calificacion/" + id + " no existe.", 404);
+            throw new WebApplicationException(TRABAJOS + idTrabajo + CALIFICACIONES + id + NOEXISTE, 404);
         }
         return new CalificacionDTO(calificacionLogic.updateCalificacion(idTrabajo, calificacion.toEntity()));
 
@@ -68,7 +72,7 @@ public class CalificacionResource {
     public void deleteTrayectoria(@PathParam("idTrabajo") Long idTrabajo) throws BusinessLogicException {
         CalificacionEntity entity = calificacionLogic.getCalificacion(idTrabajo);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /trabajos/" + idTrabajo + "/calificaion no existe.", 404);
+            throw new WebApplicationException(TRABAJOS + idTrabajo + CALIFICACIONES+NOEXISTE, 404);
         }
         calificacionLogic.deleteCalificacionId(idTrabajo);
     }
