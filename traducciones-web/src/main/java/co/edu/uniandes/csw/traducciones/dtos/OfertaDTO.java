@@ -18,6 +18,8 @@ package co.edu.uniandes.csw.traducciones.dtos;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
+     private EmpleadoDTO empleado;
+     private String nombreEmpleado;
  
       /**
       * Constructor por defecto
@@ -40,6 +42,10 @@ package co.edu.uniandes.csw.traducciones.dtos;
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
+         if(oferta.getEmpleado() != null){
+             this.empleado = new EmpleadoDTO(oferta.getEmpleado());
+             this.nombreEmpleado = oferta.getEmpleado().getName();
+         }
      }
  
      /**
@@ -157,8 +163,19 @@ package co.edu.uniandes.csw.traducciones.dtos;
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
+         if(empleado != null){
+             entity.setEmpleado(empleado.toEntity());
+         }
          return entity;
      }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
      
         
      

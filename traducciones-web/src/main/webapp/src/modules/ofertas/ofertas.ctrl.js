@@ -5,7 +5,7 @@
  */
 (function (ng) {
 
-    var mod = ng.module("ofertaModule");
+    var mod = ng.module("ofertasModule");
 
     mod.controller("ofertasCtrl", ['$scope', '$state', '$stateParams', '$http', 'ofertasContext', function ($scope, $state, $stateParams, $http, context) {
 

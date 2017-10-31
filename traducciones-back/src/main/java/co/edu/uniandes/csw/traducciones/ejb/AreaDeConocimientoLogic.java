@@ -31,7 +31,7 @@ public class AreaDeConocimientoLogic {
         if (persistence.findByName(entity.getName()) != null) {
             throw new BusinessLogicException("Ya existe un AreaDeConocimiento con el nombre \"" + entity.getName() + "\"");
         }
-        // Invoca la persistencia para crear la city
+        // Invoca la persistencia para crear el area de conocimiento
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del area de conocimiento");
         return entity;

@@ -37,6 +37,9 @@ public class OfertaLogic {
         {
             throw new BusinessLogicException("Ya existe una oferta con ese id");
         }
+        if (persistenceOferta.findByName(entity.getName()) != null) {
+            throw new BusinessLogicException("Ya existe una oferta con el nombre \"" + entity.getName() + "\"");
+        }
         persistenceOferta.create(entity);
         LOGGER.info("Termina proceso de creación de una oferta");
         return entity;
