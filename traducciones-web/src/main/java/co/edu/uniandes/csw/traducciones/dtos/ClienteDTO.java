@@ -14,6 +14,27 @@ import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
 public class ClienteDTO {
     
     private String name;
+    
+    private String correo;
+    
+    private String contraseña;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+    
     private Long id;
 
     public String getName() {
@@ -33,17 +54,21 @@ public class ClienteDTO {
     }
     
     public ClienteDTO(){
-        
+        // Constructor vacío.
     }
     
     public ClienteDTO(ClienteEntity entity){
         this.name = entity.getName();
+        this.correo = entity.getCorreo();
+        this.contraseña = entity.getContraseña();
         this.id = entity.getId();
     }
     
     public ClienteEntity toEntity(){
         ClienteEntity entity = new ClienteEntity();
         entity.setName(this.name);
+        entity.setCorreo(this.correo);
+        entity.setContraseña(this.contraseña);
         entity.setId(this.id);
         return entity;
     }

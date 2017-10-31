@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.traducciones.entities.TarjetaDeCreditoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.inject.Inject;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
@@ -52,6 +53,9 @@ public class TarjetaDeCreditoResource {
     @GET
     @Path("{tarjetaId: \\d+}")
     public TarjetaDTO getTarjeta(@PathParam("tarjetaId")Long tarjetaId){
+        if(tarjetaLogic.getTarjeta(tarjetaId) == null){
+            throw new WebApplicationException("La tarjeta con el id " + tarjetaId + " no existe", 404);
+        }
         return new TarjetaDTO(tarjetaLogic.getTarjeta(tarjetaId));
     }
     
@@ -69,6 +73,9 @@ public class TarjetaDeCreditoResource {
                 throw new BusinessLogicException("La tarjeta ingresada tiene el mismo número, código seguridad o fecha de expiración de alguna otra");
             }
             else{
+                if(dto.getId() == null){
+                    dto.setId(new Random().nextLong());
+                }
                 TarjetaDeCreditoEntity entity = dto.toEntity();
                 tarjetaLogic.createTarjeta(entity);
             }
