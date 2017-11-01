@@ -5,6 +5,7 @@
 */
 package co.edu.uniandes.csw.traducciones.dtos;
 
+import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
 public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
     
     private List<TrayectoriaDTO> trayectorias;
-    
+    private EmpleadoDTO empleado;
     /**
      *
      */
@@ -36,11 +37,16 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
     public HojaDeVidaDetailedDTO(HojaDeVidaEntity entity) {
         super(entity);
         trayectorias = new ArrayList<TrayectoriaDTO>();
+        empleado = new EmpleadoDTO();
         if (entity.getTrayectorias() != null) {
             for (TrayectoriaEntity entityTrayectorias : entity.getTrayectorias()) {
                 trayectorias.add(new TrayectoriaDTO(entityTrayectorias));
             }
             
+        }
+        if(entity.getEmpleado()!=null)
+        {
+            empleado= new EmpleadoDTO(entity.getEmpleado());        
         }
         
     }
@@ -65,6 +71,15 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
         else{
             entity.setTrayectorias(new ArrayList<TrayectoriaEntity>());
         }
+        if(empleado!=null)
+        {
+            entity.setEmpleado(empleado.toEntity());
+        }
+        else
+        {
+            entity.setEmpleado(new EmpleadoEntity());
+        }
+        
         return entity;
     }
     
@@ -80,5 +95,19 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
      */
     public void setTrayectorias(List<TrayectoriaDTO> trayectorias) {
         this.trayectorias = trayectorias;
+    }
+
+    /**
+     * @return the empleado
+     */
+    public EmpleadoDTO getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * @param empleado the empleado to set
+     */
+    public void setEmpleado(EmpleadoDTO empleado) {
+        this.empleado = empleado;
     }
 }

@@ -22,6 +22,7 @@ public class CalificacionDTO {
      * Constructor por defecto
      */
     public CalificacionDTO() {
+        //metodo obligatorio
     }
 
     /**

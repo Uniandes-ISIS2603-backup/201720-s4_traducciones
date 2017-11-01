@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -17,6 +18,7 @@ import javax.persistence.TypedQuery;
  *
  * @author ra.forero11
  */
+@Stateless
 public class TrabajoPersistence {
 
     private static final Logger LOGGER = Logger.getLogger(TrabajoPersistence.class.getName());

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.dtos;
 
+import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 
 /**
@@ -19,7 +20,7 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
      *
      */
     public TrabajoDetailedDTO() {
-        super();
+        //metodo obligatorio
     }
 
     /**
@@ -32,10 +33,10 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
      */
     public TrabajoDetailedDTO(TrabajoEntity entity) {
         super(entity);
-        if (entity != null) {
+        calificacion=new CalificacionDTO();
+        if (entity.getCalificacion() != null) {
            this.calificacion=new CalificacionDTO(entity.getCalificacion());
         }
-
     }
 
     /**
@@ -48,12 +49,30 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
     @Override
     public TrabajoEntity toEntity() {
         TrabajoEntity entity = super.toEntity();
-        if (calificacion != null) {
+        if (getCalificacion() != null) {
           
-            entity.setCalificacion(calificacion.toEntity());
+            entity.setCalificacion(getCalificacion().toEntity());
+        }
+        else
+        {
+            entity.setCalificacion(new CalificacionEntity());
         }
 
         return entity;
+    }
+
+    /**
+     * @return the calificacion
+     */
+    public CalificacionDTO getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(CalificacionDTO calificacion) {
+        this.calificacion = calificacion;
     }
     
 }

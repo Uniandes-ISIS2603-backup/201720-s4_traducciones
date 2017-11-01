@@ -1,5 +1,4 @@
-                    <p>asdasad </p>
-                    <p>{{idActual}}</p>
+<h1>Detalles del Trabajo</h1>
 <div class="panel panel-default"> 
     <div class="panel-body">
         <div class="row">
@@ -8,9 +7,13 @@
                     <dt> Nombre</dt>
                     <dd>{{currentTrabajo.name}}</dd>
                     <dt> Estado de finalizacion</dt>
-                    <dd>{{terminadoBool()}}</dd>
+                    <dd>{{currentTrabajo.terminado}}</dd>
                     <dt> ID</dt>
                     <dd>{{currentTrabajo.id}}</dd>
+                    <dt> Calificacion</dt>
+                    <dd>{{currentTrabajo.calificacion.valor}}</dd>
+                    <dt>Comentarios del Trabajo</dt>
+                    <dd>{{currentTrabajo.calificacion.comentario}}</dd>
                 </dl>
             </div>
         </div>

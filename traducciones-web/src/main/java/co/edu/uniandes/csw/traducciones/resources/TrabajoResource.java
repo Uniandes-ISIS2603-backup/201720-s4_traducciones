@@ -6,7 +6,8 @@
 package co.edu.uniandes.csw.traducciones.resources;
 
 
-import co.edu.uniandes.csw.traducciones.dtos.TrabajoDTO;
+
+import co.edu.uniandes.csw.traducciones.dtos.TrabajoDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.TrabajoLogic;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
@@ -34,7 +35,7 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class TrabajoResource {
 
-    private final String TRABAJOS="El recurso /trabajoes/";
+    private final String TRABAJOS="El recurso /trabajos/";
     
     private final String NOEXISTE=" no existe";
             
@@ -52,13 +53,13 @@ public class TrabajoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public TrabajoDTO createTrabajo(TrabajoDTO trabajo) throws BusinessLogicException {
+    public TrabajoDetailedDTO createTrabajo(TrabajoDetailedDTO trabajo) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         TrabajoEntity trabajoEntity = trabajo.toEntity();
         // Invoca la lógica para crear la trabajo nueva
         TrabajoEntity nuevaTrabajo = trabajoLogic.createTrabajo(trabajoEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new TrabajoDTO(nuevaTrabajo);
+        return new TrabajoDetailedDTO(nuevaTrabajo);
     }
 
     /**
@@ -69,8 +70,8 @@ public class TrabajoResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<TrabajoDTO> getTrabajos() throws BusinessLogicException {
-        return listEntity2DTO(trabajoLogic.getTrabajos());
+    public List<TrabajoDetailedDTO> getTrabajos() throws BusinessLogicException {
+        return listEntity2DetailedDTO(trabajoLogic.getTrabajos());
     }
 
     /**
@@ -86,11 +87,11 @@ public class TrabajoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public TrabajoDTO getTrabajo(@PathParam("id") Long id) throws BusinessLogicException {
+    public TrabajoDetailedDTO getTrabajo(@PathParam("id") Long id) throws BusinessLogicException {
         if (!trabajoLogic.existeTrabajoId(id)) {
              throw new WebApplicationException(TRABAJOS + id + NOEXISTE, 404);
         }
-        return new TrabajoDTO(trabajoLogic.getTrabajoId(id));
+        return new TrabajoDetailedDTO(trabajoLogic.getTrabajoId(id));
     }
 
     /**
@@ -108,12 +109,12 @@ public class TrabajoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public TrabajoDTO updateTrabajo(@PathParam("id") Long id, TrabajoDTO trabajo) throws BusinessLogicException {
+    public TrabajoDetailedDTO updateTrabajo(@PathParam("id") Long id, TrabajoDetailedDTO trabajo) throws BusinessLogicException {
 
         if (!trabajoLogic.existeTrabajoId(id)) {
              throw new WebApplicationException(TRABAJOS + id + NOEXISTE, 404);
         }
-        return new TrabajoDTO(trabajoLogic.updateTrabajo(id, trabajo.toEntity()));
+        return new TrabajoDetailedDTO(trabajoLogic.updateTrabajo(id, trabajo.toEntity()));
     }
 
     /**
@@ -139,7 +140,7 @@ public class TrabajoResource {
     public Class<CalificacionResource> getCalificacionResource(@PathParam("idTrabajo") Long idTrabajo) {
         TrabajoEntity entity = trabajoLogic.getTrabajoId(idTrabajo);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojaDeVida/" + idTrabajo + "/trayectorias no existe.", 404);
+            throw new WebApplicationException(TRABAJOS + idTrabajo + "/trayectorias "+NOEXISTE, 404);
         }
         return CalificacionResource.class;
     }
@@ -155,10 +156,10 @@ public class TrabajoResource {
      * que vamos a convertir a DTO.
      * @return la lista de trabajo en forma DTO (json)
      */
-    private List<TrabajoDTO> listEntity2DTO(List<TrabajoEntity> entityList) {
-        List<TrabajoDTO> list = new ArrayList<>();
+    private List<TrabajoDetailedDTO> listEntity2DetailedDTO(List<TrabajoEntity> entityList) {
+        List<TrabajoDetailedDTO> list = new ArrayList<>();
         for (TrabajoEntity entity : entityList) {
-            list.add(new TrabajoDTO(entity));
+            list.add(new TrabajoDetailedDTO(entity));
         }
         return list;
     }
