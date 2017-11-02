@@ -1,9 +1,8 @@
 (function (ng) {
     var mod = ng.module("trabajoModule");
     mod.constant("trabajosContext", "api/trabajos");
-    mod.constant("calificacionContext", "/calificaciones");
-    mod.controller('trabajosNewCtrl', ['$scope', '$http', 'trabajosContext','calificacionContext', '$state', '$rootScope',
-        function ($scope, $http, trabajosContext,calificacionContext, $state, $rootScope) {
+    mod.controller('trabajosNewCtrl', ['$scope', '$http', 'trabajosContext', '$state', '$rootScope',
+        function ($scope, $http, trabajosContext, $state, $rootScope) {
             $rootScope.edit = false;
             $scope.createTrabajo = function () {
                 $http.post(trabajosContext, {
@@ -17,7 +16,7 @@
             };
             
             $scope.addCalificacion = function () {
-                $http.post(calificacionContext, {
+                $http.put(trabajosContext, {
                     name: $scope.calificacionName,
                     id:$scope.calificacionId,
                     valor: $scope.calificacionValor,

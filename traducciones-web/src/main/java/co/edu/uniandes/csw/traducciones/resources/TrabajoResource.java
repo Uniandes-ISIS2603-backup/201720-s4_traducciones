@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.traducciones.resources;
 
 
 
+import co.edu.uniandes.csw.traducciones.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.traducciones.dtos.TrabajoDTO;
 import co.edu.uniandes.csw.traducciones.dtos.TrabajoDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.TrabajoLogic;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
@@ -53,7 +55,7 @@ public class TrabajoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public TrabajoDetailedDTO createTrabajo(TrabajoDetailedDTO trabajo) throws BusinessLogicException {
+    public TrabajoDetailedDTO createTrabajo(TrabajoDTO trabajo) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         TrabajoEntity trabajoEntity = trabajo.toEntity();
         // Invoca la lógica para crear la trabajo nueva
@@ -144,6 +146,8 @@ public class TrabajoResource {
         }
         return CalificacionResource.class;
     }
+    
+
     
     /**
      *

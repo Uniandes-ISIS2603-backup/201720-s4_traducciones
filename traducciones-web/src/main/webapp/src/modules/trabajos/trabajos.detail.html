@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-md-3">
                 <dl>
+                    <dt> ID</dt>
+                    <dd>{{currentTrabajo.id}}</dd>
                     <dt> Nombre</dt>
                     <dd>{{currentTrabajo.name}}</dd>
                     <dt> Estado de finalizacion</dt>
-                    <dd>{{currentTrabajo.terminado}}</dd>
-                    <dt> ID</dt>
-                    <dd>{{currentTrabajo.id}}</dd>
+                    <dd>{{terminadoBool(currentTrabajo.terminado)}}</dd>                    
                     <dt> Calificacion</dt>
-                    <dd>{{currentTrabajo.calificacion.valor}}</dd>
+                    <dd>{{verificarDetail(currentTrabajo.calificacion.valor)}}</dd>
                     <dt>Comentarios del Trabajo</dt>
                     <dd>{{currentTrabajo.calificacion.comentario}}</dd>
                 </dl>

@@ -39,7 +39,7 @@ public class CalificacionResource {
     CalificacionLogic calificacionLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     @POST
-    public CalificacionDTO createTrayectoria(@PathParam("idTrabajo") Long idTrabajo, CalificacionDTO calificacion) throws BusinessLogicException {
+    public CalificacionDTO createCalificacion(@PathParam("idTrabajo") Long idTrabajo, CalificacionDTO calificacion) throws BusinessLogicException {
         return new CalificacionDTO(calificacionLogic.createCalificacion(idTrabajo, calificacion.toEntity()));
     }
 
@@ -52,13 +52,13 @@ public class CalificacionResource {
      * @throws BusinessLogicException
      */
     @GET
-    public CalificacionDTO getTrayectorias(@PathParam("idTrabajo") Long idTrabajo) throws BusinessLogicException {
+    public CalificacionDTO getCalificacion(@PathParam("idTrabajo") Long idTrabajo) throws BusinessLogicException {
         return new CalificacionDTO(calificacionLogic.getCalificacion(idTrabajo));
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public CalificacionDTO updateTrayectoria(@PathParam("idTrabajo") Long idTrabajo, @PathParam("id") Long id, CalificacionDTO calificacion) throws BusinessLogicException {
+    public CalificacionDTO updateCalificacion(@PathParam("idTrabajo") Long idTrabajo, @PathParam("id") Long id, CalificacionDTO calificacion) throws BusinessLogicException {
         calificacion.setId(id);
         CalificacionEntity entity = calificacionLogic.getCalificacion(idTrabajo);
         if (entity == null) {
@@ -70,7 +70,7 @@ public class CalificacionResource {
 
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteTrayectoria(@PathParam("idTrabajo") Long idTrabajo) throws BusinessLogicException {
+    public void deleteCalificacion(@PathParam("idTrabajo") Long idTrabajo) throws BusinessLogicException {
         CalificacionEntity entity = calificacionLogic.getCalificacion(idTrabajo);
         if (entity == null) {
             throw new WebApplicationException(TRABAJOS + idTrabajo + CALIFICACIONES+NOEXISTE, 404);
