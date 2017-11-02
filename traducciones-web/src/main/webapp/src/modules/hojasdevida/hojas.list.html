@@ -13,7 +13,6 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Formacion academica</th>
                                 <th>Perfil Profesional</th>
@@ -23,8 +22,7 @@
                         <tbody>
                             <tr ng-repeat="hoja in hojasRecords">
                                 <td id="{{$index}}-name">{{hoja.id}}</td>
-                                <td id="{{$index}}-name"><a ui-sref="hojasDetail({hojaId: hoja.id})">{{hoja.name}}</a></td>
-                                <td id="{{$index}}-name" >{{hoja.descripcion}}</td>
+                                <td id="{{$index}}-name" ><a ui-sref="hojasDetail({hojaId: hoja.id})">{{hoja.descripcion}}</td>
                                 <td id="{{$index}}-name">{{hoja.formacionAcademica}}</td>
                                 <td id="{{$index}}-name">{{hoja.perfilProfesional}}</td>
                                 <td id="{{$index}}-actions">
@@ -42,4 +40,3 @@
 
 
 </div>
-<p>{{idActual}}</p>

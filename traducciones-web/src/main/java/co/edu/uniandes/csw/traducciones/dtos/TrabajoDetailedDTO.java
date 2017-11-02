@@ -53,10 +53,7 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
           
             entity.setCalificacion(getCalificacion().toEntity());
         }
-        else
-        {
-            entity.setCalificacion(new CalificacionEntity());
-        }
+       
 
         return entity;
     }

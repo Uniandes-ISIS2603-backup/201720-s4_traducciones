@@ -4,6 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/empleados/';
             var basePathArea = 'src/modules/areasdeconocimiento/';
+            var basePathHoja = 'src/modules/hojasdevida/';
             $urlRouterProvider.otherwise("/empleadosList");
             
             $stateProvider.state('empleados', {
@@ -34,6 +35,19 @@
                     'listView': {
                         templateUrl: basePathArea + 'areasdeconocimiento.detailedList.html',
                         controller: 'areasDetailedCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('empleadoHojas', {
+                url: '/empleadohojas/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathHoja + 'hojas.detail.html',
+                        controller: 'hojasDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
