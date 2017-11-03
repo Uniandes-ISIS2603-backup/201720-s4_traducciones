@@ -53,7 +53,7 @@ public class PropuestaLogic {
         }
         
         ofertita.setCantidadActual(ofertita.getCantidadActual() - 1);
-        ofertita.setPropuesta(propuesta);
+        ofertita.getPropuestas().add(propuesta);
         
         return propuesta;
     }

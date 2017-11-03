@@ -36,6 +36,7 @@ public class EmpleadoEntity extends BaseEntity implements Serializable{
     private List<OfertaEntity> ofertas;
     
     private Integer tipo;
+    
     private Double calificacionPromedio;
     
     public Integer getTipo() {

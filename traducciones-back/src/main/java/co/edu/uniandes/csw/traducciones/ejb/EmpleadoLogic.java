@@ -197,7 +197,7 @@ public class EmpleadoLogic {
         }
     }
     
-    public OfertaEntity addOferta(OfertaEntity oferta, Long empleadoId) throws BusinessLogicException {
+    public OfertaEntity addOferta(OfertaEntity oferta, Long empleadoId) throws BusinessLogicException, Exception {
         oferta.setEmpleado(getEmpleado(empleadoId));
         ofertaLogic.createOferta(oferta);
         getEmpleado(empleadoId).getOfertas().add(oferta);
@@ -208,7 +208,7 @@ public class EmpleadoLogic {
         List<OfertaEntity> ofertas = getEmpleado(empleadoId).getOfertas();
         for(int i = 0; i<ofertas.size(); i++){
             if(Objects.equals(ofertas.get(i).getId(), ofertaId)){
-                ofertaLogic.updateOferta(oferta);
+                ofertaLogic.updateOferta(ofertaId,oferta);
                 return ofertas.get(i);
             }
         }

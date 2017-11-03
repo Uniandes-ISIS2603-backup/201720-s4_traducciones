@@ -1,9 +1,6 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
-
- 
-import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
- import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
  import java.util.Date;
  
  /**
@@ -13,14 +10,14 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
  public class OfertaDTO {
      
      private Long id;
-     private Integer cantidadInicial;
-     private Integer cantidadActual;
+     
      private String descripcion;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
-     private EmpleadoEntity empleado;
- 
+    
+
+   
       /**
       * Constructor por defecto
       */
@@ -36,9 +33,6 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
      public OfertaDTO(OfertaEntity oferta) {
          
          this.id = oferta.getId();
-         this.nombre = oferta.getName();
-         this.cantidadInicial = oferta.getCantidadInicial();
-         this.cantidadActual = oferta.getCantidadActual();
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
@@ -72,38 +66,7 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
          this.nombre = nombre;
      }
      
- 
-     /**
-      * @return la cantidad
-      */
-     public Integer getCantidadInicial() {
-         return cantidadInicial;
-     }
- 
-     /**
-      * @param cantidad la cantidad para modificar
-      */
-     public void setCantidadInicial(Integer cantidad) {
-         this.cantidadInicial = cantidad;
-     }
-    
-     /**
-      * @return la cantidad
-      */
-     public Integer getCantidadActual() {
-         return cantidadActual;
-     }
- 
-     /**
-      * @param cantidad la cantidad para modificar
-      */
-     public void setCantidadActual(Integer cantidad) {
-         this.cantidadActual = cantidad;
-     }
-     
-     
- 
-     /**
+      /**
       * @return la descripción
       */
      public String getDescripcion() {
@@ -153,16 +116,13 @@ import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
          
          OfertaEntity entity = new OfertaEntity();
          entity.setId(this.id);
-         entity.setCantidadInicial(this.cantidadInicial);
-         entity.setCantidadActual(this.cantidadActual);
          entity.setDescripcion(this.descripcion);
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
-         entity.setEmpleado(this.empleado);
          return entity;
      }
      
-        
+      
      
  }

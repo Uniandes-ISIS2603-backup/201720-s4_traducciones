@@ -1,0 +1,109 @@
+[{
+"cantidadActual": 20,
+  "cantidadInicial": 20,
+
+  "codigo": "ABCA2345",
+  "descripcion": "Aplica para todas las propuestas ingles a frances, con el 30% de descuento.",
+
+  "fechaVigencia": "2016-11-10T00:00:00-05:00","nombre": "correccion ingles frances",
+
+  "empleado": {"id":50,
+
+               "name": "John",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 3.4
+} }
+, 
+
+ {"cantidadActual": 20,
+  "cantidadInicial": 20,
+
+  "codigo": "ABSA2343",
+  "descripcion": "Aplica para todas las propuestas traduccion ingles a espanol o viceversa, con el 30% de descuento",
+
+  "fechaVigencia": "2016-11-14T00:00:00-05:00","nombre": "traduccion ingles espanol",
+
+  "empleado": {"id":20,
+
+               "name": "Arturo",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 3.4
+}
+},
+
+ {"cantidadActual": 10,
+  "cantidadInicial": 30,
+
+  "codigo": "ABFA2345",
+  "descripcion": "40% de descuento",
+
+  "fechaVigencia": "2016-11-13T00:00:00-05:00","nombre": "traduccion ingles aleman",
+
+  "empleado": {"id":5,
+
+               "name": "Fernando",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 4.4
+}
+},
+
+ {"cantidadActual": 9,
+  "cantidadInicial": 11,
+
+  "codigo": "ABDA2345",
+  "descripcion": "25% de descuento",
+
+  "fechaVigencia": "2016-12-13T00:00:00-05:00","nombre": "traduccion ingles aleman",
+
+  "empleado": {"id":3,
+
+               "name": "Ramiro",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 3.8
+}
+},
+
+ {"cantidadActual": 10,
+  "cantidadInicial": 30,
+
+  "codigo": "AFGA2345",
+  "descripcion": "40% de descuento",
+
+  "fechaVigencia": "2016-12-01T00:00:00-05:00","nombre": "traduccion ingles frances",
+
+  "empleado": {"id":9,
+
+               "name": "Juana",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 3.0
+}
+},
+
+ {"cantidadActual": 2,
+  "cantidadInicial": 10,
+
+  "codigo": "AZDA2345",
+  "descripcion": "35% de descuento",
+
+  "fechaVigencia": "2016-11-13T00:00:00-05:00","nombre": "traduccion ingles aleman",
+
+  "empleado": {"id":12,
+
+               "name": "Xiomara",
+
+               "tipo": 1,
+               
+"calificacionPromedio": 4.0
+}
+}
+]

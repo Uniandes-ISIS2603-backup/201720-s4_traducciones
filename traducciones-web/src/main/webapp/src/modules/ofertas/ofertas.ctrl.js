@@ -12,7 +12,7 @@
             // inicialmente el listado de ofertas está vacio
             $scope.ofertasRecords = [];
             // carga las ofertas
-            $http.get(context).then(function (response)
+            $http.get('src/modules/ofertas/prueba_oferta.txt').then(function (response)
             {
                 $scope.ofertasRecords = response.data;
             });
