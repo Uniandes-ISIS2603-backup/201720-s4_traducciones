@@ -61,4 +61,14 @@ public class CalificacionPersistence {
 
         return calificacion;
     }
+    
+    public List<CalificacionEntity> findAll(){
+        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
+        return query.getResultList();
+    }
+    
+     public CalificacionEntity find(Long id) {
+        LOGGER.log(Level.INFO, "Consultando Oferta con id={0}", id);
+        return em.find(CalificacionEntity.class, id);
+    }
 }

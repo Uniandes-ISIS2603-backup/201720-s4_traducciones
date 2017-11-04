@@ -21,9 +21,7 @@ import javax.inject.Inject;
 @Stateless
 public class CalificacionLogic {
 
-    private static final Logger 
-
-LOGGER = Logger.getLogger(TrabajoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CalificacionLogic.class.getName());
 
     @Inject
         private CalificacionPersistence persistence;
@@ -32,77 +30,79 @@ LOGGER = Logger.getLogger(TrabajoLogic.class.getName());
         private TrabajoLogic trabajoLogic;
 
     /**
-     * Obtiene la lista de los registros de Calificacion
-     * que pertenecen a un Trabajo.
      *
-     * @param trabajoid id del Trabajo el cual es padre de los Calificacion
-     * s.
-     * @return Colección de objetos de Calificacion
-     * Entity.
-     * @throws co.edu.uniandes.csw.trabajostore.exceptions.BusinessLogicException
+     * @param trabajoId id de la hoja de vida a la que se le agrega calificacion
+     * @param entity calificacion a agregar a la lista de la hoja de vida
+     * @return entidad calificacion creada
      */
-    public CalificacionEntity getCalificacion(Long trabajoid) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de consultar todos los calificacions");
-        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
-        if (trabajo.getCalificacion() == null) {
-            throw new BusinessLogicException("El libro que consulta aún no tiene calificacions");
-        }
-        
-        return trabajo.getCalificacion();
-    }
-
-    
-    /**
-     * Se encarga de crear un Calificacion
-     * en la base de datos.
-     *
-     * @param entity Objeto de Calificacion
-     * Entity con los datos nuevos
-     * @param trabajoid id del Trabajo el cual sera padre del nuevo Calificacion
-     * .
-     * @return Objeto de Calificacion
-     * Entity con los datos nuevos y su ID.
-     * 
-     */
-    public CalificacionEntity createCalificacion(Long trabajoid, CalificacionEntity entity) {
-        LOGGER.info("Inicia proceso de crear calificacion");
-        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
+    public CalificacionEntity createCalificacion(Long trabajoId,CalificacionEntity entity) {
+        LOGGER.info("Inicia proceso de creación de Calificacion");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
         entity.setTrabajo(trabajo);
+        LOGGER.info("Termina proceso de creación de Calificacion");
         return persistence.create(entity);
     }
 
     /**
-     * Actualiza la información de una instancia de Calificacion
-     * .
-     *
-     * @param entity Instancia de Calificacion
-     * Entity con los nuevos datos.
-     * @param trabajoid id del Trabajo el cual sera padre del Calificacion
-     * actualizado.
-     * @return Instancia de Calificacion
-     * Entity con los datos actualizados.
      * 
+     * Obtener todas las Calificacion pertenecientes a una hoja de vida.
+     * @param trabajoId id de la hoja de vida
+     * @return una lista de Calificacion.
+     * @throws co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException
      */
-    public CalificacionEntity updateCalificacion(Long trabajoid, CalificacionEntity entity) {
-        LOGGER.info("Inicia proceso de actualizar calificacion");
-        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
-        entity.setTrabajo(trabajo);
-        return persistence.update(entity);
+    public List<CalificacionEntity> getCalificacions(Long trabajoId) throws BusinessLogicException{
+        LOGGER.info("Inicia proceso de consultar todas las Calificacions");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
+        if (trabajo.getCalificaciones()== null) {
+            throw new BusinessLogicException("El libro que consulta aún no tiene reviews");
+        }
+        if (trabajo.getCalificaciones().isEmpty()) {
+            throw new BusinessLogicException("El libro que consulta aún no tiene reviews");
+        }        
+        LOGGER.info("Termina proceso de consultar todas las Calificacions");
+        return trabajo.getCalificaciones();
     }
-
+    
+    
     /**
-     * Elimina una instancia de Calificacion
-     * de la base de datos.
-     *
-     * @param id Identificador de la instancia a eliminar.
-     * @param trabajoid id del Trabajo el cual es padre del Calificacion
-     * .
+     * Obtiene los datos de una instancia de Calificacion a partir de su ID.
+     * @param trabajoId
+     * @param calificacionId
+     * @pre La existencia del elemento padre Trabajo se debe garantizar.
+     * @return Instancia de ReviewEntity con los datos del Review consultado.
      * 
      */
-    public void deleteCalificacion(Long trabajoid) throws BusinessLogicException {
+    public CalificacionEntity getCalificacionId(Long trabajoId,Long calificacionId)
+    {
+        return persistence.find(trabajoId, calificacionId);
+    }
+    
+    
+    /**
+     * Elimina una instancia de Review de la base de datos.
+     *
+     * @param trabajoId id de la hoja de vida
+     * @param id Identificador de la instancia a eliminar. 
+     */
+     public void deleteCalificacionId(Long trabajoId, Long id){
         LOGGER.info("Inicia proceso de borrar calificacion");
-        CalificacionEntity old = getCalificacion(trabajoid);
+        CalificacionEntity old = getCalificacionId(trabajoId, id);
+        LOGGER.info("Termina el proceso de borrar calificacion");
         persistence.delete(old.getId());
     }
-
-}
+     
+     
+     /**
+     * Actualiza la información de una instancia de Review.
+     * @param trabajoId id de la hoja de vida
+     * @param entity Instancia de CalificacionEntity con los nuevos datos.
+     * @return Instancia de CalificacionEntity con los datos actualizados.
+     * 
+     */
+     public CalificacionEntity updateCalificacion(Long trabajoId, CalificacionEntity entity) {
+        LOGGER.info("Inicia proceso de actualizar calificacion");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
+        entity.setTrabajo(trabajo);
+        LOGGER.info("Termina el proceso de actualizar calificacion");
+        return persistence.update(entity);
+    }}

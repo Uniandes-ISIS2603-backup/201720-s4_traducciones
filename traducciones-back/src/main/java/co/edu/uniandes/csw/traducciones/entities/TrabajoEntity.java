@@ -6,8 +6,11 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -21,8 +24,8 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     private boolean terminado;
     
     @PodamExclude
-    @OneToOne(mappedBy = "trabajo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private CalificacionEntity calificacion;
+    @OneToMany(mappedBy = "trabajo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private  List<CalificacionEntity> calificaciones= new ArrayList<CalificacionEntity>();
     
     //@PodamExclude
     //@OneToOne
@@ -43,30 +46,19 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     }
 
     /**
-     * @return the calificacion
+     * @return the calificaciones
      */
-    public CalificacionEntity getCalificacion() {
-        return calificacion;
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
     }
 
     /**
-     * @param calificacion the calificacion to set
+     * @param calificaciones the calificaciones to set
      */
-    public void setCalificacion(CalificacionEntity calificacion) {
-        this.calificacion = calificacion;
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
-    /**
-     * @return the pago
-     */
-    //public PagoEntity getPago() {
-      //  return pago;
-    //}
+   
 
-    /**
-     * @param pago the pago to set
-     */
-    //public void setPago(PagoEntity pago) {
-      //  this.pago = pago;
-    //}
 }
