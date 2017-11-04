@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de Trabajos</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="trabajoCreate"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Trabajo</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Terminado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="trabajo in trabajosRecords">
+                                <td id="{{$index}}-name">{{trabajo.id}}</td>
+                                <td id="{{$index}}-id"><a ui-sref="trabajosDetail({trabajoId: trabajo.id})">{{trabajo.name}}</a></td>
+                                <td id="{{$index}}-terminado">{{trabajo.terminado}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="trabajoUpdate({trabajoId: trabajo.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="trabajoDelete({trabajoId: trabajo.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

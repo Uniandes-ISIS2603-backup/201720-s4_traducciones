@@ -5,14 +5,14 @@
  */
 package co.edu.uniandes.csw.traducciones.resources;
 
+
 import co.edu.uniandes.csw.traducciones.dtos.TrabajoDTO;
 import co.edu.uniandes.csw.traducciones.ejb.TrabajoLogic;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -31,9 +31,13 @@ import javax.ws.rs.WebApplicationException;
 @Path("trabajos")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+@RequestScoped
 public class TrabajoResource {
 
+    private final String TRABAJOS="El recurso /trabajoes/";
+    
+    private final String NOEXISTE=" no existe";
+            
     @Inject
     TrabajoLogic trabajoLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
@@ -66,7 +70,7 @@ public class TrabajoResource {
      */
     @GET
     public List<TrabajoDTO> getTrabajos() throws BusinessLogicException {
-        return listEntity2DetailDTO(trabajoLogic.getTrabajos());
+        return listEntity2DTO(trabajoLogic.getTrabajos());
     }
 
     /**
@@ -84,7 +88,7 @@ public class TrabajoResource {
     @Path("{id: \\d+}")
     public TrabajoDTO getTrabajo(@PathParam("id") Long id) throws BusinessLogicException {
         if (!trabajoLogic.existeTrabajoId(id)) {
-             throw new WebApplicationException("El recurso /trabajoes/" + id + " no existe.", 404);
+             throw new WebApplicationException(TRABAJOS + id + NOEXISTE, 404);
         }
         return new TrabajoDTO(trabajoLogic.getTrabajoId(id));
     }
@@ -107,7 +111,7 @@ public class TrabajoResource {
     public TrabajoDTO updateTrabajo(@PathParam("id") Long id, TrabajoDTO trabajo) throws BusinessLogicException {
 
         if (!trabajoLogic.existeTrabajoId(id)) {
-             throw new WebApplicationException("El recurso /trabajoes/" + id + " no existe.", 404);
+             throw new WebApplicationException(TRABAJOS + id + NOEXISTE, 404);
         }
         return new TrabajoDTO(trabajoLogic.updateTrabajo(id, trabajo.toEntity()));
     }
@@ -126,11 +130,20 @@ public class TrabajoResource {
     @Path("{id: \\d+}")
     public void deleteTrabajo(@PathParam("id") Long id) throws BusinessLogicException {
         if (!trabajoLogic.existeTrabajoId(id)) {
-            throw new WebApplicationException("El recurso /trabajoes/" + id + " no existe.", 404);
+            throw new WebApplicationException(TRABAJOS + id + NOEXISTE, 404);
         }
         trabajoLogic.deleteTrabajoId(id);
     }
 
+    @Path("{idTrabajo: \\d+}/calificacion")
+    public Class<CalificacionResource> getCalificacionResource(@PathParam("idTrabajo") Long idTrabajo) {
+        TrabajoEntity entity = trabajoLogic.getTrabajoId(idTrabajo);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /hojaDeVida/" + idTrabajo + "/trayectorias no existe.", 404);
+        }
+        return CalificacionResource.class;
+    }
+    
     /**
      *
      * lista de entidades a DTO.
@@ -142,7 +155,7 @@ public class TrabajoResource {
      * que vamos a convertir a DTO.
      * @return la lista de trabajo en forma DTO (json)
      */
-    private List<TrabajoDTO> listEntity2DetailDTO(List<TrabajoEntity> entityList) {
+    private List<TrabajoDTO> listEntity2DTO(List<TrabajoEntity> entityList) {
         List<TrabajoDTO> list = new ArrayList<>();
         for (TrabajoEntity entity : entityList) {
             list.add(new TrabajoDTO(entity));

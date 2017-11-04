@@ -36,6 +36,9 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class HojaDeVidaResource {
     
+    private final String HOJAS="El recurso /hojadevida/ ";
+    private final String NOEXISTE="no existe.";
+    
     @Inject
     HojaDeVidaLogic hojaDeVidaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
     
@@ -86,7 +89,7 @@ public class HojaDeVidaResource {
     public HojaDeVidaDetailedDTO getHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
         HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(id);
        if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
+            throw new WebApplicationException(HOJAS + id + NOEXISTE, 404);
         }
        
        return new HojaDeVidaDetailedDTO(entity);
@@ -111,7 +114,7 @@ public class HojaDeVidaResource {
         
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
-           throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
+           throw new WebApplicationException(HOJAS + id + NOEXISTE, 404);
        }
         return new HojaDeVidaDetailedDTO(hojaDeVidaLogic.updateHojaDeVida(id,hojaDeVida.toEntity()));
     }
@@ -131,7 +134,7 @@ public class HojaDeVidaResource {
     public void deleteHojaDeVida(@PathParam("id") Long id) throws BusinessLogicException {
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
-          throw new WebApplicationException("El recurso /hojadevida/" + id + " no existe.", 404);
+          throw new WebApplicationException(HOJAS + id + NOEXISTE, 404);
        }
        hojaDeVidaLogic.deleteHojaDeVidaId(id);
     }
@@ -141,7 +144,7 @@ public class HojaDeVidaResource {
     public Class<TrayectoriaResource> gettrayectoriaResource(@PathParam("idHojaDeVida") Long hojaDeVidaId) {
         HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(hojaDeVidaId);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojaDeVida/" + hojaDeVidaId + "/trayectorias no existe.", 404);
+            throw new WebApplicationException(HOJAS + hojaDeVidaId + "/trayectorias no existe.", 404);
         }
         return TrayectoriaResource.class;
     }

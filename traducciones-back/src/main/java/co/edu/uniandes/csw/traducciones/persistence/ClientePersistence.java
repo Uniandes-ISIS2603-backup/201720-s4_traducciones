@@ -39,7 +39,7 @@ public class ClientePersistence {
     
     public ClienteEntity find(Long id) {
 
-        LOGGER.log(Level.INFO, "Consultando Oferta con id={0}", id);
+        LOGGER.log(Level.INFO, "Consultando Cliente con id={0}", id);
         return em.find(ClienteEntity.class, id);
     }
     

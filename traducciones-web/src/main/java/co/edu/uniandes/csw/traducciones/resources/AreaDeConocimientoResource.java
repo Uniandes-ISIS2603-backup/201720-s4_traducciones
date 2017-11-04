@@ -44,12 +44,8 @@ public class AreaDeConocimientoResource {
     
     @GET
     @Path("{id: \\d+}")
-    public AreaDeConocimientoDTO getAreaDeConocimiento(@PathParam("id") Long id) throws BusinessLogicException {
-        AreaDeConocimientoEntity entity = areaDeConocimientoLogic.getAreaDeConocimiento(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso area de conocimiento: " + id + " no existe.", 404);
-        }
-        return new AreaDeConocimientoDetailDTO(entity);
+    public AreaDeConocimientoDetailDTO getAreaDeConocimiento(@PathParam("id") Long id) throws BusinessLogicException {
+        return new AreaDeConocimientoDetailDTO(areaDeConocimientoLogic.getAreaDeConocimiento(id));
     }
     
    @POST

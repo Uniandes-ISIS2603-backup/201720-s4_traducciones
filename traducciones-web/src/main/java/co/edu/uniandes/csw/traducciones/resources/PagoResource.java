@@ -12,6 +12,7 @@ import co.edu.uniandes.csw.traducciones.entities.PagoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.inject.Inject;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
@@ -51,6 +52,9 @@ public class PagoResource {
     @GET
     @Path("{pagoId: \\d+}")
     public PagoDTO getPago(@PathParam("pagoId")Long pagoId){
+        if(pagoLogic.getPago(pagoId) == null){
+            throw new WebApplicationException("El pago con el id " + pagoId + " no existe", 404);
+        }
         return new PagoDTO(pagoLogic.getPago(pagoId));
     }
     
@@ -68,6 +72,9 @@ public class PagoResource {
                 if(noCumpleRegla){
                     throw new BusinessLogicException("No se puede agregar el pago: Hay otro pago asociado a la misma solicitud");
                 }
+            }
+            if(dto.getId() == null){
+                dto.setId(new Random().nextLong());
             }
             return new PagoDTO(pagoLogic.createPago(dto.toEntity()));
         }

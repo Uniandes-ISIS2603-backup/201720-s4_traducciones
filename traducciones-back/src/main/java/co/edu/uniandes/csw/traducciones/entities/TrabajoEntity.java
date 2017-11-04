@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -20,12 +21,12 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     private boolean terminado;
     
     @PodamExclude
-    @OneToOne
+    @OneToOne(mappedBy = "trabajo", cascade = CascadeType.ALL, orphanRemoval = true)
     private CalificacionEntity calificacion;
     
-    @PodamExclude
-    @OneToOne
-    private PagoEntity pago;
+    //@PodamExclude
+    //@OneToOne
+    //private PagoEntity pago;
 
     /**
      * @return the terminado
@@ -58,14 +59,14 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     /**
      * @return the pago
      */
-    public PagoEntity getPago() {
-        return pago;
-    }
+    //public PagoEntity getPago() {
+      //  return pago;
+    //}
 
     /**
      * @param pago the pago to set
      */
-    public void setPago(PagoEntity pago) {
-        this.pago = pago;
-    }
+    //public void setPago(PagoEntity pago) {
+      //  this.pago = pago;
+    //}
 }

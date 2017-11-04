@@ -16,7 +16,7 @@ public class CalificacionDTO {
     private Long id;
     private String name;
     private String comentario;
-    private double calificacion;
+    private double valor;
 
     /**
      * Constructor por defecto
@@ -34,7 +34,7 @@ public class CalificacionDTO {
         this.id = calificacion.getId();
         this.name = calificacion.getName();
         this.comentario = calificacion.getComentario();
-        this.calificacion = calificacion.getCalificacion();
+        this.valor = calificacion.getValor();
     }
 
     /**
@@ -47,7 +47,7 @@ public class CalificacionDTO {
         entity.setId(this.getId());
         entity.setName(this.getName());
         entity.setComentario(this.getComentario());
-        entity.setCalificacion(this.getCalificacion());
+        entity.setValor(this.getValor());
         return entity;
     }
 
@@ -94,16 +94,16 @@ public class CalificacionDTO {
     }
 
     /**
-     * @return the calificacion
+     * @return the valor
      */
-    public double getCalificacion() {
-        return calificacion;
+    public double getValor() {
+        return valor;
     }
 
     /**
-     * @param calificacion the calificacion to set
+     * @param valor the valor to set
      */
-    public void setCalificacion(double calificacion) {
-        this.calificacion = calificacion;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 }

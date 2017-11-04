@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.traducciones.ejb.ClienteLogic;
 import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.inject.Inject;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
@@ -26,7 +27,7 @@ import javax.ws.rs.WebApplicationException;
  * @author ne.ortega
  */
 
-@Path("/clientes")
+@Path("/clientes")  // url proyecto/clientes
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ClienteResource {
@@ -49,12 +50,22 @@ public class ClienteResource {
     
     @GET
     @Path("{clienteId: \\d+}")
-    public ClienteDetailDTO getCliente(@PathParam("clienteId")Long clienteId){
+    public ClienteDetailDTO getCliente(@PathParam("clienteId")Long clienteId){ 
+        if(clienteLogic.getCliente(clienteId) == null){
+            throw new WebApplicationException("El cliente especificado no existe", 404);
+        }
         return new ClienteDetailDTO(clienteLogic.getCliente(clienteId));
     }
     
     @POST
     public ClienteDetailDTO addCliente(ClienteDetailDTO dto){
+        if(dto.getId() == null){
+            dto.setId(new Random().nextLong());
+        }
+        
+        if(clienteLogic.getCliente(dto.getId()) != null){
+            throw new WebApplicationException("El cliente que se trata de agregar ya existe", 412);
+        }
         return new ClienteDetailDTO(clienteLogic.createCliente(dto.toEntity()));
     }
     
@@ -67,6 +78,7 @@ public class ClienteResource {
         if(entityOld == null){
             throw new WebApplicationException("El cliente con el id " + clienteId + " no existe", 404);
         }
+        
         if(entityNew.getName().equals("")){
             entityNew.setName(entityOld.getName());
         }
@@ -76,7 +88,12 @@ public class ClienteResource {
         if(entityOld.getTarjetas() != null){
             entityNew.setTarjetas(entityOld.getTarjetas());
         }
-         
+        entityNew.setCorreo(entityOld.getCorreo()); 
+        
+        if(entityNew.getContraseña() != null){
+            entityNew.setContraseña(entityOld.getContraseña());
+        }
+        
         return new ClienteDetailDTO(clienteLogic.updateCliente(entityNew));
     }
     
@@ -105,5 +122,14 @@ public class ClienteResource {
             throw new WebApplicationException("El cliente con el id " + clienteId + " no existe", 404);
         }
         return ClienteTarjetasResource.class;
+    }
+    
+    @Path("{clienteId: \\d+}/solicitudes")
+    public Class<ClienteSolicitudesResource> getClienteSolicitudResource(@PathParam("clienteId")Long clienteId){
+        ClienteEntity entity = clienteLogic.getCliente(clienteId);
+        if(entity == null){
+            throw new WebApplicationException("El cliente con el id " + clienteId + " no existe", 404);
+        }
+        return ClienteSolicitudesResource.class;
     }
 }

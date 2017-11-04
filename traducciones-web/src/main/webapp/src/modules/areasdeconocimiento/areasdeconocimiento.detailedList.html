@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <h3>Areas de Conocimiento de {{nombreEmpleado}}</h3>
+    <div class="col-md-4">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a class="btn btn-info" ui-sref="areadeconocimientoCreate({empleadoId: idEmpleado})">
+                <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva Area de Conocimiento</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>    
+                    <th>Descripcion</th>  
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="areadeconocimiento in areasDetailed">
+                    <td id="{{$index}}-name">{{areadeconocimiento.name}}</td>
+                    <td id="{{$index}}-descripcion">{{areadeconocimiento.descripcion}}</td>
+                    <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="areadeconocimientoUpdate({areadeconocimientoId: areadeconocimiento.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="areadeconocimientoDelete({areadeconocimientoId: areadeconocimiento.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

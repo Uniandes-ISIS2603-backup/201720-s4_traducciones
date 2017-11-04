@@ -67,11 +67,7 @@ public class TrabajoLogic {
     }
 
     public boolean existeTrabajoId(Long id) {
-        if (persistence.find(id) != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return persistence.find(id) != null;
     }
 
 }

@@ -13,7 +13,9 @@ import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
  */
 public class AreaDeConocimientoDetailDTO extends AreaDeConocimientoDTO{
     
-    private EmpleadoDTO empleado;
+   private String nombreEmpleado;
+   private Long idEmpleado;
+   private EmpleadoDTO empleado;
     
     public AreaDeConocimientoDetailDTO(){
         //constructor default
@@ -22,6 +24,8 @@ public class AreaDeConocimientoDetailDTO extends AreaDeConocimientoDTO{
     public AreaDeConocimientoDetailDTO(AreaDeConocimientoEntity entity){
         super(entity);
        if(entity.getEmpleado() != null){
+        nombreEmpleado = entity.getEmpleado().getName();
+        idEmpleado = entity.getEmpleado().getId();
         empleado = new EmpleadoDTO(entity.getEmpleado());
         }
     }
@@ -35,4 +39,22 @@ public class AreaDeConocimientoDetailDTO extends AreaDeConocimientoDTO{
         return e;
     }
 
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
+
+    public Long getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(Long idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+    
+    
+    
 }

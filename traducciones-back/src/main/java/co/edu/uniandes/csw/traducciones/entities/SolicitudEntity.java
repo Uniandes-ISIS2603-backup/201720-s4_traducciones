@@ -31,6 +31,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -40,7 +41,8 @@ import javax.persistence.Temporal;
 public class SolicitudEntity extends BaseEntity implements Serializable {
    private String descripcion;
    private int Tipo;
-
+   
+   @PodamExclude
    @OneToOne
    private ClienteEntity cliente;
    @Temporal(javax.persistence.TemporalType.DATE)
@@ -48,12 +50,18 @@ public class SolicitudEntity extends BaseEntity implements Serializable {
    @Temporal(javax.persistence.TemporalType.DATE)
    private Date fechaEntrega;
    private int numPalabras;
+   @PodamExclude
    @OneToMany
    private List<AreaDeConocimientoEntity> areasDeConocimiento;
+    @PodamExclude
     @OneToOne
     private IdiomaEntity idiomaEntrada;
+    
+    @PodamExclude
     @OneToOne
     private PropuestaEntity propuestaElejida;
+    
+    @PodamExclude
     @OneToMany
     private List<PropuestaEntity> propuestas;
     public List<AreaDeConocimientoEntity> getAreasDeConocimiento() {

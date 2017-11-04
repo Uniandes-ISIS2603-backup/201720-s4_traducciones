@@ -1,0 +1,148 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TarjetaDeCreditoEntity",
+		"_postman_id": "c8b278d8-93db-18ec-7896-2a49e0f2e45a",
+		"description": "Pruebas del recurso TarjetaDeCreditoEntity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener todas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/tarjetas/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene todas las tarjetas de crédito."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una sola",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/tarjetas/1002",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 13,\n\t\"name\": \"M\",\n\t\"correo\": \"miNombreEsUnaM_LOL@gmail.com\",\n\t\"contraseña\": \"1234\"\n}"
+				},
+				"description": "Obtiene una sola tarjeta de crédito."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/tarjetas/33",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 75,\n\t\"name\": \"Andrew\",\n\t\"correo\": \"and@gmail.com\",\n\t\"contraseña\": \"lacontraseñamenosseguradelmundo\",\n\t\"solicitudes\": [],\n\t\"pagos\": [],\n\t\"tarjetas\": []\n}"
+				},
+				"description": "Obtiene una tarjeta de crédito que no existe, el código de respuesta debe ser 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Crea una nueva tarjeta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/tarjetas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\": \"Esta Es\",\n\t\"apellidos\": \"Una Prueba v2\",\n\t\"numero\": \"1456567\",\n\t\"codigoSeguridad\": \"790\",\n\t\"compañia\": \"Banco Semestre 2.5\",\n\t\"fechaExpiracion\": \"2017-05-14T00:00:00-05:01\"\n}"
+				},
+				"description": "Crea una nueva tarjeta de crédito. El código de respuesta deber ser 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina tarjeta no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status Code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/tarjetas/102",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Intenta eliminar una tarjeta de crédito que no existe. Código de respuesta debe ser 404."
+			},
+			"response": []
+		}
+	]
+}

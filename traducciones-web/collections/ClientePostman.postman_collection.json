@@ -1,0 +1,223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ClienteEntity",
+		"_postman_id": "2e121b72-2ca7-ed5e-7b17-6e83fcb0aaad",
+		"description": "Estas son las pruebas de los servicios REST para el recurso Cliente.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene la lista de todos los clientes."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un cliente especificado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/1022",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtiene un cliente especificado, en este caso con el id 1022"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un cliente que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/10",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Esta prueba trata de obtener un objeto del Recurso Cliente inexistente en la prueba. Debe enviar un mensaje con el código 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo cliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 3,\n\t\"name\": \"M\",\n\t\"correo\": \"miNombreEsUnaM_LOL@gmail.com\",\n\t\"contraseña\": \"1234\"\n}"
+				},
+				"description": "Esta prueba crea un nuevo objeto Cliente."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear uno existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 13,\n\t\"name\": \"M\",\n\t\"correo\": \"miNombreEsUnaM_LOL@gmail.com\",\n\t\"contraseña\": \"1234\"\n}"
+				},
+				"description": "Crea un cliente ya existente en la lista. Debe retonar un mensaje especificando el error con el código 412."
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar no existente.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/55",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Prueba que intenta eliminar un cliente que no existe. Debe mandar código de error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/1013",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jhon Exito\"\n}"
+				},
+				"description": "Actualiza un cliente."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/traducciones-web/api/clientes/32",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jhon Falla\"\n}"
+				},
+				"description": "Actualiza un cliente que no está en la lista. Debe enviar un mensaje de error con el código 404."
+			},
+			"response": []
+		}
+	]
+}

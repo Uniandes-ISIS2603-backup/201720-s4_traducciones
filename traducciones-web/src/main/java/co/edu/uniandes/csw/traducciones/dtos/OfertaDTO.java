@@ -15,9 +15,15 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
+<<<<<<< HEAD
     
 
    
+=======
+     private EmpleadoDTO empleado;
+     private String nombreEmpleado;
+ 
+>>>>>>> master
       /**
       * Constructor por defecto
       */
@@ -36,6 +42,10 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
+         if(oferta.getEmpleado() != null){
+             this.empleado = new EmpleadoDTO(oferta.getEmpleado());
+             this.nombreEmpleado = oferta.getEmpleado().getName();
+         }
      }
  
      /**
@@ -120,8 +130,19 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
+         if(empleado != null){
+             entity.setEmpleado(empleado.toEntity());
+         }
          return entity;
      }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
      
       
      
