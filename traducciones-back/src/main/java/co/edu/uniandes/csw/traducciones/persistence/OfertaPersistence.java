@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.traducciones.persistence;
 
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
-import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -117,10 +116,26 @@ WHERE condition; en SQL.
         TypedQuery query = em.createQuery("select u from OfertaEntity u",
                 OfertaEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de Oferta.
-
         return query.getResultList();
     }
     
+    public List<OfertaEntity> findByCodigo(String codigo)
+    {
+         LOGGER.log(Level.INFO, "Consultando Oferta por código ", codigo);
+         
+         // Se crea un query para buscar Ofertas con el código que recibe el método como argumento. ":codigo" es un placeholder que debe ser remplazado
+          TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.codigo LIKE CONCAT('%',:codigo,'%')", OfertaEntity.class);
+          // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("codigo", codigo);   
+        
+        // Se invoca el query se obtiene la lista resultado
+       
+          
+        List<OfertaEntity> sameName = query.getResultList();
+        
+          return sameName;
+
+    }
     
     /**
      * Busca si hay alguna Oferta con el nombre que se envía de argumento

@@ -53,7 +53,7 @@ public class PropuestaLogic {
         }
         
         ofertita.setCantidadActual(ofertita.getCantidadActual() - 1);
-        ofertita.setPropuesta(propuesta);
+        ofertita.getPropuestas().add(propuesta);
         
         return propuesta;
     }
@@ -160,7 +160,7 @@ public class PropuestaLogic {
        // }
        
      //  propuesta.setOferta(ofertaPers.find(idPropuesta));
-       return "Se eliminó la oferta" ;
+       return "Se eliminó la propuesta" ;
         
     }
 }

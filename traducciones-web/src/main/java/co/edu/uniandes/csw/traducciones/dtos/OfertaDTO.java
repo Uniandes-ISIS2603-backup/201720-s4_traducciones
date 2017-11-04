@@ -1,8 +1,6 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
-
- 
- import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
  import java.util.Date;
  
  /**
@@ -12,15 +10,12 @@ package co.edu.uniandes.csw.traducciones.dtos;
  public class OfertaDTO {
      
      private Long id;
-     private Integer cantidadInicial;
-     private Integer cantidadActual;
      private String descripcion;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
-     private EmpleadoDTO empleado;
-     private String nombreEmpleado;
- 
+
+     
       /**
       * Constructor por defecto
       */
@@ -36,16 +31,9 @@ package co.edu.uniandes.csw.traducciones.dtos;
      public OfertaDTO(OfertaEntity oferta) {
          
          this.id = oferta.getId();
-         this.nombre = oferta.getName();
-         this.cantidadInicial = oferta.getCantidadInicial();
-         this.cantidadActual = oferta.getCantidadActual();
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
-         if(oferta.getEmpleado() != null){
-             this.empleado = new EmpleadoDTO(oferta.getEmpleado());
-             this.nombreEmpleado = oferta.getEmpleado().getName();
-         }
      }
  
      /**
@@ -76,38 +64,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
          this.nombre = nombre;
      }
      
- 
-     /**
-      * @return la cantidad
-      */
-     public Integer getCantidadInicial() {
-         return cantidadInicial;
-     }
- 
-     /**
-      * @param cantidad la cantidad para modificar
-      */
-     public void setCantidadInicial(Integer cantidad) {
-         this.cantidadInicial = cantidad;
-     }
-    
-     /**
-      * @return la cantidad
-      */
-     public Integer getCantidadActual() {
-         return cantidadActual;
-     }
- 
-     /**
-      * @param cantidad la cantidad para modificar
-      */
-     public void setCantidadActual(Integer cantidad) {
-         this.cantidadActual = cantidad;
-     }
-     
-     
- 
-     /**
+      /**
       * @return la descripción
       */
      public String getDescripcion() {
@@ -157,26 +114,14 @@ package co.edu.uniandes.csw.traducciones.dtos;
          
          OfertaEntity entity = new OfertaEntity();
          entity.setId(this.id);
-         entity.setCantidadInicial(this.cantidadInicial);
-         entity.setCantidadActual(this.cantidadActual);
          entity.setDescripcion(this.descripcion);
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
-         if(empleado != null){
-             entity.setEmpleado(empleado.toEntity());
-         }
+ 
          return entity;
-     }
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
-    }
-
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-    }
-     
-        
+    }  
+      
      
  }
+

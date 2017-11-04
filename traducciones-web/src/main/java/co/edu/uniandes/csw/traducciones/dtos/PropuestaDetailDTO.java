@@ -1,9 +1,6 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
-import co.edu.uniandes.csw.traducciones.enums.Estado;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,7 +22,7 @@ import javax.persistence.Enumerated;
       /**
       * Conviertir Entity a DetailDTO
       * (Crea un nuevo DetailDTO con los valores que recibe en la entidad que viene de argumento.
-      * @param propuesta: Es la entidad que se va a convertir a DTO 
+     * @param entity Es la entidad que se va a convertir a DTO 
       */
      public PropuestaDetailDTO(PropuestaEntity entity) {
          super(entity);

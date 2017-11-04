@@ -6,6 +6,8 @@
  package co.edu.uniandes.csw.traducciones.resources;
  
  import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
+import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
+import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
  import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
  import co.edu.uniandes.csw.traducciones.ejb.OfertaLogic;
  import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
@@ -49,14 +51,14 @@
   * @throws BusinessLogicException
   */
  @POST
-  public OfertaDTO createOferta(OfertaDTO oferta) throws BusinessLogicException {
+  public OfertaDetailDTO createOferta(OfertaDTO oferta) throws BusinessLogicException, Exception {
       
          // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
          OfertaEntity ofertaEntity = oferta.toEntity();
          // Invoca la lógica para crear la nueva oferta
          OfertaEntity nuevaOferta = ofertaLogic.createOferta(ofertaEntity);
          // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-         return new OfertaDTO(nuevaOferta);
+         return new OfertaDetailDTO(nuevaOferta);
   }
  
   /**
@@ -66,7 +68,7 @@
       * @throws Exception
      */
      @GET
-     public List<OfertaDTO> getOfertas() throws Exception {
+     public List<OfertaDetailDTO> getOfertas() throws Exception {
          
          return listEntity2DetailDTO(ofertaLogic.getOfertas());
          
@@ -95,9 +97,9 @@
          
      }
      
-     /**
-     * GET para una oferta
-     *  http://localhost:8080/traducciones-web/api/ofertas/tradinglesfrances
+      /**
+      * GET para una oferta
+      * http://localhost:8080/traducciones-web/api/ofertas/frances
       *
       * @param nombre corresponde al nombre de la oferta buscada.
       * @return La oferta encontrada. Ejemplo: { "type":
@@ -110,12 +112,11 @@
       */
      @GET
      @Path("{nombre: [a-zA-Z]+}")
-     public List<OfertaDTO> getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException {
+     public List<OfertaDetailDTO> getOfertasNombre(@PathParam("nombre") String nombre) throws BusinessLogicException {
          
         List<OfertaEntity> ofertaEntity = ofertaLogic.getOfertasNombre(nombre);
-        List <OfertaDTO> rta = listEntity2DetailDTO(ofertaEntity);
+        List <OfertaDetailDTO> rta = listEntity2DetailDTO(ofertaEntity);
        
-        
         return rta;
          
      }
@@ -140,7 +141,7 @@
      oferta.setId(id);
      
      
-       OfertaEntity ofertaUpdated = ofertaLogic.updateOferta(oferta.toEntity());
+       OfertaEntity ofertaUpdated = ofertaLogic.updateOferta(id, oferta.toEntity());
        
        OfertaDTO updated = new OfertaDTO(ofertaUpdated);
     
@@ -156,7 +157,13 @@
           ofertaLogic.deleteOferta(id);
               
      }
-    
+   
+    @POST
+    @Path("{ofertaId: \\d+}/propuestas")
+    public PropuestaDetailDTO addPropuesta(@PathParam("ofertaId") Long ofertaId, PropuestaDetailDTO propuesta) throws Exception {
+       return new PropuestaDetailDTO(ofertaLogic.addPropuesta(propuesta.toEntity(),ofertaId));
+        
+    }
     
      /**
       *
@@ -169,11 +176,11 @@
       * que vamos a convertir a DTO.
       * @return la lista de editoriales en forma DTO (json)
       */
-     private List<OfertaDTO> listEntity2DetailDTO(List <OfertaEntity> entityList) {
-         List<OfertaDTO> list = new ArrayList<>();
+     private List<OfertaDetailDTO> listEntity2DetailDTO(List <OfertaEntity> entityList) {
+         List<OfertaDetailDTO> list = new ArrayList<>();
          for (OfertaEntity entity : entityList) {
-             list.add(new OfertaDTO(entity));
+             list.add(new OfertaDetailDTO(entity));
         }
- return list;
+         return list;
      }
  }

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -21,33 +22,20 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class OfertaEntity extends BaseEntity implements Serializable {
-
-   @PodamExclude
-   @ManyToOne
-    private PropuestaEntity propuesta;
     
     @PodamExclude
-
-    @OneToMany(mappedBy = "oferta")
+    @OneToMany(mappedBy = "oferta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PropuestaEntity> propuestas = new ArrayList<PropuestaEntity>();
     
     @PodamExclude
     @ManyToOne 
     private EmpleadoEntity empleado;
-
-    public PropuestaEntity getPropuesta() {
-        return propuesta;
-    }
-
-    public void setPropuesta(PropuestaEntity propuesta) {
-        this.propuesta = propuesta;
-    }
-
     
     private Integer cantidadInicial;
     private Integer cantidadActual;
     private String descripcion;
     private String codigo;
+    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
