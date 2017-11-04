@@ -22,9 +22,13 @@
 
                     $scope.verificarDetail = function (param)
                 {
-                    if(param===-1)
+                    if(param==null &&param ==undefined)
                     {
                         return "Aun no calificado";
+                    }
+                    else
+                    {
+                        return param;
                     }
                 }
                 });
@@ -33,13 +37,13 @@
                 $scope.trabajosRecords = response.data;
                 $scope.verificar = function (param)
                 {
-                    if(param===-1)
+                    if(param!==undefined && param !==null)
                     {
-                        return "No";
+                        return "Si";
                     }
                     else
                     {
-                        return "Si";
+                        return "No";
                     }
                 }
 

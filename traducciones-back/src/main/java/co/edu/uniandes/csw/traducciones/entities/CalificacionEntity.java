@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -17,24 +18,26 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CalificacionEntity extends BaseEntity{
 
-    private double valor;
+    private Long valor;
     private String comentario;
+    private Integer calificacion;
+    
     
     @PodamExclude
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private TrabajoEntity trabajo;
 
     /**
      * @return the valor
      */
-    public double getValor() {
+    public Long getValor() {
         return valor;
     }
 
     /**
      * @param valor the valor to set
      */
-    public void setValor(double valor) {
+    public void setValor(Long valor) {
         this.valor = valor;
     }
 
@@ -64,5 +67,19 @@ public class CalificacionEntity extends BaseEntity{
      */
     public void setTrabajo(TrabajoEntity trabajo) {
         this.trabajo = trabajo;
+    }
+
+    /**
+     * @return the calificacion
+     */
+    public Integer getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(Integer calificacion) {
+        this.calificacion = calificacion;
     }
 }

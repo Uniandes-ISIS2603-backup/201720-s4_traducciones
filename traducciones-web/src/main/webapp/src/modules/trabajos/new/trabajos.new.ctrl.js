@@ -7,7 +7,6 @@
             $scope.createTrabajo = function () {
                 $http.post(trabajosContext, {
                     name: $scope.trabajoName,
-                    id:$scope.trabajoId,
                     terminado: $scope.trabajoTerminado
                 }).then(function (response) {
                     //Author created successfully

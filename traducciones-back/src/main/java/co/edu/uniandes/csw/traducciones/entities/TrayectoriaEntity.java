@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -30,7 +31,7 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
     private Date fechaFin;
     
     @PodamExclude
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private HojaDeVidaEntity hojaDeVida;
     
     /**

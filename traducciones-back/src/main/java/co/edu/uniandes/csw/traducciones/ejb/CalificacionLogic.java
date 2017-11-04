@@ -21,61 +21,88 @@ import javax.inject.Inject;
 @Stateless
 public class CalificacionLogic {
 
-    private static final Logger LOGGER = Logger.getLogger(CalificacionLogic.class.getName());
+    private static final Logger 
+
+LOGGER = Logger.getLogger(TrabajoLogic.class.getName());
 
     @Inject
-    private CalificacionPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+        private CalificacionPersistence persistence;
 
     @Inject
-    private TrabajoLogic trabajoLogic;
+        private TrabajoLogic trabajoLogic;
+
     /**
+     * Obtiene la lista de los registros de Calificacion
+     * que pertenecen a un Trabajo.
      *
-     * @param entity
-     * @return
-     * @throws BusinessLogicException
+     * @param trabajoid id del Trabajo el cual es padre de los Calificacion
+     * s.
+     * @return Colección de objetos de Calificacion
+     * Entity.
+     * @throws co.edu.uniandes.csw.trabajostore.exceptions.BusinessLogicException
      */
-    public CalificacionEntity createCalificacion(Long trabajoId,CalificacionEntity entity) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de creación de Calificacion");
-       TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
+    public CalificacionEntity getCalificacion(Long trabajoid) throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de consultar todos los calificacions");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
+        if (trabajo.getCalificacion() == null) {
+            throw new BusinessLogicException("El libro que consulta aún no tiene calificacions");
+        }
+        
+        return trabajo.getCalificacion();
+    }
+
+    
+    /**
+     * Se encarga de crear un Calificacion
+     * en la base de datos.
+     *
+     * @param entity Objeto de Calificacion
+     * Entity con los datos nuevos
+     * @param trabajoid id del Trabajo el cual sera padre del nuevo Calificacion
+     * .
+     * @return Objeto de Calificacion
+     * Entity con los datos nuevos y su ID.
+     * 
+     */
+    public CalificacionEntity createCalificacion(Long trabajoid, CalificacionEntity entity) {
+        LOGGER.info("Inicia proceso de crear calificacion");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
         entity.setTrabajo(trabajo);
-        LOGGER.info("Termina proceso de creación de Trayectoria");
         return persistence.create(entity);
     }
 
     /**
+     * Actualiza la información de una instancia de Calificacion
+     * .
      *
-     * Obtener todas las Calificacion existentes en la base de datos.
-     *
-     * @return una lista de Calificacion.
+     * @param entity Instancia de Calificacion
+     * Entity con los nuevos datos.
+     * @param trabajoid id del Trabajo el cual sera padre del Calificacion
+     * actualizado.
+     * @return Instancia de Calificacion
+     * Entity con los datos actualizados.
+     * 
      */
-    public CalificacionEntity getCalificacion(Long trabajoId){
-        LOGGER.info("Inicia proceso de consultar todas las Calificacions");
-        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
-        LOGGER.info("Termina proceso de consultar todas las Trayectorias");
-        return trabajo.getCalificacion();
+    public CalificacionEntity updateCalificacion(Long trabajoid, CalificacionEntity entity) {
+        LOGGER.info("Inicia proceso de actualizar calificacion");
+        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoid);
+        entity.setTrabajo(trabajo);
+        return persistence.update(entity);
     }
 
-    public void deleteCalificacionId(Long trabajoId) {
-        LOGGER.info("Inicia proceso de borrar trayectoria");
-        CalificacionEntity old = getCalificacion(trabajoId);
-        LOGGER.info("Termina el proceso de borrar trayectoria");
+    /**
+     * Elimina una instancia de Calificacion
+     * de la base de datos.
+     *
+     * @param id Identificador de la instancia a eliminar.
+     * @param trabajoid id del Trabajo el cual es padre del Calificacion
+     * .
+     * 
+     */
+    public void deleteCalificacion(Long trabajoid) throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de borrar calificacion");
+        CalificacionEntity old = getCalificacion(trabajoid);
         persistence.delete(old.getId());
-    }
-
-    public CalificacionEntity updateCalificacion(Long trabajoId, CalificacionEntity entrada) {
-       LOGGER.info("Inicia proceso de actualizar trayectoria");
-        TrabajoEntity trabajo = trabajoLogic.getTrabajoId(trabajoId);
-        entrada.setTrabajo(trabajo);
-        LOGGER.info("Termina el proceso de actualizar trayectoria");
-        return persistence.update(entrada);
-    }
-
-    public boolean existeCalificacionId(Long id) {
-        if (persistence.find(id) != null) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
 }

@@ -122,36 +122,9 @@ public class CalificacionPersistenceTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
-    @Test
-    public void getCalificacionsTest() {
-        List<CalificacionEntity> list = persistence.findAll();
-        Assert.assertEquals(data.size(), list.size());
-        for (CalificacionEntity ent : list) {
-            boolean found = false;
-            for (CalificacionEntity entity : data) {
-                if (ent.getId().equals(entity.getId())) {
-                    found = true;
-                }
-            }
-            Assert.assertTrue(found);
-        }
-    }
+   
 
-    @Test
-    public void getCalificacionTest() {
-        CalificacionEntity entity = data.get(0);
-        CalificacionEntity newEntity = persistence.find(entity.getId());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
 
-    @Test
-    public void getCalificacionByNameTest() {
-        CalificacionEntity entity = data.get(0);
-        CalificacionEntity newEntity = persistence.findByName(entity.getName());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
 
     @Test
     public void updateCalificacionTest() {

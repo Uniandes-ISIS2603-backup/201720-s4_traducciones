@@ -12,8 +12,13 @@
             });
             
             $http.get(empleadosContext + '/' + idEmpleado + "/hojadevida").then(function (response) {
-                $scope.currentHoja = response.data;
                 
+                    idHoja=response.data.id;
+                    $http.get("api/hojadevida/"+idHoja).then(function (response2) {
+                $scope.currentHoja = response2.data;
+                
+                
+            });
                 
             });
         }

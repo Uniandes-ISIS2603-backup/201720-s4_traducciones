@@ -1,23 +1,58 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label>Informacion Hoja de vida de {{nombreEmpleado}}</label></div>
+            <div class="panel-heading"><label>Informacion Hoja de vida de {{currentHoja.name}}</label></div>
             <div class="panel-body">
-            <div class="col-md-3">
-                <dl>
-                    <dt> ID</dt>
-                    <dd>{{currentHoja.id}}</dd>
-                    <dt> Nombre</dt>
-                    <dd>{{currentHoja.name}}</dd>
-                    <dt> Estado de finalizacion</dt>
-                    <dd>{{currentHoja.descripcion}}</dd>
-                    <dt> Formacion Academica</dt>
-                    <dd>{{currentHoja.formacionAcademica}}</dd>
-                    <dt> Perfil Profesional</dt>
-                    <dd>{{currentHoja.perfilProfesional}}</dd>
-                </dl>
+                <div class="col-md-3">
+                    <dl>
+                        <dt> ID Hoja</dt>
+                        <dd>{{currentHoja.id}}</dd>
+                        <dt> Nombre</dt>
+                        <dd>{{currentHoja.name}}</dd>
+                        <dt> Estado de finalizacion</dt>
+                        <dd>{{currentHoja.descripcion}}</dd>
+                        <dt> Formacion Academica</dt>
+                        <dd>{{currentHoja.formacionAcademica}}</dd>
+                        <dt> Perfil Profesional</dt>
+                        <dd>{{currentHoja.perfilProfesional}}</dd>
+
+
+                    </dl>
+                </div>
+
             </div>
         </div>
+    </div>
+
+
+</div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista Trayectorias Profesionales</label></div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Fecha1</th>
+                            <th>Fecha2</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="trayectoria in currentHoja.trayectorias">
+                            <td id="{{$index}}-name">{{trayectoria.id}}</td>
+                            <td id="{{$index}}-name" >{{trayectoria.descripcion}}</td>
+                            <td id="{{$index}}-name">{{trayectoria.fechaInicio}}</td>
+                            <td id="{{$index}}-name">{{trayectoria.fechaFin}}</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

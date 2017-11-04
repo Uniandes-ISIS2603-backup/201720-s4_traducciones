@@ -75,6 +75,6 @@ public class CalificacionResource {
         if (entity == null) {
             throw new WebApplicationException(TRABAJOS + idTrabajo + CALIFICACIONES+NOEXISTE, 404);
         }
-        calificacionLogic.deleteCalificacionId(idTrabajo);
+        calificacionLogic.deleteCalificacion(idTrabajo);
     }
 }
