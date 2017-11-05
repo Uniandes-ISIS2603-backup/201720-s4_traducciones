@@ -243,7 +243,7 @@ public class EmpleadoResource {
     
     @POST
     @Path("{empleadoId: \\d+}/ofertas")
-    public OfertaDTO addOferta(@PathParam("empleadoId") Long empleadoId, OfertaDTO oferta) throws BusinessLogicException {
+    public OfertaDTO addOferta(@PathParam("empleadoId") Long empleadoId, OfertaDTO oferta) throws BusinessLogicException, Exception {
        return new OfertaDTO(empleadoLogic.addOferta(oferta.toEntity(),empleadoId));
         
     }
