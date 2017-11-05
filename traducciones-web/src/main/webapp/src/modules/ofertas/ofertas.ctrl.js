@@ -10,12 +10,13 @@
     mod.controller("ofertasCtrl", ['$scope', '$state', '$stateParams', '$http', 'ofertasContext', function ($scope, $state, $stateParams, $http, context) {
 
             // inicialmente el listado de ofertas está vacio
-            $scope.records = [];
+            $scope.ofertasRecords = [];
             // carga las ofertas
-            $http.get(context + '/' + id ).then(function (response) {
-                $scope.records = response.data;
+            $http.get('src/modules/ofertas/prueba_oferta.txt').then(function (response)
+            {
+                $scope.ofertasRecords = response.data;
             });
-
-
-        }]);
-})(window.angular);
+        }
+    ]);
+}
+)(window.angular);

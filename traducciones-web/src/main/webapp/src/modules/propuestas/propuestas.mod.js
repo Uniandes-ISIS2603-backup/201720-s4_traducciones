@@ -5,23 +5,24 @@
  */
 
 (function (ng) {
-var mod = ng.module("ofertasModule", []);
-    mod.constant("ofertasContext", "api/ofertas");
+var mod = ng.module("propuestasModule", []);
+    mod.constant("propuestasContext", "api/propuestas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-            var basePath = 'src/modules/ofertas/';
+            var basePath = 'src/modules/propuestas/';
 
-            $stateProvider.state('listaOfertas', {
-                url: '/ofertas',
+            $stateProvider.state('listaPropuestas', {
+                url: '/propuestas',
                 views: {
                     'mainView': {
-                        controller: 'ofertasCtrl',
+                        controller: 'propuestasCtrl',
                         controllerAs: 'ctrl',
-                        templateUrl: basePath + 'ofertas.list.html'
+                        templateUrl: basePath + 'propuestas.list.html'
                     }
                 }
             });
         }]);
 
 })(window.angular);
+
 
 
