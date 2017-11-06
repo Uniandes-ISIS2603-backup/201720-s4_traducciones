@@ -41,39 +41,40 @@ var mod = ng.module("ofertasModule", []);
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('hojaCreate', {
-                url: '/create',
-                parent: 'hojas',
-                views: {
-                    'detailView': {
-                        templateUrl: basePath + '/new/hojas.new.html',
-                        controller: 'hojasNewCtrl'
-                    }
-                }
-            }).state('hojaUpdate', {
-                url: '/update/{hojaId:int}',
-                parent: 'hojas',
-                param: {
-                    hojaId: null
-                },
-                views: {
-                    'detailView': {
-                        templateUrl: basePath + '/new/hojas.new.html',
-                        controller: 'hojasUpdateCtrl'
-                    }
-                }
-            }).state('hojaDelete', {
-                url: '/delete/{hojaId:int}',
-                parent: 'hojas',
-                param: {
-                    hojaId: null
-                },
-                views: {
-                    'detailView': {
-                        templateUrl: basePath + '/delete/hojas.delete.html',
-                        controller: 'hojasDeleteCtrl'
-                    }
-                }
             });
+//                    .state('hojaCreate', {
+//                url: '/create',
+//                parent: 'hojas',
+//                views: {
+//                    'detailView': {
+//                        templateUrl: basePath + '/new/hojas.new.html',
+//                        controller: 'hojasNewCtrl'
+//                    }
+//                }
+//            }).state('hojaUpdate', {
+//                url: '/update/{hojaId:int}',
+//                parent: 'hojas',
+//                param: {
+//                    hojaId: null
+//                },
+//                views: {
+//                    'detailView': {
+//                        templateUrl: basePath + '/new/hojas.new.html',
+//                        controller: 'hojasUpdateCtrl'
+//                    }
+//                }
+//            }).state('hojaDelete', {
+//                url: '/delete/{hojaId:int}',
+//                parent: 'hojas',
+//                param: {
+//                    hojaId: null
+//                },
+//                views: {
+//                    'detailView': {
+//                        templateUrl: basePath + '/delete/hojas.delete.html',
+//                        controller: 'hojasDeleteCtrl'
+//                    }
+//                }
+//            });
         }]);
 })(window.angular);
