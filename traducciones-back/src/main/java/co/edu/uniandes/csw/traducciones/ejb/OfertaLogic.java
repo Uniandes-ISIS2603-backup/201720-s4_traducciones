@@ -35,11 +35,7 @@ public class OfertaLogic {
 
         LOGGER.info("Inicia el proceso de creación de una oferta");
         // Invoca la persistencia para crear la oferta
-
-        /*if (persistenceOferta.find(entity.getId())!= null)
-        {
-            throw new BusinessLogicException("Ya existe una oferta con ese id");
-        }*/        
+      
         List <OfertaEntity> ofertas = persistenceOferta.findAll();
         for (int i = 0; i< ofertas.size(); i++)
         {
@@ -47,9 +43,6 @@ public class OfertaLogic {
             {
                 throw new Exception("Ya existe una oferta con el código "+ entity.getCodigo());
             }   
-        }
-        if (persistenceOferta.findByName(entity.getName()) != null) {
-            throw new BusinessLogicException("Ya existe una oferta con el nombre \"" + entity.getName() + "\"");
         }
         persistenceOferta.create(entity);
         LOGGER.info("Termina proceso de creación de una oferta");

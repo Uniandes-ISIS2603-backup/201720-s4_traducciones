@@ -5,6 +5,7 @@ import co.edu.uniandes.csw.traducciones.dtos.EmpleadoDetailDTO;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
 import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
+import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
 import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
 import co.edu.uniandes.csw.traducciones.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
@@ -244,7 +245,7 @@ public class EmpleadoResource {
     @POST
     @Path("{empleadoId: \\d+}/ofertas")
     public OfertaDTO addOferta(@PathParam("empleadoId") Long empleadoId, OfertaDTO oferta) throws BusinessLogicException, Exception {
-       return new OfertaDTO(empleadoLogic.addOferta(oferta.toEntity(),empleadoId));
+       return new OfertaDetailDTO(empleadoLogic.addOferta(oferta.toEntity(),empleadoId));
         
     }
     

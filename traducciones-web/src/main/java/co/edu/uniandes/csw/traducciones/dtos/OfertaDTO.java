@@ -14,7 +14,24 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
      private String codigo;
      private Date fechaVigencia;
      private String nombre;
+    private Integer cantidadInicial;
 
+    public Integer getCantidadInicial() {
+        return cantidadInicial;
+    }
+
+    public void setCantidadInicial(Integer cantidadInicial) {
+        this.cantidadInicial = cantidadInicial;
+    }
+
+    public Integer getCantidadActual() {
+        return cantidadActual;
+    }
+
+    public void setCantidadActual(Integer cantidadActual) {
+        this.cantidadActual = cantidadActual;
+    }
+    private Integer cantidadActual;
      
       /**
       * Constructor por defecto
@@ -24,7 +41,7 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
      }
      
      /**
-      * Conviertir Entity a DTO
+      * Convertir Entity a DTO
       * (Crea un nuevo DTO con los valores que recibe en la entidad que viene de argumento.
       * @param oferta: Es la entidad que se va a convertir a DTO 
       */
@@ -34,6 +51,8 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
+         this.cantidadActual = oferta.getCantidadActual();
+         this.cantidadInicial = oferta.getCantidadInicial();
      }
  
      /**
@@ -118,6 +137,8 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
          entity.setName(this.nombre);
+         entity.setCantidadActual(cantidadActual);
+         entity.setCantidadInicial(cantidadInicial);
  
          return entity;
     }  
