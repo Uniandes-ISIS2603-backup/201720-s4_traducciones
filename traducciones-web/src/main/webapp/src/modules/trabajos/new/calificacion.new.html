@@ -1,42 +1,39 @@
-<form ng-submit="addCalificacion()" name="calificacion">
-    <div class="form-group row">
-        <div class="form-group col-md-12">
-            <label for="calificacionName" class="col-sm-2">Nombre:</label>
-            <input id="calificacionName" required ng-model="calificacionName" class="col-sm-6"/>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="form-group col-md-12">
-            <label for="calificacionId" class="col-sm-2">Id:</label>
-            <input id="calificacionId"  required ng-model="calificacionId" class="col-sm-6"/>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="form-group col-md-12">
-            <label for="calificacionValor" class="col-sm-2">Valor:</label>
-            <input id="calificacionValor" required ng-model="calificacionValor" class="col-sm-6">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="form-group col-md-12">
-            <label for="calificacionComentario" class="col-sm-2">Comentario:</label>
-            <input id="calificacionComentario" required ng-model="calificacionComentario" class="col-sm-6">
-        </div>
-    </div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Añadir Calificacion al trabajo</label></div>
+            <div class="panel-body">
+                <form ng-submit="addCalificacion()" name="calificacion">
+                    <div class="form-group row">
+                        <div class="form-group col-md-12">
+                            <label for="calificacionValor" class="col-sm-2">Valor:</label>
+                            <input id="calificacionValor" required ng-model="calificacionValor" class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-12">
+                            <label for="calificacionComentario" class="col-sm-2">Comentario:</label>
+                            <input id="calificacionComentario" required ng-model="calificacionComentario" class="col-sm-6">
+                        </div>
+                    </div>
 
 
-    <div class="form-group row">
-        <div class="form-group col-sm-4" ng-if="!calificacion.$valid">
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!calificacion.$valid">
 
-            <div class="alert alert-warning" >
-                <strong>Warning!</strong><p>All inputs are required*</p>
-            </div> 
-        </div> 
-    </div> 
-    <div class="form-group row">
-        <div class="form-group col-sm-12">
-            <input ng-show="calificacion.$valid" type="submit" value="Save" class="btn btn-success"/>
-            <a class="btn btn-info" ui-sref="trabajosList">Cancel</a>
+                            <div class="alert alert-warning" >
+                                <strong>Warning!</strong><p>All inputs are required*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="calificacion.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="trabajosList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</form>
+</div>

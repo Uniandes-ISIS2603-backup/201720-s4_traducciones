@@ -40,10 +40,11 @@
                     }
                 }
             }).state('empleadoHojas', {
-                url: '/empleadohojas/{empleadoId:int}',
+                url: '/empleadohojas/{empleadoId:int}/{empleadoHoja:int}',
                 parent: 'empleados',
                 param: {
-                    empleadoId: null
+                    empleadoId: null,
+                    empleadoHoja:null
                 },
                 views: {
                     'listView': {
@@ -52,16 +53,22 @@
                         controllerAs: 'ctrl'
                     }
                 }
+
             }).state('empleadoOfertas', {
                 url: '/empleadoOfertas/{empleadoId:int}',
+            }).state('empleadoHojasCreate', {
+                url: '/empleadohojas/{empleadoId:int}/crear',
                 parent: 'empleados',
                 param: {
                     empleadoId: null
                 },
                 views: {
                     'listView': {
+
                         templateUrl: basePathOferta + 'ofertas.detail.html',
                         controller: 'ofertasDetailCtrl',
+                        templateUrl: basePathHoja + 'new/hojas.new.html',
+                        controller: 'hojasNewCtrl',
                         controllerAs: 'ctrl'
                     }
                 }

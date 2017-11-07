@@ -17,22 +17,27 @@
         </div>
     </div>
 </div>
+
+<
+            
+
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading"><label>Calificaciones del Trabajo</label></div>
             <div class="panel-body">
+                <a class="btn btn-success btn-sm" ui-sref="calificacionCreate({trabajoId: currentTrabajo.id})" data-toggle="tooltip" title="Calificar Trabajo" data-placement="top">Calificar  <span class="glyphicon glyphicon-plus-sign" ></span></a>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Calificacion</th>
+
                             <th>Valor</th>
                             <th>Comentario</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="calificacion in currentTrabajo.calificaciones">
-                            <td id="{{$index}}-name">{{calificacion.calificacion}}</td>
+
                             <td id="{{$index}}-name" >{{calificacion.valor}}</td>
                             <td id="{{$index}}-name">{{calificacion.comentario}}</td>
                         </tr>
