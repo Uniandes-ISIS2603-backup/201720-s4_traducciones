@@ -1,20 +1,46 @@
+<div ng-if="desdeEmpleado" class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Opciones Hoja De Vida</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida})" data-toggle="tooltip" title="Calificar Trabajo" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
+                        <a class="btn btn-info btn-sm" ui-sref="hojasList" data-toggle="tooltip" title="Volver" data-placement="top">Volver  <span class="glyphicon glyphicon-arrow-left" ></span></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label>Informacion Hoja de vida de {{currentHoja.name}}</label></div>
+
+
+
+
+
+
+            <div class="panel-heading"><label>Informacion Hoja de vida de {{nombreHojaDeVida}}</label></div>
             <div class="panel-body">
                 <div class="col-md-3">
                     <dl>
                         <dt> ID Hoja</dt>
-                        <dd>{{currentHoja.id}}</dd>
+                        <dd>{{idHojaDeVida}}</dd>
                         <dt> Nombre</dt>
-                        <dd>{{currentHoja.name}}</dd>
+                        <dd>{{nombreHojaDeVida}}</dd>
                         <dt> Estado de finalizacion</dt>
-                        <dd>{{currentHoja.descripcion}}</dd>
+                        <dd>{{descripcionHojaDeVida}}</dd>
                         <dt> Formacion Academica</dt>
-                        <dd>{{currentHoja.formacionAcademica}}</dd>
+                        <dd>{{formacionHojaDeVida}}</dd>
                         <dt> Perfil Profesional</dt>
-                        <dd>{{currentHoja.perfilProfesional}}</dd>
+                        <dd>{{perfilHojaDeVida}}</dd>
 
 
                     </dl>
@@ -38,16 +64,18 @@
                             <th>Descripcion</th>
                             <th>Fecha1</th>
                             <th>Fecha2</th>
-
+                            <th>Opciones Trayectorias</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="trayectoria in currentHoja.trayectorias">
+                        <tr ng-repeat="trayectoria in trayectoriasHoja">
                             <td id="{{$index}}-id">{{trayectoria.id}}</td>
                             <td id="{{$index}}-descripcion" >{{trayectoria.descripcion}}</td>
                             <td id="{{$index}}-fechaI">{{trayectoria.fechaInicio}}</td>
                             <td id="{{$index}}-fechaF">{{trayectoria.fechaFin}}</td>
-
+                             <td id="{{$index}}-actions">
+                                    <a class="btn btn-danger btn-sm" ui-sref="trayectoriaDelete({hojaId: idHojaDeVida,trayectoriaId: trayectoria.id})" data-toggle="tooltip" title="Borrar Calificacion" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
+                                </td>
 
                         </tr>
                     </tbody>
