@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createTrabajo">Actualizar Trabajo</label>
+                <label ng-if="edit" id="editTrabajo">Editar Trabajo</label></div>
+            <div class="panel-body">
+
+                <table class="table table-striped col-lg-12">
+                    <thead>
+                        <tr>
+                            <th><h2>Crear Trabajo</h2></th>                                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <td>
+                                <form ng-submit="updateTrabajo()" name="trabajo">
+                                    <div class="form-group row">
+                                        <div class="form-group col-md-12">
+                                            <label for="trabajoName" class="col-sm-2">Nombre:</label>
+                                            <input id="trabajoName" required ng-model="trabajoName" class="col-sm-6"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="form-group col-md-12">
+                                            <label for="trabajoTerminado" class="col-sm-2">Estado:</label>
+                                            <input id="trabajoTerminado" required ng-model="trabajoTerminado" class="col-sm-6">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <div class="form-group col-sm-4" ng-if="!trabajo.$valid">
+
+                                            <div class="alert alert-warning" >
+                                                <strong>Warning!</strong><p>All inputs are required*</p>
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                    <div class="form-group row">
+                                        <div class="form-group col-sm-12">
+                                            <input ng-show="trabajo.$valid" type="submit" value="Save" class="btn btn-success"/>
+                                            <a class="btn btn-info" ui-sref="trabajosList">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

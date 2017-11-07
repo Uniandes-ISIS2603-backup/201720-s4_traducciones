@@ -3,6 +3,7 @@
     mod.constant("empleadosContext", "api/empleados");
     mod.controller('hojasDetailedCtrl', ['$scope', '$http', 'empleadosContext', '$state',
         function ($scope, $http, empleadosContext, $state) {
+            $scope.desdeEmpleado=true;
             var idEmpleado = $state.params.empleadoId;
             var idHojaEmpleado=$state.params.empleadoHoja;
            $scope.prueba=$state.params.empleadoHoja;

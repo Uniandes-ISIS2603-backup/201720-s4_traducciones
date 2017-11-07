@@ -17,22 +17,21 @@
         </div>
     </div>
 </div>
-
-<
-            
-
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading"><label>Calificaciones del Trabajo</label></div>
             <div class="panel-body">
-                <a class="btn btn-success btn-sm" ui-sref="calificacionCreate({trabajoId: currentTrabajo.id})" data-toggle="tooltip" title="Calificar Trabajo" data-placement="top">Calificar  <span class="glyphicon glyphicon-plus-sign" ></span></a>
+
+
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
 
                             <th>Valor</th>
                             <th>Comentario</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +39,30 @@
 
                             <td id="{{$index}}-name" >{{calificacion.valor}}</td>
                             <td id="{{$index}}-name">{{calificacion.comentario}}</td>
+                            <td id="{{$index}}-actions">
+                                    <a class="btn btn-danger btn-sm" ui-sref="calificacionDelete({trabajoId: currentTrabajo.id,calificacionId: calificacion.id})" data-toggle="tooltip" title="Borrar Calificacion" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
+                                </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    </div>
+    </div>
+    <div class="container-fluid">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><label>Opciones</label></div>
+                <div class="panel-body">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <a class="btn btn-success btn-sm" ui-sref="calificacionCreate({trabajoId: currentTrabajo.id})" data-toggle="tooltip" title="Calificar Trabajo" data-placement="top">Calificar  <span class="glyphicon glyphicon-plus-sign" ></span></a>
+                            <a class="btn btn-info btn-sm" ui-sref="trabajosList" data-toggle="tooltip" title="Volver" data-placement="top">Volver  <span class="glyphicon glyphicon-arrow-left" ></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>

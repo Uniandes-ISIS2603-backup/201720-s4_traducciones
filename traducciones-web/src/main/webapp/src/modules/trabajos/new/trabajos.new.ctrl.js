@@ -15,7 +15,7 @@
             };
             
             $scope.addCalificacion = function () {
-                $http.put(trabajosContext, {
+                $http.post(trabajosContext, {
                     name: $scope.calificacionName,
                     id:$scope.calificacionId,
                     valor: $scope.calificacionValor,

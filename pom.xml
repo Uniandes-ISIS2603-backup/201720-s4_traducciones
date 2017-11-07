@@ -7,7 +7,10 @@
     <name>traducciones</name>
     <packaging>pom</packaging>
     <version>0.1.0</version>
-    <modules></modules>
+    <modules>
+        <module>traducciones-back</module>
+        <module>traducciones-web</module>
+    </modules>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

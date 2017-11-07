@@ -52,7 +52,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/new/hojas.new.html',
+                        templateUrl: basePath + '/update/hojas.update.html',
                         controller: 'hojasUpdateCtrl'
                     }
                 }
@@ -66,6 +66,31 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/hojas.delete.html',
                         controller: 'hojasDeleteCtrl'
+                    }
+                }
+            }).state('trayectoriaCreate', {
+                url: '/create/{hojaId:int}/calificacion',
+                parent: 'hojas',
+                param: {
+                    hojaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/trayectoria.new.html',
+                        controller: 'trayectoriasNewCtrl'
+                    }
+                }
+            }).state('trayectoriaDelete', {
+                url: '/create/{hojaId:int}/trayectoria/{trayectoriaId:int}',
+                parent: 'hojas',
+                param: {
+                    hojaId: null,
+                    trayectoriaId:null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/trayectorias.delete.html',
+                        controller: 'trayectoriasDeleteCtrl'
                     }
                 }
             });

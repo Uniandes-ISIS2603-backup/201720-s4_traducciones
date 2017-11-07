@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="pagoCliente">Crear nuevo Pago</label>
+                <label ng-if="edit" id="editPago">Editar Pago</label></div>
+            <div class="panel-body">
+                <form ng-submit="createPago()" name="pago">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="pagoIdEmpleado" class="col-sm-2">Empleado:</label>
+                            <input id="pagoIdEmpleado" required ng-model="pagoIdEmpleado" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="pagoIdSolicitud" class="col-sm-2">Solicitud:</label>
+                            <input id="pagoIdSolicitud" required ng-model="pagoIdSolicitud" class="col-sm-6"/>
+                        </div>                                            
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!pago.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Warning!</strong><p>Todas las entradas son requeridas*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="pago.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="pagosList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
