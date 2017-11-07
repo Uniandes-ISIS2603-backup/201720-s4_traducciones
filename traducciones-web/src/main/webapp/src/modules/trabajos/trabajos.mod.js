@@ -52,7 +52,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/new/trabajos.new.html',
+                        templateUrl: basePath + '/update/trabajos.update.html',
                         controller: 'trabajosUpdateCtrl'
                     }
                 }

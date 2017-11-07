@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createTrabajo">Crear Nuevo Trabajo</label>
+            <div class="panel-heading"><label ng-if="!edit" id="createTrabajo">Actualizar Trabajo</label>
                 <label ng-if="edit" id="editTrabajo">Editar Trabajo</label></div>
             <div class="panel-body">
 
@@ -14,7 +14,7 @@
                     <tbody>
                         <tr >
                             <td>
-                                <form ng-submit="createTrabajo()" name="trabajo">
+                                <form ng-submit="updateTrabajo()" name="trabajo">
                                     <div class="form-group row">
                                         <div class="form-group col-md-12">
                                             <label for="trabajoName" class="col-sm-2">Nombre:</label>

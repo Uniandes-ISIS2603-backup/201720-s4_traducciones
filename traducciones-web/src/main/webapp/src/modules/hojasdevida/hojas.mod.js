@@ -52,7 +52,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/new/hojas.new.html',
+                        templateUrl: basePath + '/update/hojas.update.html',
                         controller: 'hojasUpdateCtrl'
                     }
                 }
