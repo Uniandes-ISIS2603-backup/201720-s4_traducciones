@@ -16,13 +16,9 @@
                     }
                 };
 
-            if ($state.params.trabajoId !== undefined && $state.params.trabajoId !== null) {
-                $http.get(trabajoContext + '/' + $state.params.trabajoId).then(function (response) {
-                    $scope.currentTrabajo = response.data;
-
-                    $scope.verificarDetail = function (param)
+$scope.verificarDetail = function (param)
                 {
-                    if(param==null &&param ==undefined)
+                    if(param===null &&param===undefined)
                     {
                         return "Aun no calificado";
                     }
@@ -30,22 +26,17 @@
                     {
                         return param;
                     }
-                }
+                };
+            if ($state.params.trabajoId !== undefined && $state.params.trabajoId !== null) {
+                $http.get(trabajoContext + '/' + $state.params.trabajoId).then(function (response) {
+                    $scope.currentTrabajo = response.data;
+
+                    
                 });
             }
             $http.get(trabajoContext).then(function (response) {
                 $scope.trabajosRecords = response.data;
-                $scope.verificar = function (param)
-                {
-                    if(param!==undefined && param !==null)
-                    {
-                        return "Si";
-                    }
-                    else
-                    {
-                        return "No";
-                    }
-                }
+                
 
 
                 

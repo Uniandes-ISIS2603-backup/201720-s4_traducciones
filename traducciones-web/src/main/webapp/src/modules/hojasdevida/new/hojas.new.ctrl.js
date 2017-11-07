@@ -1,11 +1,12 @@
 (function (ng) {
     var mod = ng.module("hojaModule");
-    mod.constant("hojasContext", "api/hojadevida");
-    mod.controller('hojasNewCtrl', ['$scope', '$http', 'hojasContext', '$state', '$rootScope',
-        function ($scope, $http, hojasContext, $state, $rootScope) {
+    mod.controller('hojasNewCtrl', ['$scope', '$http', '$state', '$rootScope',
+        function ($scope, $http, $state, $rootScope) {
             $rootScope.edit = false;
+            
+            
             $scope.createHoja = function () {
-                $http.post(hojasContext, {
+                $http.post("api/empleados/"+$state.params.empleadoId+"/hojadevida", {
                     name: $scope.hojaName,
                     id:$scope.hojaId,
                     descripcion: $scope.hojaDescripcion,

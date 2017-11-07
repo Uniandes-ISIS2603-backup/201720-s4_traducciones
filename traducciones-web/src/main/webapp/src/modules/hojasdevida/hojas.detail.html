@@ -1,3 +1,6 @@
+
+<p>{{prueba}}</p>
+<p>sadasdsasad</p>
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
@@ -6,15 +9,15 @@
                 <div class="col-md-3">
                     <dl>
                         <dt> ID Hoja</dt>
-                        <dd>{{currentHoja.id}}</dd>
+                        <dd>{{idHojaDeVida}}</dd>
                         <dt> Nombre</dt>
-                        <dd>{{currentHoja.name}}</dd>
+                        <dd>{{nombreHojaDeVida}}</dd>
                         <dt> Estado de finalizacion</dt>
-                        <dd>{{currentHoja.descripcion}}</dd>
+                        <dd>{{descripcionHojaDeVida}}</dd>
                         <dt> Formacion Academica</dt>
-                        <dd>{{currentHoja.formacionAcademica}}</dd>
+                        <dd>{{formacionHojaDeVida}}</dd>
                         <dt> Perfil Profesional</dt>
-                        <dd>{{currentHoja.perfilProfesional}}</dd>
+                        <dd>{{perfilHojaDeVida}}</dd>
 
 
                     </dl>
@@ -42,7 +45,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="trayectoria in currentHoja.trayectorias">
+                        <tr ng-repeat="trayectoria in trayectoriasHoja">
                             <td id="{{$index}}-id">{{trayectoria.id}}</td>
                             <td id="{{$index}}-descripcion" >{{trayectoria.descripcion}}</td>
                             <td id="{{$index}}-fechaI">{{trayectoria.fechaInicio}}</td>

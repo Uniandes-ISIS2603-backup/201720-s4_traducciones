@@ -24,7 +24,7 @@
                                 <td id="{{$index}}-name">{{trabajo.id}}</td>
                                 <td id="{{$index}}-id"><a ui-sref="trabajosDetail({trabajoId: trabajo.id})">{{trabajo.name}}</a></td>
                                 <td id="{{$index}}-terminado">{{terminadoBool(trabajo.terminado)}}</td>
-                                <td>{{verificar(trabajo.calificacion)}}</td>
+                                <td>{{verificar(trabajo.calificaciones)}}</td>
                                 <td id="{{$index}}-actions">
                                     <a class="btn btn-default btn-sm" ui-sref="trabajoUpdate({trabajoId: trabajo.id})" data-toggle="tooltip" title="Actualizar Trabajo" data-placement="top">Actualizar  <span class="glyphicon glyphicon-edit"></span></a>
                                     <a class="btn btn-danger btn-sm" ui-sref="trabajoDelete({trabajoId: trabajo.id})" data-toggle="tooltip" title="Borrar Trabajo" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>

@@ -39,15 +39,29 @@
                     }
                 }
             }).state('empleadoHojas', {
-                url: '/empleadohojas/{empleadoId:int}',
+                url: '/empleadohojas/{empleadoId:int}/{empleadoHoja:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null,
+                    empleadoHoja:null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathHoja + 'hojas.detail.html',
+                        controller: 'hojasDetailedCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('empleadoHojasCreate', {
+                url: '/empleadohojas/{empleadoId:int}/crear',
                 parent: 'empleados',
                 param: {
                     empleadoId: null
                 },
                 views: {
                     'listView': {
-                        templateUrl: basePathHoja + 'hojas.detail.html',
-                        controller: 'hojasDetailedCtrl',
+                        templateUrl: basePathHoja + 'new/hojas.new.html',
+                        controller: 'hojasNewCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
