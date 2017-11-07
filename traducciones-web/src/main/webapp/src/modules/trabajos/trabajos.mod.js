@@ -80,6 +80,19 @@
                         controller: 'calificacionesNewCtrl'
                     }
                 }
+            }).state('calificacionDelete', {
+                url: '/create/{trabajoId:int}/calificacion/{calificacionId:int}',
+                parent: 'trabajos',
+                param: {
+                    trabajoId: null,
+                    calificacionId:null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/calificaciones.delete.html',
+                        controller: 'calificacionesDeleteCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);

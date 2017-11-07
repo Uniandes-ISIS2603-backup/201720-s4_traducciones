@@ -7,8 +7,7 @@
             
             $scope.createHoja = function () {
                 $http.post("api/empleados/"+$state.params.empleadoId+"/hojadevida", {
-                    name: $scope.hojaName,
-                    id:$scope.hojaId,
+                    name: $scope.hojaName,                    
                     descripcion: $scope.hojaDescripcion,
                     perfilProfesional: $scope.hojaPerfilProfesional,
                     formacionAcademica: $scope.hojaFormacionAcademica
