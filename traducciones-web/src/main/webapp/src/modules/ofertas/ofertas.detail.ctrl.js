@@ -4,22 +4,19 @@
  * and open the template in the editor.
  */
 
-
 (function (ng) {
     var mod = ng.module("empleadoModule");
     mod.constant("empleadosContext", "api/empleados");
     mod.controller('ofertasDetailCtrl', ['$scope', '$http', 'empleadosContext', '$state',
         function ($scope, $http, empleadosContext, $state) {
+            
             var idEmpleado = $state.params.empleadoId;
-                     
+            
             $http.get(empleadosContext + '/' + idEmpleado + "/ofertas").then(function (response) {
-                
-                    idOferta = response.data.id;
-                    
-                $scope.currentOferta = response.data;
-                
-         ;    
+                $scope.prueba = idEmpleado;              
+                $scope.ofertas = response.data;
             });
-            }]);
+        }
+    ]);
 }
 )(angular);

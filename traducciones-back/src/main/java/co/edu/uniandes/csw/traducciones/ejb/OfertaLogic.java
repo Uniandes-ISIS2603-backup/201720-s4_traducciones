@@ -31,7 +31,7 @@ public class OfertaLogic {
      * @return
      * @throws BusinessLogicException
      */
-    public OfertaEntity createOferta(OfertaEntity entity) throws BusinessLogicException, Exception {
+    public OfertaEntity createOferta(OfertaEntity entity) throws BusinessLogicException {
 
         LOGGER.info("Inicia el proceso de creación de una oferta");
         // Invoca la persistencia para crear la oferta
@@ -41,7 +41,7 @@ public class OfertaLogic {
         {
             if (ofertas.get(i).getCodigo().equals(entity.getCodigo()))
             {
-                throw new Exception("Ya existe una oferta con el código "+ entity.getCodigo());
+                throw new BusinessLogicException("Ya existe una oferta con el código "+ entity.getCodigo());
             }   
         }
         persistenceOferta.create(entity);

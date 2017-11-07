@@ -25,6 +25,7 @@ import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
  import javax.ws.rs.Path;
  import javax.ws.rs.PathParam;
  import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
  /**
   * Clase que implementa el recurso REST correspondiente a "ofertas"
   * @author av.perezb
@@ -56,7 +57,19 @@ import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
          // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
          OfertaEntity ofertaEntity = oferta.toEntity();
          // Invoca la lógica para crear la nueva oferta
-         OfertaEntity nuevaOferta = ofertaLogic.createOferta(ofertaEntity);
+         OfertaEntity nuevaOferta = null;
+         List<OfertaEntity> lista = ofertaLogic.getOfertas();
+         for( int i = 0; i < lista.size(); i++)
+         { 
+             if (lista.get(i).getCodigo().equals(oferta.getCodigo()))
+             {
+                 throw new WebApplicationException("Ya existe una oferta con el código:" + oferta.getCodigo(), 404);
+             }
+             else 
+             {
+                 nuevaOferta = ofertaLogic.createOferta(ofertaEntity);
+             }
+        }
          // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
          return new OfertaDetailDTO(nuevaOferta);
   }

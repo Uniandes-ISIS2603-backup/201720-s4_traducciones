@@ -16,7 +16,7 @@
 
                 idH=response.data.id;
                 $scope.idHojaDeVida = response.data.id;
-                 $scope.nombreHojaDeVida = response.data.name;
+                $scope.nombreHojaDeVida = response.data.name;
                 $scope.descripcionHojaDeVida = response.data.descripcion;
                 $scope.formacionHojaDeVida = response.data.formacionAcademica;
                 $scope.perfilHojaDeVida = response.data.perfilProfesional;
