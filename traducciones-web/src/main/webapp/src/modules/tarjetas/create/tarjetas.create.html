@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createTarjeta">Crear Tarjeta</label>
+                <label ng-if="edit" id="editTarjeta">Edit Tarjeta</label></div>
+            <div class="panel-body">
+                <form ng-submit="createTarjeta()" name="tarjeta">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaNombres" class="col-sm-2">Nombres:</label>
+                            <input id="tarjetaNombres" required ng-model="tarjetaNombres" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaApellidos" class="col-sm-2">Apellidos:</label>
+                            <input id="tarjetaApellidos" required ng-model="tarjetaApellidos" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaNumero" class="col-sm-2">Número:</label>
+                            <input id="tarjetaNumero" required ng-model="tarjetaNumero" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaFechaExpiracion" class="col-sm-2">Fecha Expiración:</label>
+                            <input type="date" id="tarjetaFechaExpiracion" placeholder="DD/MM/YYYY" required ng-model="tarjetaFechaExpiracion" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaCodigo" class="col-sm-2">Código:</label>
+                            <textarea id="tarjetaCodigo" required ng-model="tarjetaCodigo" class="col-sm-6"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tarjetaCompañia" class="col-sm-2">Compañia:</label>
+                            <input id="tarjetaCompañia" required ng-model="tarjetaCompañia" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!tarjeta.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>¡Atención!</strong><p>Se requiere llenar todos los campos*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="tarjeta.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="tarjetasList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

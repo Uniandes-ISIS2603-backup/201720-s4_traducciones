@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de Pagos</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="pagoCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo pago</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Empleado</th>    
+                                <th>Solicitud</th>  
+                                <th>Actions</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="pago in pagosRecords">
+                                <td id="{{$index}}-idEmpleado"><a ui-sref="empleadoDetail({empleadoId: pago.idEmpleado})">{{pago.idEmpleado}}</a></td>
+                                <td id="{{$index}}-idSolicitud">{{pago.idSolicitud}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="pagoUpdate({pagoId: pago.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="pagoDelete({pagoId: pago.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label id="updateCliente">Editar Cliente</label></div>
+            <div class="panel-body">
+                <form ng-submit="updateCliente()" name="cliente">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="clienteName" class="col-sm-2">Nombre:</label>
+                            <input id="clienteName" required ng-model="clienteName" class="col-sm-8">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="clienteCorreo" class="col-sm-2">Correo:</label>
+                            <input id="clienteCorreo" required ng-model="clienteCorreo" class="col-sm-8">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!cliente.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Atencion</strong><p>Es necesario completar todos los campos*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="cliente.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="clientesList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

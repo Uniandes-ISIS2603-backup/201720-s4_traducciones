@@ -16,6 +16,27 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         
+        <!-- Clientes -->
+        <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/delete/clientes.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/create/clientes.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/update/clientes.update.ctrl.js" type="text/javascript"></script>
+        
+        <!-- Pagos -->
+        <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/pagos.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/delete/pagos.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/create/pagos.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/update/pagos.update.ctrl.js" type="text/javascript"></script>
+        
+        <!-- Tarjetas -->
+        <script src="src/modules/tarjetas/tarjetas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetas/tarjetas.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetas/delete/tarjetas.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetas/create/tarjetas.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetas/update/tarjetas.update.ctrl.js" type="text/javascript"></script>
+        
         <!-- Empleados -->
         <script src="src/modules/empleados/empleados.mod.js" type="text/javascript"></script>
         <script src="src/modules/empleados/empleados.ctrl.js" type="text/javascript"></script>
@@ -63,7 +84,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="nav nav-tabs">
-                        <li><a>Clientes</a></li>
+                        <li><a ui-sref="clientesList">Clientes</a></li>
+                        <li><a ui-sref="pagosList">Pagos</a></li>
+                        <li><a ui-sref="tarjetasList">Tarjetas</a></li>
                         <li><a ui-sref="empleadosList">Empleados</a></li>
                         <li><a ui-sref="listaOfertas">Ofertas</a></li>
                         <li><a ui-sref="areasList">Areas De Conocimiento</a></li>
