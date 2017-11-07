@@ -5,6 +5,7 @@
             var basePath = 'src/modules/empleados/';
             var basePathArea = 'src/modules/areasdeconocimiento/';
             var basePathHoja = 'src/modules/hojasdevida/';
+            var basePathOferta = 'src/modules/ofertas';
             $urlRouterProvider.otherwise("/empleadosList");
             
             $stateProvider.state('empleados', {
@@ -48,6 +49,19 @@
                     'listView': {
                         templateUrl: basePathHoja + 'hojas.detail.html',
                         controller: 'hojasDetailedCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('empleadoOfertas', {
+                url: '/empleadoOfertas/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathOferta + 'ofertas.detail.html',
+                        controller: 'ofertasDetailCtrl',
                         controllerAs: 'ctrl'
                     }
                 }

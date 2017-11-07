@@ -23,12 +23,11 @@ public class OfertaDetailDTO extends OfertaDTO {
         super(entity);
         if (entity.getEmpleado()!=null)
         {
-            empleado = new EmpleadoDTO(entity.getEmpleado());
+            this.empleado = new EmpleadoDTO(entity.getEmpleado());
         }
         
         
     }   
-
     public EmpleadoDTO getEmpleado() {
         return empleado;
     }

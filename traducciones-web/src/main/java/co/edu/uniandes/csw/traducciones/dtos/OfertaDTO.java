@@ -48,6 +48,7 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
      public OfertaDTO(OfertaEntity oferta) {
          
          this.id = oferta.getId();
+         this.nombre = oferta.getName();
          this.descripcion = oferta.getDescripcion();
          this.codigo = oferta.getCodigo();
          this.fechaVigencia = oferta.getFechaVigencia();
@@ -133,6 +134,7 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          
          OfertaEntity entity = new OfertaEntity();
          entity.setId(this.id);
+         entity.setName(this.nombre);
          entity.setDescripcion(this.descripcion);
          entity.setCodigo(this.codigo);
          entity.setFechaVigencia(this.fechaVigencia);
