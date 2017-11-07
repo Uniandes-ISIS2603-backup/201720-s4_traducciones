@@ -17,8 +17,14 @@
                     //Consulto la oferta a editar.
                     $http.get(ofertasContext + '/' + idOferta).then(function (response) {
 
-                        $scope.oferta = response.data;
-                        console.log(response.data.id);
+                        $scope.id = response.data.id;
+                        $scope.nombre = response.data.nombre;
+                        $scope.descripcion = response.data.descripcion;
+                        $scope.fechaVigencia = response.data.fechaVigencia;
+                        $scope.codigo = response.data.codigo;
+                        $scope.cantidadInicial = response.data.cantidadInicial;
+                        $scope.cantidadActual = response.data.cantidadActual;
+
                     });
 
                     $scope.updateOferta = function () {
