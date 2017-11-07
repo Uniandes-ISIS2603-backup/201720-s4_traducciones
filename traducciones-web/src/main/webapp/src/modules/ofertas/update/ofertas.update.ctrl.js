@@ -7,30 +7,34 @@
 (
         function (ng) {
             var mod = ng.module("ofertasModule");
-            mod.constant("ofertasContext", "api/empleados");
-            mod.controller('ofertasUpdateCtrl', ['$scope', '$http', 'ofertasContext', '$state', '$rootScope',
+            mod.constant("ofertasContext", "api/ofertas");
+            mod.controller('ofertaUpdateCtrl', ['$scope', '$http', 'ofertasContext', '$state', '$rootScope',
                 function ($scope, $http, ofertasContext, $state, $rootScope) {
                     $rootScope.edit = true;
 
-                    var idEmpleado = $state.params.idEmpleado;
+                    var idOferta = $state.params.idOferta;
 
-                    //Consulto el autor a editar.
-                    $http.get(ofertasContext + '/' + idEmpleado + '/' + 'ofertas').then(function (response) {
+                    //Consulto la oferta a editar.
+                    $http.get(ofertasContext + '/' + idOferta).then(function (response) {
 
-                        $scope.ofertasRecords = response.data;
+                        $scope.oferta = response.data;
+                        console.log(response.data.id);
                     });
 
+                    $scope.updateOferta = function () {
+                        $http.put(ofertasContext + '/' + idOferta, {
+                            nombre: $scope.ofertaName,
+                            id: $scope.ofertaId,
+                            descripcion: $scope.ofertaDescripcion,
+                            fechaVigencia: $scope.ofertaFechaVigencia,
+                            codigo: $scope.ofertaCodigo,
+                            cantidadInicial: $scope.ofertaCantidadInicial,
+                            cantidadActual: $scope.ofertaCantidadActual
+                        }).then(function (response) {
+                            $state.go('ofertasList', {reload: true});
 
-                    $scope.newBooks = function () {
-                        $scope.allBooksAuthor = [];
-                        for (var ite in idsBook) {
-                            for (var all in $scope.Allbooks) {
-                                if ($scope.Allbooks[all].id === parseInt(idsBook[ite])) {
-                                    $scope.allBooksAuthor.push($scope.Allbooks[all]);
-                                }
-                            }
-                        }
-                    };
+                        });
+                    }
                 }
             ]);
         }

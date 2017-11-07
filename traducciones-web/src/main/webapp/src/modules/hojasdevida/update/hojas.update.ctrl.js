@@ -26,13 +26,7 @@
                     $state.go('hojasList',  {reload: true});             
                     
                 });
-            }}
-            
-          
-            
-            
-            
-            
+            }}    
         
     ]);
 }

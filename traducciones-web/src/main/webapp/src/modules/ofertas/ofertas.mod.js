@@ -41,40 +41,30 @@ var mod = ng.module("ofertasModule", []);
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('ofertaUpdate', {
+                url: '/update/{ofertaId:int}',
+                parent: 'ofertas',
+                param: {
+                    ofertaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/update/ofertas.update.html',
+                        controller: 'ofertaUpdateCtrl'
+                    }
+                }
+            }).state('ofertaDelete', {
+                url: '/delete/{ofertaId:int}',
+                parent: 'ofertas',
+                param: {
+                    hojaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/ofertas.delete.html',
+                        controller: 'ofertaDeleteCtrl'
+                    }
+                }
             });
-//                    .state('hojaCreate', {
-//                url: '/create',
-//                parent: 'hojas',
-//                views: {
-//                    'detailView': {
-//                        templateUrl: basePath + '/new/hojas.new.html',
-//                        controller: 'hojasNewCtrl'
-//                    }
-//                }
-//            }).state('hojaUpdate', {
-//                url: '/update/{hojaId:int}',
-//                parent: 'hojas',
-//                param: {
-//                    hojaId: null
-//                },
-//                views: {
-//                    'detailView': {
-//                        templateUrl: basePath + '/new/hojas.new.html',
-//                        controller: 'hojasUpdateCtrl'
-//                    }
-//                }
-//            }).state('hojaDelete', {
-//                url: '/delete/{hojaId:int}',
-//                parent: 'hojas',
-//                param: {
-//                    hojaId: null
-//                },
-//                views: {
-//                    'detailView': {
-//                        templateUrl: basePath + '/delete/hojas.delete.html',
-//                        controller: 'hojasDeleteCtrl'
-//                    }
-//                }
-//            });
         }]);
 })(window.angular);

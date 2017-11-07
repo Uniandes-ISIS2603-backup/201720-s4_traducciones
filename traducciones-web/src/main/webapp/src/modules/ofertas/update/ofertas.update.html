@@ -3,6 +3,11 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
 -->
 <div class="container-fluid">
     <div class="panel-group">
@@ -10,12 +15,8 @@ and open the template in the editor.
             <div class="panel-heading"><label ng-if="!edit" id="createOferta">Crear nueva oferta</label>
                 <label ng-if="edit" id="editHoja">Editar oferta</label></div>
             <div class="panel-body">
-                <form ng-submit="createOferta()" name="oferta">
+                <form ng-submit="updateOferta()" name="oferta">
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="ofertaId" class="col-sm-2">Id de la oferta</label>
-                            <input id="ofertaId"  required ng-model="ofertaId" class="col-sm-6"/>
-                        </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
@@ -25,13 +26,13 @@ and open the template in the editor.
                     </div>                    
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="ofertaDescripcion" class="col-sm-2">Descripcion</label>
+                            <label for="ofertaDescripcion" class="col-sm-2">Descripcion:</label>
                             <input id="ofertaDescripcion" required ng-model="ofertaDescripcion" class="col-sm-6">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="ofertaCodigo" class="col-sm-2">Codigo</label>
+                            <label for="ofertaCodigo" class="col-sm-2">Codigo:</label>
                             <input id="ofertaCodigo"  required ng-model="ofertaCodigo" class="col-sm-6"/>
                         </div>
                     </div>
@@ -73,5 +74,3 @@ and open the template in the editor.
         </div>
     </div>
 </div>
-
-
