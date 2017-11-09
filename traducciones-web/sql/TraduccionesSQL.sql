@@ -484,13 +484,6 @@ insert into TarjetaDeCreditoEntity (id, nombres, apellidos, numero, codigoSeguri
 insert into TarjetaDeCreditoEntity (id, nombres, apellidos, numero, codigoSeguridad, compañia, fechaExpiracion) values (1048, 'Trip', 'Beecraft', 100718, 48, 'Spinka Inc', '2017-05-18 23:14:34');
 insert into TarjetaDeCreditoEntity (id, nombres, apellidos, numero, codigoSeguridad, compañia, fechaExpiracion) values (1049, 'Westbrooke', 'Newlove', 100719, 49, 'Walker, Kulas and Weissnat', '2017-08-01 23:16:37');
 insert into TarjetaDeCreditoEntity (id, nombres, apellidos, numero, codigoSeguridad, compañia, fechaExpiracion) values (1050, 'Phyllis', 'Fillon', 100720, 50, 'Rau, Skiles and Wisozk', '2017-03-26 08:44:56');
-delete from empleadoentity;
-delete from PropuestaEntity;
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (1, 'nombre1', 20.3, 10234, 'ACEPTADA' );
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (2, 'nombre2', 21.6, 10235, 'RECHAZADA');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (3, 'nombre3', 22.9, 10236, 'EN_REVISION');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (4, 'nombre4', 23.4, 10237, 'RECHAZADA');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (5, 'nombre5', 24.3, 10237, 'ACEPTADA');
 delete from PropuestaEntity;
 delete from OfertaEntity;
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia) values (10234, 10, 20, 'ABC2345', 'Traduccion ingles espanol',  '30% de descuento', '2016-11-13 14:57:53' );
@@ -499,3 +492,8 @@ insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, des
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia) values (10237, 13, 23, 'ABD2345', 'Correccion frances ingles',  '60% de descuento', '2016-11-16 14:53:53');
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia) values (10238, 14, 24, 'ABC2145', 'Traduccion', '70% de descuento', '2017-11-17 14:47:29');
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia) values (10239, 1, 20, 'ABC2175', 'Traduccion', '40% de descuento', '2017-10-17 14:47:29');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (1, 'nombre1', 20.3, 10234, 'ACEPTADA' );
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (2, 'nombre2', 21.6, 10235, 'RECHAZADA');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (3, 'nombre3', 22.9, 10236, 'EN_REVISION');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (4, 'nombre4', 23.4, 10237, 'RECHAZADA');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (5, 'nombre5', 24.3, 10237, 'ACEPTADA');

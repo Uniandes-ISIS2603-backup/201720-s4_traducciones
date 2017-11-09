@@ -92,13 +92,6 @@ public class PropuestaLogic {
         List<PropuestaEntity> listaPropuestas = persistencePropuesta.findAll();
         LOGGER.info("Termina proceso de consultar todas las Propuestas");
         
-        if (listaPropuestas.size()== 0)
-        {
-                        
-             throw new BusinessLogicException("No hay Propuestas existentes por mostrar.");
-           
-        }
-        
         return listaPropuestas;
                 
     }
