@@ -89,7 +89,7 @@
                 views: {
                     'listView': {
 
-                        templateUrl: basePathOferta + 'ofertas.detail.html',
+                        templateUrl: basePathHoja + 'new/hojas.new.html',
                         controller: 'hojasNewCtrl',
                         controllerAs: 'ctrl'
                     }
