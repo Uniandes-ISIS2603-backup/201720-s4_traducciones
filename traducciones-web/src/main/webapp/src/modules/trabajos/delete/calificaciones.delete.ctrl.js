@@ -8,7 +8,7 @@
             $scope.idTr=idTrabajo;
             $scope.deleteCalificacion = function () {
             
-                $http.delete(trabajosContext + '/' + idTrabajo+"/calificacion/"+idCalificacion, {}).then(function (response) {
+                $http.delete(trabajosContext + '/' + idTrabajo+"/calificacion/"+idCalificacion, {}).then(function () {
                     $state.go('trabajosDetail',({trabajoId: idTrabajo}), {reload: true});
                 });
             };

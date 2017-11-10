@@ -1,7 +1,6 @@
-delete from CalificacionEntity;
-delete from TrabajoEntity;
-delete from OfertaEntity;
-
-
+delete from trayectoriaentity;
+delete from idiomaentity;
+delete from HojaDeVidaEntity;
+delete from empleadoEntity;
 
 
