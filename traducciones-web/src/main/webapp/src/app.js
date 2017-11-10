@@ -11,7 +11,8 @@
         'hojaModule',
         'ofertasModule',
         'empleadoModule',
-        'areadeconocimientoModule'
+        'areadeconocimientoModule',
+        'idiomaModule'
         
 
     ]);

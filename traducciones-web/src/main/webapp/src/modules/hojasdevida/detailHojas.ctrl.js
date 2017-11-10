@@ -16,15 +16,16 @@
             $http.get(empleadosContext + '/' + idEmpleado + "/hojadevida").then(function (response) {
 
                 idH=response.data.id;
+                $scope.idEmpleado=idEmpleado;
                 $scope.idHojaDeVida = response.data.id;
                 $scope.nombreHojaDeVida = response.data.name;
                 $scope.descripcionHojaDeVida = response.data.descripcion;
                 $scope.formacionHojaDeVida = response.data.formacionAcademica;
                 $scope.perfilHojaDeVida = response.data.perfilProfesional;
                 $http.get("api/hojadevida/"+idH).then(function (response2)
-                {
-                  
+                {                  
                 $scope.trayectoriasHoja=response2.data.trayectorias;
+                $scope.idiomasHoja=response2.data.idiomas;
                 });
                 
 

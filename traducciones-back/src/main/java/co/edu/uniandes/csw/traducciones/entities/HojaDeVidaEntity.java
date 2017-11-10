@@ -34,6 +34,11 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
 
+    @PodamExclude
+    @OneToMany(mappedBy = "hojaDeVida")
+    private List<IdiomaEntity> idiomas = new ArrayList<IdiomaEntity>();
+
+    
     /**
      * @return the descripcion
      */
@@ -102,6 +107,20 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
      */
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
+    }
+
+    /**
+     * @return the idiomas
+     */
+    public List<IdiomaEntity> getIdiomas() {
+        return idiomas;
+    }
+
+    /**
+     * @param idiomas the idiomas to set
+     */
+    public void setIdiomas(List<IdiomaEntity> idiomas) {
+        this.idiomas = idiomas;
     }
 
     

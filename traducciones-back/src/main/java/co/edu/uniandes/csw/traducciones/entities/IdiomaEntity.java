@@ -25,7 +25,10 @@ package co.edu.uniandes.csw.traducciones.entities;
 
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -35,7 +38,11 @@ import javax.persistence.Entity;
 public class IdiomaEntity extends BaseEntity implements Serializable {
    private String acronimo;
    private String region;
-
+   
+   @PodamExclude
+   @ManyToOne(cascade = CascadeType.PERSIST)    
+   private HojaDeVidaEntity hojaDeVida;
+   
     public String getAcronimo() {
         return acronimo;
     }
@@ -50,6 +57,20 @@ public class IdiomaEntity extends BaseEntity implements Serializable {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    /**
+     * @return the hojaDeVida
+     */
+    public HojaDeVidaEntity getHojaDeVida() {
+        return hojaDeVida;
+    }
+
+    /**
+     * @param hojaDeVida the hojaDeVida to set
+     */
+    public void setHojaDeVida(HojaDeVidaEntity hojaDeVida) {
+        this.hojaDeVida = hojaDeVida;
     }
    
 }

@@ -7,8 +7,11 @@ package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
+import co.edu.uniandes.csw.traducciones.dtos.IdiomaDTO;
+import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
 import co.edu.uniandes.csw.traducciones.ejb.HojaDeVidaLogic;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
+import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
@@ -166,5 +169,36 @@ public class HojaDeVidaResource {
             list.add(new HojaDeVidaDetailedDTO(entity));
         }
         return list;
+    }
+    
+  private List<IdiomaDTO> idiomasListEntity2DTO(List<IdiomaEntity> entityList) {
+        List<IdiomaDTO> list = new ArrayList<IdiomaDTO>();
+        for (IdiomaEntity entity : entityList) {
+            list.add(new IdiomaDTO(entity));
+        }
+        return list;
+    }
+    
+    
+    @GET
+    @Path("{hojaDeVidaId: \\d+}/idiomas")
+    public List<IdiomaDTO> listIdiomas(@PathParam("hojaDeVidaId") Long hojaDeVidaId) throws BusinessLogicException {
+        if(hojaDeVidaLogic.getIdiomas(hojaDeVidaId).isEmpty()){
+            throw new WebApplicationException("Este hojaDeVida no tiene areas de conocimiento asociadas", 404);
+        }
+        return idiomasListEntity2DTO(hojaDeVidaLogic.getIdiomas(hojaDeVidaId));
+    }
+    
+    @POST
+    @Path("{hojaDeVidaId: \\d+}/idiomas")
+    public IdiomaDTO addIdioma(@PathParam("hojaDeVidaId") Long hojaDeVidaId, IdiomaDTO idioma) throws BusinessLogicException {
+       return new IdiomaDTO(hojaDeVidaLogic.addIdioma(idioma.toEntity(),hojaDeVidaId));
+        
+    }
+    
+    @DELETE
+    @Path("{hojaDeVidaId: \\d+}/idiomas/{idiomaId: \\d+}")
+    public void removeAreaDeconocimiento(@PathParam("hojaDeVidaId") Long hojaDeVidaId, @PathParam("idiomaId") Long idiomaId) throws BusinessLogicException {
+        hojaDeVidaLogic.removeIdioma(idiomaId,hojaDeVidaId);
     }
 }

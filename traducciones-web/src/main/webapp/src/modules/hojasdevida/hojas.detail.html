@@ -7,7 +7,8 @@
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                         <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
                         <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
-                        <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida})" data-toggle="tooltip" title="Calificar Trabajo" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
+                        <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida})" data-toggle="tooltip" title="Crear Trayectoria" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
+                        <a class="btn btn-success btn-sm" ui-sref="idiomaCreate({hojaId: idHojaDeVida})" data-toggle="tooltip" title="Crear Idioma" data-placement="top">Agregar Idioma<span class="glyphicon glyphicon-plus-sign" ></span></a>
                         <a class="btn btn-info btn-sm" ui-sref="hojasList" data-toggle="tooltip" title="Volver" data-placement="top">Volver  <span class="glyphicon glyphicon-arrow-left" ></span></a>
                         
                     </div>
@@ -80,6 +81,43 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de idiomas</label></div>
+            <div class="panel-body">
+                
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Acronimo</th>
+                                <th>Region</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="idioma in idiomasHoja">
+                                <td id="{{$index}}-id">{{idioma.id}}</td>
+                                <td id="{{$index}}-name" >{{idioma.nombre}}</td>
+                                <td id="{{$index}}-acronimo">{{idioma.acronimo}}</td>
+                                <td id="{{$index}}-region">{{idioma.region}}</td>                             
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-danger btn-sm" ui-sref="idiomaDelete({hojaId: idHojaDeVida,idiomaId: idioma.id,empleadoId:idEmpleado})" data-toggle="tooltip" title="Borrar Idioma" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

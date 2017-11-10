@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de idiomas</label></div>
+            <div class="panel-body">
+                
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Acronimo</th>
+                                <th>Region</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="idioma in idiomasRecords">
+                                <td id="{{$index}}-id">{{idioma.id}}</td>
+                                <td id="{{$index}}-name" >{{idioma.nombre}}</td>
+                                <td id="{{$index}}-acronimo">{{idioma.acronimo}}</td>
+                                <td id="{{$index}}-region">{{idioma.region}}</td>                             
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

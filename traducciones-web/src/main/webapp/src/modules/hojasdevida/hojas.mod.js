@@ -3,6 +3,7 @@
     mod.constant("hojasContext", "api/hojadevida");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/hojasdevida/';
+            var basePathIdioma = 'src/modules/idiomas/';
             $urlRouterProvider.otherwise("/hojasList");
             $stateProvider.state('hojas', {
                 url: '/hojadevida',
@@ -81,7 +82,7 @@
                     }
                 }
             }).state('trayectoriaDelete', {
-                url: '/create/{hojaId:int}/trayectoria/{trayectoriaId:int}',
+                url: '/delete/{hojaId:int}/trayectoria/{trayectoriaId:int}',
                 parent: 'hojas',
                 param: {
                     hojaId: null,
@@ -91,6 +92,32 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/trayectorias.delete.html',
                         controller: 'trayectoriasDeleteCtrl'
+                    }
+                }
+            }).state('idiomaCreate', {
+                url: '/create/{hojaId:int}/idioma',
+                parent: 'hojas',
+                param: {
+                    hojaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathIdioma + '/new/idiomas.new.html',
+                        controller: 'idiomasNewCtrl'
+                    }
+                }
+            }).state('idiomaDelete', {
+                url: '/delete/{hojaId:int}/idiomas/{idiomaId:int}',
+                parent: 'hojas',
+                param: {
+                    hojaId: null,
+                    idiomaId:null,
+                    empleadoId:null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathIdioma + '/delete/idiomas.delete.html',
+                        controller: 'idiomasDeleteCtrl'
                     }
                 }
             });

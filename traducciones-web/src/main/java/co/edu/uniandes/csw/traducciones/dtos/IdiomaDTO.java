@@ -15,8 +15,9 @@ public class IdiomaDTO {
     
     
     private long id;
-    private String nombre,acronimo,region;
-
+    private String nombre;
+    private String acronimo;
+    private String region;
     
     
      public IdiomaDTO() {

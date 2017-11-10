@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
+import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
     
     private List<TrayectoriaDTO> trayectorias;
+    private List<IdiomaDTO> idiomas;
     private EmpleadoDTO empleado;
     /**
      *
@@ -37,10 +39,17 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
     public HojaDeVidaDetailedDTO(HojaDeVidaEntity entity) {
         super(entity);
         trayectorias = new ArrayList<TrayectoriaDTO>();
+        idiomas = new ArrayList<IdiomaDTO>();
         empleado = new EmpleadoDTO();
         if (entity.getTrayectorias() != null) {
             for (TrayectoriaEntity entityTrayectorias : entity.getTrayectorias()) {
                 trayectorias.add(new TrayectoriaDTO(entityTrayectorias));
+            }
+            
+        }
+        if (entity.getIdiomas() != null) {
+            for (IdiomaEntity entityIdiomas : entity.getIdiomas()) {
+                idiomas.add(new IdiomaDTO(entityIdiomas));
             }
             
         }
@@ -68,8 +77,20 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
             }
             entity.setTrayectorias(trayectoriasEntity);
         }
-        else{
+        else
+        {
             entity.setTrayectorias(new ArrayList<TrayectoriaEntity>());
+        }
+        if (idiomas != null) {
+            List<IdiomaEntity> idiomasEntity = new ArrayList<>();
+            for (IdiomaDTO dtoIdiomas : idiomas) {
+                idiomasEntity.add(dtoIdiomas.toEntity());
+            }
+            entity.setIdiomas(idiomasEntity);
+        }
+        else
+        {
+            entity.setIdiomas(new ArrayList<IdiomaEntity>());
         }
         if(empleado!=null)
         {
@@ -109,5 +130,19 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
      */
     public void setEmpleado(EmpleadoDTO empleado) {
         this.empleado = empleado;
+    }
+
+    /**
+     * @return the idiomas
+     */
+    public List<IdiomaDTO> getIdiomas() {
+        return idiomas;
+    }
+
+    /**
+     * @param idiomas the idiomas to set
+     */
+    public void setIdiomas(List<IdiomaDTO> idiomas) {
+        this.idiomas = idiomas;
     }
 }

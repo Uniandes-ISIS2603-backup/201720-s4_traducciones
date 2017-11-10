@@ -6,10 +6,12 @@
 package co.edu.uniandes.csw.traducciones.ejb;
 
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
+import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.HojaDeVidaPersistence;
 import co.edu.uniandes.csw.traducciones.persistence.HojaDeVidaPersistence;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,7 +27,9 @@ public class HojaDeVidaLogic {
 
     @Inject
     private HojaDeVidaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
-
+    
+    @Inject
+    private IdiomaLogic idiomaLogic;
     /**
      *
      * @param entity
@@ -81,4 +85,38 @@ public class HojaDeVidaLogic {
      return false;
      }
      }
+     
+     public List<IdiomaEntity> getIdiomas(Long hojaDeVidaId) throws BusinessLogicException {
+        if(getHojaDeVidaId(hojaDeVidaId) == null){
+            throw new BusinessLogicException("El hojaDeVida no existe");
+        }
+        else
+        {
+            return getHojaDeVidaId(hojaDeVidaId).getIdiomas();
+        }
+    }
+    
+    public IdiomaEntity addIdioma(IdiomaEntity idioma, Long hojaDeVidaId) throws BusinessLogicException {
+        idioma.setHojaDeVida(getHojaDeVidaId(hojaDeVidaId));
+        idiomaLogic.createIdioma(idioma);
+        getHojaDeVidaId(hojaDeVidaId).getIdiomas().add(idioma);
+        return idioma;
+    }
+    
+  
+    
+    public void removeIdioma(Long idiomaId, Long hojaDeVidaId) throws BusinessLogicException {
+        List<IdiomaEntity> idiomas = getHojaDeVidaId(hojaDeVidaId).getIdiomas();
+        boolean seBorro = false;
+        for(int i = 0; i<idiomas.size() && !seBorro; i++){
+            if(Objects.equals(idiomas.get(i).getId(), idiomaId)){
+                idiomaLogic.deleteIdiomaId(idiomas.get(i).getId());
+                getHojaDeVidaId(hojaDeVidaId).getIdiomas().remove(i);
+                seBorro = true;
+            }
+        }
+        if(!seBorro){
+            throw new BusinessLogicException("Este hojaDeVida no tiene un area de conocimiento con el id:" + idiomaId);
+        }
+    }
 }

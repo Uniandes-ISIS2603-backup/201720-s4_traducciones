@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createHoja">Agregar Nuevo Idioma</label>
+                <label ng-if="edit" id="editHoja">Editar Hoja</label></div>
+            <div class="panel-body">
+                <form ng-submit="createIdioma()" name="idioma">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="idiomaNombre" class="col-sm-2">Nombre:</label>
+                            <input id="idiomaNombre" required ng-model="idiomaNombre" class="col-sm-6"/>
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="idiomaAcronimo" class="col-sm-2">Acronimo:</label>
+                            <input id="idiomaAcronimo" required ng-model="idiomaAcronimo" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="idiomaRegion" class="col-sm-2">Region:</label>
+                            <input id="idiomaRegion" required ng-model="idiomaRegion" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!idioma.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Warning!</strong><p>All inputs are required*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="idioma.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="idiomasList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
