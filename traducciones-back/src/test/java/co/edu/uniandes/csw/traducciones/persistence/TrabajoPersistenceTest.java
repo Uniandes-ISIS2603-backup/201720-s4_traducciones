@@ -146,13 +146,7 @@ public class TrabajoPersistenceTest {
     }
 
     
-    @Test
-    public void getTrabajoByNameTest() {
-        TrabajoEntity entity = data.get(0);
-        TrabajoEntity newEntity = persistence.findByName(entity.getName());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
+   
     
     @Test
     public void updateTrabajoTest() {

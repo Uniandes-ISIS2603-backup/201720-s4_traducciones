@@ -105,28 +105,7 @@ public class TrabajoPersistence {
         return query.getResultList();
     }
 
-    /**
-     * Busca si hay alguna trabajo con el nombre que se envía de argumento
-     *
-     * @param name: nombre de la trabajo que se está buscando
-     * @return null si no existe ninguna trabajo con el nombre del
-     * argumento. Si existe alguna devuelve la primera.
-     */
-    public TrabajoEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando Trabajo por nombre ", name);
-
-        // Se crea un query para buscar Trabajo con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From TrabajoEntity e where e.name = :name", TrabajoEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<TrabajoEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
-        }
-    }
+    
 
 }
 

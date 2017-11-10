@@ -104,26 +104,4 @@ public class HojaDeVidaPersistence {
         return query.getResultList();
     }
 
-    /**
-     * Busca si hay alguna hojaDeVida con el nombre que se envía de argumento
-     *
-     * @param name: nombre de la hojaDeVida que se está buscando
-     * @return null si no existe ninguna hojaDeVida con el nombre del
-     * argumento. Si existe alguna devuelve la primera.
-     */
-    public HojaDeVidaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando hojaDeVida por nombre ", name);
-
-        // Se crea un query para buscar HojasDeVidaEntity con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From HojaDeVidaEntity e where e.name = :name", HojaDeVidaEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<HojaDeVidaEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
-        }
-    }
 }

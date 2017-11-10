@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.persistence;
 
+import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrayectoriaEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,7 @@ public class TrayectoriaPersistenceTest {
      *
      */
     private List<TrayectoriaEntity> data = new ArrayList<TrayectoriaEntity>();
+    private List<HojaDeVidaEntity> data2 = new ArrayList<HojaDeVidaEntity>();
    
     
     @BeforeClass
@@ -104,6 +106,14 @@ public class TrayectoriaPersistenceTest {
 
             em.persist(entity);
             data.add(entity);
+        }
+        
+         PodamFactory factory2 = new PodamFactoryImpl();
+        for (int i = 0; i < 3; i++) {
+            HojaDeVidaEntity entity2 = factory.manufacturePojo(HojaDeVidaEntity.class);
+
+            em.persist(entity2);
+            data2.add(entity2);
         }
     }
     
@@ -150,7 +160,8 @@ public class TrayectoriaPersistenceTest {
     @Test
     public void testFind(){
         TrayectoriaEntity entity = data.get(0);
-        TrayectoriaEntity newEntity = persistence.find(entity.getId());
+        HojaDeVidaEntity entity2=data2.get(0);
+        TrayectoriaEntity newEntity = persistence.find(entity.getId(),entity2.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }

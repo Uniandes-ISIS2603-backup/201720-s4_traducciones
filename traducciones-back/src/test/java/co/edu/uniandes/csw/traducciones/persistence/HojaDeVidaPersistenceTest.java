@@ -146,13 +146,7 @@ public class HojaDeVidaPersistenceTest {
     }
 
     
-    @Test
-    public void getHojaDeVidaByNameTest() {
-        HojaDeVidaEntity entity = data.get(0);
-        HojaDeVidaEntity newEntity = persistence.findByName(entity.getName());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
+   
     
     @Test
     public void updateHojaDeVidaTest() {

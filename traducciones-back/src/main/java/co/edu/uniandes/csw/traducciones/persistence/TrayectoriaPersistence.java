@@ -45,10 +45,7 @@ public class TrayectoriaPersistence {
         return query.getResultList();
     }
     
-    public TrayectoriaEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando Oferta con id={0}", id);
-        return em.find(TrayectoriaEntity.class, id);
-    }
+ 
 
     /**
      * Actualiza una trayectoria.
@@ -101,7 +98,7 @@ public class TrayectoriaPersistence {
             trayectorias = null;
         } else if (results.isEmpty()) {
             trayectorias = null;
-        } else if (results.size() >= 1) {
+        } else if (!results.isEmpty()) {
             trayectorias = results.get(0);
         }
 

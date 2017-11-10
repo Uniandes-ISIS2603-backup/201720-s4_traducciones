@@ -55,7 +55,7 @@ public class CalificacionPersistence {
             calificacion = null;
         } else if (results.isEmpty()) {
             calificacion = null;
-        } else if (results.size() >= 1) {
+        } else if (!results.isEmpty()) {
             calificacion = results.get(0);
         }
 

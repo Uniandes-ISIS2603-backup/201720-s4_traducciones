@@ -149,4 +149,32 @@ public class CalificacionPersistenceTest {
         Assert.assertNull(deleted);
     }
 
+     /**
+     * Test of findAll method, of class ClientePersistence.
+     */
+    @Test
+    public void testFindAll(){
+        List<CalificacionEntity> list = persistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (CalificacionEntity ent : list) {
+            boolean found = false;
+            for (CalificacionEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Test of find method, of class ClientePersistence.
+     */
+    @Test
+    public void testFind(){
+        CalificacionEntity entity = data.get(0);
+        CalificacionEntity newEntity = persistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+    }
 }
