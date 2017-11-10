@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.HojaDeVidaPersistence;
-import co.edu.uniandes.csw.traducciones.persistence.HojaDeVidaPersistence;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -53,9 +52,9 @@ public class HojaDeVidaLogic {
     public List<HojaDeVidaEntity> getHojasDeVida() {
         LOGGER.info("Inicia proceso de consultar todas las HojaDeVidas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<HojaDeVidaEntity> HojaDeVidas = persistence.findAll();
+        List<HojaDeVidaEntity> hojasDeVida = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las HojaDeVidas");
-        return HojaDeVidas;
+        return hojasDeVida;
     }
     
     public HojaDeVidaEntity getHojaDeVidaId(Long id)
@@ -76,14 +75,8 @@ public class HojaDeVidaLogic {
      
      public boolean existeHojaDeVidaId(Long id)
      {
-     if(persistence.find(id)!=null)
-     {
-         return true;
-     }
-     else
-     {
-     return false;
-     }
+     return (persistence.find(id)!=null);
+    
      }
      
      public List<IdiomaEntity> getIdiomas(Long hojaDeVidaId) throws BusinessLogicException {

@@ -35,7 +35,7 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
      */
     public TrabajoDetailedDTO(TrabajoEntity entity) {
         super(entity);
-        calificaciones = new ArrayList<CalificacionDTO>();
+        calificaciones = new ArrayList<>();
         
         if (entity.getCalificaciones() != null) {
             for (CalificacionEntity entityCalificaciones : entity.getCalificaciones()) {

@@ -21,6 +21,7 @@ public class TrabajoDTO {
      * Constructor por defecto
      */
     public TrabajoDTO() {
+         //Constructor necesario
     }
     
     /**

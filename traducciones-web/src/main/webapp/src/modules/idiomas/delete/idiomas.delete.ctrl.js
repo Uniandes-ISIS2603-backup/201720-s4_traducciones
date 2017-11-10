@@ -7,7 +7,7 @@
             var idIdioma = $state.params.idiomaId;
             var idEmpleado = $state.params.empleadoId;
             $scope.deleteIdioma = function () {
-                $http.delete(hojasContext + '/' + idHoja+ "/idiomas/"+idIdioma, {}).then(function (response) {
+                $http.delete(hojasContext + '/' + idHoja+ "/idiomas/"+idIdioma, {}).then(function () {
                     
                     $state.go('empleadoHojas', {hojaId: idHoja,empleadoId:idEmpleado}, {reload: true});
                     

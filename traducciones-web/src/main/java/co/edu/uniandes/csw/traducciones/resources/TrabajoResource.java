@@ -5,9 +5,6 @@
  */
 package co.edu.uniandes.csw.traducciones.resources;
 
-
-
-import co.edu.uniandes.csw.traducciones.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.traducciones.dtos.TrabajoDTO;
 import co.edu.uniandes.csw.traducciones.dtos.TrabajoDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.TrabajoLogic;
@@ -37,9 +34,9 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class TrabajoResource {
 
-    private final String TRABAJOS="El recurso /trabajos/";
+    private final static String TRABAJOS="El recurso /trabajos/";
     
-    private final String NOEXISTE=" no existe";
+    private final static String NOEXISTE=" no existe";
             
     @Inject
     TrabajoLogic trabajoLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.

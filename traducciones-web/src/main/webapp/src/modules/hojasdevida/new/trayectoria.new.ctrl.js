@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module("hojaModule");
     mod.controller('trayectoriasNewCtrl', ['$scope', '$http', '$state', '$rootScope',
-        function ($scope, $http, $state, $rootScope) {
+        function ($scope, $http, $state) {
 
             var idHoja = $state.params.hojaId;
 
@@ -12,7 +12,7 @@
                     fechaInicio: $scope.trayectoriaFechaI,
                     name: $scope.trayectoriaName
 
-                }).then(function (response) {
+                }).then(function () {
                     //Author created successfully
                     $state.go('hojasDetail', {hojaId: idHoja}, {reload: true});
                 });

@@ -26,6 +26,7 @@ public class HojaDeVidaDTO {
      * Constructor por defecto
      */
     public HojaDeVidaDTO(){
+        //Constructor necesario
     }
     
     /**

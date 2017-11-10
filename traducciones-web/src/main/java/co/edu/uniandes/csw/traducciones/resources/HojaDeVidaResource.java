@@ -8,12 +8,10 @@ package co.edu.uniandes.csw.traducciones.resources;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.HojaDeVidaDetailedDTO;
 import co.edu.uniandes.csw.traducciones.dtos.IdiomaDTO;
-import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
 import co.edu.uniandes.csw.traducciones.ejb.HojaDeVidaLogic;
 import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -39,8 +37,8 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class HojaDeVidaResource {
     
-    private final String HOJAS="El recurso /hojadevida/ ";
-    private final String NOEXISTE="no existe.";
+    private final static String HOJAS="El recurso /hojadevida/ ";
+    private final static String NOEXISTE="no existe.";
     
     @Inject
     HojaDeVidaLogic hojaDeVidaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -172,7 +170,7 @@ public class HojaDeVidaResource {
     }
     
   private List<IdiomaDTO> idiomasListEntity2DTO(List<IdiomaEntity> entityList) {
-        List<IdiomaDTO> list = new ArrayList<IdiomaDTO>();
+        List<IdiomaDTO> list = new ArrayList<>();
         for (IdiomaEntity entity : entityList) {
             list.add(new IdiomaDTO(entity));
         }

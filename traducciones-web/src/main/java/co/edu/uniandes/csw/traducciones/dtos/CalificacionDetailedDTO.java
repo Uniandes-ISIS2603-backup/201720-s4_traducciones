@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
-import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
+
 
 /**
  *

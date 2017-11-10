@@ -10,7 +10,7 @@
                     nombre: $scope.idiomaNombre,                    
                     acronimo: $scope.idiomaAcronimo,
                     region: $scope.idiomaRegion                    
-                }).then(function (response) {
+                }).then(function () {
                     
                     $state.go('hojasDetail', {hojaId: idHoja}, {reload: true});
                 });
