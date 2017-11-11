@@ -1,21 +1,25 @@
 <div class="container-fluid">
-    <h3>Areas de conocimiento</h3>
-    <div class="col-md-4">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>    
-                    <th>Descripcion</th>  
-                    <th>Empleado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="areadeconocimiento in areasRecords">
-                    <td id="{{$index}}-name">{{areadeconocimiento.name}}</td>
-                    <td id="{{$index}}-descripcion">{{areadeconocimiento.descripcion}}</td>
-                    <td id="{{$index}}-nombreEmpleado">{{areadeconocimiento.nombreEmpleado}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de Areas de Conocimiento</label></div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>    
+                            <th>Descripcion</th>  
+                            <th>Empleado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="areadeconocimiento in areasRecords">
+                            <td id="{{$index}}-name">{{areadeconocimiento.name}}</td>
+                            <td id="{{$index}}-descripcion">{{areadeconocimiento.descripcion}}</td>
+                            <td id="{{$index}}-nombreEmpleado">{{areadeconocimiento.nombreEmpleado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

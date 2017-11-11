@@ -79,7 +79,7 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
         }
         else
         {
-            entity.setTrayectorias(new ArrayList<TrayectoriaEntity>());
+            entity.setTrayectorias(new ArrayList<>());
         }
         if (idiomas != null) {
             List<IdiomaEntity> idiomasEntity = new ArrayList<>();
@@ -90,7 +90,7 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
         }
         else
         {
-            entity.setIdiomas(new ArrayList<IdiomaEntity>());
+            entity.setIdiomas(new ArrayList<>());
         }
         if(empleado!=null)
         {

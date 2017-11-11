@@ -1,47 +1,54 @@
 <div class="container-fluid">
-    <h3>Empleados</h3>
-    <div class="col-md-4">
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a class="btn btn-info" ui-sref="empleadoCreate">
-                <span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo empleado</a>
-        </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>    
-                    <th>Tipo</th>  
-                    <th>Calificacion</th>
-                    <th>Acciones</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="empleado in empleadosRecords">
-                    <td id="{{$index}}-name">{{empleado.name}}</td>
-                    <td id="{{$index}}-tipo">{{empleado.tipo}}</td>
-                    <td id="{{$index}}-calificacionPromedio">{{empleado.calificacionPromedio}}</td>
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="empleadoUpdate({empleadoId: empleado.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="empleadoDelete({empleadoId: empleado.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>  
-                    </td>
-                    <td id="{{$index}}-opciones">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Ver
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a ui-sref="empleadoAreas({empleadoId: empleado.id})">Areas de conocimiento</a></li>
-                                <li><a ui-sref="empleadoOfertas({empleadoId: empleado.id})">Ofertas</a></li>
-                                <li><a ui-sref="empleadoHojas({empleadoId: empleado.id , empleadoHoja: empleado.hojadevida[0].id})">Hoja de vida</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
-                            </ul>
-                        </div>       
-                    </td>    
-                </tr>
-            </tbody>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de empleados</label></div>
+            <div class="panel-body">
 
+                <div class="col-md-8">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="empleadoCreate">
+                            <span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo empleado</a>
+                    </div>
+                    <table class="table table-striped table-bordered text-justify table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>    
+                                <th>Tipo</th>  
+                                <th>Calificacion</th>
+                                <th>Acciones</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="empleado in empleadosRecords">
+                                <td id="{{$index}}-name">{{empleado.name}}</td>
+                                <td id="{{$index}}-tipo">{{empleado.tipo}}</td>
+                                <td id="{{$index}}-calificacionPromedio">{{empleado.calificacionPromedio}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="empleadoUpdate({empleadoId: empleado.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="empleadoDelete({empleadoId: empleado.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>  
+                                </td>
+                                <td id="{{$index}}-opciones">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Ver
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a ui-sref="empleadoAreas({empleadoId: empleado.id})">Areas de conocimiento</a></li>
+                                            <li><a ui-sref="empleadoOfertas({empleadoId: empleado.id})">Ofertas</a></li>
+                                            <li><a ui-sref="empleadoHojas({empleadoId: empleado.id , empleadoHoja: empleado.hojadevida[0].id})">Hoja de vida</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li><a ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
+                                        </ul>
+                                    </div>       
+                                </td>    
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

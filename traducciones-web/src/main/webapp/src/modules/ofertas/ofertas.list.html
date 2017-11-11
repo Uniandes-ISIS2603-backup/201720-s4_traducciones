@@ -1,26 +1,29 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
-<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-12">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>    
-                    <th>Descripción</th> 
-                    <th>Empleado</th>
-                    <th>Fecha vencimiento</th>
-                    <th>Cantidad actual</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat=" oferta in ofertasRecords">
-                    <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
-                    <td id="{{$index}}-descripcion">{{oferta.descripcion}}</td>
-                    <td id="{{$index}}-empleado">{{oferta.empleado.name}}</td>
-                    <td id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
-                    <td id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de clientes</label></div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>    
+                            <th>Descripción</th> 
+                            <th>Empleado</th>
+                            <th>Fecha vencimiento</th>
+                            <th>Cantidad actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat=" oferta in ofertasRecords">
+                            <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
+                            <td id="{{$index}}-descripcion">{{oferta.descripcion}}</td>
+                            <td id="{{$index}}-empleado">{{oferta.empleado.name}}</td>
+                            <td id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
+                            <td id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
