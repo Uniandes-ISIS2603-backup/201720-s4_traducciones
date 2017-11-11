@@ -1,32 +1,32 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createHoja">Crear Nuevo Hoja</label>
+            <div class="panel-heading"><label ng-if="!edit" id="createHoja" class="labelNew">Crear Nuevo Hoja</label>
                 <label ng-if="edit" id="editHoja">Editar Hoja</label></div>
             <div class="panel-body">
                 <form ng-submit="createHoja()" name="hojadevida">
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="hojaName" class="col-sm-2">Nombre:</label>
+                        <div class="form-group col-md-12">
+                            <label for="hojaName" class="col-sm-2 labelNew">Nombre:</label>
                             <input id="hojaName" required ng-model="hojaName" class="col-sm-6"/>
                         </div>
                     </div>                    
                     <div class="form-group row">
-                        <div class="form-group col-lg-10">
-                            <label for="hojaDescripcion" class="col-sm-1">Descripcion</label>
-                            <textarea id="hojaDescripcion" required ng-model="hojaDescripcion" class="col-lg-8" rows="10" cols="10"></textarea>
+                        <div class="form-group col-md-12">
+                            <label for="hojaDescripcion" class="col-sm-2 labelNew">Descripcion</label>
+                            <textarea id="hojaDescripcion" required ng-model="hojaDescripcion" class="col-sm-6" rows="10" cols="10"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group col-lg-10">
-                            <label for="hojaFormacionAcademica" class="col-sm-1">Formacion Academica</label>
-                            <textarea id="hojaFormacionAcademica"  required ng-model="hojaFormacionAcademica" class="col-lg-8" rows="10" cols="10"/></textarea>
+                        <div class="form-group col-md-12">
+                            <label for="hojaFormacionAcademica" class="col-sm-2 labelNew">Formacion Academica</label>
+                            <textarea id="hojaFormacionAcademica"  required ng-model="hojaFormacionAcademica" class="col-sm-6" rows="10" cols="10"/></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group col-lg-10">
-                            <label for="hojaPerfilProfesional" class="col-sm-1">Perfil Profesional:</label>
-                            <textarea id="hojaPerfilProfesional" required ng-model="hojaPerfilProfesional" class="col-lg-8" rows="10" cols="10"/></textarea>
+                        <div class="form-group col-md-12">
+                            <label for="hojaPerfilProfesional" class="col-sm-2 labelNew">Perfil Profesional:</label>
+                            <textarea id="hojaPerfilProfesional" required ng-model="hojaPerfilProfesional" class="col-sm-6" rows="10" cols="10"/></textarea>
                         </div>
                     </div> 
 
