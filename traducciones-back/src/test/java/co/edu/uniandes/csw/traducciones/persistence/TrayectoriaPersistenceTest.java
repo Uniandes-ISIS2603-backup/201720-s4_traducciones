@@ -154,17 +154,7 @@ public class TrayectoriaPersistenceTest {
         }
     }
 
-    /**
-     * Test of find method, of class ClientePersistence.
-     */
-    @Test
-    public void testFind(){
-        TrayectoriaEntity entity = data.get(0);
-        HojaDeVidaEntity entity2=data2.get(0);
-        TrayectoriaEntity newEntity = persistence.find(entity.getId(),entity2.getId());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
+    
 
     /**
      * Test of update method, of class ClientePersistence.
