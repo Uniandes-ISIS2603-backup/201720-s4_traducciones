@@ -162,7 +162,7 @@ public class HojaDeVidaResource {
      * @return la lista de Hojas de vida en forma DTO (json)
      */
     private List<HojaDeVidaDetailedDTO> listEntity2DetailDTO(List<HojaDeVidaEntity> entityList) {
-        List<HojaDeVidaDetailedDTO> list = new ArrayList<>();
+        List<HojaDeVidaDetailedDTO> list = new ArrayList<HojaDeVidaDetailedDTO>();
         for (HojaDeVidaEntity entity : entityList) {
             list.add(new HojaDeVidaDetailedDTO(entity));
         }
@@ -170,7 +170,7 @@ public class HojaDeVidaResource {
     }
     
   private List<IdiomaDTO> idiomasListEntity2DTO(List<IdiomaEntity> entityList) {
-        List<IdiomaDTO> list = new ArrayList<>();
+        List<IdiomaDTO> list = new ArrayList<IdiomaDTO>();
         for (IdiomaEntity entity : entityList) {
             list.add(new IdiomaDTO(entity));
         }

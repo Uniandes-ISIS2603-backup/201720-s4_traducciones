@@ -38,8 +38,8 @@ public class HojaDeVidaDetailedDTO extends HojaDeVidaDTO {
      */
     public HojaDeVidaDetailedDTO(HojaDeVidaEntity entity) {
         super(entity);
-        trayectorias = new ArrayList<>();
-        idiomas = new ArrayList<>();
+        trayectorias = new ArrayList<TrayectoriaDTO>();
+        idiomas = new ArrayList<IdiomaDTO>();
         empleado = new EmpleadoDTO();
         if (entity.getTrayectorias() != null) {
             for (TrayectoriaEntity entityTrayectorias : entity.getTrayectorias()) {
