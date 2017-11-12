@@ -144,9 +144,10 @@ public class ClienteLogic {
             LOGGER.log(Level.SEVERE, "El pago con el id {0} no existe", pagoId);
         
         ClienteEntity cliente = getCliente(clienteId);
-        if(cliente == null)
+        if(cliente == null){
             LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
-        
+            return null;
+        }
         List<PagoEntity> pagosCliente = cliente.getPagos();
         if(pagosCliente == null){
             pagosCliente = new ArrayList<>();
@@ -325,9 +326,10 @@ public class ClienteLogic {
             LOGGER.log(Level.SEVERE, "La solicitud con el id {0} no existe", solicitudId);
         
         ClienteEntity cliente = getCliente(clienteId);
-        if(cliente == null)
+        if(cliente == null){
             LOGGER.log(Level.SEVERE, "El cliente con el id {0} no existe", clienteId);
-        
+        return null;
+        }
         List<SolicitudEntity> solicitudesCliente = cliente.getSolicitudes();
         if(solicitudesCliente == null){
             solicitudesCliente = new ArrayList<>();

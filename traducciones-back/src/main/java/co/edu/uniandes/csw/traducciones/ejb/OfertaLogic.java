@@ -56,7 +56,7 @@ public class OfertaLogic {
      *
      * @return una lista de Ofertas.
      */
-    public List<OfertaEntity> getOfertas() throws Exception {
+    public List<OfertaEntity> getOfertas() throws BusinessLogicException {
 
         LOGGER.info("Inicia proceso de consultar todas las Ofertas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
@@ -65,7 +65,7 @@ public class OfertaLogic {
         LOGGER.info("Termina proceso de consultar todas las Ofertas");
 
         if (listaOfertas.isEmpty()) {
-            throw new Exception("No hay ofertas existentes por mostrar.");
+            throw new BusinessLogicException("No hay ofertas existentes por mostrar.");
         }
         return listaOfertas;
 
@@ -136,7 +136,7 @@ public class OfertaLogic {
     }
     
      
-     public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long ofertaId) throws Exception {
+     public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long ofertaId) throws BusinessLogicException {
         propuesta.setOferta(getOferta(ofertaId));
         propuestaLogic.createPropuesta(propuesta);
         getOferta(ofertaId).getPropuestas().add(propuesta);

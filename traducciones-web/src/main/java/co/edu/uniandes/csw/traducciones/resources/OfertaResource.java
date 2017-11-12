@@ -52,7 +52,7 @@ import javax.ws.rs.WebApplicationException;
   * @throws BusinessLogicException
   */
  @POST
-  public OfertaDetailDTO createOferta(OfertaDetailDTO oferta) throws BusinessLogicException, Exception {
+  public OfertaDetailDTO createOferta(OfertaDetailDTO oferta) throws BusinessLogicException {
       
          // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
          OfertaEntity ofertaEntity = oferta.toEntity();
@@ -78,10 +78,10 @@ import javax.ws.rs.WebApplicationException;
       * GET para todas las ofertas
       * http://localhost:8080/traducciones-web/api/ofertas
       * @return la lista de todas las ofertas en objetos json DTO.
-      * @throws Exception
+      * @throws BusinessLogicException
      */
      @GET
-     public List<OfertaDetailDTO> getOfertas() throws Exception {
+     public List<OfertaDetailDTO> getOfertas() throws BusinessLogicException {
          
          return listEntity2DetailDTO(ofertaLogic.getOfertas());
          
@@ -102,7 +102,7 @@ import javax.ws.rs.WebApplicationException;
       */
     @GET
     @Path("{id: \\d+}")
-     public OfertaDTO getOferta(@PathParam("id") Long id) throws BusinessLogicException, Exception {
+     public OfertaDTO getOferta(@PathParam("id") Long id) throws BusinessLogicException {
          
          OfertaEntity ofertaEntity = ofertaLogic.getOferta(id);
        
@@ -173,7 +173,7 @@ import javax.ws.rs.WebApplicationException;
    
     @POST
     @Path("{ofertaId: \\d+}/propuestas")
-    public PropuestaDetailDTO addPropuesta(@PathParam("ofertaId") Long ofertaId, PropuestaDetailDTO propuesta) throws Exception {
+    public PropuestaDetailDTO addPropuesta(@PathParam("ofertaId") Long ofertaId, PropuestaDetailDTO propuesta) throws BusinessLogicException {
        return new PropuestaDetailDTO(ofertaLogic.addPropuesta(propuesta.toEntity(),ofertaId));
         
     }

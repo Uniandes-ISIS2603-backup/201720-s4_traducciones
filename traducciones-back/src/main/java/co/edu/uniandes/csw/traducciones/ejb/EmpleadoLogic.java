@@ -197,7 +197,7 @@ public class EmpleadoLogic {
         }
     }
     
-    public OfertaEntity addOferta(OfertaEntity oferta, Long empleadoId) throws BusinessLogicException, Exception {
+    public OfertaEntity addOferta(OfertaEntity oferta, Long empleadoId) throws BusinessLogicException {
         oferta.setEmpleado(getEmpleado(empleadoId));
         ofertaLogic.createOferta(oferta);
         getEmpleado(empleadoId).getOfertas().add(oferta);

@@ -51,10 +51,10 @@ public class PropuestaResource {
      * http://localhost:8080/traducciones-web/api/propuestas
      *
      * @return la lista de todas las propuestas en objetos json DTO.
-     * @throws Exception
+     * @throws BusinessLogicException
      */
     @GET
-    public List<PropuestaDetailDTO> getPropuestas() throws Exception {
+    public List<PropuestaDetailDTO> getPropuestas() throws BusinessLogicException {
 
         return listEntity2DetailDTO(logic.getPropuestas());
 

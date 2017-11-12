@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function (ng) {
+(function () {
     var appModule = angular.module('mainApp');
 
     appModule.factory('httpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
@@ -20,7 +20,7 @@
                 },
                 responseError: function (rejection) {
 
-                    var status = rejection.status;
+                    
 
                     function showError(message, type) {
 

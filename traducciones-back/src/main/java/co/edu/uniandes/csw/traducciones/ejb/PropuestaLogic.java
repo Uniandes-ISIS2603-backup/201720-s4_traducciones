@@ -46,11 +46,7 @@ public class PropuestaLogic {
             throw new BusinessLogicException("La propuesta"+ id + "ya tiene una oferta agregada.");
         }
  
-        if(propuesta.getEstado().equals(Estado.ACEPTADA))
-        {
-            throw new BusinessLogicException("No se puede agregar una oferta a esta propuesta");
-                    
-        }
+        
         
         ofertita.setCantidadActual(ofertita.getCantidadActual() - 1);
         ofertita.getPropuestas().add(propuesta);
