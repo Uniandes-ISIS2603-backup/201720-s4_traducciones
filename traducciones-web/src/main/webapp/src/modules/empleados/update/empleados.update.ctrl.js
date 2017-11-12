@@ -17,7 +17,14 @@
                 $state.go('empleadosList', {empleadoId: response.data.id}, {reload: true});
             });
         };
-    }
+            var temp = $scope.empleadoTipo;
+            var mySelect = document.getElementById('tipo');
+            for(var i = 0; i < mySelect.options.length; i++) {
+            if(i.value == temp) {
+            mySelect.selectedIndex = i;
+            break;
+  }
+    }}
 ]);
 }
     )(angular);
