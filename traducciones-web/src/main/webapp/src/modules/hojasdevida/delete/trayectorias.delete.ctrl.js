@@ -8,7 +8,7 @@
             $scope.idHo=idHoja;
             $scope.deleteTrayectoria = function () {
             
-                $http.delete(hojasContext+ "/"+idHoja+"/trayectorias/"+idTrayectoria, {}).then(function (response) {
+                $http.delete(hojasContext+ "/"+idHoja+"/trayectorias/"+idTrayectoria, {}).then(function () {
                     $state.go('hojasDetail',({hojaId: idHoja}), {reload: true});
                 });
             };

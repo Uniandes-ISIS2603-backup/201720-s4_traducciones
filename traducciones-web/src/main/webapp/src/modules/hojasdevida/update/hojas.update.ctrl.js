@@ -22,7 +22,7 @@
                     descripcion: $scope.hojaDescripcion,
                     perfilProfesional: $scope.hojaPerfilProfesional,
                     formacionAcademica: $scope.hojaFormacionAcademica
-                }).then(function (response) {
+                }).then(function () {
                     $state.go('hojasList',  {reload: true});             
                     
                 });

@@ -21,8 +21,8 @@
                     valor: $scope.calificacionValor,
                     comentario: $scope.calificacionComentario
                 }).then(function (response) {
-                    //Author created successfully
-                    //$state.go('trabajosList', {trabajoId: response.data.id}, {reload: true});
+                    
+                    $state.go('trabajosList', {trabajoId: response.data.id}, {reload: true});
                 });
             };
             

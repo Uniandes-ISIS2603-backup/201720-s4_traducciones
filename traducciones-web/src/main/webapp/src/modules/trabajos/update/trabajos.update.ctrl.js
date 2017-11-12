@@ -17,7 +17,7 @@
                 $http.put(trabajoContext + '/' + idtrabajo,{
                      name: $scope.trabajoName,
                     terminado: $scope.trabajoTerminado
-                }).then(function (response) {
+                }).then(function () {
                     $state.go('trabajosList',  {reload: true});             
                     
                 });

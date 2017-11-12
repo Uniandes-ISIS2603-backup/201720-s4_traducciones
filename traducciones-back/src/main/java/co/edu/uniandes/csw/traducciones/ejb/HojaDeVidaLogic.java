@@ -75,7 +75,7 @@ public class HojaDeVidaLogic {
      
      public boolean existeHojaDeVidaId(Long id)
      {
-     return (persistence.find(id)!=null);
+     return persistence.find(id)!=null;
     
      }
      

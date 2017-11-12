@@ -13,6 +13,8 @@ import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
  */
 public class ClienteDTO {
     
+    private Long id;
+    
     private String name;
     
     private String correo;
@@ -35,7 +37,7 @@ public class ClienteDTO {
         this.contraseña = contraseña;
     }
     
-    private Long id;
+    
 
     public String getName() {
         return name;

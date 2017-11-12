@@ -28,6 +28,7 @@ public class TrayectoriaDTO {
      * Constructor por defecto
      */
     public TrayectoriaDTO() {
+      //constructor obligatoriao  
     }
 
     /**

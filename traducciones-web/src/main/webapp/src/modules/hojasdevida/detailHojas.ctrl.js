@@ -15,7 +15,7 @@
             {
             $http.get(empleadosContext + '/' + idEmpleado + "/hojadevida").then(function (response) {
 
-                idH=response.data.id;
+                var idH=response.data.id;
                 $scope.idEmpleado=idEmpleado;
                 $scope.idHojaDeVida = response.data.id;
                 $scope.nombreHojaDeVida = response.data.name;
