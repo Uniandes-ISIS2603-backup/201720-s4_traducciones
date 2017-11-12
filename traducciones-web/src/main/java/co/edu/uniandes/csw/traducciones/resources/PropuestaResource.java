@@ -40,7 +40,7 @@ public class PropuestaResource {
 
     @Inject
     PropuestaLogic logic;
-    
+
     @Inject
     OfertaLogic ofertaLogic;
 
@@ -89,7 +89,7 @@ public class PropuestaResource {
         // Invoca la lógica para crear la nueva oferta
         PropuestaEntity nuevaPropuesta = logic.createPropuesta(propuestaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new PropuestaDTO(nuevaPropuesta);
+        return new PropuestaDetailDTO(nuevaPropuesta);
     }
 
     /**
@@ -102,27 +102,28 @@ public class PropuestaResource {
      * @throws BusinessLogicException
      */
     @PUT
-    @Path(("ofertas/{idOferta: \\d+}"))
-    public PropuestaDetailDTO agregarOferta(@PathParam("idOferta") Long idOferta, PropuestaDTO propuesta) throws BusinessLogicException {
-       
-        PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuesta.getId()));
-        OfertaEntity oferta = ofertaLogic.getOferta(idOferta);
+    @Path("{propuestaId: \\d+}/ofertas/{codigoOferta: [a-zA-Z]+}")
+    public PropuestaDetailDTO agregarOferta(@PathParam("propuestaId") Long propuestaId,@PathParam("codigoOferta") String codigoOferta) throws BusinessLogicException {
+
+        PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuestaId));
+        OfertaEntity oferta = ofertaLogic.getOfertaPorCodigo(codigoOferta);
+        logic.getPropuesta(propuestaId).setOferta(oferta);
+        ofertaLogic.getOfertaPorCodigo(codigoOferta).addPropuestas(rta.toEntity());
+
         if (oferta != null) {
-             
             rta.setOferta(new OfertaDTO(oferta));
-            }
-        
+        }
+
         return rta;
-     }
-    
+    }
+
     @DELETE
     @Path("ofertas/{id: \\d+}")
     public void deleteOferta(@PathParam("idOferta") Long idOferta, PropuestaDTO propuesta) throws BusinessLogicException {
-                
-     //  logic.deleteOferta(idOferta);
-        
+
+        //  logic.deleteOferta(idOferta);
     }
-  
+
     /**
      * GET para una propuesta
      * http://localhost:8080/traducciones-web/api/propuestas/1

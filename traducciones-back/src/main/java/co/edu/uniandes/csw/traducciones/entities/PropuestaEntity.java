@@ -17,25 +17,16 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class PropuestaEntity extends BaseEntity implements Serializable {
 
-   @PodamExclude
-   @ManyToOne
-   private OfertaEntity oferta;
-
-    
     @PodamExclude
-    @ManyToOne 
+    @ManyToOne
+    private OfertaEntity oferta;
+
+    @PodamExclude
+    @ManyToOne
     private EmpleadoEntity empleado;
 
-    public OfertaEntity getOferta() {
-        return oferta;
-    }
-
-    public void setOferta(OfertaEntity oferta) {
-        this.oferta = oferta;
-    }
-
     private String estado;
-    
+
     private Double costo;
 
     public String getEstado() {
@@ -44,6 +35,14 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public OfertaEntity getOferta() {
+        return oferta;
+    }
+
+    public void setOferta(OfertaEntity oferta) {
+        this.oferta = oferta;
     }
 
     public Double getCosto() {
@@ -61,7 +60,5 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
     }
-    
-    
 
 }

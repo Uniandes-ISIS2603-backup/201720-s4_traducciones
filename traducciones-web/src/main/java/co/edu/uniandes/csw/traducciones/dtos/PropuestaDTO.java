@@ -82,8 +82,9 @@ public class PropuestaDTO {
      public PropuestaEntity toEntity() {
          
          PropuestaEntity entity = new PropuestaEntity();
-         entity.setId(this.id);
          entity.setName(this.nombre);
+         entity.setEstado(this.estado);
+         entity.setCosto(this.costo);
          return entity;
      }
      

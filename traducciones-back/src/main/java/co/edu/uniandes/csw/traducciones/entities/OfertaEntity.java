@@ -91,8 +91,8 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return propuestas;
     }
 
-    public void setPropuestas(List<PropuestaEntity> propuestas) {
-        this.propuestas = propuestas;
+    public void addPropuestas(PropuestaEntity propuesta) {
+            this.propuestas.add(propuesta);
     }
 
     
