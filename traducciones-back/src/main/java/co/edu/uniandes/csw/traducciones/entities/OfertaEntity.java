@@ -35,6 +35,15 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     private Integer cantidadActual;
     private String descripcion;
     private String codigo;
+    private int descuento;
+
+    public int getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;

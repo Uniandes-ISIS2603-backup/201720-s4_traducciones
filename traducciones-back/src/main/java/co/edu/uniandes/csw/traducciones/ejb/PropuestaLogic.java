@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.traducciones.ejb;
 
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
-import co.edu.uniandes.csw.traducciones.enums.Estado;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
 import co.edu.uniandes.csw.traducciones.persistence.PropuestaPersistence;
@@ -29,21 +28,20 @@ public class PropuestaLogic {
     @Inject
     private PropuestaPersistence persistencePropuesta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
-    public PropuestaEntity agregarOferta(Long id, Long idOferta) throws BusinessLogicException {
+    public PropuestaEntity agregarOferta(Long idPropuesta, OfertaEntity oferta) throws BusinessLogicException {
 
-        OfertaEntity ofertita = ofertaPers.find(id);
-
-        if (ofertita.getCantidadActual() < 0) {
+        if (oferta.getCantidadActual() < 0) {
             throw new BusinessLogicException("La oferta ya no está disponible");
         }
-        PropuestaEntity propuesta = getPropuesta(id);
+        PropuestaEntity propuesta = getPropuesta(idPropuesta);
 
         if (propuesta.getOferta() != null) {
-            throw new BusinessLogicException("La propuesta" + id + "ya tiene una oferta agregada.");
+            throw new BusinessLogicException("La propuesta" + idPropuesta + "ya tiene una oferta agregada.");
         }
 
-        ofertita.setCantidadActual(ofertita.getCantidadActual() - 1);
-        ofertita.getPropuestas().add(propuesta);
+        oferta.setCantidadActual(oferta.getCantidadActual() - 1);
+        oferta.getPropuestas().add(propuesta);
+        propuesta.setCosto(oferta.getDescuento()*propuesta.getCosto()/100);
 
         return propuesta;
     }

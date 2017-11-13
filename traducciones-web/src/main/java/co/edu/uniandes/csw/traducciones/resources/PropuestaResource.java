@@ -95,23 +95,27 @@ public class PropuestaResource {
     /**
      * http://localhost:8080/traducciones-web/api/propuestas/1
      *
+     * @param propuestaId
+     * @param idOferta
      * @param oferta corresponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * @throws BusinessLogicException
      */
+    
     @PUT
-    @Path("{propuestaId: \\d+}/ofertas/{codigoOferta: [a-zA-Z]+}")
-    public PropuestaDetailDTO agregarOferta(@PathParam("propuestaId") Long propuestaId,@PathParam("codigoOferta") String codigoOferta) throws BusinessLogicException {
+    @Path("{propuestaId: \\d+}/ofertas/{idOferta: \\d+}")
+    public PropuestaDetailDTO agregarOferta(@PathParam("propuestaId") Long propuestaId, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
 
         PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuestaId));
-        OfertaEntity oferta = ofertaLogic.getOfertaPorCodigo(codigoOferta);
-        logic.getPropuesta(propuestaId).setOferta(oferta);
-        ofertaLogic.getOfertaPorCodigo(codigoOferta).addPropuestas(rta.toEntity());
+        OfertaEntity oferta = ofertaLogic.getOferta(idOferta);
+        logic.agregarOferta(propuestaId, oferta);
+        ofertaLogic.getOferta(idOferta).addPropuestas(rta.toEntity());
 
         if (oferta != null) {
             rta.setOferta(new OfertaDTO(oferta));
+            
         }
 
         return rta;

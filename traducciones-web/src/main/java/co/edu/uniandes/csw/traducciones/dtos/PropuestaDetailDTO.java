@@ -25,6 +25,7 @@ import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
      * @param entity Es la entidad que se va a convertir a DTO 
       */
      public PropuestaDetailDTO(PropuestaEntity entity) {
+
          super(entity);
          if (entity.getOferta()!= null) {
          this.oferta = new OfertaDTO(entity.getOferta());

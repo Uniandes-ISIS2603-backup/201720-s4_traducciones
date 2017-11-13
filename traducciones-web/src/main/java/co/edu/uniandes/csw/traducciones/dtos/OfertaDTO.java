@@ -15,6 +15,15 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
      private Date fechaVigencia;
      private String nombre;
     private Integer cantidadInicial;
+    private int descuento;
+
+    public int getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
 
     public Integer getCantidadInicial() {
         return cantidadInicial;
@@ -54,6 +63,7 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          this.fechaVigencia = oferta.getFechaVigencia();
          this.cantidadActual = oferta.getCantidadActual();
          this.cantidadInicial = oferta.getCantidadInicial();
+         this.descuento = oferta.getDescuento();
      }
  
      /**
@@ -141,6 +151,7 @@ import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
          entity.setName(this.nombre);
          entity.setCantidadActual(cantidadActual);
          entity.setCantidadInicial(cantidadInicial);
+         entity.setDescuento(this.descuento);
  
          return entity;
     }  
