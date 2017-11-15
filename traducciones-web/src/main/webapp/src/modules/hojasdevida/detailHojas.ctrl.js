@@ -1,9 +1,9 @@
 (function (ng) {
     var mod = ng.module("empleadoModule");
     mod.constant("empleadosContext", "api/empleados");
-    mod.controller('hojasDetailedCtrl', ['$scope', '$http', 'empleadosContext', '$state',
-        function ($scope, $http, empleadosContext, $state) {
-            $scope.desdeEmpleado=true;
+    mod.controller('hojasDetailedCtrl', ['$scope', '$http', 'empleadosContext', '$state','$rootScope',
+        function ($scope, $http, empleadosContext, $state,$rootScope) {
+            $rootScope.desdeEmpleado=true;
             var idEmpleado = $state.params.empleadoId;
             var idHojaEmpleado=$state.params.empleadoHoja;
            $scope.prueba=$state.params.empleadoHoja;

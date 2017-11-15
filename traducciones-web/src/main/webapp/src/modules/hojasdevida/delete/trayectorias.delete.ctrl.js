@@ -3,13 +3,16 @@
     mod.constant("hojasContext", "api/hojadevida");
     mod.controller('trayectoriasDeleteCtrl', ['$scope', '$http', 'hojasContext', '$state',
         function ($scope, $http, hojasContext, $state) {
-            var idHoja = $state.params.hojaId;
-            var idTrayectoria=$state.params.trayectoriaId;
-            $scope.idHo=idHoja;
+           var idTrayectoria = $state.params.trayectoriaId;
+            var idHoja=$state.params.hojaId;
+            var idEmpleado=$state.params.empleadoId;
+            $scope.idEmp=idEmpleado;
+            $scope.idHoj=idHoja;
+            
             $scope.deleteTrayectoria = function () {
             
                 $http.delete(hojasContext+ "/"+idHoja+"/trayectorias/"+idTrayectoria, {}).then(function () {
-                    $state.go('hojasDetail',({hojaId: idHoja}), {reload: true});
+                    $state.go('empleadoHojas', {empleadoId:idEmpleado,empleadoHoja: idHoja}, {reload: true});
                 });
             };
         }

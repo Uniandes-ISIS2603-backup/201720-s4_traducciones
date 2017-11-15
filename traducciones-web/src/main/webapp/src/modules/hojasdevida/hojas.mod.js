@@ -70,10 +70,11 @@
                     }
                 }
             }).state('trayectoriaCreate', {
-                url: '/create/{hojaId:int}/calificacion',
+                url: '/create/empleado/{empleadoId:int}/hoja/{hojaId:int}/trayectorias',
                 parent: 'hojas',
                 param: {
-                    hojaId: null
+                    hojaId: null,
+                    empleadoId:null
                 },
                 views: {
                     'detailView': {
@@ -82,11 +83,12 @@
                     }
                 }
             }).state('trayectoriaDelete', {
-                url: '/delete/{hojaId:int}/trayectoria/{trayectoriaId:int}',
+                url: '/delete/empleado/{empleadoId:int}/hoja/{hojaId:int}/trayecorias/{trayectoriaId:int}',
                 parent: 'hojas',
                 param: {
                     hojaId: null,
-                    trayectoriaId:null
+                    trayectoriaId:null,
+                    empleadoId:null
                 },
                 views: {
                     'detailView': {
@@ -95,10 +97,11 @@
                     }
                 }
             }).state('idiomaCreate', {
-                url: '/create/{hojaId:int}/idioma',
+                url: '/create/empleado/{empleadoId:int}/hoja/{hojaId:int}/idiomas',
                 parent: 'hojas',
                 param: {
-                    hojaId: null
+                    hojaId: null,
+                    empleadoId:null
                 },
                 views: {
                     'detailView': {
@@ -107,7 +110,7 @@
                     }
                 }
             }).state('idiomaDelete', {
-                url: '/delete/{hojaId:int}/idiomas/{idiomaId:int}',
+                url: '/delete/empleado/{empleadoId:int}/hoja/{hojaId:int}/idiomas/{idiomaId:int}',
                 parent: 'hojas',
                 param: {
                     hojaId: null,
