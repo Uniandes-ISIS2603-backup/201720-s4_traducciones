@@ -1,26 +1,6 @@
-/*
-MIT License
-
-Copyright (c) 2017 Universidad de los Andes - ISIS2603
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
+ /**
+  * Esta clase tiene los atributos basicos de los objetos Idioma
+  */
 package co.edu.uniandes.csw.traducciones.entities;
 
 
@@ -33,23 +13,39 @@ import javax.persistence.Entity;
  */
 @Entity
 public class IdiomaEntity extends BaseEntity implements Serializable {
-   private String acronimo;
-   private String region;
-
+    private String acronimo;
+    private String region;
+    
+    /**
+     * Devuelve el acronimo del idioma
+     * @return cadena de caracteres con el acronimo
+     */
     public String getAcronimo() {
         return acronimo;
     }
-
+    /**
+     * Asigna el acronimo del idioma
+     * @param acronimo acronimo que se va a asignar
+     */
     public void setAcronimo(String acronimo) {
         this.acronimo = acronimo;
     }
-
+    
+    /**
+     * Devuelve la region de el idioma
+     * @return cadena de caracteres con la region
+     */
     public String getRegion() {
         return region;
     }
-
+    
+    /**
+     * Asigna una region al idioma
+     * @param region region que se va a asignar
+     */
+    
     public void setRegion(String region) {
         this.region = region;
     }
-   
+    
 }
