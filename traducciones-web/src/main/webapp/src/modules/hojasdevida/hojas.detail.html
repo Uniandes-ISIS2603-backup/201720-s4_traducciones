@@ -28,22 +28,20 @@
 
 
 
-            <div class="panel-heading"><label class="titulo-tabla">Informacion Hoja de vida de {{idEmpleado}}</label></div>
+            <div class="panel-heading"><label class="titulo-tabla">Informacion Hoja de vida</label></div>
             <div class="panel-body">
-                <div class="col-md-3">
-                    <dl>
-                        <dt> ID Hoja</dt>
-                        <dd>{{idHojaDeVida}}</dd>
-                        <dt> Nombre</dt>
-                        <dd>{{nombreHojaDeVida}}</dd>
-                        <dt> Estado de finalizacion</dt>
-                        <dd>{{descripcionHojaDeVida}}</dd>
-                        <dt> Formacion Academica</dt>
-                        <dd>{{formacionHojaDeVida}}</dd>
-                        <dt> Perfil Profesional</dt>
-                        <dd>{{perfilHojaDeVida}}</dd>
-
-
+                <div class="col-lg-12">
+                    <dl class="dl-horizontal labelDetail">
+                        <dt class="miDt"> ID Hoja:</dt>
+                        <dd class="miDd">{{idHojaDeVida}}</dd>
+                        <dt class="miDt"> Nombre:</dt>
+                        <dd class="miDd">{{nombreHojaDeVida}}</dd>
+                        <dt class="miDt"> Descripcion:</dt>
+                        <dd class="miDd">{{descripcionHojaDeVida}}</dd>
+                        <dt class="miDt"> Formacion Academica:</dt>
+                        <dd class="miDd">{{formacionHojaDeVida}}</dd>
+                        <dt class="miDt"> Perfil Profesional:</dt>
+                        <dd class="miDd">{{perfilHojaDeVida}}</dd>
                     </dl>
                 </div>
 
@@ -64,8 +62,8 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
-                                <th>Fecha1</th>
-                                <th>Fecha2</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
                                 <th>Opciones Trayectorias</th>
                             </tr>
                         </thead>
@@ -73,8 +71,8 @@
                             <tr ng-repeat="trayectoria in trayectoriasHoja">
                                 <td id="{{$index}}-id">{{trayectoria.id}}</td>
                                 <td id="{{$index}}-descripcion" >{{trayectoria.descripcion}}</td>
-                                <td id="{{$index}}-fechaI">{{trayectoria.fechaInicio}}</td>
-                                <td id="{{$index}}-fechaF">{{trayectoria.fechaFin}}</td>
+                                <td id="{{$index}}-fechaI">{{formatoFecha(trayectoria.fechaInicio)}}</td>
+                                <td id="{{$index}}-fechaF">{{formatoFecha(trayectoria.fechaFin)}}</td>
                                 <td id="{{$index}}-actions">
                                     <a class="btn btn-danger btn-sm" ui-sref="trayectoriaDelete({hojaId: idHojaDeVida,trayectoriaId: trayectoria.id,empleadoId:idEmpleado})" data-toggle="tooltip" title="Borrar Calificacion" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
                                 </td>

@@ -9,7 +9,15 @@
            $scope.prueba=$state.params.empleadoHoja;
            $scope.prueba2=$state.params.empleadoId;
 
-           
+            
+            $scope.formatoFecha = function(f)
+            {
+                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                var fff = new Date(f);
+               var txt=diasSemana[fff.getDay()] + ", " + fff.getDate() + " de " + meses[fff.getMonth()] + " de " + fff.getFullYear();
+               return txt;
+            };
 
             if(idHojaEmpleado!== undefined && idHojaEmpleado !== null)
             {

@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label class="titulo-tabla">Informacion del trabajo {{currentTrabajo.name}}</label></div>
+            <div class="panel-heading"><label class="titulo-tabla">Informacion del Trabajo {{currentTrabajo.name}}</label></div>
             <div class="panel-body">
-                <div class="col-md-3">
-                    <dl>
-                        <dt> ID</dt>
-                        <dd>{{currentTrabajo.id}}</dd>
-                        <dt> Nombre</dt>
-                        <dd>{{currentTrabajo.name}}</dd>
-                        <dt> Estado de finalizacion</dt>
-                        <dd>{{terminadoBool(currentTrabajo.terminado)}}</dd>                    
+                <div class="col-md-6">
+                    <dl class="dl-horizontal labelDetail">
+                        <dt class="miDt"> ID</dt>
+                        <dd class="miDd">{{currentTrabajo.id}}</dd>
+                        <dt class="miDt"> Nombre</dt>
+                        <dd class="miDd">{{currentTrabajo.name}}</dd>
+                        <dt class="miDt"> Estado de finalizacion</dt>
+                        <dd class="miDd">{{terminadoBool(currentTrabajo.terminado)}}</dd>                    
                     </dl>
                 </div>
             </div>
