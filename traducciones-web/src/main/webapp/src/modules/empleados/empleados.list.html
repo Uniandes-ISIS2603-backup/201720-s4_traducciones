@@ -22,7 +22,7 @@
                         <tbody>
                             <tr ng-repeat="empleado in empleadosRecords">
                                 <td id="{{$index}}-name">{{empleado.name}}</td>
-                                <td id="{{$index}}-tipo">{{empleado.tipo}}</td>
+                                <td id="{{$index}}-tipo">{{darTipo(empleado.tipo)}}</td>
                                 <td id="{{$index}}-calificacionPromedio">{{empleado.calificacionPromedio}}</td>
                                 <td id="{{$index}}-actions">
                                     <a class="btn btn-default btn-sm" ui-sref="empleadoUpdate({empleadoId: empleado.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>

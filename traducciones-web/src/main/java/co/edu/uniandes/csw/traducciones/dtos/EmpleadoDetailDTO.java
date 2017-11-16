@@ -8,9 +8,7 @@ import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- *
  * @author jc.gloria
  */
 public class EmpleadoDetailDTO extends EmpleadoDTO{
@@ -24,6 +22,10 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
         //Metodo constructor necesario
     }
     
+    /**
+     * Crea un DTO a partir de una entidad
+     * @param entity objeto entidad el cual se va a convertir en DTO.
+     */
     public EmpleadoDetailDTO(EmpleadoEntity entity){
         super(entity);
         if(entity != null){
@@ -51,12 +53,13 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
                     propuestas.add(new PropuestaDTO(entity.getPropuestas().get(i)));
                 }
             }
-            
         }
-        
-        
     }
     
+    /**
+     * Convierte el DTO actual en una entidad
+     * @return entidad con los atributos del DTO actual.
+     */
     @Override
     public EmpleadoEntity toEntity() {
         EmpleadoEntity empleado = super.toEntity();
@@ -91,37 +94,67 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
         return empleado;
     }
     
-    
+    /**
+     * Devuelve las areas de conocimiento del empleado
+     * @return lista con las areas de conocimiento
+     */
     public List<AreaDeConocimientoDTO> getAreasdeconocimiento() {
         return areasdeconocimiento;
     }
     
+    /**
+     * Asigna las areas de conocimiento del empleado
+     * @param areasdeconocimiento que se van a asignar.
+     */
     public void setAreasdeconocimiento(List<AreaDeConocimientoDTO> areasdeconocimiento) {
         this.areasdeconocimiento = areasdeconocimiento;
     }
     
+    /**
+     * Devuelve la hoja de vida del empleado en una lista.
+     * @return lista con la hoja de vida.
+     */
     public List<HojaDeVidaDTO> getHojadevida() {
         return hojadevida;
     }
     
+    /**
+     * Asigna una lista con la hoja de vida del empleado
+     * @param hojadevida lista con la hoja de vida que se va a asignar.
+     */
     public void setHojadevida(List<HojaDeVidaDTO> hojadevida) {
         this.hojadevida = hojadevida;
     }
     
+    /**
+     * Devuelve una lista con las ofertas que tiene el empleado
+     * @return lista con las ofertas en forma de DTO.
+     */
     public List<OfertaDTO> getOfertas() {
         return ofertas;
     }
     
+    /**
+     * Asigna ofertas a los empleados
+     * @param ofertas lista con las ofertas que seran asignadas.
+     */
     public void setOfertas(List<OfertaDTO> ofertas) {
         this.ofertas = ofertas;
     }
     
+    /**
+     * Devuelve una lista con las propuestas que tiene el empleado
+     * @return lista con las propuestas en forma de DTO.
+     */
     public List<PropuestaDTO> getPropuestas() {
         return propuestas;
     }
     
+    /**
+     * Asigna propuestas a los empleados
+     * @param propuestas lista con las ofertas que seran asignadas.
+     */
     public void setPropuestas(List<PropuestaDTO> propuestas) {
         this.propuestas = propuestas;
-    }
-    
+    }  
 }
