@@ -11,13 +11,28 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" ng-if="empleadoTipo === 1">
                             <label for="empleadoTipo" class="col-sm-2">Tipo</label>
-                            <select id="tipo"  ng-model="empleadoTipo" class="col-sm-6">
-                               <option selected ="selected"></option>
-                               <option value=1>Traductor</option>
+                            <select id="empleadoTipo" class="col-sm-6">
+                               <option selected="selected" value=1>Traductor</option>
                                <option value=2>Corrector</option>
                                <option value=3>Ambos</option>
+                              </select> 
+                        </div>
+                        <div class="form-group col-md-6" ng-if="empleadoTipo === 2">
+                            <label for="empleadoTipo" class="col-sm-2">Tipo</label>
+                            <select id="empleadoTipo" class="col-sm-6">
+                               <option value=1>Traductor</option>
+                               <option selected="selected" value=2>Corrector</option>
+                               <option value=3>Ambos</option>
+                              </select> 
+                        </div>
+                        <div class="form-group col-md-6" ng-if="empleadoTipo === 3">
+                            <label for="empleadoTipo" class="col-sm-2">Tipo</label>
+                            <select id="empleadoTipo" class="col-sm-6">
+                               <option value=1>Traductor</option>
+                               <option value=2>Corrector</option>
+                               <option  selected="selected" value=3>Ambos</option>
                               </select> 
                         </div>
                     </div>

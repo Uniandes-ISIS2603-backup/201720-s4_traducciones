@@ -14,13 +14,13 @@
             }
             $scope.darTipo = function darTipo(a){
                 if(a == 1){
-                    return 'traductor';
+                    return 'Traductor';
                 }
                 if(a == 2){
-                    return "corrector";
+                    return "Corrector";
                 }
                 if(a == 3){
-                    return "ambos";
+                    return "Ambos";
                 }
             }
         }
