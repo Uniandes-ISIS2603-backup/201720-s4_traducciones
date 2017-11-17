@@ -2,7 +2,12 @@
     var mod = ng.module("hojaModule");
     mod.controller('trayectoriasNewCtrl', ['$scope', '$http', '$state', '$rootScope',
         function ($scope, $http, $state) {
-
+            
+            var idHoja=$state.params.hojaId;
+            var idEmpleado=$state.params.empleadoId;
+            $scope.idEmp=idEmpleado;
+            $scope.idHoj=idHoja;
+            
             var idHoja = $state.params.hojaId;
 
             $scope.addTrayectoria = function () {
@@ -14,7 +19,7 @@
 
                 }).then(function () {
                     //Author created successfully
-                    $state.go('hojasDetail', {hojaId: idHoja}, {reload: true});
+                    $state.go('empleadoHojas', {empleadoId:idEmpleado,empleadoHoja: idHoja}, {reload: true});
                 });
             };
 

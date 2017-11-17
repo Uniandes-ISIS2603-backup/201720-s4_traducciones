@@ -1,15 +1,23 @@
 (function (ng) {
     var mod = ng.module("empleadoModule");
     mod.constant("empleadosContext", "api/empleados");
-    mod.controller('hojasDetailedCtrl', ['$scope', '$http', 'empleadosContext', '$state',
-        function ($scope, $http, empleadosContext, $state) {
-            $scope.desdeEmpleado=true;
+    mod.controller('hojasDetailedCtrl', ['$scope', '$http', 'empleadosContext', '$state','$rootScope',
+        function ($scope, $http, empleadosContext, $state,$rootScope) {
+            $rootScope.desdeEmpleado=true;
             var idEmpleado = $state.params.empleadoId;
             var idHojaEmpleado=$state.params.empleadoHoja;
            $scope.prueba=$state.params.empleadoHoja;
            $scope.prueba2=$state.params.empleadoId;
 
-           
+            
+            $scope.formatoFecha = function(f)
+            {
+                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                var fff = new Date(f);
+               var txt=diasSemana[fff.getDay()] + ", " + fff.getDate() + " de " + meses[fff.getMonth()] + " de " + fff.getFullYear();
+               return txt;
+            };
 
             if(idHojaEmpleado!== undefined && idHojaEmpleado !== null)
             {

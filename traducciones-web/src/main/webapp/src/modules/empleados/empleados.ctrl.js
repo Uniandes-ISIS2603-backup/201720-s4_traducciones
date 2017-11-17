@@ -12,6 +12,17 @@
                     $scope.currentEmpleado = response.data;
                 });
             }
+            $scope.darTipo = function darTipo(a){
+                if(a == 1){
+                    return 'Traductor';
+                }
+                if(a == 2){
+                    return "Corrector";
+                }
+                if(a == 3){
+                    return "Ambos";
+                }
+            }
         }
     ]);
 }

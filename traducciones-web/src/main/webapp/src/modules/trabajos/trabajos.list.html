@@ -3,9 +3,9 @@
         <div class="panel panel-primary panel-title">
             <div class="panel-heading"><label class="titulo-tabla">Lista de Trabajos</label></div>
             <div class="panel-body">
-                <div class="col-md-8">
+                <div class="col-lg-12">
                     <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group btn-group-lg mr-2" role="group" aria-label="First group">
+                    <div class="btn-grou btn-block ml-6" role="group" aria-label="First group">
                         <a class="btn btn-info" ui-sref="trabajoCreate"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Trabajo</a>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
                                 <td>{{verificar(trabajo.calificaciones.length)}}</td>
                                 
                                 <td id="{{$index}}-actions">
-                                    <a class="btn btn-default btn-sm" ui-sref="trabajoUpdate({trabajoId: trabajo.id})" data-toggle="tooltip" title="Actualizar Trabajo" data-placement="top">Actualizar  <span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="trabajoDelete({trabajoId: trabajo.id})" data-toggle="tooltip" title="Borrar Trabajo" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
+                                    <a class="btn btn-default btn-sm btn-block" ui-sref="trabajoUpdate({trabajoId: trabajo.id})" data-toggle="tooltip" title="Actualizar Trabajo" data-placement="top">Actualizar  <span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm btn-block" ui-sref="trabajoDelete({trabajoId: trabajo.id})" data-toggle="tooltip" title="Borrar Trabajo" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
                                 </td>
 
                             </tr>

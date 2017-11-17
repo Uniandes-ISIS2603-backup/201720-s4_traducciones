@@ -1,9 +1,9 @@
 (function (ng) {
     var mod = ng.module("hojaModule");
     mod.constant("hojaContext", "api/hojadevida");
-    mod.controller('hojaCtrl', ['$scope', '$http', 'hojaContext', '$state',
-        function ($scope, $http, hojaContext, $state) {
-            $scope.desdeEmpleado=false;
+    mod.controller('hojaCtrl', ['$scope', '$http', 'hojaContext', '$state','$rootScope',
+        function ($scope, $http, hojaContext, $state,$rootScope) {
+            $rootScope.desdeEmpleado=false;
             if ($state.params.hojaId !== undefined && $state.params.hojaId !== null) {
                 $http.get(hojaContext + '/' + $state.params.hojaId).then(function (response) {
                     
