@@ -110,6 +110,7 @@ public class PropuestaResource {
 
         PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuestaId));
         OfertaEntity oferta = ofertaLogic.getOferta(idOferta);
+        rta.setOferta(new OfertaDTO(oferta));
         logic.agregarOferta(propuestaId, oferta);
         ofertaLogic.getOferta(idOferta).addPropuestas(rta.toEntity());
 
@@ -122,10 +123,10 @@ public class PropuestaResource {
     }
 
     @DELETE
-    @Path("ofertas/{id: \\d+}")
-    public void deleteOferta(@PathParam("idOferta") Long idOferta, PropuestaDTO propuesta) throws BusinessLogicException {
+    @Path("{idProp: \\d+}/ofertas/{idOf: \\d+}")
+    public void deleteOferta(@PathParam("idOf") Long idOf,@PathParam("idProp") Long idProp) throws BusinessLogicException {
 
-        //  logic.deleteOferta(idOferta);
+      logic.deleteOferta(idProp,idOf);
     }
 
     /**
@@ -145,9 +146,9 @@ public class PropuestaResource {
     @Path("{id: \\d+}")
     public PropuestaDetailDTO getPropuesta(@PathParam("id") Long id) throws BusinessLogicException {
 
-        PropuestaEntity ofertaEntity = logic.getPropuesta(id);
+        PropuestaEntity propuestaEntity = logic.getPropuesta(id);
 
-        return new PropuestaDetailDTO(ofertaEntity);
+        return new PropuestaDetailDTO(propuestaEntity);
 
     }
 

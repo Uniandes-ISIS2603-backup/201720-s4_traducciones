@@ -23,7 +23,8 @@ import javax.ejb.Stateless;
 public class PropuestaLogic {
 
     private static final Logger LOGGER = Logger.getLogger(PropuestaLogic.class.getName());
-    private OfertaPersistence ofertaPers;
+    @Inject
+    private OfertaLogic ofertaLogic;
 
     @Inject
     private PropuestaPersistence persistencePropuesta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
@@ -41,7 +42,7 @@ public class PropuestaLogic {
 
         oferta.setCantidadActual(oferta.getCantidadActual() - 1);
         oferta.getPropuestas().add(propuesta);
-        propuesta.setCosto(oferta.getDescuento()*propuesta.getCosto()/100);
+        propuesta.setCosto(oferta.getDescuento() * propuesta.getCosto() / 100);
 
         return propuesta;
     }
@@ -127,15 +128,18 @@ public class PropuestaLogic {
 
     }
 
-    public String deleteOferta(Long idPropuesta, PropuestaEntity idOferta) throws BusinessLogicException {
+    public void deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
 
-        //   PropuestaEntity propuesta = persistencePropuesta.find(idPropuesta);
-        //  if (!(propuesta.getOferta()!= null && (propuesta.getOferta().getId()== idOferta)))
-        //  {
-        //     throw new BusinessLogicException("La propuesta no tiene esta oferta.");
-        // }
-        //  propuesta.setOferta(ofertaPers.find(idPropuesta));
-        return "Se eliminó la propuesta";
+        OfertaEntity o = getPropuesta(idPropuesta).getOferta();
+
+        if (o != null) {
+            if (o.getId() != idOferta) {
+                throw new BusinessLogicException("La oferta no corresponde con la propuesta.");
+            }
+            ofertaLogic.deleteOferta(idOferta);
+            getPropuesta(idPropuesta).setOferta(null);
+
+        }
 
     }
 }
