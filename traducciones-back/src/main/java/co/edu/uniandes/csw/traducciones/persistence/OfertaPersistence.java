@@ -118,6 +118,13 @@ WHERE condition; en SQL.
         return query.getResultList();
     }
 
+    /**
+     * Busca si hay alguna Oferta con el código que se envía de argumento
+     *
+     * @param codigo: Código de la Oferta que se está buscando
+     * @return null si no existe ninguna Oferta con el código del argumento. Si
+     * existe alguna devuelve la lista.
+     */
     public OfertaEntity findByCodigo(String codigo) {
         LOGGER.log(Level.INFO, "Consultando Oferta por código ", codigo);
 

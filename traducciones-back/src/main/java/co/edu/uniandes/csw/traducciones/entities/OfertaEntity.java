@@ -31,12 +31,36 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     @ManyToOne 
     private EmpleadoEntity empleado;
     
+    /**
+     * Cantidad inicial de cupones para esta oferta
+     */
     private Integer cantidadInicial;
+    
+    /**
+     * Cantidad actual de cupones para esta oferta
+     */
     private Integer cantidadActual;
+    
+    /**
+     * Descripción de la oferta
+     */
     private String descripcion;
+    
+    /**
+     * Código de la oferta
+     */
     private String codigo;
+    
+    /**
+     * Descuento que cubre la oferta
+     */
     private int descuento;
 
+    /**
+     * Obtiene el atributo descuento.
+     *
+     * @return descuento de la oferta.
+     */
     public int getDescuento() {
         return descuento;
     }
@@ -48,6 +72,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
+    /**
+     * Obtiene el atributo cantidadinicial.
+     *
+     * @return cantidad inicial de cupones de la oferta.
+     */
     public Integer getCantidadInicial() {
         return cantidadInicial;
     }
@@ -56,6 +85,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.cantidadInicial = cantidadI;
     }
     
+    /**
+     * Obtiene el atributo cantidadActual.
+     *
+     * @return cantidad actual de cupones disponibles de la oferta.
+     */
     public Integer getCantidadActual() {
         return cantidadActual;
     }
@@ -64,6 +98,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.cantidadActual = cantidadA;
     }
 
+    /**
+     * Obtiene el atributo desccripción.
+     *
+     * @return desccripcion de la oferta.
+     */
     public String getDescripcion() {
         return descripcion;
     }
@@ -72,6 +111,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Obtiene el atributo codigo.
+     *
+     * @return codigo de la oferta.
+     */
     public String getCodigo() {
         return codigo;
     }
@@ -80,6 +124,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.codigo = cod;
     }
 
+    /**
+     * Obtiene el atributo fechaVigencia.
+     *
+     * @return fecha de vigencia de la oferta.
+     */
     public Date getFechaVigencia() {
         return fechaVigencia;
     }
@@ -88,6 +137,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.fechaVigencia = fechaVigencia;
     }
 
+    /**
+     * Obtiene el atributo empleado.
+     *
+     * @return empleado asociado a la oferta.
+     */
     public EmpleadoEntity getEmpleado() {
         return empleado;
     }
@@ -96,6 +150,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         this.empleado = empleado;
     }
     
+    /**
+     * Obtiene la lista de propuestas asociadas a la oferta.
+     *
+     * @return descuento de la oferta.
+     */
     public List<PropuestaEntity> getPropuestas() {
         return propuestas;
     }
