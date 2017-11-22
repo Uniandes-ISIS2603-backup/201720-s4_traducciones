@@ -44,7 +44,7 @@ public class HojaDeVidaResource {
     HojaDeVidaLogic hojaDeVidaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
     
     /**
-     * POST http://localhost:8080/traducciones-web/cantantes Ejemplo
+     * POST http://localhost:8080/traducciones-web/hojadevida Ejemplo
      * json: { "name":"Diego", "codigo":"123"}
      *
      * @param hojaDeVida correponde a la representación java del objeto json
@@ -140,7 +140,11 @@ public class HojaDeVidaResource {
        hojaDeVidaLogic.deleteHojaDeVidaId(id);
     }
     
-    
+    /**
+     * Conexion con subrecurso ctrayectoria
+     * @param hojaDeVidaId
+     * @return Clase del recurso trayectoria
+     */
      @Path("{idHojaDeVida: \\d+}/trayectorias")
     public Class<TrayectoriaResource> gettrayectoriaResource(@PathParam("idHojaDeVida") Long hojaDeVidaId) {
         HojaDeVidaEntity entity = hojaDeVidaLogic.getHojaDeVidaId(hojaDeVidaId);
@@ -196,7 +200,7 @@ public class HojaDeVidaResource {
     
     @DELETE
     @Path("{hojaDeVidaId: \\d+}/idiomas/{idiomaId: \\d+}")
-    public void removeAreaDeconocimiento(@PathParam("hojaDeVidaId") Long hojaDeVidaId, @PathParam("idiomaId") Long idiomaId) throws BusinessLogicException {
+    public void removeIdioma(@PathParam("hojaDeVidaId") Long hojaDeVidaId, @PathParam("idiomaId") Long idiomaId) throws BusinessLogicException {
         hojaDeVidaLogic.removeIdioma(idiomaId,hojaDeVidaId);
     }
 }
