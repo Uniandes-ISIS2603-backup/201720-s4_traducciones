@@ -16,8 +16,7 @@
                 //empleado updated successfully
                 $state.go('empleadosList', {empleadoId: response.data.id}, {reload: true});
             });
-        };
-    }
+        };}
 ]);
 }
     )(angular);

@@ -40,7 +40,7 @@ public class PropuestaResource {
 
     @Inject
     PropuestaLogic logic;
-    
+
     @Inject
     OfertaLogic ofertaLogic;
 
@@ -89,40 +89,46 @@ public class PropuestaResource {
         // Invoca la lógica para crear la nueva oferta
         PropuestaEntity nuevaPropuesta = logic.createPropuesta(propuestaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new PropuestaDTO(nuevaPropuesta);
+        return new PropuestaDetailDTO(nuevaPropuesta);
     }
 
     /**
      * http://localhost:8080/traducciones-web/api/propuestas/1
      *
+     * @param propuestaId
+     * @param idOferta
      * @param oferta corresponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * @throws BusinessLogicException
      */
-    @PUT
-    @Path(("ofertas/{idOferta: \\d+}"))
-    public PropuestaDetailDTO agregarOferta(@PathParam("idOferta") Long idOferta, PropuestaDTO propuesta) throws BusinessLogicException {
-       
-        PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuesta.getId()));
-        OfertaEntity oferta = ofertaLogic.getOferta(idOferta);
-        if (oferta != null) {
-             
-            rta.setOferta(new OfertaDTO(oferta));
-            }
-        
-        return rta;
-     }
     
-    @DELETE
-    @Path("ofertas/{id: \\d+}")
-    public void deleteOferta(@PathParam("idOferta") Long idOferta, PropuestaDTO propuesta) throws BusinessLogicException {
-                
-     //  logic.deleteOferta(idOferta);
-        
+    @PUT
+    @Path("{propuestaId: \\d+}/ofertas/{idOferta: \\d+}")
+    public PropuestaDetailDTO agregarOferta(@PathParam("propuestaId") Long propuestaId, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
+
+        PropuestaDetailDTO rta = new PropuestaDetailDTO(logic.getPropuesta(propuestaId));
+        OfertaEntity oferta = ofertaLogic.getOferta(idOferta);
+        rta.setOferta(new OfertaDTO(oferta));
+        logic.agregarOferta(propuestaId, oferta);
+        ofertaLogic.getOferta(idOferta).addPropuestas(rta.toEntity());
+
+        if (oferta != null) {
+            rta.setOferta(new OfertaDTO(oferta));
+            
+        }
+
+        return rta;
     }
-  
+
+    @DELETE
+    @Path("{idProp: \\d+}/ofertas/{idOf: \\d+}")
+    public void deleteOferta(@PathParam("idOf") Long idOf,@PathParam("idProp") Long idProp) throws BusinessLogicException {
+
+      logic.deleteOferta(idProp,idOf);
+    }
+
     /**
      * GET para una propuesta
      * http://localhost:8080/traducciones-web/api/propuestas/1
@@ -140,9 +146,9 @@ public class PropuestaResource {
     @Path("{id: \\d+}")
     public PropuestaDetailDTO getPropuesta(@PathParam("id") Long id) throws BusinessLogicException {
 
-        PropuestaEntity ofertaEntity = logic.getPropuesta(id);
+        PropuestaEntity propuestaEntity = logic.getPropuesta(id);
 
-        return new PropuestaDetailDTO(ofertaEntity);
+        return new PropuestaDetailDTO(propuestaEntity);
 
     }
 

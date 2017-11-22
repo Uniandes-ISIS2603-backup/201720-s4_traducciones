@@ -113,30 +113,36 @@ WHERE condition; en SQL.
     public List<OfertaEntity> findAll() {
         LOGGER.info("Consultando todas las Ofertas");
         // Se crea un query para buscar todas las Oferta en la base de datos.
-        TypedQuery query = em.createQuery("select u from OfertaEntity u",
-                OfertaEntity.class);
+        TypedQuery query = em.createQuery("select u from OfertaEntity u", OfertaEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de Oferta.
         return query.getResultList();
     }
-    
-    public List<OfertaEntity> findByCodigo(String codigo)
-    {
-         LOGGER.log(Level.INFO, "Consultando Oferta por código ", codigo);
-         
-         // Se crea un query para buscar Ofertas con el código que recibe el método como argumento. ":codigo" es un placeholder que debe ser remplazado
-          TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.codigo LIKE CONCAT('%',:codigo,'%')", OfertaEntity.class);
-          // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("codigo", codigo);   
-        
-        // Se invoca el query se obtiene la lista resultado
-       
-          
-        List<OfertaEntity> sameName = query.getResultList();
-        
-          return sameName;
 
+    /**
+     * Busca si hay alguna Oferta con el código que se envía de argumento
+     *
+     * @param codigo: Código de la Oferta que se está buscando
+     * @return null si no existe ninguna Oferta con el código del argumento. Si
+     * existe alguna devuelve la lista.
+     */
+    public OfertaEntity findByCodigo(String codigo) {
+        LOGGER.log(Level.INFO, "Consultando Oferta por código ", codigo);
+
+        // Se crea un query para buscar Ofertas con el código que recibe el método como argumento. ":codigo" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.codigo= :codigo", OfertaEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("codigo", codigo);
+
+        // Se invoca el query se obtiene la lista resultado
+        List<OfertaEntity> sameName = query.getResultList();
+
+        if (sameName.isEmpty()) {
+            return null;
+        } else {
+            return sameName.get(0);
+        }
     }
-    
+
     /**
      * Busca si hay alguna Oferta con el nombre que se envía de argumento
      *
@@ -146,16 +152,15 @@ WHERE condition; en SQL.
      */
     public List<OfertaEntity> findByName(String name) {
         LOGGER.log(Level.INFO, "Consultando Oferta por nombre ", name);
-        
+
         // Se crea un query para buscar Ofertaes con el nombre que recibe el mÃ©todo como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From OfertaEntity e where e.name LIKE CONCAT('%',:name,'%')", OfertaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);
         // Se invoca el query se obtiene la lista resultado
-       
+
         List<OfertaEntity> sameName = query.getResultList();
-        
-                
+
         return sameName;
 
     }

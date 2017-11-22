@@ -163,4 +163,18 @@ public class OfertaLogic {
 
     }
 
+    public OfertaEntity getOfertaPorCodigo(String codigoOferta) throws BusinessLogicException {
+
+        OfertaEntity oferta = null;
+        if (persistenceOferta.findByCodigo(codigoOferta) != null) {
+            oferta = persistenceOferta.findByCodigo(codigoOferta);
+        } else {
+            throw new BusinessLogicException("no hay ofertas con ese código");
+        }
+
+        return oferta;
+    }
+
+
+
 }

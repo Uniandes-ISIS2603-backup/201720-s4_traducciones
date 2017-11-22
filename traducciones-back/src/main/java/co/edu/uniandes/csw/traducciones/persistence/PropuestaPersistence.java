@@ -45,7 +45,7 @@ en la base de datos. Es similar a "INSERT INTO table_codigo (column1, column2, c
     }
 
     /**
-     * Actualiza un Propuesta.
+     * Actualiza una Propuesta.
      *
      * @param entity: el Propuesta que viene con los nuevos cambios. Por ejemplo
      * el codigo pudo cambiar. En ese caso, se haria uso del método update.

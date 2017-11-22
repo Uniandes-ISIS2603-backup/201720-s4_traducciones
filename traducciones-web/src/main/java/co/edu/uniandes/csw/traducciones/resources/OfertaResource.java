@@ -7,7 +7,6 @@
  
  import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
 import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
-import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
  import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
  import co.edu.uniandes.csw.traducciones.ejb.OfertaLogic;
  import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
@@ -134,6 +133,21 @@ import javax.ws.rs.WebApplicationException;
          
      }
      
+     @PUT
+     @Path("{codigo: [a-zA-Z]+}")
+     public OfertaEntity getOfertaPorCodigo(@PathParam("codigo") String codigoOferta) throws BusinessLogicException {
+
+        OfertaEntity oferta = null;
+        if (ofertaLogic.getOfertaPorCodigo(codigoOferta) != null) {
+            oferta = ofertaLogic.getOfertaPorCodigo(codigoOferta);
+        } else {
+            throw new BusinessLogicException("no hay ofertas con ese código");
+        }
+
+        return oferta;
+    }
+
+     
      /**
       * PUT http://localhost:8080/traducciones-web/api/ofertas/1 Ejemplo
       * json { "id": 1, "nombre": "traduccion inglesfrances", "cantidadI": "30", "cantActual": "29", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
@@ -147,7 +161,7 @@ import javax.ws.rs.WebApplicationException;
       * En caso de no existir el id de la oferta a actualizar.
       * aje.
       */
-     @PUT
+    /* *  @PUT
      @Path("{id: \\d+}")
      public OfertaDTO updateOferta(@PathParam("id") Long id, OfertaDTO oferta) throws BusinessLogicException {
              
@@ -160,7 +174,11 @@ import javax.ws.rs.WebApplicationException;
     
        return updated;
     }
-       
+    */ 
+     /**
+     * @param id
+     * @throws co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException
+    */ 
      @DELETE
      @Path("{id: \\d+}")
      public void deleteOferta(@PathParam("id") Long id) throws BusinessLogicException  {
@@ -170,13 +188,6 @@ import javax.ws.rs.WebApplicationException;
           ofertaLogic.deleteOferta(id);
               
      }
-   
-    @POST
-    @Path("{ofertaId: \\d+}/propuestas")
-    public PropuestaDetailDTO addPropuesta(@PathParam("ofertaId") Long ofertaId, PropuestaDetailDTO propuesta) throws BusinessLogicException {
-       return new PropuestaDetailDTO(ofertaLogic.addPropuesta(propuesta.toEntity(),ofertaId));
-        
-    }
     
      /**
       *
