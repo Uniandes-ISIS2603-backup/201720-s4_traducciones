@@ -12,7 +12,7 @@
                     <table class="table table-striped table-bordered text-justify ">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Calificado?</th>
@@ -22,7 +22,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="trabajo in trabajosRecords">
-                                <td id="{{$index}}-name">{{trabajo.id}}</td>
+                                
                                 <td id="{{$index}}-id"><a ui-sref="trabajosDetail({trabajoId: trabajo.id})">{{trabajo.name}}</a></td>
                                 <td id="{{$index}}-terminado">{{terminadoBool(trabajo.terminado)}}</td>
                                 <td>{{verificar(trabajo.calificaciones.length)}}</td>

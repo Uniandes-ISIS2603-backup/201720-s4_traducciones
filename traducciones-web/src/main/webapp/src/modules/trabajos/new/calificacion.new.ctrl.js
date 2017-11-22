@@ -9,7 +9,7 @@
             $scope.addCalificacion = function () {
                 $http.post(trabajosContext+"/"+idTrabajo+"/calificacion", {
                     name: $scope.calificacionName,
-                    valor: $scope.calificacionValor,
+                    calificacion: $scope.calificacionValor,
                     comentario: $scope.calificacionComentario
                 }).then(function () {
                     //Author created successfully
