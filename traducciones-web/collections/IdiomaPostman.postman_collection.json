@@ -1,13 +1,13 @@
 {
 	"info": {
-		"name": "TrabajoPostman",
-		"_postman_id": "2fd40b22-12f6-fa23-4c11-7f7def41f789",
+		"name": "IdiomaPostman",
+		"_postman_id": "08778d6a-76ca-b677-4739-2c9cffc4de25",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Consultar todos los Trabajos",
+			"name": "Consultar todos los Idiomas",
 			"event": [
 				{
 					"listen": "test",
@@ -24,7 +24,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -33,14 +33,14 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos"
+						"idiomas"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Consultar un Trabajo Existente",
+			"name": "Consultar un Idioma Existente",
 			"event": [
 				{
 					"listen": "test",
@@ -57,7 +57,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/20",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -66,15 +66,15 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
-						"20"
+						"idiomas",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Consultar una Trabajo Inexistente",
+			"name": "Consultar un Idioma Inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -91,7 +91,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/200",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/1000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,15 +100,15 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
-						"200"
+						"idiomas",
+						"1000"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Agregar un nuevo Trabajo",
+			"name": "Agregar un nuevo Idioma",
 			"event": [
 				{
 					"listen": "test",
@@ -130,10 +130,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n        \"name\": \"Ethelda Prueba Post\",\n        \"terminado\": false\n    }"
+					"raw": "{\n        \"acronimo\": \"BA\",\n        \"nombre\": \"Bosnia and Herzegovina Prueba POST\",\n        \"region\": \"Pale Prueba POST\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -142,14 +142,14 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos"
+						"idiomas"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Actualiza un Trabajo existente",
+			"name": "Actualiza un Idioma existente",
 			"event": [
 				{
 					"listen": "test",
@@ -171,10 +171,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n        \"name\": \"Ethelda Prueba Put\",\n        \"terminado\": true\n    }"
+					"raw": "{\n        \"acronimo\": \"BA\",\n        \"nombre\": \"Bosnia and Herzegovina Prueba PUT\",\n        \"region\": \"Pale Prueba PUT\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/1",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -183,7 +183,7 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
+						"idiomas",
 						"1"
 					]
 				}
@@ -191,7 +191,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualiza un Trabajo inexistente",
+			"name": "Actualiza un Idiomainexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -213,10 +213,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n        \"name\": \"Ethelda Prueba Put mal\",\n        \"terminado\": true\n    }"
+					"raw": "{\n        \"acronimo\": \"BA\",\n        \"nombre\": \"Bosnia and Herzegovina Prueba PUT\",\n        \"region\": \"Pale Prueba PUT\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/500",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/500",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -225,7 +225,7 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
+						"idiomas",
 						"500"
 					]
 				}
@@ -233,7 +233,7 @@
 			"response": []
 		},
 		{
-			"name": "Borrar un Trabajo Existente",
+			"name": "Borrar un Idioma Existente",
 			"event": [
 				{
 					"listen": "test",
@@ -250,7 +250,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/1",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -259,7 +259,7 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
+						"idiomas",
 						"1"
 					]
 				}
@@ -267,7 +267,7 @@
 			"response": []
 		},
 		{
-			"name": "Borrar un Trabajo Inexistente",
+			"name": "Borrar un Idioma Inexistente",
 			"event": [
 				{
 					"listen": "test",
@@ -282,12 +282,9 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/traducciones-web/api/trabajos/500",
+					"raw": "http://localhost:8080/traducciones-web/api/idiomas/500",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -296,7 +293,7 @@
 					"path": [
 						"traducciones-web",
 						"api",
-						"trabajos",
+						"idiomas",
 						"500"
 					]
 				}
