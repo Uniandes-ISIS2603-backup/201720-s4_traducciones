@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
 		"name": "CalificacionPostman",
-		"_postman_id": "795ab1c3-d32a-4d56-69fd-0fcb3f4b6234",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "ee8b3a84-df2b-e255-1bf1-0b63630be2c2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -21,11 +19,24 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion"
+					]
+				}
 			},
 			"response": []
 		},
@@ -43,11 +54,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/70",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion",
+						"55"
+					]
+				}
 			},
 			"response": []
 		},
@@ -65,11 +90,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/200",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/50/calificacion/80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"50",
+						"calificacion",
+						"80"
+					]
+				}
 			},
 			"response": []
 		},
@@ -87,20 +126,32 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"calificacion\": 100.5,\n        \"comentario\": \"Post.mp3\",\n        \"name\": \"Post\"\n    }"
+					"raw": "{\n\t\n        \"calificacion\": 100,\n        \"comentario\": \"Post.mp3\",\n        \"name\": \"Post\"\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion"
+					]
+				}
 			},
 			"response": []
 		},
@@ -118,20 +169,33 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/60",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion",
+						"55"
+					]
+				}
 			},
 			"response": []
 		},
@@ -149,20 +213,33 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n        \"calificacion\": 100.9,\n        \"comentario\": \"Put.mp3\",\n        \"name\": \"Put\"\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/1/calificacion/500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"1",
+						"calificacion",
+						"500"
+					]
+				}
 			},
 			"response": []
 		},
@@ -180,11 +257,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/80",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion",
+						"55"
+					]
+				}
 			},
 			"response": []
 		},
@@ -202,11 +293,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/calificaciones/500",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/2/calificacion/555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"2",
+						"calificacion",
+						"555"
+					]
+				}
 			},
 			"response": []
 		}

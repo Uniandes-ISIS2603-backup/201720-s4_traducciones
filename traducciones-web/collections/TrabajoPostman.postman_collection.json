@@ -1,10 +1,9 @@
 {
-	"variables": [],
 	"info": {
 		"name": "TrabajoPostman",
-		"_postman_id": "d381032e-0152-ab00-a69f-df8cc51d56de",
+		"_postman_id": "2fd40b22-12f6-fa23-4c11-7f7def41f789",
 		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -21,11 +20,22 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -43,11 +53,23 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/70",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"20"
+					]
+				}
 			},
 			"response": []
 		},
@@ -65,11 +87,23 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/200",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"200"
+					]
+				}
 			},
 			"response": []
 		},
@@ -87,20 +121,30 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n        \"name\": \"Ethelda Prueba Post\",\n        \"terminado\": false\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -118,20 +162,31 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/60",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n        \"name\": \"Ethelda Prueba Put\",\n        \"terminado\": true\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -149,20 +204,31 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/500",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n        \"name\": \"Ethelda Prueba Put mal\",\n        \"terminado\": true\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"500"
+					]
+				}
 			},
 			"response": []
 		},
@@ -180,11 +246,23 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/80",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -202,11 +280,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/trabajos/500",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/trabajos/500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"trabajos",
+						"500"
+					]
+				}
 			},
 			"response": []
 		}
