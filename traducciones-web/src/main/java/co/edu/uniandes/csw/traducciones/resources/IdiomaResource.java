@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.IdiomaDTO;
@@ -36,13 +36,12 @@ import javax.ws.rs.core.MediaType;
 public class IdiomaResource {
     
     @Inject
-    IdiomaLogic IdiomaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+            IdiomaLogic IdiomaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
     
     /**
-   
      * @param Idioma correponde a la representación java del objeto json
      * enviado en el llamado.
-     * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java. 
+     * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java.
      * @throws BusinessLogicException
      */
     @POST
@@ -68,23 +67,20 @@ public class IdiomaResource {
     /**
      * @param id corresponde al id buscada.
      * @returnencontrada.
-     * @throws BusinessLogicException
-     *
-     * En caso de no existir el id de la hoja de vida buscada se retorna un 404 con
-     * el mensaje.
+     * @throws BusinessLogicException En caso de no existir el id de la hoja de vida buscada se retorna un 404 con el mensaje.
      */
     @GET
     @Path("{id: \\d+}")
     public IdiomaDTO getIdioma(@PathParam("id") Long id) throws BusinessLogicException {
         IdiomaEntity entity = IdiomaLogic.getIdiomaId(id);
-       if (entity == null) {
+        if (entity == null) {
             throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
         }
-       
-       return new IdiomaDTO(entity);
+        
+        return new IdiomaDTO(entity);
     }
     
-     /**
+    /**
      * @param id corresponde a la id a actualizar.
      * @param Idioma corresponde a al objeto con los cambios que se van a
      * realizar.
@@ -99,38 +95,31 @@ public class IdiomaResource {
     public IdiomaDTO updateIdioma(@PathParam("id") Long id, IdiomaDTO Idioma) throws BusinessLogicException {
         
         if(!IdiomaLogic.existeIdiomaId(id))
-       {
-           throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
-       }
+        {
+            throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
+        }
         return new IdiomaDTO(IdiomaLogic.updateIdioma(id,Idioma.toEntity()));
     }
-
+    
     /**
-\
      * @param id corresponde a la hoja de vida a borrar.
      * @throws BusinessLogicException
-     *
      * En caso de no existir el id de la hoja de vida a actualizar se retorna un
      * 404 con el mensaje.
-     *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteIdioma(@PathParam("id") Long id) throws BusinessLogicException {
         if(!IdiomaLogic.existeIdiomaId(id))
-       {
-          throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
-       }
-       IdiomaLogic.deleteIdiomaId(id);
+        {
+            throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
+        }
+        IdiomaLogic.deleteIdiomaId(id);
     }
     
-     /**
-     *
+    /**
      * lista de entidades a DTO.
-     *
-     * Este método convierte una lista de objetos IdiomaEntity a una lista de
- objetos IdiomaDTO (json)
-     *
+     * Este método convierte una lista de objetos IdiomaEntity a una lista de objetos IdiomaDTO (json)
      * @param entityList corresponde a la lista de Hojas de vida de tipo Entity
      * que vamos a convertir a DTO.
      * @return la lista de Hojas de vida en forma DTO (json)
