@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.uniandes.csw.traducciones.resources;
 
 import co.edu.uniandes.csw.traducciones.dtos.AreaDeConocimientoDTO;
@@ -37,17 +32,31 @@ public class AreaDeConocimientoResource {
     @Inject
     private AreaDeConocimientoLogic areaDeConocimientoLogic;
     
+    /**
+     * Devuelve todas las areas de conocimiento en el sistema
+     * @return una lista con objetos de tipo DTO.
+     */
     @GET
     public List<AreaDeConocimientoDetailDTO> getAreasDeConocimiento() throws BusinessLogicException {
         return listEntity2DetailDTO(areaDeConocimientoLogic.getAreasDeConocimientos());
     }
     
+    /**
+     * Devuelve una area de conocimiento a partir de un id
+     * @param id id de la area que se quiere buscar
+     * @return DTO que concuerda con el id.
+     */
     @GET
     @Path("{id: \\d+}")
     public AreaDeConocimientoDetailDTO getAreaDeConocimiento(@PathParam("id") Long id) throws BusinessLogicException {
         return new AreaDeConocimientoDetailDTO(areaDeConocimientoLogic.getAreaDeConocimiento(id));
     }
     
+    /**
+     * Se agrega una area de conocimiento a partir de un DTO.
+     * @param areaDeConocimiento objeto DTO que se agregara a la base de datos
+     * @return el mismo DTO pasado por parametro
+     */
    @POST
     public AreaDeConocimientoDetailDTO createAreaDeConocimiento(AreaDeConocimientoDetailDTO areaDeConocimiento) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
@@ -58,6 +67,13 @@ public class AreaDeConocimientoResource {
         return new AreaDeConocimientoDetailDTO(nuevaAreaDeConocimiento);
     }
     
+    /**
+     * Actualiza una area de conocimiento
+     * @param id id que se quiere actualizar
+     * @param areaDeConocimiento DTO por el que se va a reemplazar.
+     * @return DTO actualizado
+     * @throws BusinessLogicException si no existe un area con el id deseado
+     */
     @PUT
     @Path("{id: \\d+}")
     public AreaDeConocimientoDetailDTO updateAreaDeConocimiento(@PathParam("id") Long id, AreaDeConocimientoDetailDTO areaDeConocimiento) throws BusinessLogicException {
@@ -69,9 +85,14 @@ public class AreaDeConocimientoResource {
         return new AreaDeConocimientoDetailDTO(areaDeConocimientoLogic.updateAreaDeConocimiento(id, areaDeConocimiento.toEntity()));
     }
     
+    /**
+     * Borra un Area de Conocimiento
+     * @param id id del area que se quiere eliminar
+     * @throws BusinessLogicException si no existe un area con el id deseado.
+     */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteEmpleado(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteAreaDeConocimiento(@PathParam("id") Long id) throws BusinessLogicException {
         AreaDeConocimientoEntity entity = areaDeConocimientoLogic.getAreaDeConocimiento(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso AreaDeConocimiento: " + id + " no existe.", 404);
@@ -79,6 +100,11 @@ public class AreaDeConocimientoResource {
         areaDeConocimientoLogic.deleteAreaDeConocimiento(entity);
     }
     
+    /**
+     * Convierte una lista de areas de conocimiento en forma de entidades a DTO.
+     * @param entityList lista en forma de entidad que se queire convertir
+     * @return la lsita en forma de dto
+     */
      private List<AreaDeConocimientoDetailDTO> listEntity2DetailDTO(List<AreaDeConocimientoEntity> entityList) {
         List<AreaDeConocimientoDetailDTO> list = new ArrayList<>();
         for (AreaDeConocimientoEntity entity : entityList) {
