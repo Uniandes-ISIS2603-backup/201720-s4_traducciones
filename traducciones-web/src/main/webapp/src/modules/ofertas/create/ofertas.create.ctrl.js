@@ -9,13 +9,13 @@
     mod.controller('ofertasNewCtrl', ['$scope', '$http', 'empleadooContext', '$state', '$rootScope',
         function ($scope, $http, empleadooContext, $state, $rootScope) {
             $rootScope.edit = false;
-            var idEmpleado = $state.params.idEmpleado;
+            var idEmpleado = $state.params.empleadoId;
             $scope.createOferta = function () {
                 $http.post(empleadooContext+ '/'+idEmpleado+ '/'+'ofertas', {
                     nombre: $scope.ofertaName,
-                    id:$scope.ofertaId,
+                    id: $scope.ofertaId,
                     descripcion: $scope.ofertaDescripcion,
-                    fechaVigencia: $scope.ofertaFechaVigencia,
+                    fechaVigencia: $scope.fechaVigencia,
                     codigo: $scope.ofertaCodigo,
                     cantidadInicial: $scope.ofertaCantidadInicial,
                     cantidadActual: $scope.ofertaCantidadActual

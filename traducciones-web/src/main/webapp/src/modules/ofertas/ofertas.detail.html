@@ -9,7 +9,7 @@ and open the template in the editor.
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label>Detalles oferta del empleado con id: {{idEmpleado}}</label></div>
+            <div class="panel-heading"><label>Detalles oferta del empleado con id: {{prueba}}</label></div>
             
             <div class="panel-body">
                 <div class="col-md-3">
@@ -27,7 +27,7 @@ and open the template in the editor.
                 </tr>
             </thead>
             <tbody>
-                <a class="btn btn-info" ui-sref="ofertaCreate({empleadoId: idEmpleado})">
+                <a class="btn btn-info" ui-sref="ofertaCreate({empleadoId: prueba})">
                 <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva oferta</a>
                          <tr ng-repeat=" oferta in ofertas">
                     <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
@@ -37,9 +37,7 @@ and open the template in the editor.
                     <td id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
                     <td id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
                     <td id="{{$index}}-Opciones">
-                                    <a class="btn btn-default btn-sm" ui-sref="ofertaUpdate({ofertaId: oferta.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
-                                    
-                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id, empleadoId: prueba})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
                     
                 </tr>
                  </tbody>

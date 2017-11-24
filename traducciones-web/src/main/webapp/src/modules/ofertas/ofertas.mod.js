@@ -42,19 +42,22 @@
                     }
                 }
             }).state('ofertaCreate', {
-                url: '/create}',
+                url: '/create/{empleadoId: int}',
                 parent: 'ofertas',
-                views: {
+                param: {
+                    empleadoId: null
+                },views: {
                     'detailView': {
                         templateUrl: basePath + '/create/ofertas.create.html',
                         controller: 'ofertasNewCtrl'
                     }
                 }
             }).state('ofertaDelete', {
-                url: '/delete/{ofertaId:int}',
+                url: '/delete/{ofertaId:int}/{empleadoId: int}',
                 parent: 'ofertas',
                 param: {
-                    hojaId: null
+                    ofertaId: null,
+                    empleadoId: null
                 },
                 views: {
                     'detailView': {

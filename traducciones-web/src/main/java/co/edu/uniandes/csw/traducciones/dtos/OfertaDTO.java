@@ -2,6 +2,8 @@ package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -32,7 +34,8 @@ public class OfertaDTO {
     /**
      * Fecha de vigencia de la oferta
      */
-    private Date fechaVigencia;
+    @Temporal(TemporalType.DATE)    
+    private Date fechaVigencia; 
 
     /**
      * Cantidad inicial de cupones de esta oferta

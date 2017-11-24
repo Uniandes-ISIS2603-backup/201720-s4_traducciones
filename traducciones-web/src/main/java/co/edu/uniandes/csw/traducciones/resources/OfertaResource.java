@@ -6,7 +6,7 @@
  package co.edu.uniandes.csw.traducciones.resources;
  
  import co.edu.uniandes.csw.traducciones.dtos.OfertaDTO;
-import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
+ import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
  import co.edu.uniandes.csw.traducciones.persistence.OfertaPersistence;
  import co.edu.uniandes.csw.traducciones.ejb.OfertaLogic;
  import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;

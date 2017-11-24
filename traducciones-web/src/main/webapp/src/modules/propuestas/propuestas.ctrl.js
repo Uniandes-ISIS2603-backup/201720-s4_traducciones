@@ -19,16 +19,19 @@
             // carga las ofertas
             $http.get(propuestasContext).then(function (response) {
                 $scope.propuestasRecords = response.data;
-
-                for (var i = 0; i < $scope.propuestasRecords.length; i++)
-                {
-                     if ($scope.propuestasRecords[i].oferta.codigo === undefined || $scope.propuestasRecords[i].oferta.codigo === null)
-                    {
-                        $scope.propuestasRecords[i].oferta.codigo = 'No hay una oferta asociada.';
-                    }
-                }
             });
-        }
-    ]);
+            
+            this.validacion = function(codigo) 
+            {
+                if (codigo !== null && codigo !== undefined)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            };
+        }]);
 })
 (angular);

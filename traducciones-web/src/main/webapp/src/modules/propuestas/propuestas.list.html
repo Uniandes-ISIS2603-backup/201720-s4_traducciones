@@ -26,7 +26,8 @@ and open the template in the editor.
                     <td id="{{$index}}-nombre">{{propuesta.nombre}}</td>
                     <td id="{{$index}}-estado">{{propuesta.estado}}</td> 
                     <td id="{{$index}}-costo">{{propuesta.costo}}</td>
-                    <td id="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
+                    <td ng-if="ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
+                   <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">No hay ofertas asociadas</td>
                 </tr>
             </tbody>
         </table>

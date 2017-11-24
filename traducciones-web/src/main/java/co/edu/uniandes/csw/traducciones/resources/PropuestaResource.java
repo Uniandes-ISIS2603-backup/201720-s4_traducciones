@@ -30,7 +30,9 @@ import javax.ws.rs.Produces;
 
 /**
  * Clase que implementa el recurso REST correspondiente a Propuesta
- *
+ * Note que la aplicación (definida en RestConfig.java) define la ruta "/api" y
+ * este recurso tiene la ruta "propuestas". Al ejecutar la aplicación, el recurso
+ * será accesibe a través de la ruta "/api/propuestas"
  * @author av.perezb
  */
 @Path("propuestas")
@@ -39,7 +41,7 @@ import javax.ws.rs.Produces;
 public class PropuestaResource {
 
     @Inject
-    PropuestaLogic logic;
+    PropuestaLogic logic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     @Inject
     OfertaLogic ofertaLogic;

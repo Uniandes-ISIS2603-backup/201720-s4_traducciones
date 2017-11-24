@@ -29,6 +29,9 @@ public class PropuestaLogic {
     @Inject
     private PropuestaPersistence persistencePropuesta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
+    @Inject
+    private OfertaPersistence persistenceOferta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+
     public PropuestaEntity agregarOferta(Long idPropuesta, OfertaEntity oferta) throws BusinessLogicException {
 
         if (oferta.getCantidadActual() < 0) {
@@ -42,8 +45,11 @@ public class PropuestaLogic {
 
         oferta.setCantidadActual(oferta.getCantidadActual() - 1);
         oferta.getPropuestas().add(propuesta);
-        propuesta.setCosto(oferta.getDescuento() * propuesta.getCosto() / 100);
-
+        propuesta.setCosto(propuesta.getCosto()- oferta.getDescuento() * propuesta.getCosto() / 100);
+        
+        persistencePropuesta.update(propuesta);
+        persistenceOferta.update(oferta);
+  
         return propuesta;
     }
 

@@ -13,7 +13,7 @@
             $scope.deleteOferta = function () {
                
                 $http.delete(ofertasContext + '/' + idOferta, {}).then(function (response) {
-                    $state.go('ofertasList', {ofertaId: response.data.id}, {reload: true});
+                    $state.go('empleadoOfertas', {empleadoId: $state.params.empleadoId}, {reload: true});
                 });
             };
         }
