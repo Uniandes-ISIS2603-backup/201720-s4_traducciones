@@ -52,20 +52,43 @@ public class TrabajoLogic {
         LOGGER.info("Termina proceso de consultar todas las Trabajos");
         return trabajos;
     }
-
+    
+    /**
+     * 
+     * Obtiene un trabajo de la base de datos
+     * @param id del trabajo a obtener  
+     * @return entidad del trabajo
+     */
     public TrabajoEntity getTrabajoId(Long id) {
         return persistence.find(id);
     }
 
+    /**
+     * 
+     * Elimina un trabajo por id
+     * @param id id del trabajo a eliminar
+     */
     public void deleteTrabajoId(Long id) {
         persistence.delete(id);
     }
-
+    
+    /**
+     * 
+     * Atualiza la informacion de un trabajo
+     * @param id id del trabajo a actualizar
+     * @param entrada informaion nueva del trabajo
+     * @return entidad trabajo actualizada
+     */
     public TrabajoEntity updateTrabajo(Long id, TrabajoEntity entrada) {
         entrada.setId(id);
         return persistence.update(entrada);
     }
 
+    /**
+     * Dice si existe o no un trabajo en la base de datos
+     * @param id id del trabajo a validar
+     * @return True si existe, false de lo contrario
+     */
     public boolean existeTrabajoId(Long id) {
         return persistence.find(id) != null;
     }

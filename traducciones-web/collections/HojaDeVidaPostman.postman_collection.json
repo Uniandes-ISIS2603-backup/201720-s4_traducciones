@@ -1,10 +1,9 @@
 {
-	"variables": [],
 	"info": {
 		"name": "HojaDeVidaPostman",
-		"_postman_id": "7246fb9e-4727-3634-38c8-3e7acd67aa4e",
+		"_postman_id": "8f418d8d-4766-7b0a-442d-9cd22bb13809",
 		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -21,10 +20,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida"
+					]
+				},
 				"description": "Counsulta todas las Hojas de Vida de la base de datos y las muestra en representacion json."
 			},
 			"response": []
@@ -43,10 +57,23 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/50",
 				"method": "GET",
 				"header": [],
 				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"20"
+					]
+				},
 				"description": "Consulta una Hoja de Vida especifica existente en la base de datos y la muestra como json."
 			},
 			"response": []
@@ -65,10 +92,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/200",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"200"
+					]
+				},
 				"description": "Consulta una Hoja de Vida inexistente en la base de datos."
 			},
 			"response": []
@@ -87,18 +130,29 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n    \"descripcion\": \"VP Quality Control con Prueba Post\",\n        \"formacionAcademica\": \"University of East Srarajevo con Prueba Post\",\n        \"name\": \"Karla Winspear con Prueba Post\",\n        \"perfilProfesional\": \"Other Specialty Stores con Prueba Post\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida"
+					]
 				},
 				"description": "Agrega una nueva Hoja de Vida a la base de datos."
 			},
@@ -118,18 +172,30 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/51",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n        \"descripcion\": \"VP Quality Control con Prueba Put\",\n        \"formacionAcademica\": \"University of East Srarajevo con Prueba Put\",\n        \"name\": \"Karla Winspear con Prueba Put\",\n        \"perfilProfesional\": \"Other Specialty Stores con Prueba Put\"\n    }\n    \n    "
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"20"
+					]
 				},
 				"description": "Actualiza una Hoja de Vida existente en la base de datoss."
 			},
@@ -149,18 +215,30 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/300",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": " {\n        \"descripcion\": \"Accountant I prueba put\",\n        \"formacionAcademica\": \"University of Central Oklahoma prueba put\",\n        \"name\": \"Lutero Davidesco prueba put\",\n        \"id\": 300,\n        \"perfilProfesional\": \"Plastic Products prueba put\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"300"
+					]
 				},
 				"description": "Actualiza una Hoja de Vida inexistente en la base de datos."
 			},
@@ -180,10 +258,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/300",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"300"
+					]
+				},
 				"description": "Borra una Hoja de Vida inexistente de la base de datos."
 			},
 			"response": []
@@ -202,10 +296,23 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/50",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"20"
+					]
+				},
 				"description": "Borra una Hoja de Vida existente de la base de datos."
 			},
 			"response": []

@@ -38,7 +38,7 @@ public class TrayectoriaResource {
      
     /**
      * GET para todas las trayectorias
-     * http://localhost:8080/traducciones-web/api/trayectorias
+     * http://localhost:8080/traducciones-web/api/hojadevida/idHojaDeVida/trayectorias
      *
      * @param idHojaDeVida
      * @return la lista de todas las trayectorias en objetos json DTO.
@@ -49,42 +49,75 @@ public class TrayectoriaResource {
         return listEntity2DetailDTO(trayectoriaLogic.getTrayectorias(idHojaDeVida));
     }
     
+    /**
+     * GET para una trayectoria especifica de una hoja de vida
+     * http://localhost:8080/traducciones-web/api/hojadevida/idHojaDeVida/trayectorias/idTrayectoria
+     *
+     * @param idHojaDeVida
+     * @param idTrayectoria
+     * @return la trayectoria en objeto json DTO.
+     * @throws BusinessLogicException
+     */
     @GET
     @Path("{id: \\d+}")
-    public TrayectoriaDTO getTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long id) throws BusinessLogicException {
-        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, id);
+    public TrayectoriaDTO getTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long idTrayectoria) throws BusinessLogicException {
+        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, idTrayectoria);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectorias/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectorias/" + idTrayectoria + " no existe.", 404);
         }
         return new TrayectoriaDTO(entity);
     }
     
+    /**
+     * POST para una trayectoria especifica de una hoja de vida
+     * http://localhost:8080/traducciones-web/api/hojadevida/idHojaDeVida/trayectorias
+     *
+     * @param idHojaDeVida
+     * @param trayectoria DTO Trayectoria a agregar a la hoja de vida
+     * @return la trayectoria en objeto json DTO.
+     * @throws BusinessLogicException
+     */
     @POST
     public TrayectoriaDTO createTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, TrayectoriaDTO trayectoria) throws BusinessLogicException {
         return new TrayectoriaDTO(trayectoriaLogic.createTrayectoria(idHojaDeVida, trayectoria.toEntity()));
     }
     
-    
+     /**
+     * PUT para una trayectoria especifica de una hoja de vida
+     * http://localhost:8080/traducciones-web/api/hojadevida/idHojaDeVida/trayectorias/idTrayectoria
+     *
+     * @param idHojaDeVida
+     * @param idTrayectoria
+     * @return la trayectoria en objeto json DTO.
+     * @throws BusinessLogicException
+     */
     @PUT
     @Path("{id: \\d+}")
-    public TrayectoriaDTO updateTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long id, TrayectoriaDTO trayectoria) throws BusinessLogicException {
-        trayectoria.setId(id);
-        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, id);
+    public TrayectoriaDTO updateTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long idTrayectoria, TrayectoriaDTO trayectoria) throws BusinessLogicException {
+        trayectoria.setId(idTrayectoria);
+        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, idTrayectoria);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectorias/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectorias/" + idTrayectoria + " no existe.", 404);
         }
         return new TrayectoriaDTO(trayectoriaLogic.updateTrayectoria(idHojaDeVida, trayectoria.toEntity()));
 
     }
-
+    
+    /**
+     * DELETE para una trayectoria especifica de una hoja de vida
+     * http://localhost:8080/traducciones-web/api/hojadevida/idHojaDeVida/trayectorias/idTrayectoria
+     * @param idHojaDeVida
+     * @param idTrayectoria
+     * @throws BusinessLogicException
+     */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long id) throws BusinessLogicException {
-        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, id);
+    public void deleteTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long idTrayectoria) throws BusinessLogicException {
+        TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, idTrayectoria);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectoria/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectoria/" + idTrayectoria + " no existe.", 404);
         }
-        trayectoriaLogic.deleteTrayectoriaId(idHojaDeVida, id);
+        trayectoriaLogic.deleteTrayectoriaId(idHojaDeVida, idTrayectoria);
     }
     
      /**

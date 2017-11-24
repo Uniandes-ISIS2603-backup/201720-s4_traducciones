@@ -135,6 +135,12 @@ public class TrabajoResource {
         trabajoLogic.deleteTrabajoId(id);
     }
 
+    
+    /**
+     * Conexion con subrecurso calificacion
+     * @param idTrabajo
+     * @return calificacion resource
+     */
     @Path("{idTrabajo: \\d+}/calificacion")
     public Class<CalificacionResource> getCalificacionResource(@PathParam("idTrabajo") Long idTrabajo) {
         TrabajoEntity entity = trabajoLogic.getTrabajoId(idTrabajo);

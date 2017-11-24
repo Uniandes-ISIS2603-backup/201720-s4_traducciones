@@ -17,7 +17,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CalificacionEntity extends BaseEntity{
 
-    private Long valor;
+    
     private String comentario;
     private Integer calificacion;
     
@@ -26,19 +26,7 @@ public class CalificacionEntity extends BaseEntity{
     @ManyToOne(cascade = CascadeType.PERSIST)
     private TrabajoEntity trabajo;
 
-    /**
-     * @return the valor
-     */
-    public Long getValor() {
-        return valor;
-    }
-
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(Long valor) {
-        this.valor = valor;
-    }
+    
 
     /**
      * @return the comentario

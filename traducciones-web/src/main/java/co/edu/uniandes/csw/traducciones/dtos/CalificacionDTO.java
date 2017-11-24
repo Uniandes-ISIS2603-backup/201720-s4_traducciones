@@ -16,7 +16,7 @@ public class CalificacionDTO {
     private Long id;
     private String name;
     private String comentario;
-    private Long valor;
+    
     private Integer calificacion;
 
     /**
@@ -36,7 +36,7 @@ public class CalificacionDTO {
         this.id = calificacion.getId();
         this.name = calificacion.getName();
         this.comentario = calificacion.getComentario();
-        this.valor = calificacion.getValor();
+        
         this.calificacion = calificacion.getCalificacion();
     }
 
@@ -50,7 +50,7 @@ public class CalificacionDTO {
         entity.setId(this.getId());
         entity.setName(this.getName());
         entity.setComentario(this.getComentario());
-        entity.setValor(this.getValor());
+        
         entity.setCalificacion(this.calificacion);
         return entity;
     }
@@ -97,19 +97,7 @@ public class CalificacionDTO {
         this.comentario = comentario;
     }
 
-    /**
-     * @return the valor
-     */
-    public Long getValor() {
-        return valor;
-    }
-
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(Long valor) {
-        this.valor = valor;
-    }
+    
 
     /**
      * @return the calificacion

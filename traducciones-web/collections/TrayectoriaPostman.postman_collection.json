@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
 		"name": "TrayectoriaPostman",
-		"_postman_id": "02ade1d2-aeae-741a-6e4f-41e0bf7fa577",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "721e9e32-2b15-3641-362f-17d41b4df2a0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -21,10 +19,24 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias",
 				"method": "GET",
 				"header": [],
 				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/2/trayectorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"2",
+						"trayectorias"
+					]
+				},
 				"description": "Counsulta todas las trayectorias de la base de datos y las muestra en representacion json."
 			},
 			"response": []
@@ -43,10 +55,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/75/trayectorias/75",
 				"method": "GET",
 				"header": [],
 				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/2/trayectorias/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"2",
+						"trayectorias",
+						"2"
+					]
+				},
 				"description": "Consulta una trayectoria especifica existente en la base de datos y la muestra como json."
 			},
 			"response": []
@@ -65,10 +92,28 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/200",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"70",
+						"trayectorias",
+						"200"
+					]
+				},
 				"description": "Consulta una trayectoria inexistente en la base de datos."
 			},
 			"response": []
@@ -87,18 +132,31 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n        \"descripcion\": \"Prueba de post del recurso trayectoria en postman\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba post\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/2/trayectorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"2",
+						"trayectorias"
+					]
 				},
 				"description": "Agrega una nueva trayectoria a la base de datos."
 			},
@@ -118,18 +176,32 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/70",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, existente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"name\": \"Trayectoria prueba put\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/2/trayectorias/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"2",
+						"trayectorias",
+						"2"
+					]
 				},
 				"description": "Actualiza una trayectoria existente en la base de datoss."
 			},
@@ -149,18 +221,32 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n        \"descripcion\": \"Prueba de put del recurso trayectoria en postman, inexistente id\",\n        \"fechaFin\": \"2018-04-12\",\n        \"fechaInicio\": \"2018-11-29\",\n        \"id\": 300,\n        \"name\": \"Trayectoria prueba put\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"70",
+						"trayectorias",
+						"300"
+					]
 				},
 				"description": "Actualiza una trayectoria inexistente en la base de datos."
 			},
@@ -180,10 +266,28 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/70/trayectorias/300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"70",
+						"trayectorias",
+						"300"
+					]
+				},
 				"description": "Borra una trayectoria inexistente de la base de datos."
 			},
 			"response": []
@@ -202,10 +306,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/hojadevida/80/trayectorias/80",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/traducciones-web/api/hojadevida/2/trayectorias/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"traducciones-web",
+						"api",
+						"hojadevida",
+						"2",
+						"trayectorias",
+						"2"
+					]
+				},
 				"description": "Borra una trayectoria existente de la base de datos."
 			},
 			"response": []

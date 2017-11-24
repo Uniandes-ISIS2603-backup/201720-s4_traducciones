@@ -57,28 +57,58 @@ public class HojaDeVidaLogic {
         return hojasDeVida;
     }
     
+    /**
+     * Obtiene una hoja de vida por su Id
+     * @param id de la hoja de vida a buscar
+     * @return Hoja de vida en entity
+     */
     public HojaDeVidaEntity getHojaDeVidaId(Long id)
     {
         return persistence.find(id);
     }
     
+    /**
+     * 
+     * Elimina la hoja de vida con el id especificado
+     * @param id de la hoja de vida a borrar
+     */
      public void deleteHojaDeVidaId(Long id)
     {
         persistence.delete(id);
     }
      
+     /**
+      * 
+      * Actualiza la inforamcion de una hoja de vida
+      * @param id id de la hoja de vida a actualizar
+      * @param entrada datos con los que se actualiza la hoja de vida
+      * @return hoja de vida en entity actualizada
+      */
      public HojaDeVidaEntity updateHojaDeVida(Long id,HojaDeVidaEntity entrada)
     {
         entrada.setId(id);
         return persistence.update(entrada);
     }
      
+     /**
+      * 
+      * Dice si existe o no una hoja de vida especifica en la base de datos
+      * @param id id de la hoja a validar existencia
+      * @return True si existe la hoja, false de lo contrario
+      */
      public boolean existeHojaDeVidaId(Long id)
      {
      return persistence.find(id)!=null;
     
      }
      
+     /**
+      * 
+      * Obtiene la lista de idiomas de una hoja de vida
+      * @param hojaDeVidaId id de la hoja de vida
+      * @return la lista de idiomas de la hojas
+      * @throws BusinessLogicException si no existe la hoja
+      */
      public List<IdiomaEntity> getIdiomas(Long hojaDeVidaId) throws BusinessLogicException {
         if(getHojaDeVidaId(hojaDeVidaId) == null){
             throw new BusinessLogicException("El hojaDeVida no existe");
@@ -88,7 +118,13 @@ public class HojaDeVidaLogic {
             return getHojaDeVidaId(hojaDeVidaId).getIdiomas();
         }
     }
-    
+    /**
+     * Añade un idioma a la hoja de vida
+     * @param idioma entity idioma a añadir a la hoja de vida
+     * @param hojaDeVidaId id de la hoja a la que se e añadira un idioma
+     * @return entity del idioma agragado
+     * @throws BusinessLogicException si no existe la hoja de vida
+     */
     public IdiomaEntity addIdioma(IdiomaEntity idioma, Long hojaDeVidaId) throws BusinessLogicException {
         idioma.setHojaDeVida(getHojaDeVidaId(hojaDeVidaId));
         idiomaLogic.createIdioma(idioma);
@@ -97,7 +133,12 @@ public class HojaDeVidaLogic {
     }
     
   
-    
+    /**
+     * Elimina un idioma de una hoja de vida especifica
+     * @param idiomaId id del idioma a borrar
+     * @param hojaDeVidaId id de la hoja de vida que contiene el idioma
+     * @throws BusinessLogicException si no existe aguna de las 2
+     */
     public void removeIdioma(Long idiomaId, Long hojaDeVidaId) throws BusinessLogicException {
         List<IdiomaEntity> idiomas = getHojaDeVidaId(hojaDeVidaId).getIdiomas();
         boolean seBorro = false;
