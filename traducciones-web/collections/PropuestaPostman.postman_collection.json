@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "PropuestaPostman",
-		"_postman_id": "edbec878-0557-33f7-ef1b-8db8906b2207",
+		"_postman_id": "95601220-97d6-dcf1-0f22-ea83e47ee9de",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -24,29 +24,10 @@
 				"url": "http://localhost:8080/traducciones-web/api/propuestas",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "prueba: buscar propuestas cuando no hay ninguna",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 412\"]=responseCode.code===412;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/traducciones-web/api/propuestas",
-				"method": "GET",
-				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -68,7 +49,10 @@
 				"url": "http://localhost:8080/traducciones-web/api/propuestas/5",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -90,7 +74,10 @@
 				"url": "http://localhost:8080/traducciones-web/api/propuestas/40",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -112,20 +99,23 @@
 				"url": "http://localhost:8080/traducciones-web/api/propuestas/1",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "prueba: crear propuesta ya existente",
+			"name": "prueba: crear propuesta",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 412\"]=responseCode.code===412;"
+							"tests[\"Status code is 200\"]=responseCode.code===200;"
 						]
 					}
 				}
