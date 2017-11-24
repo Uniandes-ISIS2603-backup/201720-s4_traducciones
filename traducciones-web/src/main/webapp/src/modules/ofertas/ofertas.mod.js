@@ -5,7 +5,7 @@
  */
 
 (function (ng) {
-var mod = ng.module("ofertasModule", []);
+    var mod = ng.module("ofertasModule", []);
     mod.constant("ofertasContext", "api/ofertas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/ofertas/';
@@ -41,16 +41,13 @@ var mod = ng.module("ofertasModule", []);
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('ofertaUpdate', {
-                url: '/update/{ofertaId:int}',
+            }).state('ofertaCreate', {
+                url: '/create}',
                 parent: 'ofertas',
-                param: {
-                    ofertaId: null
-                },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/update/ofertas.update.html',
-                        controller: 'ofertaUpdateCtrl'
+                        templateUrl: basePath + '/create/ofertas.create.html',
+                        controller: 'ofertasNewCtrl'
                     }
                 }
             }).state('ofertaDelete', {

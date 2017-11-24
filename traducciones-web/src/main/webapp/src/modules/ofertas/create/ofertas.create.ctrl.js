@@ -5,13 +5,13 @@
  */
 (function (ng) {
     var mod = ng.module("ofertasModule");
-    mod.constant("ofertasContext", "api/empleados");
-    mod.controller('ofertasNewCtrl', ['$scope', '$http', 'ofertasContext', '$state', '$rootScope',
-        function ($scope, $http, ofertasContext, $state, $rootScope) {
+    mod.constant("empleadooContext", "api/empleados");
+    mod.controller('ofertasNewCtrl', ['$scope', '$http', 'empleadooContext', '$state', '$rootScope',
+        function ($scope, $http, empleadooContext, $state, $rootScope) {
             $rootScope.edit = false;
             var idEmpleado = $state.params.idEmpleado;
             $scope.createOferta = function () {
-                $http.post(ofertasContext+ '/'+idEmpleado+ '/'+'ofertas', {
+                $http.post(empleadooContext+ '/'+idEmpleado+ '/'+'ofertas', {
                     nombre: $scope.ofertaName,
                     id:$scope.ofertaId,
                     descripcion: $scope.ofertaDescripcion,
@@ -21,7 +21,7 @@
                     cantidadActual: $scope.ofertaCantidadActual
                 }).then(function (response) {
                     //Oferta created successfully
-                    $state.go('ofertasList', {ofertaId: response.data.id}, {reload: true});
+                    $state.go('empleadoOfertas', {empleadoId: idEmpleado}, {reload: true});
                 });
             };
         }

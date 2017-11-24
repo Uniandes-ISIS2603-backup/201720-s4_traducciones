@@ -11,18 +11,24 @@
 (function (ng) {
 
     var mod = ng.module("propuestasModule");
-
-    mod.controller("propuestasCtrl", ['$scope', '$state', '$stateParams', '$http', 'propuestasContext', function ($scope,$http, propuestasContext) {
+    mod.constant("propuestasContext", "api/propuestas");
+    mod.controller("propuestasCtrl", ['$scope', '$http', 'propuestasContext', function ($scope, $http, propuestasContext) {
 
             // inicialmente el listado de ofertas está vacio
             $scope.propuestasRecords = [];
             // carga las ofertas
-            $http.get(propuestasContext).then(function (response)
-            {
+            $http.get(propuestasContext).then(function (response) {
                 $scope.propuestasRecords = response.data;
+
+                for (var i = 0; i < $scope.propuestasRecords.length; i++)
+                {
+                     if ($scope.propuestasRecords[i].oferta.codigo === undefined || $scope.propuestasRecords[i].oferta.codigo === null)
+                    {
+                        $scope.propuestasRecords[i].oferta.codigo = 'No hay una oferta asociada.';
+                    }
+                }
             });
         }
     ]);
-}
-)(window.angular);
-
+})
+(angular);

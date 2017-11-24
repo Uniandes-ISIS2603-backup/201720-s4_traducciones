@@ -11,16 +11,22 @@ and open the template in the editor.
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nombre</th>    
                     <th>Estado</th> 
                     <th>Costo</th>
+                    <th>Oferta asociada</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat=" propuesta in propuestasRecords">
+
+                    <td id="{{$index}}-id">{{propuesta.id}}</td>
                     <td id="{{$index}}-nombre">{{propuesta.nombre}}</td>
                     <td id="{{$index}}-estado">{{propuesta.estado}}</td> 
                     <td id="{{$index}}-costo">{{propuesta.costo}}</td>
+                    <td id="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
                 </tr>
             </tbody>
         </table>

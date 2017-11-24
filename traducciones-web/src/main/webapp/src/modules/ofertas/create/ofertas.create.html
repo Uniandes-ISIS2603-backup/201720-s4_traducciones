@@ -8,7 +8,7 @@ and open the template in the editor.
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading"><label ng-if="!edit" id="createOferta">Crear nueva oferta</label>
-                <label ng-if="edit" id="editHoja">Editar oferta</label></div>
+                <label ng-if="edit" id="editOferta">Editar oferta</label></div>
             <div class="panel-body">
                 <form ng-submit="createOferta()" name="oferta">
                     <div class="form-group row">
@@ -25,7 +25,7 @@ and open the template in the editor.
                     </div>                    
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="ofertaDescripcion" class="col-sm-2">Descripcion</label>
+                            <label for="ofertaDescripcion" class="col-sm-2">Descripcion:</label>
                             <input id="ofertaDescripcion" required ng-model="ofertaDescripcion" class="col-sm-6">
                         </div>
                     </div>

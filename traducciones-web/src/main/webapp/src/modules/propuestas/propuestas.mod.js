@@ -7,7 +7,7 @@
 (function (ng) {
 var mod = ng.module("propuestasModule", []);
     mod.constant("propuestasContext", "api/propuestas");
-    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
             var basePath = 'src/modules/propuestas/';
 
             $stateProvider.state('propuestasList', {
@@ -19,16 +19,7 @@ var mod = ng.module("propuestasModule", []);
                         templateUrl: basePath + 'propuestas.list.html'
                     }
                 }
-            }),$stateProvider.state('listaPropuestas', {
-                url: '/propuestas',
-                views: {
-                    'mainView': {
-                        controller: 'propuestasCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'propuestas.list.html'
-                    }
-                }
-            }) ;
+            });
         }]);
 
 })(window.angular);
