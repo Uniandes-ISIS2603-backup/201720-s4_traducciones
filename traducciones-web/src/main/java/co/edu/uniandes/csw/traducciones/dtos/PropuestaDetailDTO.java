@@ -47,6 +47,7 @@ public class PropuestaDetailDTO extends PropuestaDTO {
      * @param oferta que se desea agregar a la propuesta
      */
     public void setOferta(OfertaDTO oferta) {
+        
         this.oferta = oferta;
     }
 

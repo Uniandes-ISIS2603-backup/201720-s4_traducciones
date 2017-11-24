@@ -52,6 +52,7 @@ public class PropuestaLogic {
      * @param entity
      * @return
      * @throws BusinessLogicException
+     * 
      */
     public PropuestaEntity createPropuesta(PropuestaEntity entity) throws BusinessLogicException {
 

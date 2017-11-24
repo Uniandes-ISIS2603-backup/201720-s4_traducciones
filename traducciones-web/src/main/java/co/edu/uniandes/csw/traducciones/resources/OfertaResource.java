@@ -20,7 +20,6 @@ import co.edu.uniandes.csw.traducciones.dtos.OfertaDetailDTO;
  import javax.ws.rs.GET;
  import javax.ws.rs.DELETE;
  import javax.ws.rs.POST;
- import javax.ws.rs.PUT;
  import javax.ws.rs.Path;
  import javax.ws.rs.PathParam;
  import javax.ws.rs.Produces;
@@ -112,7 +111,6 @@ import javax.ws.rs.WebApplicationException;
       /**
       * GET para una oferta
       * http://localhost:8080/traducciones-web/api/ofertas/frances
-      *
       * @param nombre corresponde al nombre de la oferta buscada.
       * @return La oferta encontrada. Ejemplo: { "type":
       * "ofertaDTO", "id": 1, "nombre": "traduccion inglesfrances", "cantidad": "30", "descripcion": "Sirve para aplicar un descuento del 30% sobre un trabajo.",
@@ -133,8 +131,8 @@ import javax.ws.rs.WebApplicationException;
          
      }
      
-     @PUT
-     @Path("{codigo: [a-zA-Z]+}")
+     @GET
+     @Path("/codigo/{codigo: [a-zA-Z]+}")
      public OfertaEntity getOfertaPorCodigo(@PathParam("codigo") String codigoOferta) throws BusinessLogicException {
 
         OfertaEntity oferta = null;
@@ -174,6 +172,7 @@ import javax.ws.rs.WebApplicationException;
     
        return updated;
     }
+     
     */ 
      /**
      * @param id

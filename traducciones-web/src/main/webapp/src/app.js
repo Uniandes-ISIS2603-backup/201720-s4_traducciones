@@ -12,7 +12,8 @@
         'ofertasModule',
         'empleadoModule',
         'areadeconocimientoModule',
-        'idiomaModule'
+        'idiomaModule',
+        'propuestasModule'
         
 
     ]);

@@ -12,12 +12,12 @@
 
     var mod = ng.module("propuestasModule");
 
-    mod.controller("propuestasCtrl", ['$scope', '$state', '$stateParams', '$http', 'propuestasContext', function ($scope, $state, $stateParams, $http, context) {
+    mod.controller("propuestasCtrl", ['$scope', '$state', '$stateParams', '$http', 'propuestasContext', function ($scope,$http, propuestasContext) {
 
             // inicialmente el listado de ofertas está vacio
             $scope.propuestasRecords = [];
             // carga las ofertas
-            $http.get('src/modules/propuestas/prueba_propuesta.txt').then(function (response)
+            $http.get(propuestasContext).then(function (response)
             {
                 $scope.propuestasRecords = response.data;
             });
