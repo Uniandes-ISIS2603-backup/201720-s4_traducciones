@@ -103,7 +103,6 @@ public class PropuestaResource {
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * @throws BusinessLogicException
      */
-    
     @PUT
     @Path("{propuestaId: \\d+}/ofertas/{idOferta: \\d+}")
     public PropuestaDetailDTO agregarOferta(@PathParam("propuestaId") Long propuestaId, @PathParam("idOferta") Long idOferta) throws BusinessLogicException {
@@ -116,7 +115,7 @@ public class PropuestaResource {
 
         if (oferta != null) {
             rta.setOferta(new OfertaDTO(oferta));
-            
+
         }
 
         return rta;
@@ -124,9 +123,9 @@ public class PropuestaResource {
 
     @DELETE
     @Path("{idProp: \\d+}/ofertas/{idOf: \\d+}")
-    public void deleteOferta(@PathParam("idOf") Long idOf,@PathParam("idProp") Long idProp) throws BusinessLogicException {
+    public void deleteOferta(@PathParam("idOf") Long idOf, @PathParam("idProp") Long idProp) throws BusinessLogicException {
 
-      logic.deleteOferta(idProp,idOf);
+        logic.deleteOferta(idProp, idOf);
     }
 
     /**

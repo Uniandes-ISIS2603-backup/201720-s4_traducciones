@@ -22,35 +22,35 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class OfertaEntity extends BaseEntity implements Serializable {
-    
+
     @PodamExclude
     @OneToMany(mappedBy = "oferta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PropuestaEntity> propuestas = new ArrayList<PropuestaEntity>();
-    
+
     @PodamExclude
-    @ManyToOne 
+    @ManyToOne
     private EmpleadoEntity empleado;
-    
+
     /**
      * Cantidad inicial de cupones para esta oferta
      */
     private Integer cantidadInicial;
-    
+
     /**
      * Cantidad actual de cupones para esta oferta
      */
     private Integer cantidadActual;
-    
+
     /**
      * Descripción de la oferta
      */
     private String descripcion;
-    
+
     /**
      * Código de la oferta
      */
     private String codigo;
-    
+
     /**
      * Descuento que cubre la oferta
      */
@@ -65,10 +65,15 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return descuento;
     }
 
+    /**
+     * Establece el valor del atributo descuento.
+     *
+     * @param descuento nuevo valor del atributo
+     */
     public void setDescuento(int descuento) {
         this.descuento = descuento;
     }
-    
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaVigencia;
 
@@ -81,10 +86,15 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return cantidadInicial;
     }
 
+    /**
+     * Establece el valor del atributo cantidadInicial.
+     *
+     * @param cantidadI nuevo valor del atributo
+     */
     public void setCantidadInicial(Integer cantidadI) {
         this.cantidadInicial = cantidadI;
     }
-    
+
     /**
      * Obtiene el atributo cantidadActual.
      *
@@ -94,6 +104,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return cantidadActual;
     }
 
+    /**
+     * Establece el valor del atributo cantidadActual.
+     *
+     * @param cantidadA nuevo valor del atributo
+     */
     public void setCantidadActual(Integer cantidadA) {
         this.cantidadActual = cantidadA;
     }
@@ -107,6 +122,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return descripcion;
     }
 
+    /**
+     * Establece el valor del atributo empleado.
+     *
+     * @param descripcion nuevo valor del atributo
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -120,6 +140,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return codigo;
     }
 
+    /**
+     * Establece el valor del atributo codigo.
+     *
+     * @param cod nuevo valor del atributo
+     */
     public void setCodigo(String cod) {
         this.codigo = cod;
     }
@@ -133,6 +158,11 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return fechaVigencia;
     }
 
+    /**
+     * Establece el valor del atributo fechaVigencia.
+     *
+     * @param fechaVigencia nuevo valor del atributo
+     */
     public void setFechaVigencia(Date fechaVigencia) {
         this.fechaVigencia = fechaVigencia;
     }
@@ -146,10 +176,15 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return empleado;
     }
 
+    /**
+     * Establece el valor del atributo empleado.
+     *
+     * @param empleado nuevo valor del atributo
+     */
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
     }
-    
+
     /**
      * Obtiene la lista de propuestas asociadas a la oferta.
      *
@@ -159,9 +194,13 @@ public class OfertaEntity extends BaseEntity implements Serializable {
         return propuestas;
     }
 
+    /**
+     * Agrega una propuesta a la lista.
+     *
+     * @param propuesta nuevo valor del atributo
+     */
     public void addPropuestas(PropuestaEntity propuesta) {
-            this.propuestas.add(propuesta);
+        this.propuestas.add(propuesta);
     }
 
-    
 }
