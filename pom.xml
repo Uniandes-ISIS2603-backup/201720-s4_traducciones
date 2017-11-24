@@ -7,7 +7,11 @@
     <name>traducciones</name>
     <packaging>pom</packaging>
     <version>0.1.0</version>
-    <modules></modules>
+    <modules>
+        <module>traducciones-back</module>
+
+        <module>traducciones-web</module>
+    </modules>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -63,12 +67,12 @@
             <artifactId>podam</artifactId>
             <version>6.0.2.RELEASE</version>
         </dependency>
-		<dependency>
-              <groupId>org.jboss.shrinkwrap.resolver</groupId>
-              <artifactId>shrinkwrap-resolver-depchain</artifactId>
-              <scope>test</scope>
-              <type>pom</type>
-         </dependency>
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <scope>test</scope>
+            <type>pom</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -79,10 +83,10 @@
                 <executions>
                     <execution>
                         <goals>
-                           <goal>prepare-agent</goal>
-                           <goal>prepare-agent-integration</goal>
-                           <goal>report</goal>
-                           <goal>report-integration</goal>
+                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
+                            <goal>report</goal>
+                            <goal>report-integration</goal>
                         </goals>
                     </execution>
                 </executions>
