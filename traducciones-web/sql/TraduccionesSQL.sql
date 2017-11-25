@@ -493,7 +493,8 @@ insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, des
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia, empleado_id) values (10238, 14, 24, 'ABC2145', 'Traduccion', '70% de descuento', '2017-11-17 14:47:29',304);
 insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, fechavigencia, empleado_id) values (10239, 1, 20, 'ABC2175', 'Traduccion', '40% de descuento', '2017-10-17 14:47:29',305);
 insert into PropuestaEntity (id, name, costo, estado) values (1, 'nombre1', 20.3, 'ACEPTADA' );
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (2, 'nombre2', 21.6, 10235, 'RECHAZADA');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (3, 'nombre3', 22.9, 10236, 'EN_REVISION');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (4, 'nombre4', 23.4, 10237, 'RECHAZADA');
-insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (5, 'nombre5', 24.3, 10237, 'ACEPTADA');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (2, 'nombre2', 21.6, 10235, 'RECHAZADA',300);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (3, 'nombre3', 22.9, 10236, 'EN_REVISION',301);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (4, 'nombre4', 23.4, 10237, 'RECHAZADA',302);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (5, 'nombre5', 24.3, 10237, 'ACEPTADA',303);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado) values (700, 'nombre5', 24.3, 10237, 'ACEPTADA');

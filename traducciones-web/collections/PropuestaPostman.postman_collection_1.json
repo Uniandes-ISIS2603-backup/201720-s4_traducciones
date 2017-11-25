@@ -1,0 +1,166 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PropuestaPostman",
+		"_postman_id": "8570b588-5246-503d-5c8a-15e54c91259d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "prueba: mostrar todas las propuestas con sus ofertas.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/traducciones-web/api/propuestas",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "propuestas de un empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/traducciones-web/api/empleados/302/propuestas",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "prueba: obtener propuesta por el id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/traducciones-web/api/propuestas/5",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "prueba: eliminar propuesta inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/traducciones-web/api/propuestas/40",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "prueba: eliminar propuesta existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"]=responseCode.code===204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/traducciones-web/api/propuestas/1",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "crear propuesta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  \t\"costo\": 20.33,\n        \"estado\": \"ACEPTADA\",\n        \"id\": 1,\n        \"nombre\": \"prueba agregar repetida nombre1\"\n  }"
+				},
+				"url": "http://localhost:8080/traducciones-web/api/empleados/305/propuestas",
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

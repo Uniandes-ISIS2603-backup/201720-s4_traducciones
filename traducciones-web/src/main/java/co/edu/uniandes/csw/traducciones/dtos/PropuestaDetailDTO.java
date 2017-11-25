@@ -19,6 +19,12 @@ public class PropuestaDetailDTO extends PropuestaDTO {
      */
     public PropuestaDetailDTO() {
     }
+    
+     /**
+     * Empleado dueño de la propuesta
+     */
+    private EmpleadoDTO empleado;
+
 
     /**
      * Conviertir Entity a DetailDTO (Crea un nuevo DetailDTO con los valores
@@ -31,6 +37,9 @@ public class PropuestaDetailDTO extends PropuestaDTO {
         super(entity);
         if (entity.getOferta() != null) {
             this.oferta = new OfertaDTO(entity.getOferta());
+        }
+        if (entity.getEmpleado() != null) {
+            this.empleado = new EmpleadoDTO(entity.getEmpleado());
         }
     }
 
@@ -50,6 +59,22 @@ public class PropuestaDetailDTO extends PropuestaDTO {
         
         this.oferta = oferta;
     }
+    
+     /**
+     * @return el empleado dueño de la propuesta 
+     */
+    public EmpleadoDTO getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * 
+     * @param empleado dueño de la propuesta 
+     */
+    public void setEmpleado(EmpleadoDTO empleado) {
+        this.empleado = empleado;
+    }
+
 
     /**
      * Convertir DetailDTO a Entity
@@ -60,8 +85,13 @@ public class PropuestaDetailDTO extends PropuestaDTO {
     public PropuestaEntity toEntity() {
 
         PropuestaEntity entity = super.toEntity();
+        if(oferta != null)
+        {
         entity.setOferta(this.getOferta().toEntity());
-
+        }
+        if (empleado != null) {
+            entity.setEmpleado(empleado.toEntity());
+        }
         return entity;
     }
 
