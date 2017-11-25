@@ -20,18 +20,6 @@
             $http.get(propuestasContext).then(function (response) {
                 $scope.propuestasRecords = response.data;
             });
-            
-            this.validacion = function(codigo) 
-            {
-                if (codigo !== null && codigo !== undefined)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            };
         }]);
 })
 (angular);

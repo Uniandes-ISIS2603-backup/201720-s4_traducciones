@@ -4,13 +4,43 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+
+
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Detalles propuestas del empleado con id: {{prueba}}</label></div>
+            
+            <div class="panel-body">
+                <div class="col-md-3">
+
+                    <dl>
+                        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>    
+                    <th>Costo</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <a class="btn btn-info" ui-sref="propuestaCreate({empleadoId: prueba})">
+                <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva propuesta</a>
+                         <tr ng-repeat=" propuesta in propuestas">
+                    <td id="{{$index}}-descripcion">{{propuesta.id}}</td>
+                    <td id="{{$index}}-nombre">{{propuesta.nombre}}</td>
+                    <td id="{{$index}}-codigo">{{propuesta.costo}}</td>
+                    <td id="{{$index}}-descripcion">{{propuesta.estado}}</td>
+                    <td id="{{$index}}-Opciones">
+                                    <a class="btn btn-danger btn-sm" ui-sref="propuestaDelete({propuestaId: propuesta.id, empleadoId: prueba})">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
+                    
+                </tr>
+                 </tbody>
+        </table>        
+
+                </div>
+                 
+            </div>
+        </div>
+    </div>
