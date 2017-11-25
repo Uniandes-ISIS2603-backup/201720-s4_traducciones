@@ -44,9 +44,9 @@ public class PropuestaResource {
     PropuestaLogic logic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     @Inject
-    OfertaLogic ofertaLogic;
+    OfertaLogic ofertaLogic; // Variable para acceder a la lógica de Oferta de la aplicación. Es una inyección de dependencias.
 
-    private static final Logger LOGGER = Logger.getLogger(PropuestaPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PropuestaPersistence.class.getName()); //Encargado de registrar los mensajes para el sistema.
 
     /**
      * GET para todas las propuestas.
@@ -62,6 +62,15 @@ public class PropuestaResource {
 
     }
 
+     /**
+     * DELETE para una propuesta
+     * http://localhost:8080/traducciones-web/api/propuestas/5
+     *
+     * @param id corresponde al id de la oferta a eliminar.
+     * @throws BusinessLogicException
+     * En caso de no existir la oferta buscada se retorna un 404
+     * con el mensaje.
+     */
     @DELETE
     @Path("{id: \\d+}")
     public void deletePropuesta(@PathParam("id") Long id) throws BusinessLogicException {
@@ -99,10 +108,9 @@ public class PropuestaResource {
      *
      * @param propuestaId
      * @param idOferta
-     * @param oferta corresponde a la representación java del objeto json
-     * enviado en el llamado.
-     * @return Devuelve el objeto json de entrada que contiene el id creado por
-     * la base de datos y el tipo del objeto java. Ejemplo: { "type":
+     * @return Devuelve el objeto json de entrada que contiene las modificaciones en
+     * la base de datos y el tipo del objeto java. Ejemplo: { "propuesta": "nombre": "p1",... "oferta": {
+     * "codigo": "ASDF"}}
      * @throws BusinessLogicException
      */
     @PUT
@@ -119,10 +127,18 @@ public class PropuestaResource {
             rta.setOferta(new OfertaDTO(oferta));
 
         }
-
         return rta;
     }
 
+    /**
+     * DELETE para una oferta en una propuesta
+     * http://localhost:8080/traducciones-web/api/propuestas/5/ofertas/2
+     * @param idProp corresponde al id de la propuesta que tiene la oferta a eliminar.
+     * @param idOf corresponde al id de la oferta a eliminar.
+     * @throws BusinessLogicException
+     * En caso de no existir la oferta buscada se retorna un 404
+     * con el mensaje.
+     */
     @DELETE
     @Path("{idProp: \\d+}/ofertas/{idOf: \\d+}")
     public void deleteOferta(@PathParam("idOf") Long idOf, @PathParam("idProp") Long idProp) throws BusinessLogicException {
