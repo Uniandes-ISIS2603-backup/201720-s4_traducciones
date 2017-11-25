@@ -143,7 +143,7 @@ public class PropuestaResource {
     @Path("{idProp: \\d+}/ofertas/{idOf: \\d+}")
     public void deleteOferta(@PathParam("idOf") Long idOf, @PathParam("idProp") Long idProp) throws BusinessLogicException {
 
-        logic.deleteOferta(idProp, idOf);
+    //    logic.deleteOferta(idProp, idOf);
     }
 
     /**
