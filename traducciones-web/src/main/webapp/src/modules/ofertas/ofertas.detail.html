@@ -20,8 +20,7 @@ and open the template in the editor.
                 <tr>
                     <th>Nombre</th>    
                     <th>Codigo</th>
-                    <th>Descripcion</th> 
-                    <th>Empleado</th>
+                    <th>Descripcion</th>
                     <th>Fecha vencimiento</th>
                     <th>Cantidad actual</th>
                 </tr>
@@ -33,11 +32,10 @@ and open the template in the editor.
                     <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
                     <td id="{{$index}}-codigo">{{oferta.codigo}}</td>
                     <td id="{{$index}}-descripcion">{{oferta.descripcion}}</td>
-                    <td id="{{$index}}-empleado">{{oferta.empleado.name}}</td>
                     <td id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
                     <td id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
                     <td id="{{$index}}-Opciones">
-                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id, empleadoId: prueba})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id, empleadoId: prueba})">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
                     
                 </tr>
                  </tbody>

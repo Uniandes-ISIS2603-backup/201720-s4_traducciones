@@ -24,7 +24,8 @@ public class OfertaLogic {
     private OfertaPersistence persistenceOferta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     @Inject
-    private PropuestaLogic propuestaLogic;
+    private PropuestaLogic propuestaLogic; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+
     /**
      *
      * @param entity
@@ -35,14 +36,12 @@ public class OfertaLogic {
 
         LOGGER.info("Inicia el proceso de creación de una oferta");
         // Invoca la persistencia para crear la oferta
-      
-        List <OfertaEntity> ofertas = persistenceOferta.findAll();
-        for (int i = 0; i< ofertas.size(); i++)
-        {
-            if (ofertas.get(i).getCodigo().equals(entity.getCodigo()))
-            {
-                throw new BusinessLogicException("Ya existe una oferta con el código "+ entity.getCodigo());
-            }   
+
+        List<OfertaEntity> ofertas = persistenceOferta.findAll();
+        for (int i = 0; i < ofertas.size(); i++) {
+            if (ofertas.get(i).getCodigo().equals(entity.getCodigo())) {
+                throw new BusinessLogicException("Ya existe una oferta con el código " + entity.getCodigo());
+            }
         }
         persistenceOferta.create(entity);
         LOGGER.info("Termina proceso de creación de una oferta");
@@ -97,6 +96,7 @@ public class OfertaLogic {
      * Actualiza la información de una Oferta.
      *
      * @param entity Oferta con los nuevos datos.
+     * @param id id de la oferta
      * @return Instancia de OfertaEntity con los datos actualizados.
      * @throws BusinessLogicException si la oferta ya fue utilizada.
      *
@@ -134,15 +134,24 @@ public class OfertaLogic {
         return persistenceOferta.update(entity);
 
     }
-    
-     
-     public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long ofertaId) throws BusinessLogicException {
-        propuesta.setOferta(getOferta(ofertaId));
-        propuestaLogic.createPropuesta(propuesta);
-        getOferta(ofertaId).getPropuestas().add(propuesta);
-        return propuesta;
-    }
 
+    /**
+     * No se implementó
+     */
+    /**
+     * public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long
+     * ofertaId) throws BusinessLogicException {
+     * propuesta.setOferta(getOferta(ofertaId));
+     * propuestaLogic.createPropuesta(propuesta);
+     * getOferta(ofertaId).getPropuestas().add(propuesta); return propuesta;
+     */
+    /**
+     * Elimina la oferta buscada por el id ingresado.
+     *
+     * @param id de la oferta a eliminar.
+     * @throws BusinessLogicException en caso de que no encuentre la oferta por
+     * el id.
+     */
     public void deleteOferta(Long id) throws BusinessLogicException {
 
         if (persistenceOferta.find(id) == null) {
@@ -153,6 +162,15 @@ public class OfertaLogic {
 
     }
 
+    /**
+     * Obtiene una lista de ofertas a partir de palabras clave.
+     *
+     * @param nombre Identificador de la oferta a consultar.
+     * @return una List de OfertaEntity con los datos de las ofertas
+     * encontradas.
+     * @throws
+     * co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException
+     */
     public List<OfertaEntity> getOfertasNombre(String nombre) throws BusinessLogicException {
 
         if (persistenceOferta.findByName(nombre).isEmpty()) {
@@ -163,6 +181,14 @@ public class OfertaLogic {
 
     }
 
+    /**
+     * Obtiene los datos de una oferta a partir de su código.
+     *
+     * @param codigoOferta Identificador de la oferta a consultar.
+     * @return una OfertaEntity con los datos de la oferta consultada.
+     * @throws
+     * co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException
+     */
     public OfertaEntity getOfertaPorCodigo(String codigoOferta) throws BusinessLogicException {
 
         OfertaEntity oferta = null;
@@ -174,7 +200,5 @@ public class OfertaLogic {
 
         return oferta;
     }
-
-
 
 }

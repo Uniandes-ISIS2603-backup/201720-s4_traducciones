@@ -32,6 +32,16 @@ public class PropuestaLogic {
     @Inject
     private OfertaPersistence persistenceOferta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
+    /**
+     * Agrega una oferta a la propuesta seleccionada.
+     *
+     * @param idPropuesta propuesta a la que se agregará una oferta.
+     * @param oferta Oferta a agregar.
+     * @return
+     * @throws BusinessLogicException en caso de que no esté disponible la
+     * oferta. O en caso de que la propuesta ya tenga una oferta agregada.
+     *
+     */
     public PropuestaEntity agregarOferta(Long idPropuesta, OfertaEntity oferta) throws BusinessLogicException {
 
         if (oferta.getCantidadActual() < 0) {
@@ -45,22 +55,21 @@ public class PropuestaLogic {
 
         oferta.setCantidadActual(oferta.getCantidadActual() - 1);
         oferta.getPropuestas().add(propuesta);
-        propuesta.setCosto(propuesta.getCosto()- oferta.getDescuento() * propuesta.getCosto() / 100);
-        
+        propuesta.setCosto(propuesta.getCosto() - oferta.getDescuento() * propuesta.getCosto() / 100);
+
         persistencePropuesta.update(propuesta);
         persistenceOferta.update(oferta);
-  
+
         return propuesta;
     }
 
     /**
+     * Crea una propuesta a partir de una entidad
      *
-     * @param entity
-     * @return
-     * @throws BusinessLogicException
-     * 
+     * @param entity Propuesta a crear
+     * @return la propuesta ya creada
      */
-    public PropuestaEntity createPropuesta(PropuestaEntity entity) throws BusinessLogicException {
+    public PropuestaEntity createPropuesta(PropuestaEntity entity) {
 
         LOGGER.info("Inicia el proceso de creación de una Propuesta");
         // Invoca la persistencia para crear la Propuesta
@@ -75,6 +84,9 @@ public class PropuestaLogic {
      * Obtener todas las Propuestas existentes en la base de datos.
      *
      * @return una lista de Propuestas.
+     * @throws
+     * co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException En
+     * caso de no encontrar ninguna propuesta.
      */
     public List<PropuestaEntity> getPropuestas() throws BusinessLogicException {
 
@@ -93,6 +105,9 @@ public class PropuestaLogic {
      *
      * @param id Identificador de la Propuesta a consultar.
      * @return una PropuestaEntity con los datos de la Propuesta consultada.
+     * @throws
+     * co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException En
+     * caso de no encontrar ninguna propuesta.
      */
     public PropuestaEntity getPropuesta(Long id) throws BusinessLogicException {
 
@@ -125,6 +140,13 @@ public class PropuestaLogic {
 
     }
 
+    /**
+     * Elimina la propuesta ingresada por parámetro.
+     *
+     * @param id de la propuesta a eliminar.
+     * @throws BusinessLogicException en caso de no encontrar la propuesta por
+     * id.
+     */
     public void deletePropuesta(Long id) throws BusinessLogicException {
 
         if (persistencePropuesta.find(id) == null) {
@@ -135,7 +157,7 @@ public class PropuestaLogic {
 
     }
 
-    public void deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
+// public void deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
 //
 //        OfertaEntity o = getPropuesta(idPropuesta).getOferta();
 //
@@ -147,6 +169,4 @@ public class PropuestaLogic {
 //            getPropuesta(idPropuesta).setOferta(null);
 //
 //        }
-
-    }
 }

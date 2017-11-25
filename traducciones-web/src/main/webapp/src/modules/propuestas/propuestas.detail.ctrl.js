@@ -6,14 +6,14 @@
 (function (ng) {
     var mod = ng.module("empleadoModule");
     mod.constant("empleadosContext", "api/empleados");
-    mod.controller('ofertasDetailCtrl', ['$scope', '$http', 'empleadosContext', '$state',
+    mod.controller('propuestasDetailCtrl', ['$scope', '$http', 'empleadosContext', '$state',
         function ($scope, $http, empleadosContext, $state) {
             
             var idEmpleado = $state.params.empleadoId;
             
-            $http.get(empleadosContext + '/' + idEmpleado + "/ofertas").then(function (response) {
+            $http.get(empleadosContext + '/' + idEmpleado + "/propuestas").then(function (response) {
                 $scope.prueba = idEmpleado;              
-                $scope.ofertas = response.data;
+                $scope.propuestas = response.data;
             });
         }
     ]);

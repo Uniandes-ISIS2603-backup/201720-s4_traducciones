@@ -4,13 +4,50 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createOferta">Crear nueva propuesta</label>
+                <label ng-if="edit" id="editOferta">Editar propuesta </label></div>
+            <div class="panel-body">
+                <form ng-submit="createPropuesta()" name="propuesta">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="propuestaName" class="col-sm-2">Nombre:</label>
+                            <input id="propuestaName" required ng-model="propuestaName" class="col-sm-6"/>
+                        </div>
+                    </div>                    
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="propuestaCosto" class="col-sm-2">Costo:</label>
+                            <input id="propuestaCosto" required ng-model="propuestaCosto" class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="propuestaEstado" class="col-sm-2">Estado:</label>
+                            <input type="text" value="EN_REVISION" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!propuesta.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>¡ALERTA!</strong><p>Todos los campos deben llenarse*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="propuesta.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="propuestasList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
