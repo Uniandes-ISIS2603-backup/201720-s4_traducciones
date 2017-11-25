@@ -80,8 +80,11 @@ public class TrabajoLogic {
      * @return entidad trabajo actualizada
      */
     public TrabajoEntity updateTrabajo(Long id, TrabajoEntity entrada) {
+        TrabajoEntity trabajo=getTrabajoId(id);
+        trabajo.setName(entrada.getName());
+        trabajo.setTerminado(entrada.isTerminado());
         entrada.setId(id);
-        return persistence.update(entrada);
+        return persistence.update(trabajo);
     }
 
     /**

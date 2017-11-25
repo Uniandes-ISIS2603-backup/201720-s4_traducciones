@@ -46,9 +46,10 @@
                     }
                 }
             }).state('hojaUpdate', {
-                url: '/update/{hojaId:int}',
+                url: '/update/{empleadoId:int}/{hojaId:int}',
                 parent: 'hojas',
                 param: {
+                    empleadoId:null,
                     hojaId: null
                 },
                 views: {
@@ -58,9 +59,10 @@
                     }
                 }
             }).state('hojaDelete', {
-                url: '/delete/{hojaId:int}',
+                url: '/delete/{empleadoId:int}/{hojaId:int}',
                 parent: 'hojas',
                 param: {
+                    empleadoId:null,
                     hojaId: null
                 },
                 views: {

@@ -86,8 +86,15 @@ public class HojaDeVidaLogic {
       */
      public HojaDeVidaEntity updateHojaDeVida(Long id,HojaDeVidaEntity entrada)
     {
+        HojaDeVidaEntity hoja =getHojaDeVidaId(id);
         entrada.setId(id);
-        return persistence.update(entrada);
+        
+        hoja.setDescripcion(entrada.getDescripcion());
+        hoja.setFormacionAcademica(entrada.getFormacionAcademica());
+        hoja.setName(entrada.getName());
+        hoja.setPerfilProfesional(entrada.getPerfilProfesional());
+        
+        return persistence.update(hoja);
     }
      
      /**

@@ -5,8 +5,8 @@
             <div class="panel-body">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
                         <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Trayectoria" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
                         <a class="btn btn-success btn-sm" ui-sref="idiomaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Idioma" data-placement="top">Agregar Idioma<span class="glyphicon glyphicon-plus-sign" ></span></a>
                     </div>

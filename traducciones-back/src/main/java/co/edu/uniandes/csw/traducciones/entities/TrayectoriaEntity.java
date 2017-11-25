@@ -31,7 +31,7 @@ public class TrayectoriaEntity extends BaseEntity implements Serializable{
     private Date fechaFin;
     
     @PodamExclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     private HojaDeVidaEntity hojaDeVida;
     
     /**

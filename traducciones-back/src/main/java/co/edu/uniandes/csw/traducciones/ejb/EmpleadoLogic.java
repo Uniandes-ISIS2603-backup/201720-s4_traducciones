@@ -235,6 +235,7 @@ public class EmpleadoLogic {
         if(getEmpleado(empleadoId).getHojadevida() == null){
             throw new BusinessLogicException("El empleado no tiene una hoja de vida asociada");
         }
+        entity.setEmpleado(getEmpleado(empleadoId));
         return hojaDeVidaLogic.updateHojaDeVida(getEmpleado(empleadoId).getHojadevida().get(0).getId(), entity);
     }
     

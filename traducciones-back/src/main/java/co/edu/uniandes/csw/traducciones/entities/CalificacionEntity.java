@@ -23,7 +23,7 @@ public class CalificacionEntity extends BaseEntity{
     
     
     @PodamExclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     private TrabajoEntity trabajo;
 
     

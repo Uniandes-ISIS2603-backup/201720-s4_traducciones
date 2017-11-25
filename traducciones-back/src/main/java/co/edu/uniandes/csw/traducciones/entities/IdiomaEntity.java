@@ -21,7 +21,7 @@ public class IdiomaEntity extends BaseEntity implements Serializable {
    private String region;
    
    @PodamExclude
-   @ManyToOne(cascade = CascadeType.PERSIST)    
+   @ManyToOne()    
    private HojaDeVidaEntity hojaDeVida;
    
 

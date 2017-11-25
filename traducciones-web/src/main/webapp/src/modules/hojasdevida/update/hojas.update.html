@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="hojadevida.$valid" type="submit" value="Save" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="hojasList">Cancel</a>
+                            <a class="btn btn-info" ui-sref="empleadoHojas({empleadoId:idEmpleado,empleadoHoja:idHoja})">Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -50,5 +50,6 @@
         </div>
     </div>
 </div>
-
+<H1>{{trayectoriasHoja}}</H1>
+<H1>{{idiomasHoja}}</H1>
 

@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.traducciones.dtos.PropuestaDetailDTO;
 import co.edu.uniandes.csw.traducciones.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
 import co.edu.uniandes.csw.traducciones.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.traducciones.entities.HojaDeVidaEntity;
 import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
@@ -467,12 +468,12 @@ public class EmpleadoResource {
      */
     @GET
     @Path("{empleadoId: \\d+}/hojadevida")
-    public HojaDeVidaDTO getHojaDeVida(@PathParam("empleadoId") Long empleadoId)
+    public HojaDeVidaDetailedDTO getHojaDeVida(@PathParam("empleadoId") Long empleadoId)
     {
         EmpleadoEntity entity = empleadoLogic.getEmpleado(empleadoId);
         if (entity == null) {
             throw new WebApplicationException("El recurso empleado: " + empleadoId + " no existe.", 404);
         }
-        return (new EmpleadoDetailDTO(entity)).getHojadevida().get(0);
+        return new HojaDeVidaDetailedDTO( ((HojaDeVidaEntity)entity.getHojadevida().get(0)) );
     }
 }

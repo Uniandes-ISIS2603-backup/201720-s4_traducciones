@@ -35,7 +35,7 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
 
     @PodamExclude
-    @OneToMany(mappedBy = "hojaDeVida")
+    @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IdiomaEntity> idiomas = new ArrayList<IdiomaEntity>();
 
     

@@ -8,12 +8,12 @@
             var idHojaEmpleado=$state.params.empleadoHoja;
            $scope.prueba=$state.params.empleadoHoja;
            $scope.prueba2=$state.params.empleadoId;
-
+ $scope.idEmpleado=idEmpleado;
             
             $scope.formatoFecha = function(f)
             {
-                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                var diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
                 var fff = new Date(f);
                var txt=diasSemana[fff.getDay()] + ", " + fff.getDate() + " de " + meses[fff.getMonth()] + " de " + fff.getFullYear();
                return txt;
@@ -24,7 +24,7 @@
             $http.get(empleadosContext + '/' + idEmpleado + "/hojadevida").then(function (response) {
 
                 var idH=response.data.id;
-                $scope.idEmpleado=idEmpleado;
+               
                 $scope.idHojaDeVida = response.data.id;
                 $scope.nombreHojaDeVida = response.data.name;
                 $scope.descripcionHojaDeVida = response.data.descripcion;

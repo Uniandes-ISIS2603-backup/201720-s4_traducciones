@@ -111,7 +111,7 @@ public class HojaDeVidaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public HojaDeVidaDetailedDTO updateHojaDeVida(@PathParam("id") Long id, HojaDeVidaDTO hojaDeVida) throws BusinessLogicException {
+    public HojaDeVidaDetailedDTO updateHojaDeVida(@PathParam("id") Long id, HojaDeVidaDetailedDTO hojaDeVida) throws BusinessLogicException {
         
         if(!hojaDeVidaLogic.existeHojaDeVidaId(id))
        {
