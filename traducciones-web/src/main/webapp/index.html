@@ -250,11 +250,11 @@
 
 
 
-            .btn span.glyphicon{    			
-                opacity: 0;				
-            }
-            .btn.active span.glyphicon {				
+            .automatic.active span.glyphicon{    			
                 opacity: 1;				
+            }
+            .automatic  span.glyphicon {				
+                opacity: 0;				
             }
 
             .table-striped > tbody > tr:nth-of-type(odd) {
@@ -303,11 +303,12 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-success active">
-                                <input id="automatic" type="checkbox" value="0">Alternar Fondos
-                                <span class="glyphicon glyphicon-ok"></span>
+                            <label class="btn automatic btn-success">
+                                <input  id="automatic" type="checkbox" value="0">Alternar Fondos
+                                <span id="automatic2" class="glyphicon glyphicon-ok"></span>
                             </label>
-                        </div>             
+                        </div> 
+                        
                     </ul>
                 </div>
 
@@ -336,7 +337,7 @@
                     }
 
                 }
-                setTimeout(showSlides, 30000);
+                setTimeout(showSlides, 20000);
             }
 
 
