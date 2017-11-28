@@ -10,16 +10,62 @@
         function ($scope, $http, empleadooContext, $state, $rootScope) {
             $rootScope.edit = false;
             var idEmpleado = $state.params.empleadoId;
-            $scope.createPropuesta = function () {
-                $http.post(empleadooContext+ '/'+idEmpleado+ '/'+'propuestas', {
-                    nombre: $scope.propuestaName,
-                    costo: $scope.propuestaCosto,
-                    estado: "EN_REVISION"
-                }).then(function (response) {
-                    //Propuesta created successfully
-                    $state.go('empleadoPropuestas', {empleadoId: idEmpleado}, {reload: true});
-                });
+
+            $scope.buscarOferta = function ()
+            {
+
             };
+
+            $scope.createPropuesta = function () {
+                var ofertita = {};
+                var certificado = false;
+                if ($scope.variable === 'si') {
+                    $http.get('api/ofertas' + '/' + $scope.oferta).then(function (response) {
+
+                        ofertita = response.data;
+                        if (ofertita !== undefined) {
+                            certificado = true;
+                        }
+
+
+                    });
+                } else {
+                    certificado = false;
+                }
+                if (certificado) {
+                    $http.post(empleadooContext + '/' + idEmpleado + '/' + 'propuestas', {
+                        nombre: $scope.propuestaName,
+                        costo: $scope.propuestaCosto,
+                        estado: "EN_REVISION",
+                        oferta: ofertita
+                    }).then(function (response) {
+                        $state.go('empleadoPropuestas', {empleadoId: idEmpleado}, {reload: true});
+                    });
+                } else {
+                    $http.post(empleadooContext + '/' + idEmpleado + '/' + 'propuestas', {
+                        nombre: $scope.propuestaName,
+                        costo: $scope.propuestaCosto,
+                        estado: "EN_REVISION"
+                    }).then(function (response) {
+                        //Propuesta created successfully
+                        $state.go('empleadoPropuestas', {empleadoId: idEmpleado}, {reload: true});
+                    });
+                }
+
+            };
+
+
+            this.validacion = function (pregunta)
+            {
+                if (pregunta === 'si')
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            };
+
         }
     ]);
 }

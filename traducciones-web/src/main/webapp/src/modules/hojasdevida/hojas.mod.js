@@ -22,7 +22,11 @@
                     'listView': {
                         templateUrl: basePath + 'hojas.list.html'
                     }
-                }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado']
+                }                
             }).state('hojasDetail', {
                 url: '/{hojaId:int}/detail',
                 parent: 'hojas',
@@ -35,6 +39,10 @@
                         controller: 'hojaCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('hojaCreate', {
                 url: '/create',
@@ -44,6 +52,10 @@
                         templateUrl: basePath + '/new/hojas.new.html',
                         controller: 'hojasNewCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('hojaUpdate', {
                 url: '/update/{empleadoId:int}/{hojaId:int}',
@@ -57,6 +69,10 @@
                         templateUrl: basePath + '/update/hojas.update.html',
                         controller: 'hojasUpdateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('hojaDelete', {
                 url: '/delete/{empleadoId:int}/{hojaId:int}',
@@ -70,6 +86,10 @@
                         templateUrl: basePath + '/delete/hojas.delete.html',
                         controller: 'hojasDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('trayectoriaCreate', {
                 url: '/create/empleado/{empleadoId:int}/hoja/{hojaId:int}/trayectorias',
@@ -83,6 +103,10 @@
                         templateUrl: basePath + '/new/trayectoria.new.html',
                         controller: 'trayectoriasNewCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('trayectoriaDelete', {
                 url: '/delete/empleado/{empleadoId:int}/hoja/{hojaId:int}/trayecorias/{trayectoriaId:int}',
@@ -97,6 +121,10 @@
                         templateUrl: basePath + '/delete/trayectorias.delete.html',
                         controller: 'trayectoriasDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('idiomaCreate', {
                 url: '/create/empleado/{empleadoId:int}/hoja/{hojaId:int}/idiomas',
@@ -110,6 +138,10 @@
                         templateUrl: basePathIdioma + '/new/idiomas.new.html',
                         controller: 'idiomasNewCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('idiomaDelete', {
                 url: '/delete/empleado/{empleadoId:int}/hoja/{hojaId:int}/idiomas/{idiomaId:int}',
@@ -124,6 +156,10 @@
                         templateUrl: basePathIdioma + '/delete/idiomas.delete.html',
                         controller: 'idiomasDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             });
         }]);

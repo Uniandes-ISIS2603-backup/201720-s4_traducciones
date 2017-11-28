@@ -22,6 +22,10 @@
                     'listView': {
                         templateUrl: basePath + 'areasdeconocimiento.list.html'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado']
                 }
              
             });

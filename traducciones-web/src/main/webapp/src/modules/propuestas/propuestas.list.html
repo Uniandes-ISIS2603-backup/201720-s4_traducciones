@@ -28,6 +28,10 @@ and open the template in the editor.
                     <td id="{{$index}}-costo">{{propuesta.costo}}</td>
                     <td ng-if="ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
                    <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">No hay ofertas asociadas</td>
+                   <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id="{{$index}}-Opciones">
+                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id, empleadoId: prueba})">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
+                    
+                </tr>
                 </tr>
             </tbody>
         </table>
