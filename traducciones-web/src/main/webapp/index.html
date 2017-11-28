@@ -249,33 +249,19 @@
 
 
 
+
+            .btn span.glyphicon {    			
+                opacity: 0;				
+            }
+            .btn.active span.glyphicon {				
+                opacity: 1;				
+            }
         </style>
 
+
     </head>
-    <body class ="container-fluid" style="padding-top: 40px; ">
-        <script>
-            var slideIndex = 0;
-            showSlides();
-            var x;
-            
+    <body background="src/resources/images/ecuador.jpg" class ="container-fluid" style="padding-top: 40px; ">
 
-            function showSlides() {
-                var imagenes = ["url('src/resources/images/france-2.jpg')","url('src/resources/images/england.jpg')", "url('src/resources/images/germany2.jpg')"];
-                console.log(imagenes[slideIndex]);
-                
-
-                document.body.style.backgroundImage=imagenes[slideIndex];
-
-                
-                slideIndex++;
-                if (slideIndex ===imagenes.length) {
-                    slideIndex = 1;
-                                   }
-
-                    setTimeout(showSlides, 60000); // Change image every 2 seconds
-            }
-
-        </script>
 
         <!--
 ********************************************************************
@@ -304,15 +290,48 @@
                         <li><a ui-sref="trabajosList">Trabajos</a></li>
                         <li><a ui-sref="hojasList">Informacion Empleados</a></li>
                         <li><a ui-sref="idiomasList">Idiomas</a></li>
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-success active">
+                                <input id="automatic" type="checkbox" value="0">Alternar Fondos
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>
+                        </div>             
                     </ul>
                 </div>
+                
                 <div ui-view = "mainView">
                 </div>
+
+
         </nav>
+        <script>
+            var slideIndex = 0;
+            var imagenes = ["url('src/resources/images/france-2.jpg')", "url('src/resources/images/england.jpg')", "url('src/resources/images/germany2.jpg')"];
+
+            showSlides();
+            var x;
+
+
+            function showSlides() {
+                console.log("checked" + document.getElementById("automatic").checked);
+                if (document.getElementById("automatic").checked)
+                {
+                    document.body.style.backgroundImage = imagenes[slideIndex];
+                    slideIndex++;
+                    if (slideIndex === imagenes.length)
+                    {
+                        slideIndex = 1;
+                    }
+                    
+                }
+                setTimeout(showSlides, 30000);
+            }
+
+
+        </script>
 
 
         <!--        <nav class="navbar navbar-default">
