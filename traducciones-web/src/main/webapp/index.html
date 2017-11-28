@@ -271,11 +271,20 @@
 
 
 
-            .btn span.glyphicon {    			
+            .btn span.glyphicon{    			
                 opacity: 0;				
             }
             .btn.active span.glyphicon {				
                 opacity: 1;				
+            }
+
+            .table-striped > tbody > tr:nth-of-type(odd) {
+                background-color: rgba(0,0,0,0.5)!important;
+            }
+
+            
+            .table-hover > tbody > tr:hover {
+                background-color: rgba(0,0,0,0.85)!important;
             }
         </style>
 
@@ -333,7 +342,7 @@
 
                     </ul>
                 </div>
-                
+
                 <div ui-view = "mainView">
                 </div>
 
@@ -357,7 +366,7 @@
                     {
                         slideIndex = 1;
                     }
-                    
+
                 }
                 setTimeout(showSlides, 30000);
             }

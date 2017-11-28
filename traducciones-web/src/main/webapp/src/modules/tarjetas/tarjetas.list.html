@@ -4,37 +4,38 @@
             <div class="panel-heading"><label class="titulo-tabla">Lista de Tarjetas</label></div>
             <div class="panel-body">
                 <div class="col-lg-12">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="tarjetaCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva tarjeta</a>
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <a class="btn btn-info" ui-sref="tarjetaCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva tarjeta</a>
+                        </div>
                     </div>
-                </div>
-                
-                    <table class="table table-striped table-bordered text-justify table-hover table-responsive">
-                        <thead>
-                            <tr>
-                                <th>Número</th>    
-                                <th>Nombres</th>  
-                                <th>Apellidos</th>
-                                <th>Compañia</th>
-                                <th>Fecha Expiración</th>
-                                <th>Actions</th>  
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="tarjeta in tarjetasRecords">
-                                <td id="{{$index}}-numero"><a ui-sref="tarjetaDetail({tarjetaId: tarjeta.id})">{{tarjeta.numero}}</a></td>
-                                <td id="{{$index}}-nombres">{{tarjeta.nombres}}</td>
-                                <td id="{{$index}}-apellidos">{{tarjeta.apellidos}}</td>
-                                <td id="{{$index}}-compañia">{{tarjeta.compañia}}</td>
-                                <td id="{{$index}}-fechaExpiracion">{{tarjeta.fechaExpiracion| date:'yyyy-MM-dd'}}</td>
-                                <td id="{{$index}}-actions">
-                                    <a class="btn btn-default btn-sm" ui-sref="tarjetaUpdate({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="tarjetaDelete({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="no-more-tables">
+                        <table class="table table-striped table-bordered text-justify table-hover table-responsive labelDetail">
+                            <thead>
+                                <tr>
+                                    <th>Número</th>    
+                                    <th>Nombres</th>  
+                                    <th>Apellidos</th>
+                                    <th>Compañia</th>
+                                    <th>Fecha Expiración</th>
+                                    <th>Acciones</th>  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="tarjeta in tarjetasRecords">
+                                    <td data-title="Número:" id="{{$index}}-numero"><a ui-sref="tarjetaDetail({tarjetaId: tarjeta.id})">{{tarjeta.numero}}</a></td>
+                                    <td data-title="Nombres:" id="{{$index}}-nombres">{{tarjeta.nombres}}</td>
+                                    <td data-title="Apellidos:" id="{{$index}}-apellidos">{{tarjeta.apellidos}}</td>
+                                    <td data-title="Compañia:" id="{{$index}}-compañia">{{tarjeta.compañia}}</td>
+                                    <td data-title="Fecha Expiración:" id="{{$index}}-fechaExpiracion">{{tarjeta.fechaExpiracion| date:'yyyy-MM-dd'}}</td>
+                                    <td data-title="Acciones" id="{{$index}}-actions">
+                                        <a class="btn btn-default btn-sm" ui-sref="tarjetaUpdate({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a class="btn btn-danger btn-sm" ui-sref="tarjetaDelete({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

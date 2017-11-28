@@ -124,7 +124,11 @@
                         templateUrl: basePathPago + '/delete/pagos.delete.html',
                         controller: 'pagosDeleteCtrl'
                     }
-                } 
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('pagosCreate', {
                 url: '/pagosCreate/{clienteId:int}',
                 parent: 'clientes',

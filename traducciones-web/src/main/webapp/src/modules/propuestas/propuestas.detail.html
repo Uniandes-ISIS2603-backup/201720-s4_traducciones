@@ -25,7 +25,7 @@ and open the template in the editor.
                 </tr>
             </thead>
             <tbody>
-                <a class="btn btn-info" ui-sref="propuestaCreate({empleadoId: prueba})">
+                <a class="btn btn-info" ui-sref="propuestaCreate({empleadoId: prueba})"ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
                 <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva propuesta</a>
                          <tr ng-repeat=" propuesta in propuestas">
                     <td id="{{$index}}-descripcion">{{propuesta.id}}</td>
