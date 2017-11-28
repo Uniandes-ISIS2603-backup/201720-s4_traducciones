@@ -8,28 +8,30 @@ and open the template in the editor.
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="col-md-12">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>    
-                    <th>Estado</th> 
-                    <th>Costo</th>
-                    <th>Oferta asociada</th>
+        <div class="no-more-tables">
+            <table class="table table-striped labelDetail">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>    
+                        <th>Estado</th> 
+                        <th>Costo</th>
+                        <th>Oferta asociada</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat=" propuesta in propuestasRecords">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat=" propuesta in propuestasRecords">
 
-                    <td id="{{$index}}-id">{{propuesta.id}}</td>
-                    <td id="{{$index}}-nombre">{{propuesta.nombre}}</td>
-                    <td id="{{$index}}-estado">{{propuesta.estado}}</td> 
-                    <td id="{{$index}}-costo">{{propuesta.costo}}</td>
-                    <td ng-if="ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
-                   <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">No hay ofertas asociadas</td>
-                </tr>
-            </tbody>
-        </table>
+                        <td data-title="Id:" id="{{$index}}-id">{{propuesta.id}}</td>
+                        <td data-title="Nombre:" id="{{$index}}-nombre">{{propuesta.nombre}}</td>
+                        <td data-title="Estado:" id="{{$index}}-estado">{{propuesta.estado}}</td> 
+                        <td data-title="Costo" id="{{$index}}-costo">{{propuesta.costo}}</td>
+                        <td data-title="Oferta asociada" ng-if="ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
+                        <td data-title="" ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">No hay ofertas asociadas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

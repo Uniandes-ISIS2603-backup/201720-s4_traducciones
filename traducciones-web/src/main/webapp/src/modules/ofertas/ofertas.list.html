@@ -3,26 +3,28 @@
         <div class="panel panel-primary">
             <div class="panel-heading"><label class="titulo-tabla">Lista de clientes</label></div>
             <div class="panel-body">
-                <table class="table table-striped table-bordered text-justify table-hover table-responsive">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>    
-                            <th>Descripción</th> 
-                            <th>Empleado</th>
-                            <th>Fecha vencimiento</th>
-                            <th>Cantidad actual</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat=" oferta in ofertasRecords">
-                            <td id="{{$index}}-nombre">{{oferta.nombre}}</td>
-                            <td id="{{$index}}-descripcion">{{oferta.descripcion}}</td>
-                            <td id="{{$index}}-empleado">{{oferta.empleado.name}}</td>
-                            <td id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
-                            <td id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="no-more-tables">
+                    <table class="table table-striped table-bordered text-justify table-hover table-responsive labelDetail">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>    
+                                <th>Descripción</th> 
+                                <th>Empleado</th>
+                                <th>Fecha vencimiento</th>
+                                <th>Cantidad actual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat=" oferta in ofertasRecords">
+                                <td data-title="Nombre:" id="{{$index}}-nombre">{{oferta.nombre}}</td>
+                                <td data-title="Descripción:" id="{{$index}}-descripcion">{{oferta.descripcion}}</td>
+                                <td data-title="Empleado:" id="{{$index}}-empleado">{{oferta.empleado.name}}</td>
+                                <td data-title="Fecha vencimiento:" id="{{$index}}-fechaVencimiento">{{oferta.fechaVigencia}}</td> 
+                                <td data-title="Cantidad actual:" id="{{$index}}-cantidadActual">{{oferta.cantidadActual}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
