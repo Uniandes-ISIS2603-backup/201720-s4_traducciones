@@ -2,7 +2,7 @@
     <h3>Areas de Conocimiento de {{nombreEmpleado}}</h3>
     <div class="col-md-4">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a class="btn btn-info" ui-sref="areadeconocimientoCreate({empleadoId: idEmpleado})">
+            <a class="btn btn-info" ui-sref="areadeconocimientoCreate({empleadoId: idEmpleado})" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
                 <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva Area de Conocimiento</a>
         </div>
         <table class="table table-striped">

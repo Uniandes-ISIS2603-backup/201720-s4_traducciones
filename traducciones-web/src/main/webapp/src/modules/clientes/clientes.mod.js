@@ -20,6 +20,10 @@
             }).state('clientesList', {
                 url: '/clienteslist',
                 parent: 'clientes',
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'clientes.list.html'
@@ -35,17 +39,18 @@
                 param: {
                     clienteId: null
                 },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePathPago + 'pagos.detailedList.html',
                         controller: 'pagosDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
-                },
-                data: {
-                    requireLogin: true,
-                    roles: ['cliente']
                 }
+                
             }).state('clienteTarjetas', {
                 url: '/clienteTarjetas/{clienteId:int}',
                 parent: 'clientes',

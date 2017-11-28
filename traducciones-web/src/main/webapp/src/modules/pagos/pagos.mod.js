@@ -18,6 +18,10 @@
             }).state('pagosList', {
                 url: '/list',
                 parent: 'pagos',
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'pagos.list.html'

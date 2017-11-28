@@ -24,10 +24,9 @@
                     }
                 },
                 data: {
-                    requireLogin: true,
+                    requireLogin: false,
                     roles: ['cliente', 'empleado']
                 }
-             
             });
         }]);
 })(window.angular);
