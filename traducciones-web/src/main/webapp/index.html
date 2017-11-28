@@ -111,7 +111,7 @@
                 background: rgba(122, 130, 136, 0.2)!important;
                 color: green!important;
             }
-            .panel-primary{border-color:green!important;
+            .panel-primary{border-color:black!important;
                            background-color: rgba(0,0,0,0.5);}
             .panel-body{background-color: transparent!important;/*color de fondo de Headiang de cada pagina*/
                         border-color: transparent!important;
@@ -141,13 +141,13 @@
                 margin-right: 1px;
                 margin-left: 1px;
             }
-    
+
             .navbar {
-    position: relative;
-    min-height: 20px!important;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-}
+                position: relative;
+                min-height: 20px!important;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+            }
 
         </style>
         <style>
@@ -223,7 +223,7 @@
             }
         </style>
         <style>
-        
+
 
 
             /***********************************************************************
@@ -234,13 +234,13 @@
                 /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
                 height: 48px;
                 border-bottom: 15px;
-                
+
             }
 
             .opaque-navbar.opaque {
                 background-color: black;
                 height: 48px;
-                
+
             }
 
             ul.dropdown-menu {
@@ -248,22 +248,34 @@
             }
 
 
-            
+
         </style>
+
+    </head>
+    <body class ="container-fluid" style="padding-top: 40px; ">
         <script>
-            /*
-             **********************************************************
-             * OPAQUE NAVBAR SCRIPT
-             **********************************************************
-             */
+            var slideIndex = 0;
+            showSlides();
+            var x;
+            
 
-            // Toggle tranparent navbar when the user scrolls the page
+            function showSlides() {
+                var imagenes = ["url('src/resources/images/france-2.jpg')","url('src/resources/images/england.jpg')", "url('src/resources/images/germany2.jpg')"];
+                console.log(imagenes[slideIndex]);
+                
 
+                document.body.style.backgroundImage=imagenes[slideIndex];
+
+                
+                slideIndex++;
+                if (slideIndex ===imagenes.length) {
+                    slideIndex = 1;
+                                   }
+
+                    setTimeout(showSlides, 60000); // Change image every 2 seconds
+            }
 
         </script>
-    </head>
-    <body background="src/resources/images/france-2.jpg" class ="container-fluid" style="padding-top: 40px; ">
-
 
         <!--
 ********************************************************************
@@ -282,7 +294,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        
+
                         <li><a ui-sref="clientesList">Clientes</a></li>
                         <li><a ui-sref="pagosList">Pagos</a></li>
                         <li><a ui-sref="tarjetasList">Tarjetas</a></li>
@@ -298,10 +310,10 @@
                         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
-            <div ui-view = "mainView">
-            </div>
+                <div ui-view = "mainView">
+                </div>
         </nav>
-        
+
 
         <!--        <nav class="navbar navbar-default">
                     <div class="container-fluid">
