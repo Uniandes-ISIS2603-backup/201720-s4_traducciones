@@ -7,6 +7,8 @@
                     <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
                         <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
                         <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                    <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
                         <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Trayectoria" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
                         <a class="btn btn-success btn-sm" ui-sref="idiomaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Idioma" data-placement="top">Agregar Idioma<span class="glyphicon glyphicon-plus-sign" ></span></a>
                     </div>
@@ -52,14 +54,14 @@
             <div class="panel-body">
                 <div class="col-lg-12">
                     <div class="no-more-tables">
-                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf">
+                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf labelDetail">
                             <thead class="cf">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Fecha de Inicio</th>
                                     <th>Fecha de Fin</th>
-                                    <th>Opciones Trayectorias</th>
+                                    <th ng-if="desdeEmpleado">Opciones Trayectorias</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +70,7 @@
                                     <td data-title="Descripcion:" id="{{$index}}-descripcion" >{{trayectoria.descripcion}}</td>
                                     <td data-title="Fecha de Inicio:" id="{{$index}}-fechaI">{{formatoFecha(trayectoria.fechaInicio)}}</td>
                                     <td data-title="Fecha de Fin:" id="{{$index}}-fechaF">{{formatoFecha(trayectoria.fechaFin)}}</td>
-                                    <td data-title="Opciones Trayectorias:" id="{{$index}}-actions">
+                                    <td ng-if="desdeEmpleado" data-title="Opciones Trayectorias:" id="{{$index}}-actions">
                                         <a class="btn btn-danger btn-sm" ui-sref="trayectoriaDelete({hojaId: idHojaDeVida,trayectoriaId: trayectoria.id,empleadoId:idEmpleado})" data-toggle="tooltip" title="Borrar Calificacion" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
                                     </td>
 
@@ -88,14 +90,14 @@
             <div class="panel-body">
                 <div class="col-lg-12">
                     <div class="no-more-tables">
-                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf">
+                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf labelDetail">
                             <thead class="cf">>
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Acronimo</th>
                                     <th>Region</th>
-                                    <th>Opciones Idiomas</th>
+                                    <th ng-if="desdeEmpleado">Opciones Idiomas</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -104,7 +106,7 @@
                                     <td data-title="Nombre:" id="{{$index}}-name" >{{idioma.nombre}}</td>
                                     <td data-title="Acronimo:" id="{{$index}}-acronimo">{{idioma.acronimo}}</td>
                                     <td data-title="Region:" id="{{$index}}-region">{{idioma.region}}</td>                             
-                                    <td data-title="Opciones Idiomas:" id="{{$index}}-actions">
+                                    <td ng-if="desdeEmpleado" data-title="Opciones Idiomas:" id="{{$index}}-actions">
                                         <a class="btn btn-danger btn-sm" ui-sref="idiomaDelete({hojaId: idHojaDeVida,idiomaId: idioma.id,empleadoId:idEmpleado})" data-toggle="tooltip" title="Borrar Idioma" data-placement="top">Borrar  <span class="glyphicon glyphicon-trash" ></span></a>
                                     </td>
                                 </tr>
