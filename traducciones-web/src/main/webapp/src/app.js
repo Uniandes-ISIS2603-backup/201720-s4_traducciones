@@ -13,7 +13,8 @@
         'empleadoModule',
         'areadeconocimientoModule',
         'idiomaModule',
-        'propuestasModule'
+        'propuestasModule',
+        'solicitudModule'
         
 
     ]);

@@ -6,29 +6,30 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.AreaDeConocimientoEntity;
-import co.edu.uniandes.csw.traducciones.entities.ClienteEntity;
-import co.edu.uniandes.csw.traducciones.entities.IdiomaEntity;
 import co.edu.uniandes.csw.traducciones.entities.SolicitudEntity;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
+
 
 /**
  *
  * @author aj.ayte
  */
 public class SolicitudDetailedDTO extends SolicitudDTO{
+    
     private ClienteDetailDTO cliente;
+    
     private List<AreaDeConocimientoDTO> areasDeConocimiento;
+    
+    private IdiomaDTO idiomaEntrada;
+    
+    private IdiomaDTO idiomaSalida;
+    
     public SolicitudDetailedDTO() {
-        super();
-                      
+        super();                  
     }
-     public SolicitudDetailedDTO(SolicitudEntity entity) {
+    
+    public SolicitudDetailedDTO(SolicitudEntity entity) {
         super(entity);
         this.areasDeConocimiento=new ArrayList<AreaDeConocimientoDTO>();
         for (AreaDeConocimientoEntity areaDeConocimientoEntity : entity.getAreasDeConocimiento()) {
@@ -72,13 +73,7 @@ public class SolicitudDetailedDTO extends SolicitudDTO{
     public void setIdiomaSalida(IdiomaDTO idiomaSalida) {
         this.idiomaSalida = idiomaSalida;
     }
-    private IdiomaDTO idiomaEntrada;
-    private IdiomaDTO idiomaSalida;
-
-
-
     
-    @Override
     public SolicitudEntity toEntity() {
         SolicitudEntity entity = new SolicitudEntity();
         entity.setId(this.getId());
@@ -91,9 +86,10 @@ public class SolicitudDetailedDTO extends SolicitudDTO{
         entity.setAreasDeConocimiento(this.dtoToEntity(areasDeConocimiento));
         return entity;
     }
+    
     private List<AreaDeConocimientoEntity> dtoToEntity(List<AreaDeConocimientoDTO> entityDTO) {
         List<AreaDeConocimientoEntity> list = new ArrayList<>();
-        for (AreaDeConocimientoDTO dto : entityDTO) {
+        for(AreaDeConocimientoDTO dto : entityDTO) {
             list.add(dto.toEntity());
         }
         return list;

@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createSolicitud">Crear nueva Solicitud</label>
+                <label ng-if="edit" id="editSolicitud">Editar Solicitud</label></div>
+            <div class="panel-body">
+                <form ng-submit="createSolicitud()" name="solicitud">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="solicitudDescripcion" class="col-sm-2">Descripcion:</label>
+                            <input id="solicitudDescripcion" required ng-model="solicitudDescripcion" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="solicitudTipo" class="col-sm-2">Tipo:</label>
+                            <input id="solicitudTipo" required ng-model="solicitudTipo" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="solicitudFechaInicio" class="col-sm-2">Fecha inicio:</label>
+                            <input type="date" id="solicitudFechaInicio" placeholder="DD/MM/YYYY" required ng-model="solicitudFechaInicio" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="solicitudFechaEntrega" class="col-sm-2">Fecha entrega:</label>
+                            <input type="date" id="solicitudFechaEntrega" placeholder="DD/MM/YYYY" required ng-model="solicitudFechaEntrega" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="solicitudNumPalabras" class="col-sm-2">Número de palabras:</label>
+                            <input id="solicitudNumPalabras" required ng-model="solicitudNumPalabras" class="col-sm-6"/>
+                        </div>
+                    </div>                    
+                    <div ng-if="edit" class="panel-group" id="areas">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Áreas de conocimiento:</div>
+                            <div class="panel-body">
+                                <div id="div2" ondrop="angular.element(document.getElementById('areas')).scope().dropAdd(event)" ondragover="angular.element(document.getElementById('areas')).scope().allowDrop(event)">
+                                    <label></label>
+                                    <div ng-show="edit" ng-repeat="areadeconocmiento in areasDetail">
+                                        <p draggable="true" ondragstart="angular.element(document.getElementById('areas')).scope().drag(event)" id="{{areadeconocimiento.id}}">{{areadeconocimiento.empleado.name}}</p>                                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Todas las areas</div>
+                            <div class="panel-body">
+                                <div id="div1" ondrop="angular.element(document.getElementById('areas')).scope().dropDelete(event)" ondragover="angular.element(document.getElementById('areas')).scope().allowDrop(event)">
+                                    <label></label>
+                                    <div ng-repeat="areadeconocimiento in areasDetail">
+                                        <p draggable="true" ondragstart="angular.element(document.getElementById('areas')).scope().drag(event)" id="{{areadeconocmiento.id}}">{{areadeconocimiento.empleado.name}}</p>                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!solicitud.$valid">
+                            <div class="alert alert-warning" >
+                                <strong>¡Advertencia!</strong><p>Ninguna entrada puede estar vacía*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="solicitud.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="authorsList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
