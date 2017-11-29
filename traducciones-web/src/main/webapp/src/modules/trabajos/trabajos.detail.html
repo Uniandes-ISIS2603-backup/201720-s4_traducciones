@@ -35,6 +35,25 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Propuesta del Trabajo</label></div>
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <dl class="dl-horizontal labelDetail">
+                        <dt class="miDt"> Costo</dt>
+                        <dd class="miDd">{{currentTrabajo.propuestas[0].costo}}</dd>
+                        <dt class="miDt"> Estado</dt>
+                        <dd class="miDd">{{currentTrabajo.propuestas[0].estado}}</dd>
+                        <dt class="miDt"> Nombre</dt>
+                        <dd class="miDd">{{currentTrabajo.propuestas[0].nombre}}</dd>                    
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
             <div class="panel-heading"><label class="titulo-tabla">Calificaciones del Trabajo</label></div>
             <div class="panel-body">
                 <div class="no-more-tables">

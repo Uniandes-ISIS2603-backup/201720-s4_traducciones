@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.traducciones.dtos;
 
 import co.edu.uniandes.csw.traducciones.entities.CalificacionEntity;
+import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.List;
 public class TrabajoDetailedDTO extends TrabajoDTO {
     
      private List<CalificacionDTO> calificaciones;
+     private List<PropuestaDTO> propuestas;
+     
 
     /**
      *
@@ -36,10 +39,16 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
     public TrabajoDetailedDTO(TrabajoEntity entity) {
         super(entity);
         calificaciones = new ArrayList<>();
-        
+        propuestas = new ArrayList<>();
         if (entity.getCalificaciones() != null) {
             for (CalificacionEntity entityCalificaciones : entity.getCalificaciones()) {
                 calificaciones.add(new CalificacionDTO(entityCalificaciones));
+            }
+            
+        }
+        if (entity.getPropuesta() != null) {
+            for (PropuestaEntity entityPropuestaa : entity.getPropuesta()) {
+                propuestas.add(new PropuestaDTO(entityPropuestaa));
             }
             
         }
@@ -66,6 +75,17 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
             entity.setCalificaciones(new ArrayList<CalificacionEntity>());
         }
        
+       if (propuestas != null) {
+            List<PropuestaEntity> propuestasEntity = new ArrayList<>();
+            for (PropuestaDTO dtoPropuestas : propuestas) {
+                propuestasEntity.add(dtoPropuestas.toEntity());
+            }
+            entity.setPropuesta(propuestasEntity);
+        }
+        else{
+            entity.setPropuesta(new ArrayList<PropuestaEntity>());
+        }
+       
 
         return entity;
     }
@@ -82,6 +102,20 @@ public class TrabajoDetailedDTO extends TrabajoDTO {
      */
     public void setCalificaciones(List<CalificacionDTO> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+    /**
+     * @return the propuestas
+     */
+    public List<PropuestaDTO> getPropuestas() {
+        return propuestas;
+    }
+
+    /**
+     * @param propuestas the propuestas to set
+     */
+    public void setPropuestas(List<PropuestaDTO> propuestas) {
+        this.propuestas = propuestas;
     }
     
 }
