@@ -7,6 +7,7 @@
         'clienteModule',
         'pagoModule',
         'tarjetaModule',
+        'solicitudModule',
         'trabajoModule',
         'hojaModule',
         'ofertasModule',

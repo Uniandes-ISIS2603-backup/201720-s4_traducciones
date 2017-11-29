@@ -29,7 +29,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author aj.ayte
  */
-@Path("/Solicitudes")
+@Path("/solicitudes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
@@ -62,19 +62,19 @@ public class SolicitudResource {
      */
     @GET
     public List<SolicitudDetailedDTO> getSolicitud() throws BusinessLogicException {
-        return listEntity2DetailDetailedDTO(SolicitudLogic.getSolicituds());
+        return listEntity2DetailDetailedDTO(SolicitudLogic.getSolicitudes());
     }
     
     /**
      * @param id corresponde al id buscada.
-     * @returnencontrada.
+     * @return encontrada.
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la hoja de vida buscada se retorna un 404 con
      * el mensaje.
      */
     @GET
-    @Path("{id: \\d+}")
+    @PathParam("{id: \\d+}")
     public SolicitudDetailedDTO getSolicitud(@PathParam("id") Long id) throws BusinessLogicException {
         SolicitudEntity entity = SolicitudLogic.getSolicitudId(id);
        if (entity == null) {
@@ -95,7 +95,7 @@ public class SolicitudResource {
      * 404 con el mensaje.
      */
     @PUT
-    @Path("{id: \\d+}")
+    @PathParam("{id: \\d+}")
     public SolicitudDetailedDTO updateSolicitud(@PathParam("id") Long id, SolicitudDetailedDTO Solicitud) throws BusinessLogicException {
         
         if(!SolicitudLogic.existeSolicitudId(id))
@@ -115,7 +115,7 @@ public class SolicitudResource {
      *
      */
     @DELETE
-    @Path("{id: \\d+}")
+    @PathParam("{id: \\d+}")
     public void deleteSolicitud(@PathParam("id") Long id) throws BusinessLogicException {
         if(!SolicitudLogic.existeSolicitudId(id))
        {

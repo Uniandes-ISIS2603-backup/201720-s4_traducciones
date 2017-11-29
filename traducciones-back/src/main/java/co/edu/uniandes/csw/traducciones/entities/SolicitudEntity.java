@@ -39,20 +39,27 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class SolicitudEntity extends BaseEntity implements Serializable {
-   private String descripcion;
-   private int Tipo;
    
-   @PodamExclude
-   @OneToOne
-   private ClienteEntity cliente;
-   @Temporal(javax.persistence.TemporalType.DATE)
-   private Date fechaInicio;
-   @Temporal(javax.persistence.TemporalType.DATE)
-   private Date fechaEntrega;
-   private int numPalabras;
-   @PodamExclude
-   @OneToMany
-   private List<AreaDeConocimientoEntity> areasDeConocimiento;
+    private String descripcion;
+   
+    private int tipo;
+    
+    @PodamExclude
+    @OneToOne
+    private ClienteEntity cliente;
+   
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaInicio;
+   
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaEntrega;
+   
+    private int numPalabras;
+   
+    @PodamExclude
+    @OneToMany
+    private List<AreaDeConocimientoEntity> areasDeConocimiento;
+    
     @PodamExclude
     @OneToOne
     private IdiomaEntity idiomaEntrada;
@@ -64,6 +71,11 @@ public class SolicitudEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany
     private List<PropuestaEntity> propuestas;
+    
+    @PodamExclude
+    @OneToOne
+    private IdiomaEntity idiomaSalida;
+    
     public List<AreaDeConocimientoEntity> getAreasDeConocimiento() {
         return areasDeConocimiento;
     }
@@ -87,8 +99,7 @@ public class SolicitudEntity extends BaseEntity implements Serializable {
     public void setIdiomaSalida(IdiomaEntity idiomaSalida) {
         this.idiomaSalida = idiomaSalida;
     }
-    @OneToOne
-    private IdiomaEntity idiomaSalida;
+    
     public String getDescripcion() {
         return descripcion;
     }
@@ -121,11 +132,11 @@ public class SolicitudEntity extends BaseEntity implements Serializable {
         this.numPalabras = numPalabras;
     }
      public int getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     public void setTipo(int Tipo) {
-        this.Tipo = Tipo;
+        this.tipo = Tipo;
     }
 
     public PropuestaEntity getPropuestaElejida() {

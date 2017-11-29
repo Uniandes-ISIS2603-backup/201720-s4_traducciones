@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Mon Oct 23 13:05:28 COT 2017:
- Iniciando instancia a816c00e-015f-4a69-2e54-00000d86b618 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\ne.ortega\AppData\Local\Temp\gfembed6877048951888705189tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@18b4aac2
-Cargado desde file:/C:/Users/ne.ortega/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
+Tue Nov 28 18:28:37 COT 2017:
+ Iniciando instancia a816c00e-0160-04f5-f9b6-0000054018f0 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\Nelson\AppData\Local\Temp\gfembed6324284592521463112tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
+Cargado desde file:/C:/Users/Nelson/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\ne.ortega\Documents\NetBeansProjects\s4_traducciones\traducciones-back
-os.name=Windows 7
+java.runtime.version=1.8.0_91-b15
+user.dir=C:\Users\Nelson\Documents\NetBeansProjects\s4_traducciones\traducciones-back
+os.name=Windows 10
 os.arch=amd64
-os.version=6.1
+os.version=10.0
 derby.system.home=null
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
