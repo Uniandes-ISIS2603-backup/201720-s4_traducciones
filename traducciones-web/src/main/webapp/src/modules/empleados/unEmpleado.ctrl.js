@@ -6,7 +6,7 @@
 (function (ng) {
     var mod = ng.module("empleadoModule");
     mod.constant("empleadoContext", "api/empleados");
-    mod.controller('empleadoCtrl', ['$scope', '$http', 'empleadosContext', '$state',
+    mod.controller('unEmpleadoCtrl', ['$scope', '$http', 'empleadosContext', '$state',
         function ($scope, $http, empleadosContext, $state) {
             
             var idEmpleado = $state.params.empleadoId;

@@ -11,31 +11,46 @@
 
             $scope.user = {};
             $scope.data = {};
-            
             $http.get('src/data/users.json').then(function (response) {
                 $scope.users = response.data;
-                $scope.idUsuario = response.data.id;
             });
-
             $scope.autenticar = function () {
                 var flag = false;
                 for (var item in $scope.users) {
                     if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
-                        flag = true;
-                        $scope.user = $scope.users[item];
-                        $state.go('unEmpleado', {empleadoId: $scope.idUsuario}, {reload: true});
-                        break;
+
+                        $http.get('api/empleados/' + $scope.users[item].id + '/' + 'hojadevida').then(function (response)
+                        {
+                            $scope.idHoja = response.data[0].id;
+                        });
+                        
+                        var idHo =  $scope.idHoja;
+                        
+                        if ($scope.users[item].rol === 'empleado')
+                        {
+                            flag = true;
+                            $scope.user = $scope.users[item];
+                            $state.go('empleadoHojas', {empleadoId: $scope.users[item].id, empleadoHoja: idHo}, {reload: true});
+                            break;
+                        } else if ($scope.users[item].rol === 'cliente')
+                        {
+                            flag = true;
+                            $scope.user = $scope.users[item];
+                            $state.go('unCliente', {clienteId: $scope.users[item].id}, {reload: true});
+                            break;
+                        }
+                    }
+                    if (!flag) {
+                        $rootScope.alerts.push({type: "danger", msg: "Datos incorrectos."});
+                    } else {
+                        sessionStorage.token = $scope.user.token;
+                        sessionStorage.setItem("username", $scope.user.user);
+                        sessionStorage.setItem("name", $scope.user.name);
+                        sessionStorage.setItem("rol", $scope.user.rol);
+                        $rootScope.currentUser = $scope.user.name;
                     }
                 }
-                if (!flag) {
-                    $rootScope.alerts.push({type: "danger", msg: "Datos incorrectos."});
-                } else {
-                    sessionStorage.token = $scope.user.token;
-                    sessionStorage.setItem("username", $scope.user.user);
-                    sessionStorage.setItem("name", $scope.user.name);
-                    sessionStorage.setItem("rol", $scope.user.rol);
-                    $rootScope.currentUser = $scope.user.name;
-                }
+                ;
             };
         }
     ]);

@@ -33,11 +33,12 @@
                     roles: ['cliente', 'empleado', 'administrador']
                 }
             }).state('unEmpleado', {
-                url: '/unEmpleado/{empleadoId:int}',
-                parent: 'empleados',
                 param: {
                     empleadoId: null
                 },
+                url: '/unEmpleado/{empleadoId:int}',
+                parent: 'empleados',
+
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'unEmpleado.html',
@@ -52,7 +53,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['cliente', 'empleado', 'administrador']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoAreas', {
                 url: '/empleadoareas/{empleadoId:int}',
