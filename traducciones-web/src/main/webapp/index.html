@@ -293,6 +293,7 @@
     </head>
     <body background="src/resources/images/ecuador.jpg" class ="container-fluid" style="padding-top: 40px; ">
 
+    <center> <h1><b><font face="verdana" size="12" color="BLACK">PŘEKLAD</font></b></h1><span><b> <font face= "verdana" size="4" color="grey"> Servicio de traducciones y correcciones</font></b></span>
 
         <!--
 ********************************************************************
@@ -307,7 +308,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="#">Servicio de traducción y correción</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -328,24 +328,21 @@
                 </div>
                 <div class="col-md-12">
                     <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
-                        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in" style="color:black"></span><FONT color: black><b>Iniciar sesión</b></font></a></li>
+                        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in" style="color:black"></span><FONT color="black"><b> Iniciar sesión</b></font></a></li>
                     </ul>
                     <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
-                        <li class="nameUser">Hola, {{currentUser}}</li>
-                        <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out" style="color:black"></span><FONT bold color: black><b>Salir</b></font></a></li>
+                        <li class="nameUser"><b>Hola, {{currentUser}}</b></li>
+                        <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out" style="color:black"></span><FONT color= "black"><b> Salir</b></font></a></li>
 
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn automatic btn-success">
                                 <input  id="automatic" type="checkbox" value="0">Alternar Fondos
                                 <span id="automatic2" class="glyphicon glyphicon-ok"></span>
                             </label>
-<<<<<<< HEAD
                         </div>             
 
-=======
                         </div> 
-                        
->>>>>>> 9cb6e14e03d5d78a8afdcebefea3ed4d01c5f7e3
+    
                     </ul>
                 </div>
 
