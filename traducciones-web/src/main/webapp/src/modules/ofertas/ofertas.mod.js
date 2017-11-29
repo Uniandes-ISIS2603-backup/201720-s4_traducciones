@@ -85,8 +85,7 @@
                 url: '/delete/{ofertaId:int}',
                 parent: 'ofertas',
                 param: {
-                    ofertaId: null,
-                    empleadoId: null
+                    ofertaId: null
                 },
                 views: {
                     'detailView': {
@@ -96,7 +95,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             });
         }]);

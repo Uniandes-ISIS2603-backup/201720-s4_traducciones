@@ -27,7 +27,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['cliente', 'empleado']
+                    roles: ['cliente', 'empleado', 'administrador']
                 }
             }).state('clientesDetail', {
                 url: '/clientesDetail/{clienteId:int}',
