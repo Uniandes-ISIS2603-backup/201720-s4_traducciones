@@ -34,9 +34,9 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class TrabajoResource {
 
-    private final static String TRABAJOS="El recurso /trabajos/";
+    private static final String TRABAJOS="El recurso /trabajos/";
     
-    private final static String NOEXISTE=" no existe";
+    private static final String NOEXISTE=" no existe";
             
     @Inject
     TrabajoLogic trabajoLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.

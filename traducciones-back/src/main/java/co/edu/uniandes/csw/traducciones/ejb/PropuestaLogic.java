@@ -23,8 +23,7 @@ import javax.ejb.Stateless;
 public class PropuestaLogic {
 
     private static final Logger LOGGER = Logger.getLogger(PropuestaLogic.class.getName());
-//    @Inject
-//    private OfertaLogic ofertaLogic;
+
 
     @Inject
     private PropuestaPersistence persistencePropuesta; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
@@ -157,16 +156,5 @@ public class PropuestaLogic {
 
     }
 
-// public void deleteOferta(Long idPropuesta, Long idOferta) throws BusinessLogicException {
-//
-//        OfertaEntity o = getPropuesta(idPropuesta).getOferta();
-//
-//        if (o != null) {
-//            if (o.getId() != idOferta) {
-//                throw new BusinessLogicException("La oferta no corresponde con la propuesta.");
-//            }
-//            ofertaLogic.deleteOferta(idOferta);
-//            getPropuesta(idPropuesta).setOferta(null);
-//
-//        }
+
 }
