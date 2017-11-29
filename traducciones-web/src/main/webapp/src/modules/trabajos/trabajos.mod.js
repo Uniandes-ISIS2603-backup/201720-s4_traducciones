@@ -80,6 +80,19 @@
                         controller: 'calificacionesNewCtrl'
                     }
                 }
+            }).state('propuestaCreateT', {
+                url: '/create/{trabajoId:int}/propuesta',
+                parent: 'trabajos',
+                param: {
+                    trabajoId: null
+                   
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/propuesta.new.html',
+                        controller: 'propuestasNewCtrl'
+                    }
+                }
             }).state('calificacionDelete', {
                 url: '/create/{trabajoId:int}/calificacion/{calificacionId:int}',
                 parent: 'trabajos',
