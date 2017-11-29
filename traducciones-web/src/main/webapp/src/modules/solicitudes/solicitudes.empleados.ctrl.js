@@ -15,8 +15,8 @@
                 //recorro las solicitudes
                 for(i = 0; i<response.data.length; i++){
                     var idiomaOrigen = response.data[i].idiomaEntrada.name;
-                    var idiomaDestino = response.data[i].idiomaSalida.nombre;
-                    var tipo = response.data[i].Tipo;
+                    var idiomaDestino = response.data[i].idiomaSalida.name;
+                    var tipo = response.data[i].tipo;
                     var area = response.data[i].areasDeConocimiento[0].name;
                     
                     //variables que indican si el empleado tiene los idiomas , el area y el tipo de la solicitud. 0 = no, 1 = si.
