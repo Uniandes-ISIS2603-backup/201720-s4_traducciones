@@ -97,7 +97,7 @@ public class TrayectoriaResource {
         trayectoria.setId(idTrayectoria);
         TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, idTrayectoria);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectorias/" + idTrayectoria + " no existe.", 404);
+            throw new WebApplicationException("El  recurso /hojadevida/" + idHojaDeVida + "/trayectorias/ " + idTrayectoria + "  no existe.", 404);
         }
         return new TrayectoriaDTO(trayectoriaLogic.updateTrayectoria(idHojaDeVida, trayectoria.toEntity()));
 
@@ -115,7 +115,7 @@ public class TrayectoriaResource {
     public void deleteTrayectoria(@PathParam("idHojaDeVida") Long idHojaDeVida, @PathParam("id") Long idTrayectoria) throws BusinessLogicException {
         TrayectoriaEntity entity = trayectoriaLogic.getTrayectoriaId(idHojaDeVida, idTrayectoria);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /hojadevida/" + idHojaDeVida + "/trayectoria/" + idTrayectoria + " no existe.", 404);
+            throw new WebApplicationException(" El recurso /hojadevida/" + idHojaDeVida + " /trayectoria/" + idTrayectoria + " no  existe.", 404);
         }
         trayectoriaLogic.deleteTrayectoriaId(idHojaDeVida, idTrayectoria);
     }

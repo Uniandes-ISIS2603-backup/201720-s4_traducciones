@@ -16,10 +16,10 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="idioma in idiomasRecords">
-                                    <td id="{{$index}}-id">{{idioma.id}}</td>
-                                    <td id="{{$index}}-name" >{{idioma.nombre}}</td>
-                                    <td id="{{$index}}-acronimo">{{idioma.acronimo}}</td>
-                                    <td id="{{$index}}-region">{{idioma.region}}</td>                
+                                    <td data-title="Id:" id="{{$index}}-id">{{idioma.id}}</td>
+                                    <td data-title="Nombre:" id="{{$index}}-name" >{{idioma.nombre}}</td>
+                                    <td data-title="Acronimo:" id="{{$index}}-acronimo">{{idioma.acronimo}}</td>
+                                    <td data-title="Region:" id="{{$index}}-region">{{idioma.region}}</td>                
                                 </tr>
                             </tbody>
                         </table>

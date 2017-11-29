@@ -8,7 +8,7 @@
             $scope.idEmp=idEmpleado;
             $scope.idHoj=idHoja;
             
-            var idHoja = $state.params.hojaId;
+            
 
             $scope.addTrayectoria = function () {
                 $http.post("api/hojadevida/" + idHoja + "/trayectorias", {

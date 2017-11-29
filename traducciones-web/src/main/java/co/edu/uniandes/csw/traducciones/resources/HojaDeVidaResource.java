@@ -37,8 +37,8 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class HojaDeVidaResource {
     
-    private final static String HOJAS="El recurso /hojadevida/ ";
-    private final static String NOEXISTE="no existe.";
+    private static final  String HOJAS="El recurso /hojadevida/ ";
+    private static final  String NOEXISTE="no existe.";
     
     @Inject
     HojaDeVidaLogic hojaDeVidaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
