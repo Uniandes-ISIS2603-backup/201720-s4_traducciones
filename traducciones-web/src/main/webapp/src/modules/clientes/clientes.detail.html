@@ -1,15 +1,142 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-    <div class="row">
-        <div class="col-md-3">
-            <dl>     
-                <dt>{{currentCliente.name}}</dt>
-                
-                <hr>
-                <dt>Tipo</dt>
-                <dd>{{currentCliente.correo}}</dd>                     
-            </dl>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Opciones Cliente</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-default btn-sm" ui-sref="hojaUpdate({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Actualizar<span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="hojaDelete({hojaId: idHojaDeVida,empleadoId:idEmpleado})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                    <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-success btn-sm" ui-sref="trayectoriaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Trayectoria" data-placement="top">Agregar Trayectoria<span class="glyphicon glyphicon-plus-sign" ></span></a>
+                        <a class="btn btn-success btn-sm" ui-sref="idiomaCreate({hojaId: idHojaDeVida,empleadoId:idEmpleado})" data-toggle="tooltip" title="Crear Idioma" data-placement="top">Agregar Idioma<span class="glyphicon glyphicon-plus-sign" ></span></a>
+                    </div>
+                    <div ng-if="desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info btn-sm" ui-sref="empleadosList" data-toggle="tooltip" title="Volver" data-placement="top">Volver  <span class="glyphicon glyphicon-arrow-left" ></span></a>
+                    </div>
+                    <div ng-if="!desdeEmpleado" class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info btn-sm" ui-sref="hojasList" data-toggle="tooltip" title="Volver" data-placement="top">Volver  <span class="glyphicon glyphicon-arrow-left" ></span></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Informacion del cliente</label></div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <dl class="dl-horizontal labelDetail">
+                        <dt class="miDt"> ID Cliente:</dt>
+                        <dd class="miDd">{{currentCliente.id}}</dd>
+                        <dt class="miDt"> Nombre:</dt>
+                        <dd class="miDd">{{currentCliente.name}}</dd>
+                        <dt class="miDt"> Correo:</dt>
+                        <dd class="miDd">{{currentCliente.correo}}</dd>
+                    </dl>
+                </div>
+
+            </div>
         </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Lista de Pagos</label></div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="no-more-tables">
+                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf labelDetail">
+                            <thead class="cf">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Id Solicitud</th>
+                                    <th>Id Empleado</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="pago in currentCliente.pagos">
+                                    <td data-title="Empleado:" id="{{$index}}-id">{{pago.id}}</td>
+                                    <td data-title="Solicitud:" id="{{$index}}-idSolicitud">{{pago.idSolicitud}}</td>
+                                    <td data-title="Empleado:" id="{{$index}}-idEmpleado">{{pago.idEmpleado}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Lista de Tarjetas de credito</label></div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="no-more-tables">
+                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf labelDetail">
+                            <thead class="cf">
+                                <tr>
+                                    <th>Número</th>    
+                                    <th>Nombres</th>  
+                                    <th>Apellidos</th>
+                                    <th>Compañia</th>
+                                    <th>Fecha Expiración</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="tarjeta in currentCliente.tarjetas">
+                                    <td data-title="Número:" id="{{$index}}-numero"><a ui-sref="tarjetaDetail({tarjetaId: tarjeta.id})">{{tarjeta.numero}}</a></td>
+                                    <td data-title="Nombres:" id="{{$index}}-nombres">{{tarjeta.nombres}}</td>
+                                    <td data-title="Apellidos:" id="{{$index}}-apellidos">{{tarjeta.apellidos}}</td>
+                                    <td data-title="Compañia:" id="{{$index}}-compañia">{{tarjeta.compañia}}</td>
+                                    <td data-title="Fecha Expiración:" id="{{$index}}-fechaExpiracion">{{tarjeta.fechaExpiracion| date:'yyyy-MM-dd'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label class="titulo-tabla">Lista de Solicitudes</label></div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="no-more-tables">
+                        <table class="col-md-12 table-bordered table-striped table-condensed text-justify table-hover cf labelDetail">
+                            <thead class="cf">
+                                <tr>
+                                    <th>Número</th>    
+                                    <th>Nombres</th>  
+                                    <th>Apellidos</th>
+                                    <th>Compañia</th>
+                                    <th>Fecha Expiración</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="tarjeta in currentCliente.tarjetas">
+                                    <td data-title="Número:" id="{{$index}}-numero"><a ui-sref="tarjetaDetail({tarjetaId: tarjeta.id})">{{tarjeta.numero}}</a></td>
+                                    <td data-title="Nombres:" id="{{$index}}-nombres">{{tarjeta.nombres}}</td>
+                                    <td data-title="Apellidos:" id="{{$index}}-apellidos">{{tarjeta.apellidos}}</td>
+                                    <td data-title="Compañia:" id="{{$index}}-compañia">{{tarjeta.compañia}}</td>
+                                    <td data-title="Fecha Expiración:" id="{{$index}}-fechaExpiracion">{{tarjeta.fechaExpiracion| date:'yyyy-MM-dd'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

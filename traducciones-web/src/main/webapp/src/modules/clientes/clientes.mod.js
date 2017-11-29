@@ -25,6 +25,19 @@
                         templateUrl: basePath + 'clientes.list.html'
                     }
                 }
+            }).state('clientesDetail', {
+                url: '/clientesDetail/{clienteId:int}',
+                parent: 'clientes',
+                param: {
+                    clienteId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'clientes.detail.html',
+                        controller: 'clientesDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             }).state('clientePagos', {
                 url: '/clientePagos/{clienteId:int}',
                 parent: 'clientes',
