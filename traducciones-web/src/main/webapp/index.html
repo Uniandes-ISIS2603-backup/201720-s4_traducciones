@@ -318,11 +318,11 @@
                 </div>
                 <div class="col-md-12">
                     <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
-                        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in" style="color:black"></span><FONT color: black><b>Iniciar sesión</b></font></a></li>
                     </ul>
                     <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
                         <li class="nameUser">Hola, {{currentUser}}</li>
-                        <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out"></span> Salir</a></li>
+                        <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out" style="color:black"></span><FONT bold color: black><b>Salir</b></font></a></li>
 
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-success active">
