@@ -5,9 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <div class="center-block well text-center">
-    <div ng-if="isAuthenticated() && hasPermissions()"><h3>¿Realmente deseas eliminar esta oferta?/h3>
-        <button id="confirm-delete" ng-click="deleteOferta()" class="btn btn-danger">Eliminar</button>
-        <a id="cancel-delete" ui-sref="authorsList" class="btn btn-info">Cancelar</a>
+    <div><h3 ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">¿Realmente deseas eliminar esta oferta?</h3>
+        <button id="confirm-delete" ng-click="deleteOferta()" class="btn btn-danger" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Eliminar</button>
+        <a id="cancel-delete" ui-sref="ofertasList" class="btn btn-info" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Cancelar</a>
     </div>
     <div class="container" ng-if="isAuthenticated() && !hasPermissions()">
         <div class="row justify-content-center">

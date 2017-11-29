@@ -30,7 +30,7 @@
                             $state.go('empleadoHojas', {empleadoId: $scope.users[item].id, empleadoHoja: $scope.users[item].id}, {reload: true});
                         } else if ($scope.users[item].rol === 'cliente')
                         {
-
+                        $state.go('clientesList', {reload: true});
                         } else {
                             $state.go('empleadosList', {}, {reload: true});
 

@@ -1,5 +1,13 @@
 <div class="center-block well text-center">
     <h2>Confirmar que quiere borrar esta area de conocimiento</h2>
-    <button id="confirm-delete" ng-click="deleteAreadeconocimiento()" class="btn btn-danger">Borrar</button>
-    <a id="cancel-delete" ui-sref="empleadoAreas({empleadoId: idempleado})" class="btn btn-info">Cancelar</a>
+    <button id="confirm-delete" ng-click="deleteAreadeconocimiento()" class="btn btn-danger" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Eliminar</button>
+    <a id="cancel-delete" ui-sref="empleadoAreas({empleadoId: idempleado})" class="btn btn-info" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Cancelar</a>
 </div>
+    <div class="container" ng-if="isAuthenticated() && !hasPermissions()">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1 class="float-left display-3 mr-4">403 Forbidden</h1>
+                <h4 >No tienes autorización para esta acción..</h4>
+            </div>
+        </div>
+    </div>
