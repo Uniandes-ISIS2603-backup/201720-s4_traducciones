@@ -23,31 +23,26 @@ public class SolicitudLogic {
     private SolicitudPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     /**
-     *
      * @param entity
      * @return
      * @throws BusinessLogicException
      */
     public SolicitudEntity createSolicitud(SolicitudEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Solicitud");
-        // Invoca la persistencia para crear la Solicitud
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Solicitud");
         return entity;
     }
 
     /**
-     * 
      * Obtener todas las Solicitudes existentes en la base de datos.
-     *
      * @return una lista de Solicitudes.
      */
-    public List<SolicitudEntity> getSolicituds() {
+    public List<SolicitudEntity> getSolicitudes() {
         LOGGER.info("Inicia proceso de consultar todas las Solicituds");
-        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<SolicitudEntity> Solicituds = persistence.findAll();
+        List<SolicitudEntity> Solicitudes = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las Solicituds");
-        return Solicituds;
+        return Solicitudes;
     }
     
     public SolicitudEntity getSolicitudId(Long id)
@@ -68,13 +63,6 @@ public class SolicitudLogic {
      
      public boolean existeSolicitudId(Long id)
      {
-     if(persistence.find(id)!=null)
-     {
-         return true;
-     }
-     else
-     {
-     return false;
-     }
+        return persistence.find(id)!=null;
      }
 }

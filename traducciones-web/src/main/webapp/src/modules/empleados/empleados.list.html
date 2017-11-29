@@ -42,7 +42,10 @@
                                                 <li ng-if="empleado.hojadevida.length>0"><a ui-sref="empleadoHojas({empleadoId: empleado.id , empleadoHoja: empleado.hojadevida[0].id})">Hoja de vida</a></li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
-                                                <li ng-if="empleado.hojadevida.length<=0"><a ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
+
+                                                <li><a ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
+                                                <li><a ui-sref="empleadoSolicitudes({empleadoId: empleado.id})">Cargar Solicitudes</a></li>
+                                               <li ng-if="empleado.hojadevida.length<=0"><a ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
                                             </ul>
                                         </div>       
                                     </td>    

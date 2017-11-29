@@ -7,8 +7,9 @@
             var basePathHoja = 'src/modules/hojasdevida/';
             var basePathOferta = 'src/modules/ofertas/';
             var basePathPropuesta = 'src/modules/propuestas/';
+            var basePathSolicitudes = 'src/modules/solicitudes/';
             $urlRouterProvider.otherwise("/empleadosList");
-            
+
             $stateProvider.state('empleados', {
                 url: '/empleados',
                 abstract: true,
@@ -75,7 +76,7 @@
                 parent: 'empleados',
                 param: {
                     empleadoId: null,
-                    empleadoHoja:null
+                    empleadoHoja: null
                 },
                 views: {
                     'listView': {
@@ -167,7 +168,7 @@
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/update/empleados.update.html',
-                        controller: 'empleadoUpdateCtrl'   
+                        controller: 'empleadoUpdateCtrl'
                     }
                 },
                 data: {
@@ -245,6 +246,22 @@
                     'detailView': {
                         templateUrl: basePathArea + '/update/areasdeconocimiento.update.html',
                         controller: 'areadeconocimientoUpdateCtrl'
+                    }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado', 'administrador']
+                }
+            }).state('empleadoSolicitudes', {
+                url: '/solicitudes/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathSolicitudes + '/solicitudes.empleados.html',
+                        controller: 'empleadoSolicitudes'
                     }
                 },
                 data: {

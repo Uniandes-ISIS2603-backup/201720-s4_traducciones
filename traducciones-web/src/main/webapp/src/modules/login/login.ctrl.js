@@ -23,7 +23,7 @@
                     if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
                         flag = true;
                         $scope.user = $scope.users[item];
-                        $state.go('unEmpleado', {}, {reload: true});
+                        $state.go('unEmpleado', {empleadoId: $scope.idUsuario}, {reload: true});
                         break;
                     }
                 }
@@ -34,7 +34,7 @@
                     sessionStorage.setItem("username", $scope.user.user);
                     sessionStorage.setItem("name", $scope.user.name);
                     sessionStorage.setItem("rol", $scope.user.rol);
-                    $rootScope.currentUser = $scope.user.name; 
+                    $rootScope.currentUser = $scope.user.name;
                 }
             };
         }

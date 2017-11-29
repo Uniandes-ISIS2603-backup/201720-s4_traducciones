@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-md-5">
+                <dl>
+                    <dt>Descripción</dt>                   
+                    <dd>{{currentSolicitud.descripcion}}</dd>
+                    
+                    <hr>
+                    
+                    <dt>Tipo</dt>                    
+                    <dd>{{currentSolicitud.tipo}}</dd>
+                    
+                    <hr>
+                    
+                    <dt>Fecha Inicio</dt>                    
+                    <dd>{{currentSolicitud.fechaInicio | date:"yyyy-MM-dd"}}</dd>
+                    
+                    <hr>
+         
+                    <dt>Fecha Entrega</dt>                    
+                    <dd>{{currentSolicitud.fechaEntrega | date: "yyyy-MM-dd"}}</dd>
+                    
+                    <hr>
+                    
+                    <dt>Número de palabras</dt>                    
+                    <dd>{{currentSolicitud.numPalabras}}</dd>
+                    
+                    <hr>
+                    
+                    <dt ng-repeat="areadeconocimiento in areasDetail">Áreas de conocimiento</dt>                    
+                    <dd>{{currentAreaDeConocimiento.empleado.name}}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

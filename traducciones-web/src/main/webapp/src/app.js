@@ -14,8 +14,6 @@
         'areadeconocimientoModule',
         'idiomaModule',
         'propuestasModule',
-        'loginModule'
-        
 
     ]);
     // Resuelve problemas de las promesas
