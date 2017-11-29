@@ -22,8 +22,11 @@
                     'listView': {
                         templateUrl: basePath + 'areasdeconocimiento.list.html'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['cliente', 'empleado']
                 }
-             
             });
         }]);
 })(window.angular);

@@ -23,6 +23,21 @@ and open the template in the editor.
                 <tbody>
                     <tr ng-repeat=" propuesta in propuestasRecords">
 
+<<<<<<< HEAD
+                    <td id="{{$index}}-id">{{propuesta.id}}</td>
+                    <td id="{{$index}}-nombre">{{propuesta.nombre}}</td>
+                    <td id="{{$index}}-estado">{{propuesta.estado}}</td> 
+                    <td id="{{$index}}-costo">{{propuesta.costo}}</td>
+                    <td ng-if="ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">{{propuesta.oferta.codigo}}</td>
+                   <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id ="{{$index}}-oferta">No hay ofertas asociadas</td>
+                   <td ng-if="!ctrl.validacion(propuesta.oferta.codigo)" id="{{$index}}-Opciones">
+                                    <a class="btn btn-danger btn-sm" ui-sref="ofertaDelete({ofertaId: oferta.id, empleadoId: prueba})">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
+                    
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+=======
                         <td data-title="Id:" id="{{$index}}-id">{{propuesta.id}}</td>
                         <td data-title="Nombre:" id="{{$index}}-nombre">{{propuesta.nombre}}</td>
                         <td data-title="Estado:" id="{{$index}}-estado">{{propuesta.estado}}</td> 
@@ -33,5 +48,6 @@ and open the template in the editor.
                 </tbody>
             </table>
         </div>
+>>>>>>> ea7cd534ead9585294efd62a28791b97245b63b1
     </div>
 </div>

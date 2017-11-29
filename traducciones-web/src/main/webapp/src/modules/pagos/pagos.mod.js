@@ -22,6 +22,9 @@
                     'listView': {
                         templateUrl: basePath + 'pagos.list.html'
                     }
+                },data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado']
                 }
             }).state('pagoDetail', {
                 url: '/{pagoId:int}/detail',
@@ -35,6 +38,9 @@
                         controller: 'pagoCtrl',
                         controllerAs: 'ctrl'
                     }
+                },data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('pagoCreate', {
                 url: '/create',
@@ -44,6 +50,9 @@
                         templateUrl: basePath + '/new/pagos.create.html',
                         controller: 'pagoCreateCtrl'
                     }
+                },data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('pagoUpdate', {
                 url: '/pagoUpdate/{pagoId:int}',
@@ -56,6 +65,9 @@
                         templateUrl: basePath + '/new/pagos.create.html',
                         controller: 'pagoUpdateCtrl'
                     }
+                },data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('pagoDelete', {
                 url: '/pagoDelete/{pagoId:int}',
@@ -68,6 +80,9 @@
                         templateUrl: basePath + '/delete/pagos.delete.html',
                         controller: 'pagoDeleteCtrl'
                     }
+                },data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             });
         }]);

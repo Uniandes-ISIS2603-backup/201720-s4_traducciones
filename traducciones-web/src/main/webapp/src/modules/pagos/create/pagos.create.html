@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="pagoCliente">Crear nuevo Pago</label>
+            <div class="panel-heading"><label ng-if="!edit" id="pagoCliente" ng-if="isAuthenticated() && hasPermissions()"ng-show="isAuthenticated() && hasPermissions()">Añadir pago</label>
                 <label ng-if="edit" id="editPago">Editar Pago</label></div>
             <div class="panel-body">
                 <form ng-submit="createPago()" name="pago">
@@ -22,14 +22,14 @@
                         <div class="form-group col-sm-4" ng-if="!pago.$valid">
 
                             <div class="alert alert-warning" >
-                                <strong>Warning!</strong><p>Todas las entradas son requeridas*</p>
+                                <strong>Atención!</strong><p>Todas las entradas son requeridas*</p>
                             </div> 
                         </div> 
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="pago.$valid" type="submit" value="Save" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="pagosList">Cancel</a>
+                            <a class="btn btn-info" ui-sref="pagosList">Cancelar</a>
                         </div>
                     </div>
                 </form>
