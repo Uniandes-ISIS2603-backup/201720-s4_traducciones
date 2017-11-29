@@ -120,7 +120,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['cliente']
+                    roles: ['administrador']
                 }
             }).state('pagosDelete', {
                 url: '/pagosDelete/{pagoId:int}',

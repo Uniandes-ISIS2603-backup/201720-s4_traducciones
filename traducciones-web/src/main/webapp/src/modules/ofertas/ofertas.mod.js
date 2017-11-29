@@ -81,6 +81,23 @@
                     requireLogin: true,
                     roles: ['empleado']
                 }
+            }).state('ofertaDelete2', {
+                url: '/delete/{ofertaId:int}',
+                parent: 'ofertas',
+                param: {
+                    ofertaId: null,
+                    empleadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/ofertas.delete.html',
+                        controller: 'ofertaDelete2Ctrl'
+                    }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
+                }
             });
         }]);
 })(window.angular);

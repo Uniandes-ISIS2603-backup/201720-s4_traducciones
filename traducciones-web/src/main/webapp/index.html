@@ -85,6 +85,7 @@
         <script src="src/modules/ofertas/create/ofertas.create.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/ofertas/delete/ofertas.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/ofertas/ofertas.detail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/ofertas/delete/ofertas2.js" type="text/javascript"></script>
 
 
         <!-- Propuestas -->
@@ -314,6 +315,7 @@
                     <ul class="nav navbar-nav">
 
                         <li><a ui-sref="clientesList">Clientes</a></li>
+                        <li><a ui-sref="propuestasList">Propuestas</a></li>
                         <li><a ui-sref="pagosList">Pagos</a></li>
                         <li><a ui-sref="tarjetasList">Tarjetas</a></li>
                         <li><a ui-sref="empleadosList">Empleados</a></li>
@@ -333,8 +335,6 @@
                     <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
                         <li class="nameUser"><b>Hola, {{currentUser}}</b></li>
                         <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out" style="color:black"></span><FONT color= "black"><b> Salir</b></font></a></li>
-
-
 
                 </div> 
                 <div ui-view = "mainView">

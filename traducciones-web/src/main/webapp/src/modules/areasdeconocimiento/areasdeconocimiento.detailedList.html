@@ -3,13 +3,13 @@
     <div class="col-md-4">
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <a class="btn btn-info" ui-sref="areadeconocimientoCreate({empleadoId: idEmpleado})" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
-                <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva Area de Conocimiento</a>
+                <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva área de conocimiento</a>
         </div>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Nombre</th>    
-                    <th>Descripcion</th>  
+                    <th>Descripción</th>  
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -18,11 +18,19 @@
                     <td id="{{$index}}-name">{{areadeconocimiento.name}}</td>
                     <td id="{{$index}}-descripcion">{{areadeconocimiento.descripcion}}</td>
                     <td id="{{$index}}-actions">
-                                    <a class="btn btn-default btn-sm" ui-sref="areadeconocimientoUpdate({areadeconocimientoId: areadeconocimiento.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="areadeconocimientoDelete({areadeconocimientoId: areadeconocimiento.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>
+                                    <a class="btn btn-default btn-sm" ui-sref="areadeconocimientoUpdate({areadeconocimientoId: areadeconocimiento.id})" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Editar<span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="areadeconocimientoDelete({areadeconocimientoId: areadeconocimiento.id})" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="container" ng-if="isAuthenticated() && !hasPermissions()">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1 class="float-left display-3 mr-4">403 Forbidden</h1>
+                <h4 >No tienes autorización para esta acción..</h4>
+            </div>
+        </div>
     </div>
 </div>
