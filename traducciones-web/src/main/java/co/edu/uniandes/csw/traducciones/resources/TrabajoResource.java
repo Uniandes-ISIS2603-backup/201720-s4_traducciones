@@ -170,4 +170,13 @@ public class TrabajoResource {
         }
         return list;
     }
+    
+     @Path("{trabajoId: \\d+}/propuesta")
+    public Class<TrabajoPropuestaResource> getClienteSolicitudResource(@PathParam("trabajoId")Long trabajoId){
+        TrabajoEntity entity = trabajoLogic.getTrabajoId(trabajoId);
+        if(entity == null){
+            throw new WebApplicationException("El cliente con el id " + trabajoId + " no existe", 404);
+        }
+        return TrabajoPropuestaResource.class;
+    }
 }
