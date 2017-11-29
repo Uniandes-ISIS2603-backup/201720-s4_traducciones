@@ -20,9 +20,30 @@
             }).state('clientesList', {
                 url: '/clienteslist',
                 parent: 'clientes',
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'clientes.list.html'
+                    }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado']
+                }
+            }).state('clientesDetail', {
+                url: '/clientesDetail/{clienteId:int}',
+                parent: 'clientes',
+                param: {
+                    clienteId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'clientes.detail.html',
+                        controller: 'clientesDetailCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             }).state('clientePagos', {
@@ -31,6 +52,10 @@
                 param: {
                     clienteId: null
                 },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePathPago + 'pagos.detailedList.html',
@@ -38,6 +63,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
+                
             }).state('clienteTarjetas', {
                 url: '/clienteTarjetas/{clienteId:int}',
                 parent: 'clientes',
@@ -50,6 +76,10 @@
                         controller: 'tarjetasDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('clienteUpdate', {
                 url: '/clienteUpdate/{clienteId:int}',
@@ -62,6 +92,10 @@
                         templateUrl: basePath + 'update/clientes.update.html',
                         controller: 'clienteUpdateCtrl'   
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('clienteDelete', {
                 url: '/clienteDelete/{clienteId:int}',
@@ -74,7 +108,11 @@
                         templateUrl: basePath + 'delete/clientes.delete.html',
                         controller: 'clienteDeleteCtrl'
                     }
-                } 
+                } ,
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('clienteCreate', {
                 url: '/clienteCreate',
                 parent: 'clientes',
@@ -83,6 +121,10 @@
                         templateUrl: basePath + 'create/clientes.create.html',
                         controller: 'clienteCreateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 }
             }).state('pagosDelete', {
                 url: '/pagosDelete/{pagoId:int}',
@@ -95,7 +137,11 @@
                         templateUrl: basePathPago + 'delete/pagos.delete.html',
                         controller: 'pagosDeleteCtrl'
                     }
-                } 
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('pagosCreate', {
                 url: '/pagosCreate/{clienteId:int}',
                 parent: 'clientes',
@@ -107,6 +153,10 @@
                         templateUrl: basePathPago + 'create/pagos.create.html',
                         controller: 'pagosCreateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
                 } 
             }).state('pagosUpdate', {
                 url: '/pagosUpdate/{pagoId:int}',
@@ -119,7 +169,11 @@
                         templateUrl: basePathPago + 'update/pagos.update.html',
                         controller: 'pagosUpdateCtrl'
                     }
-                } 
+                },
+                data:{
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('tarjetasDelete', {
                 url: '/tarjetasDelete/{tarjetaId:int}',
                 parent: 'clientes',
@@ -131,7 +185,11 @@
                         templateUrl: basePathTarjeta + 'delete/tarjetas.delete.html',
                         controller: 'tarjetasDeleteCtrl'
                     }
-                } 
+                } ,
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('tarjetasCreate', {
                 url: '/tarjetasCreate/{clienteId:int}',
                 parent: 'clientes',
@@ -143,7 +201,11 @@
                         templateUrl: basePathTarjeta + 'create/tarjetas.create.html',
                         controller: 'tarjetasCreateCtrl'
                     }
-                } 
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             }).state('tarjetasUpdate', {
                 url: '/tarjetasUpdate/{tarjetaId:int}',
                 parent: 'clientes',
@@ -155,7 +217,11 @@
                         templateUrl: basePathTarjeta + 'update/tarjetas.update.html',
                         controller: 'tarjetasUpdateCtrl'
                     }
-                } 
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente']
+                }
             });
         }]);
 })(window.angular);

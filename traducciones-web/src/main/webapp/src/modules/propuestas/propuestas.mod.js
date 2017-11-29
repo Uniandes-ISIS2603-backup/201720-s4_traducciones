@@ -53,6 +53,17 @@
                         controller: 'propuestasNewCtrl'
                     }
                 }
+            }).state('agregarOferta', {
+                url: '/agregar/{propuestaId: int}',
+                parent: 'propuestas',
+                param: {
+                    propuestaId: null
+                },views: {
+                    'detailView': {
+                        templateUrl: basePath + '/agregar/propuestas.agregar.html',
+                        controller: 'agregarOfertaCtrl'
+                    }
+                }
             }).state('propuestaDelete', {
                 url: '/delete/{propuestaId:int}/{empleadoId: int}',
                 parent: 'propuestas',

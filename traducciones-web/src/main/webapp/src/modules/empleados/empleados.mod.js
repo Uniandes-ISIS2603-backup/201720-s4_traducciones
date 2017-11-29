@@ -27,6 +27,10 @@
                     'listView': {
                         templateUrl: basePath + 'empleados.list.html'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado']
                 }
             }).state('empleadoAreas', {
                 url: '/empleadoareas/{empleadoId:int}',
@@ -40,6 +44,10 @@
                         controller: 'areasDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoHojas', {
                 url: '/empleadohojas/{empleadoId:int}/{empleadoHoja:int}',
@@ -54,6 +62,10 @@
                         controller: 'hojasDetailedCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
                 
             }).state('empleadoOfertas', {
@@ -68,6 +80,10 @@
                         controller: 'ofertasDetailCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoOfertasCreate', {
                 url: '/empleadoOfertas/{empleadoId:int}/crear',
@@ -81,6 +97,10 @@
                         controller: 'ofertasNewCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoPropuestas', {
                 url: '/empleadoPropuestas/{empleadoId:int}',
@@ -94,6 +114,10 @@
                         controller: 'propuestasDetailCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoHojasCreate', {
                 url: '/empleadohojas/{empleadoId:int}/crear',
@@ -108,6 +132,10 @@
                         controller: 'hojasNewCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoUpdate', {
                 url: '/empleadoupdate/{empleadoId:int}',
@@ -120,6 +148,10 @@
                         templateUrl: basePath + '/update/empleados.update.html',
                         controller: 'empleadoUpdateCtrl'   
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('empleadoDelete', {
                 url: '/empleadodelete/{empleadoId:int}',
@@ -132,6 +164,10 @@
                         templateUrl: basePath + '/delete/empleados.delete.html',
                         controller: 'empleadoDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 } 
             }).state('empleadoCreate', {
                 url: '/empleadocreate',
@@ -141,6 +177,10 @@
                         templateUrl: basePath + '/create/empleados.create.html',
                         controller: 'empleadoCreateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('areadeconocimientoDelete', {
                 url: '/areadelete/{areadeconocimientoId:int}',
@@ -153,7 +193,11 @@
                         templateUrl: basePathArea + '/delete/areasdeconocimiento.delete.html',
                         controller: 'areadeconocimientoDeleteCtrl'
                     }
-                } 
+                } ,
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
+                }
             }).state('areadeconocimientoCreate', {
                 url: '/areacreate/{empleadoId:int}',
                 parent: 'empleados',
@@ -165,7 +209,11 @@
                         templateUrl: basePathArea + '/create/areasdeconocimiento.create.html',
                         controller: 'areadeconocimientoCreateCtrl'
                     }
-                } 
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
+                }
             }).state('areadeconocimientoUpdate', {
                 url: '/areaupdate/{areadeconocimientoId:int}',
                 parent: 'empleados',
@@ -177,6 +225,10 @@
                         templateUrl: basePathArea + '/update/areasdeconocimiento.update.html',
                         controller: 'areadeconocimientoUpdateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 } 
             }).state('empleadoSolicitudes', {
                 url: '/solicitudes/{empleadoId:int}',

@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author aj.ayte
+ * @author ra.forero11
  */
 @Path("/idiomas")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,20 +36,20 @@ import javax.ws.rs.core.MediaType;
 public class IdiomaResource {
     
     @Inject
-            IdiomaLogic IdiomaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+            IdiomaLogic idiomaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
     
     /**
-     * @param Idioma correponde a la representación java del objeto json
+     * @param idioma correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java.
      * @throws BusinessLogicException
      */
     @POST
-    public IdiomaDTO createIdioma(IdiomaDTO Idioma) throws BusinessLogicException {
+    public IdiomaDTO createIdioma(IdiomaDTO idioma) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        IdiomaEntity IdiomaEntity = Idioma.toEntity();
+        IdiomaEntity idiomaEntity = idioma.toEntity();
         // Invoca la lógica para crear la Idioma nueva
-        IdiomaEntity nuevaIdioma = IdiomaLogic.createIdioma(IdiomaEntity);
+        IdiomaEntity nuevaIdioma = idiomaLogic.createIdioma(idiomaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new IdiomaDTO(nuevaIdioma);
     }
@@ -61,18 +61,19 @@ public class IdiomaResource {
      */
     @GET
     public List<IdiomaDTO> getIdioma() throws BusinessLogicException {
-        return listEntity2DetailDTO(IdiomaLogic.getIdiomas());
+        return listEntity2DetailDTO(idiomaLogic.getIdiomas());
     }
     
     /**
      * @param id corresponde al id buscada.
+     * @return 
      * @returnencontrada.
      * @throws BusinessLogicException En caso de no existir el id de la hoja de vida buscada se retorna un 404 con el mensaje.
      */
     @GET
     @Path("{id: \\d+}")
     public IdiomaDTO getIdioma(@PathParam("id") Long id) throws BusinessLogicException {
-        IdiomaEntity entity = IdiomaLogic.getIdiomaId(id);
+        IdiomaEntity entity = idiomaLogic.getIdiomaId(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
         }
@@ -82,7 +83,7 @@ public class IdiomaResource {
     
     /**
      * @param id corresponde a la id a actualizar.
-     * @param Idioma corresponde a al objeto con los cambios que se van a
+     * @param idioma corresponde a al objeto con los cambios que se van a
      * realizar.
      * @return La Idioma actualizada.
      * @throws BusinessLogicException
@@ -92,13 +93,13 @@ public class IdiomaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public IdiomaDTO updateIdioma(@PathParam("id") Long id, IdiomaDTO Idioma) throws BusinessLogicException {
+    public IdiomaDTO updateIdioma(@PathParam("id") Long id, IdiomaDTO idioma) throws BusinessLogicException {
         
-        if(!IdiomaLogic.existeIdiomaId(id))
+        if(!idiomaLogic.existeIdiomaId(id))
         {
-            throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
+            throw new WebApplicationException(" El recurso /Idioma/" + id + "  no existe.", 404);
         }
-        return new IdiomaDTO(IdiomaLogic.updateIdioma(id,Idioma.toEntity()));
+        return new IdiomaDTO(idiomaLogic.updateIdioma(id,idioma.toEntity()));
     }
     
     /**
@@ -110,11 +111,11 @@ public class IdiomaResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteIdioma(@PathParam("id") Long id) throws BusinessLogicException {
-        if(!IdiomaLogic.existeIdiomaId(id))
+        if(!idiomaLogic.existeIdiomaId(id))
         {
-            throw new WebApplicationException("El recurso /Idioma/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /Idioma/ " + id + " no existe. ", 404);
         }
-        IdiomaLogic.deleteIdiomaId(id);
+        idiomaLogic.deleteIdiomaId(id);
     }
     
     /**

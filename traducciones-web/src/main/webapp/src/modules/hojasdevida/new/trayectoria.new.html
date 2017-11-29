@@ -1,31 +1,31 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label class="labelNew">Añadir Trayectoria a la hoja de vida</label></div>
+            <div class="panel-heading"><label class="labelBlanco">Añadir Trayectoria a la hoja de vida</label></div>
             <div class="panel-body">
                 <form ng-submit="addTrayectoria()" name="trayectoria">
                     <div class="form-group row">
                         <div class="form-group col-md-12">
-                            <label for="trayectoriaName" class="col-sm-2 labelNew">Nombre:</label>
-                            <input id="trayectoriaName" required ng-model="trayectoriaName" class="col-sm-6">
+                            <label for="trayectoriaName" class="col-sm-2 labelBlanco">Nombre:</label>
+                            <input id="trayectoriaName" required ng-model="trayectoriaName" class="col-sm-6 labelNegro">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-12">
-                            <label for="trayectoriaDescripcion" class="col-sm-2 labelNew">Descripcion</label>
-                            <textarea id="trayectoriaDescripcion" required ng-model="trayectoriaDescripcion" class="col-sm-6" rows="10" cols="8"></textarea>
+                            <label for="trayectoriaDescripcion" class="col-sm-2 labelBlanco">Descripcion</label>
+                            <textarea id="trayectoriaDescripcion" required ng-model="trayectoriaDescripcion" class="col-sm-6 labelNegro" rows="10" cols="8"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-12">
-                            <label for="trayectoriaFechaI" class="col-sm-2 labelNew">Fecha Inicial:</label>
-                            <input  type='date' id="trayectoriaFechaI" required ng-model="trayectoriaFechaI" class="col-sm-6">
+                            <label for="trayectoriaFechaI" class="col-sm-2 labelBlanco">Fecha Inicial:</label>
+                            <input  type='date' id="trayectoriaFechaI" required ng-model="trayectoriaFechaI" class="col-sm-6 labelNegro">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-12">
-                            <label for="trayectoriaFechaF" class="col-sm-2 labelNew">Fecha Final:</label>
-                            <input  type='date' id="trayectoriaFechaF" required ng-model="trayectoriaFechaF" class="col-sm-6">
+                            <label for="trayectoriaFechaF" class="col-sm-2 labelBlanco">Fecha Final:</label>
+                            <input  type='date' id="trayectoriaFechaF" required ng-model="trayectoriaFechaF" class="col-sm-6 labelNegro">
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="trayectoria.$valid" type="submit" value="Save" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="hojasList">Cancel</a>
+                            <a class="btn btn-info" ui-sref="empleadoHojas({empleadoId:idEmp,empleadoHoja:idHoj})">Cancel</a>
                         </div>
                     </div>
                 </form>

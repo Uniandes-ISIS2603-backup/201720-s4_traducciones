@@ -27,6 +27,10 @@
                     'listView': {
                         templateUrl: basePath + 'ofertas.list.html'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['cliente', 'empleado']
                 }
             }).state('ofertasDetail', {
                 url: '/{ofertaId:int}/detail',
@@ -40,6 +44,10 @@
                         controller: 'ofertasCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['cliente', 'empleado']
                 }
             }).state('ofertaCreate', {
                 url: '/create/{empleadoId: int}',
@@ -51,6 +59,10 @@
                         templateUrl: basePath + '/create/ofertas.create.html',
                         controller: 'ofertasNewCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             }).state('ofertaDelete', {
                 url: '/delete/{ofertaId:int}/{empleadoId: int}',
@@ -64,6 +76,10 @@
                         templateUrl: basePath + '/delete/ofertas.delete.html',
                         controller: 'ofertaDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['empleado']
                 }
             });
         }]);

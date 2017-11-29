@@ -22,8 +22,10 @@
                                 <td data-title="Id:" id="{{$index}}-name">{{cliente.name}}</td>
                                 <td data-title="Tipo": id="{{$index}}-correo">{{cliente.tipo}}</td>
                                 <td data-title="Acciones:" id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="clientesDetail({clienteId: cliente.id})">Ver detalle<span class="glyphicon glyphicon-arrow-up"></span></a>  
                                     <a class="btn btn-default btn-sm" ui-sref="clienteUpdate({clienteId: cliente.id})">Editar<span class="glyphicon glyphicon-edit"></span></a>
                                     <a class="btn btn-danger btn-sm" ui-sref="clienteDelete({clienteId: cliente.id})">Borrar<span class="glyphicon glyphicon-trash"></span></a>  
+                                    
                                 </td>
                                 <td data-title="Opciones:" id="{{$index}}-opciones">
                                     <div class="btn-group">

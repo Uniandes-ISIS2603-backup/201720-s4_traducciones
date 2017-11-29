@@ -5,7 +5,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <div class="center-block well text-center">
-    <h2>¿Realmente deseas eliminar esta oferta?</h2>
-    <button id="confirm-delete" ng-click="deleteOferta()" class="btn btn-danger">Eliminar</button>
-    <a id="cancel-delete" ui-sref="empleadosList" class="btn btn-info">Cancelar</a>
+    <div ng-if="isAuthenticated() && hasPermissions()"><h3>¿Realmente deseas eliminar esta oferta?/h3>
+        <button id="confirm-delete" ng-click="deleteOferta()" class="btn btn-danger">Eliminar</button>
+        <a id="cancel-delete" ui-sref="authorsList" class="btn btn-info">Cancelar</a>
+    </div>
+    <div class="container" ng-if="isAuthenticated() && !hasPermissions()">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1 class="float-left display-3 mr-4">403 Forbidden</h1>
+                <h4 >No tienes autorización para esta acción..</h4>
+            </div>
+        </div>
+    </div>
 </div>

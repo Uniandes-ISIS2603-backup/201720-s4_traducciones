@@ -19,14 +19,14 @@ and open the template in the editor.
             <thead>
                 <tr>
                     <th>Nombre</th>    
-                    <th>Codigo</th>
-                    <th>Descripcion</th>
+                    <th>Código</th>
+                    <th>Descripción</th>
                     <th>Fecha vencimiento</th>
                     <th>Cantidad actual</th>
                 </tr>
             </thead>
             <tbody>
-                <a class="btn btn-info" ui-sref="ofertaCreate({empleadoId: prueba})">
+            <a class="btn btn-info" ui-sref="ofertaCreate({empleadoId: prueba})" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
                 <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva oferta</a>
                          <tr ng-repeat=" oferta in ofertas">
                     <td id="{{$index}}-nombre">{{oferta.nombre}}</td>

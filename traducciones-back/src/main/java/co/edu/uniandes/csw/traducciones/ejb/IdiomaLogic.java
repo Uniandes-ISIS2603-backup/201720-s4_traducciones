@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author aj.ayte
+ * @author ra.forero11
  */
 public class IdiomaLogic {
     private static final Logger LOGGER = Logger.getLogger(IdiomaLogic.class.getName());
@@ -36,9 +36,9 @@ public class IdiomaLogic {
     public List<IdiomaEntity> getIdiomas() {
         LOGGER.info("Inicia proceso de consultar todas las Idiomas");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<IdiomaEntity> Idiomas = persistence.findAll();
+        List<IdiomaEntity> idiomas = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las Idiomas");
-        return Idiomas;
+        return idiomas;
     }
     /**
      * Devuelve un idioma especifico
@@ -76,13 +76,6 @@ public class IdiomaLogic {
      */
     public boolean existeIdiomaId(Long id)
     {
-        if(persistence.find(id)!=null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return persistence.find(id)!=null;
     }
 }

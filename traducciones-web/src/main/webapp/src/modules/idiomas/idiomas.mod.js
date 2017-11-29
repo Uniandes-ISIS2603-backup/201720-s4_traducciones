@@ -21,6 +21,10 @@
                     'listView': {
                         templateUrl: basePath + 'idiomas.list.html'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['cliente', 'empleado']
                 }
             });
         }]);

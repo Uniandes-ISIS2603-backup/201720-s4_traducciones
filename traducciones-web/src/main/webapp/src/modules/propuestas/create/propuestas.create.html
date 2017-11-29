@@ -9,8 +9,9 @@ and open the template in the editor.
         <div class="panel panel-primary">
             <div class="panel-heading"><label ng-if="!edit" id="createOferta">Crear nueva propuesta</label>
                 <label ng-if="edit" id="editOferta">Editar propuesta </label></div>
+
             <div class="panel-body">
-                <form ng-submit="createPropuesta()" name="propuesta">
+                <form ng-submit="createPropuesta()"name="propuesta">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="propuestaName" class="col-sm-2">Nombre:</label>
@@ -27,6 +28,22 @@ and open the template in the editor.
                         <div class="form-group col-md-6">
                             <label for="propuestaEstado" class="col-sm-2">Estado:</label>
                             <input type="text" value="EN_REVISION" readonly="readonly" />
+                        </div>
+                    </div>
+                   
+                    <div class="form-group row" ng-init="variable='no'">
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-2">¿Desea anexar una oferta?</label>
+                            <select ng-model="variable">
+                                <option value="si">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group row" ng-show="variable=='si'" >
+                        <div class="form-group col-md-6">
+                            <label for="oferta" class="col-sm-2">Código oferta</label>
+                            <input id="oferta"  ng-model="oferta" class="col-sm-6">
                         </div>
                     </div>
                     <div class="form-group row">
