@@ -14,12 +14,6 @@
         'areadeconocimientoModule',
         'idiomaModule',
         'propuestasModule',
-<<<<<<< HEAD
-        'solicitudModule'
-=======
-        'loginModule'
->>>>>>> bbc038b56b70baca87c89b90095c002e167bb022
-        
 
     ]);
     // Resuelve problemas de las promesas
