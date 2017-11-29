@@ -2,6 +2,8 @@ delete from trayectoriaentity;
 delete from idiomaentity;
 delete from HojaDeVidaEntity;
 delete from empleadoEntity;
+delete from OfertaEntity;
+delete from PropuestaEntity;
 insert into EMPLEADOENTITY (CALIFICACIONPROMEDIO, NAME, TIPO) values (25, 'Simeon Alywin', 1);
 insert into EMPLEADOENTITY (CALIFICACIONPROMEDIO, NAME, TIPO) values (19, 'Phylis Poluzzi', 2);
 insert into EMPLEADOENTITY (CALIFICACIONPROMEDIO, NAME, TIPO) values (59, 'Malorie Jeays', 3);
@@ -602,3 +604,19 @@ insert into CalificacionEntity (name, comentario, calificacion, trabajo_id) valu
 insert into CalificacionEntity (name, comentario, calificacion, trabajo_id) values ('Thebault', 'Forest Run', 75, 18);
 insert into CalificacionEntity (name, comentario, calificacion, trabajo_id) values ('Giffard', 'Springs', 63, 21);
 insert into CalificacionEntity (name, comentario, calificacion, trabajo_id) values ('Doretta', 'Ludington', 100, 5);
+
+delete from OfertaEntity;
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, descuento, fechavigencia, empleado_id) values (10234, 10, 20, 'ABC2345', 'Traducción ingles espanol',  'Válido para idioma origen inglés',50, '2016-11-13 14:57:53', 1 );
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion,descuento, fechavigencia, empleado_id) values (10235, 11, 21, 'ABC2645', 'Traducción aleman frances',  'Válido para idioma origen alemán',60, '2016-11-14 14:57:55',2);
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, descuento, fechavigencia, empleado_id) values (10236, 12, 22, 'ABC2445', 'Corrección ingles espanol',  'Válido para idioma origen inglés', 40, '2017-09-10 14:57:53',3);
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, descuento,fechavigencia, empleado_id) values (10237, 13, 23, 'ABD2345', 'Corrección frances ingles',  'Válido para idioma origen francés',30, '2016-11-16 14:53:53',4);
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, descuento,fechavigencia, empleado_id) values (10238, 14, 24, 'ABC2145', 'Traducción ruso espanol', 'Válido para idioma origen ruso',25, '2017-11-17 14:47:29',5);
+insert into OfertaEntity (id, cantidadactual, cantidadinicial, codigo, name, descripcion, descuento, fechavigencia, empleado_id) values (10239, 1, 20, 'ABC2175', 'Traducción espanol alemán', 'Válido para idioma origen alemán',80, '2017-10-17 14:47:29',5);
+delete from PropuestaEntity;
+insert into PropuestaEntity (name, costo, estado) values ('nombre1', 20.3, 'EN_REVISION');
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (2, 'Propuesta de trabajo (Ethelda)', 21.6, 10235, 'RECHAZADA',1);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (3, 'Propuesta de trabajo (Edan)', 22.9, 10236, 'EN_REVISION',2);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (4, 'Propuesta de trabajo (Mohammed)', 23.4, 10237, 'RECHAZADA',3);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (5, 'Propuesta de trabajo (Ethelda)', 24.3, 10237, 'ACEPTADA',4);
+insert into PropuestaEntity (name, costo, oferta_id, estado, empleado_id) values ('Propuesta de trabajo (Mariya)', 24.3, 10237, 'ACEPTADA',5);
+insert into PropuestaEntity (id, name, costo, oferta_id, estado, empleado_id) values (700, 'Propuesta de trabajo (Mariya)', 22, 10237, 'EN_REVISION',6);

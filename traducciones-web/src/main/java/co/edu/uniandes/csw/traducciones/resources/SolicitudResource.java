@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.traducciones.dtos.SolicitudDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.SolicitudLogic;
 import co.edu.uniandes.csw.traducciones.entities.SolicitudEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -23,7 +22,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -106,8 +104,7 @@ public class SolicitudResource {
     }
 
     /**
-\
-     * @param id corresponde a la hoja de vida a borrar.
+     * @param id solicitud a eliminar
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la hoja de vida a actualizar se retorna un

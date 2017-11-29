@@ -11,46 +11,42 @@
 
             $scope.user = {};
             $scope.data = {};
+
             $http.get('src/data/users.json').then(function (response) {
                 $scope.users = response.data;
             });
+
             $scope.autenticar = function () {
                 var flag = false;
                 for (var item in $scope.users) {
                     if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
 
-                        $http.get('api/empleados/' + $scope.users[item].id + '/' + 'hojadevida').then(function (response)
-                        {
-                            $scope.idHoja = response.data[0].id;
-                        });
-                        
-                        var idHo =  $scope.idHoja;
-                        
+
+                        flag = true;
+                        $scope.user = $scope.users[item];
+
                         if ($scope.users[item].rol === 'empleado')
-                        {
-                            flag = true;
-                            $scope.user = $scope.users[item];
-                            $state.go('empleadoHojas', {empleadoId: $scope.users[item].id, empleadoHoja: idHo}, {reload: true});
-                            break;
+                        {                           
+                            $state.go('empleadoHojas', {empleadoId: $scope.users[item].id, empleadoHoja: $scope.users[item].id}, {reload: true});
                         } else if ($scope.users[item].rol === 'cliente')
                         {
-                            flag = true;
-                            $scope.user = $scope.users[item];
-                            $state.go('unCliente', {clienteId: $scope.users[item].id}, {reload: true});
-                            break;
+
+                        } else {
+                            $state.go('empleadosList', {}, {reload: true});
+
                         }
-                    }
-                    if (!flag) {
-                        $rootScope.alerts.push({type: "danger", msg: "Datos incorrectos."});
-                    } else {
-                        sessionStorage.token = $scope.user.token;
-                        sessionStorage.setItem("username", $scope.user.user);
-                        sessionStorage.setItem("name", $scope.user.name);
-                        sessionStorage.setItem("rol", $scope.user.rol);
-                        $rootScope.currentUser = $scope.user.name;
+                        break;
                     }
                 }
-                ;
+                if (!flag) {
+                    $rootScope.alerts.push({type: "danger", msg: "Incorrect username or password."});
+                } else {
+                    sessionStorage.token = $scope.user.token;
+                    sessionStorage.setItem("username", $scope.user.user);
+                    sessionStorage.setItem("name", $scope.user.name);
+                    sessionStorage.setItem("rol", $scope.user.rol);
+                    $rootScope.currentUser = $scope.user.name;
+                }
             };
         }
     ]);
