@@ -10,6 +10,8 @@
             if ($state.params.empleadoId !== undefined) {
                 $http.get(empleadosContext + '/' + $state.params.empleadoId).then(function (response) {
                     $scope.currentEmpleado = response.data;
+                    $scope.existe=response.data.hojadevida!==undefined;
+                    
                 });
             }
             $scope.darTipo = function darTipo(a){

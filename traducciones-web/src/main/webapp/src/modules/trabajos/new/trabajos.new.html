@@ -4,7 +4,7 @@
 
 
             <div class="panel-body">
-                <label ng-if="!edit" id="createTrabajo" class="labelNew">Crear Nuevo Trabajo</label>
+                <label ng-if="!edit" id="createTrabajo" class="labelBlanco">Crear Nuevo Trabajo</label>
 
                 <table class="table table-striped col-lg-12">
                     <thead>
@@ -18,14 +18,14 @@
                                 <form ng-submit="createTrabajo()" name="trabajo">
                                     <div class="form-group row">
                                         <div class="form-group col-md-12">
-                                            <label for="trabajoName" class="col-sm-2 labelNew">Nombre:</label>
-                                            <input id="trabajoName" required ng-model="trabajoName" class="col-sm-6"/>
+                                            <label for="trabajoName" class="col-sm-2 labelBlanco">Nombre:</label>
+                                            <input id="trabajoName" required ng-model="trabajoName" class="col-sm-6 labelNegro"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="form-group col-md-12">
-                                            <label for="trabajoTerminado2" class="col-sm-2 labelNew">Estado:</label>
+                                        <div class="form-group col-md-12 labelBlanco">
+                                            <label for="trabajoTerminado2" class="col-sm-2 labelBlanco">Estado:</label>
                                             <input id="trabajoTerminado2" type="radio" ng-model="trabajoTerminado" value="0">No Terminado
                                             <input id="trabajoTerminado2" type="radio" ng-model="trabajoTerminado" value="1">Terminado
                                         </div>

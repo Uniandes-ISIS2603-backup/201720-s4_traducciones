@@ -13,22 +13,20 @@ import java.util.Date;
  * @author ra.forero11
  */
 public class TrayectoriaDTO {
-    
+
     private Long id;
     private String name;
     private String descripcion;
-    
-    
+
     private Date fechaInicio;
-    
-    
+
     private Date fechaFin;
 
     /**
      * Constructor por defecto
      */
     public TrayectoriaDTO() {
-      //constructor obligatoriao  
+        //constructor obligatoriao  
     }
 
     /**
@@ -60,10 +58,10 @@ public class TrayectoriaDTO {
     }
 
     /**
-     * @return the name
+     * @param descripcion the descripcion to set
      */
-    public String getName() {
-        return name;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     /**
@@ -73,6 +71,12 @@ public class TrayectoriaDTO {
         this.name = name;
     }
 
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
     /**
      * @return the descripcion
@@ -82,10 +86,17 @@ public class TrayectoriaDTO {
     }
 
     /**
-     * @param descripcion the descripcion to set
+     * @return the fechaFin
      */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    /**
+     * @param fechaFin the fechaFin to set
+     */
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     /**
@@ -102,20 +113,6 @@ public class TrayectoriaDTO {
         this.fechaInicio = fechaInicio;
     }
 
-    /**
-     * @return the fechaFin
-     */
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    /**
-     * @param fechaFin the fechaFin to set
-     */
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-    
     /**
      * Convertir DTO a Entity
      *
