@@ -33,6 +33,19 @@
                     requireLogin: true,
                     roles: ['cliente', 'empleado']
                 }
+            }).state('clientesDetail', {
+                url: '/clientesDetail/{clienteId:int}',
+                parent: 'clientes',
+                param: {
+                    clienteId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'clientes.detail.html',
+                        controller: 'clientesDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             }).state('clientePagos', {
                 url: '/clientePagos/{clienteId:int}',
                 parent: 'clientes',
@@ -76,7 +89,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/update/clientes.update.html',
+                        templateUrl: basePath + 'update/clientes.update.html',
                         controller: 'clienteUpdateCtrl'   
                     }
                 },
@@ -92,7 +105,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/clientes.delete.html',
+                        templateUrl: basePath + 'delete/clientes.delete.html',
                         controller: 'clienteDeleteCtrl'
                     }
                 } ,
@@ -105,7 +118,7 @@
                 parent: 'clientes',
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/create/clientes.create.html',
+                        templateUrl: basePath + 'create/clientes.create.html',
                         controller: 'clienteCreateCtrl'
                     }
                 },
@@ -121,7 +134,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathPago + '/delete/pagos.delete.html',
+                        templateUrl: basePathPago + 'delete/pagos.delete.html',
                         controller: 'pagosDeleteCtrl'
                     }
                 },
@@ -137,7 +150,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathPago + '/create/pagos.create.html',
+                        templateUrl: basePathPago + 'create/pagos.create.html',
                         controller: 'pagosCreateCtrl'
                     }
                 },
@@ -153,7 +166,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathPago + '/update/pagos.update.html',
+                        templateUrl: basePathPago + 'update/pagos.update.html',
                         controller: 'pagosUpdateCtrl'
                     }
                 },
@@ -169,7 +182,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathTarjeta + '/delete/tarjetas.delete.html',
+                        templateUrl: basePathTarjeta + 'delete/tarjetas.delete.html',
                         controller: 'tarjetasDeleteCtrl'
                     }
                 } ,
@@ -185,7 +198,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathTarjeta + '/create/tarjetas.create.html',
+                        templateUrl: basePathTarjeta + 'create/tarjetas.create.html',
                         controller: 'tarjetasCreateCtrl'
                     }
                 },
@@ -201,7 +214,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePathTarjeta + '/update/tarjetas.update.html',
+                        templateUrl: basePathTarjeta + 'update/tarjetas.update.html',
                         controller: 'tarjetasUpdateCtrl'
                     }
                 },

@@ -17,6 +17,7 @@
         <!-- Clientes -->
         <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
         <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/clientesDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/delete/clientes.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/create/clientes.create.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/update/clientes.update.ctrl.js" type="text/javascript"></script>
@@ -271,11 +272,11 @@
 
 
 
-            .btn span.glyphicon{    			
-                opacity: 0;				
-            }
-            .btn.active span.glyphicon {				
+            .automatic.active span.glyphicon{    			
                 opacity: 1;				
+            }
+            .automatic  span.glyphicon {				
+                opacity: 0;				
             }
 
             .table-striped > tbody > tr:nth-of-type(odd) {
@@ -334,12 +335,17 @@
                         <li><a ui-sref="logout"><span class="glyphicon  glyphicon-log-out"></span> Salir</a></li>
 
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-success active">
-                                <input id="automatic" type="checkbox" value="0">Alternar Fondos
-                                <span class="glyphicon glyphicon-ok"></span>
+                            <label class="btn automatic btn-success">
+                                <input  id="automatic" type="checkbox" value="0">Alternar Fondos
+                                <span id="automatic2" class="glyphicon glyphicon-ok"></span>
                             </label>
+<<<<<<< HEAD
                         </div>             
 
+=======
+                        </div> 
+                        
+>>>>>>> 9cb6e14e03d5d78a8afdcebefea3ed4d01c5f7e3
                     </ul>
                 </div>
 
@@ -368,7 +374,7 @@
                     }
 
                 }
-                setTimeout(showSlides, 30000);
+                setTimeout(showSlides, 20000);
             }
 
 

@@ -27,9 +27,9 @@ import javax.ws.rs.WebApplicationException;
 public class CalificacionResource {
     
     
-    private final static String TRABAJOS="E l recurso /trabajos/";
-    private final static String CALIFICACIONES="/calificacion/";
-    private final static String NOEXISTE="no existe.";
+    private static final String TRABAJOS="E l recurso /trabajos/";
+    private static final String CALIFICACIONES="/calificacion/";
+    private static final String NOEXISTE="no existe.";
 
     @Inject
     CalificacionLogic calificacionLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.

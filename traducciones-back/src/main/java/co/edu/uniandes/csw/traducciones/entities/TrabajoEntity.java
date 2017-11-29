@@ -26,9 +26,6 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     @OneToMany(mappedBy = "trabajo", cascade = CascadeType.ALL, orphanRemoval = true)
     private  List<CalificacionEntity> calificaciones= new ArrayList<CalificacionEntity>();
     
-    //@PodamExclude
-    //@OneToOne
-    //private PagoEntity pago;
 
     /**
      * @return the terminado
