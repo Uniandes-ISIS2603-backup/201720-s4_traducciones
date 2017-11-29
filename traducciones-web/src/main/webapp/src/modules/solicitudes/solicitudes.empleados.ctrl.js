@@ -6,7 +6,7 @@
             var empleado;
             $http.get('api/empleados/' + $state.params.empleadoId).then(function (response) {
                 empleado = response.data;
-                $scope.nombreEmpleado = response.data.name;
+                $scope.empleado = response.data;
             });
             
             $http.get('api/solicitudes').then(function (response) {
