@@ -25,11 +25,11 @@
                     //recorro los idiomas del empleado
                     for(j = 0; j<empleado.hojaDeVida.idiomas.length; j++){
                         // si el idioma origen de la solicitud lo tiene el empleado, es candidato
-                        if(empleado.hojaDeVida.idiomas[j].nombre === idiomaOrigen){
+                        if(empleado.hojaDeVida.idiomas[j].name === idiomaOrigen){
                             tieneOrigen = 1;
                         }
                         // si el idioma destino de la solicitud lo tiene el empleado, es candidato
-                        if(empleado.hojaDeVida.idiomas[j].nombre === idiomaDestino){
+                        if(empleado.hojaDeVida.idiomas[j].name === idiomaDestino){
                             tieneDestino = 1;
                         }
                     }

@@ -26,6 +26,7 @@
                                     <td data-title="numPalabras" id="{{$index}}-numPalabras">{{solicitud.numPalabras}}</td>
                                     <td data-title="Tipo" id="{{$index}}-tipo">{{darTipo(solicitud.tipo)}}</td>    
                                     <td data-title="descripcion" id="{{$index}}-tipo">{{solicitud.descripcion}}</td>  
+                            <a class="btn btn-default btn-sm" ui-sref="propuestaCreate({empleadoId: empleado.id})">Agregar Propuesta<span class="glyphicon glyphicon-plus-sign"></span></a>
                                 </tr>
                             </tbody>
                         </table>
