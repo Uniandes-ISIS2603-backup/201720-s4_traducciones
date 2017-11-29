@@ -11,7 +11,7 @@
 
             $scope.user = {};
             $scope.data = {};
-            
+
             $http.get('src/data/users.json').then(function (response) {
                 $scope.users = response.data;
             });
@@ -20,9 +20,21 @@
                 var flag = false;
                 for (var item in $scope.users) {
                     if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
+
+
                         flag = true;
                         $scope.user = $scope.users[item];
-                        $state.go('empleadosList', {}, {reload: true});
+
+                        if ($scope.users[item].rol === 'empleado')
+                        {                           
+                            $state.go('empleadoHojas', {empleadoId: $scope.users[item].id, empleadoHoja: $scope.users[item].id}, {reload: true});
+                        } else if ($scope.users[item].rol === 'cliente')
+                        {
+
+                        } else {
+                            $state.go('empleadosList', {}, {reload: true});
+
+                        }
                         break;
                     }
                 }
@@ -33,7 +45,7 @@
                     sessionStorage.setItem("username", $scope.user.user);
                     sessionStorage.setItem("name", $scope.user.name);
                     sessionStorage.setItem("rol", $scope.user.rol);
-                    $rootScope.currentUser = $scope.user.name; 
+                    $rootScope.currentUser = $scope.user.name;
                 }
             };
         }

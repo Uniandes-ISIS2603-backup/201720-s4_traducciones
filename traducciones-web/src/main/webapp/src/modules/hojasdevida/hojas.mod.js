@@ -25,8 +25,8 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['cliente', 'empleado']
-                }                
+                    roles: ['cliente', 'empleado', 'administrador']
+                }               
             }).state('hojasDetail', {
                 url: '/{hojaId:int}/detail',
                 parent: 'hojas',

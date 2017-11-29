@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.traducciones.dtos.SolicitudDetailedDTO;
 import co.edu.uniandes.csw.traducciones.ejb.SolicitudLogic;
 import co.edu.uniandes.csw.traducciones.entities.SolicitudEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.traducciones.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -23,15 +22,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author aj.ayte
  */
-@Path("/Solicitudes")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Path("solicitudes")
+@Produces("application/json")
+@Consumes("application/json")
 @RequestScoped
 public class SolicitudResource {
     
@@ -61,13 +59,13 @@ public class SolicitudResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<SolicitudDetailedDTO> getSolicitud() throws BusinessLogicException {
-        return listEntity2DetailDetailedDTO(SolicitudLogic.getSolicituds());
+    public List<SolicitudDetailedDTO> getSolicitudes() throws BusinessLogicException {
+        return listEntity2DetailDetailedDTO(SolicitudLogic.getSolicitudes());
     }
     
     /**
      * @param id corresponde al id buscada.
-     * @returnencontrada.
+     * @return encontrada.
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la hoja de vida buscada se retorna un 404 con
@@ -106,8 +104,7 @@ public class SolicitudResource {
     }
 
     /**
-\
-     * @param id corresponde a la hoja de vida a borrar.
+     * @param id solicitud a eliminar
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la hoja de vida a actualizar se retorna un

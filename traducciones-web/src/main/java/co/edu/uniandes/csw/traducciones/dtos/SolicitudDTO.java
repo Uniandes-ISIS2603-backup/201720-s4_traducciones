@@ -14,12 +14,26 @@ import java.util.Date;
  * @author aj.ayte
  */
 public class SolicitudDTO {
+    
     private Long id;
-    private Date fechaInicio,fechaEntrega;
-    private int tipo,numeroDePalabras;
+    
+    private Date fechaEntrega;
+    
+    private Date fechaInicio;
+    
+    private int tipo;
+    
+    private int numeroDePalabras;
+    
     private String descripcion;
+    
+    /**
+     * 
+     */
     public SolicitudDTO() {
+       // Constructor vacío. 
     }
+    
     public SolicitudDTO(SolicitudEntity entity) {
         this.id = entity.getId();
         this.fechaInicio = entity.getFechaInicio();
@@ -76,6 +90,7 @@ public class SolicitudDTO {
     public void setNumeroDePalabras(int numeroDePalabras) {
         this.numeroDePalabras = numeroDePalabras;
     }
+    
     public SolicitudEntity toEntity() {
         SolicitudEntity entity = new SolicitudEntity();
         entity.setId(this.id);
