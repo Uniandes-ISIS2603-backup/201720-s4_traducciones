@@ -10,7 +10,7 @@
             if (sessionStorage.getItem("username")) {
                 sessionStorage.clear();
             } else {
-                $state.go('login', {}, {reload: true});
+                $state.go('unEmpleado', {}, {reload: true});
             }
         }
     ]);

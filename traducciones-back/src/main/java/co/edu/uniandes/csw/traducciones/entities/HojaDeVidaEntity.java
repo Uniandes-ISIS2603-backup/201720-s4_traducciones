@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +19,16 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author ra.forero11
  */
 @Entity
-public class HojaDeVidaEntity extends BaseEntity implements Serializable{
+public class HojaDeVidaEntity extends BaseEntity implements Serializable {
 
     private String descripcion;
     private String perfilProfesional;
     private String formacionAcademica;
-    
+
     @PodamExclude
     @ManyToOne
-    private EmpleadoEntity empleado; 
-    
+    private EmpleadoEntity empleado;
+
     @PodamExclude
     @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TrayectoriaEntity> trayectorias = new ArrayList<TrayectoriaEntity>();
@@ -38,7 +37,6 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
     @OneToMany(mappedBy = "hojaDeVida", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IdiomaEntity> idiomas = new ArrayList<IdiomaEntity>();
 
-    
     /**
      * @return the descripcion
      */
@@ -123,5 +121,4 @@ public class HojaDeVidaEntity extends BaseEntity implements Serializable{
         this.idiomas = idiomas;
     }
 
-    
 }

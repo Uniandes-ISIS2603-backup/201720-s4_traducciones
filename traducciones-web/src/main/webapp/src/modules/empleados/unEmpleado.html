@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<div class="container-fluid">
+
+    <h1><b>Perfil</b></h1>
+
+    <h3>Id: {{empleado.id}}</h3>    
+    <h3>Nombre: {{empleado.name}}</h3>
+    <h3>Tipo: {{empleado.tipo}}</h3>
+    <h3>Perfil profesional: {{empleado.hojadevida.perfilProfesional}}</h3>
+    <h3> Áreas de conocimiento </h3>
+
+    <table class="table table-striped col-md-4">
+        <thead>
+            <tr>
+                <th> Nombre </th>
+                <th> Descripción </th>
+            </tr>
+        </thead>
+        <tbody>
+        <a class="btn btn-info" ui-sref="areadeconocimientoCreate({empleadoId: empleado.id})">
+            <span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva área de conocimiento</a>
+        <tr ng-repeat=" area in areasdeconocimiento">
+            <td id="{{$index}}-nombre">{{area.namee}}</td>
+            <td id="{{$index}}-descripcion">{{area.descripcion}}</td>
+            <td id="{{$index}}-Opciones">
+                <a class="btn btn-danger btn-sm" ui-sref="areadeconocimientoDelete({areadeconocimientoId: area.id})">Eliminar<span class="glyphicon glyphicon-trash"></span></a>
+
+        </tr>
+        </tbody>
+    </table>        
+
+</div>
+
+</div>
+</div>
+</div>

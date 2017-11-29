@@ -29,7 +29,29 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['cliente', 'empleado']
+                    roles: ['cliente', 'empleado', 'administrador']
+                }
+            }).state('unEmpleado', {
+                url: '/unEmpleado/{empleadoId:int}',
+                parent: 'empleados',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'unEmpleado.html',
+                        controller: 'unEmpleadoCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'listView': {
+                        templateUrl: basePathArea + 'areasdeconocimiento.detailedList.html',
+                        controller: 'areasDetailedCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['cliente', 'empleado', 'administrador']
                 }
             }).state('empleadoAreas', {
                 url: '/empleadoareas/{empleadoId:int}',
@@ -46,7 +68,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoHojas', {
                 url: '/empleadohojas/{empleadoId:int}/{empleadoHoja:int}',
@@ -64,7 +86,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
 
             }).state('empleadoOfertas', {
@@ -82,7 +104,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoOfertasCreate', {
                 url: '/empleadoOfertas/{empleadoId:int}/crear',
@@ -99,7 +121,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoPropuestas', {
                 url: '/empleadoPropuestas/{empleadoId:int}',
@@ -116,7 +138,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoHojasCreate', {
                 url: '/empleadohojas/{empleadoId:int}/crear',
@@ -134,7 +156,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoUpdate', {
                 url: '/empleadoupdate/{empleadoId:int}',
@@ -150,7 +172,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('empleadoDelete', {
                 url: '/empleadodelete/{empleadoId:int}',
@@ -166,8 +188,8 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
-                } 
+                    roles: ['administrador']
+                }
             }).state('empleadoCreate', {
                 url: '/empleadocreate',
                 parent: 'empleados',
@@ -179,7 +201,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['administrador']
                 }
             }).state('areadeconocimientoDelete', {
                 url: '/areadelete/{areadeconocimientoId:int}',
@@ -192,10 +214,10 @@
                         templateUrl: basePathArea + '/delete/areasdeconocimiento.delete.html',
                         controller: 'areadeconocimientoDeleteCtrl'
                     }
-                } ,
+                },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('areadeconocimientoCreate', {
                 url: '/areacreate/{empleadoId:int}',
@@ -211,7 +233,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
+                    roles: ['empleado', 'administrador']
                 }
             }).state('areadeconocimientoUpdate', {
                 url: '/areaupdate/{areadeconocimientoId:int}',
@@ -227,8 +249,8 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['empleado']
-                } 
+                    roles: ['empleado', 'administrador']
+                }
             });
         }]);
 })(window.angular);

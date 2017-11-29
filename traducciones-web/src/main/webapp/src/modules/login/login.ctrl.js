@@ -14,6 +14,7 @@
             
             $http.get('src/data/users.json').then(function (response) {
                 $scope.users = response.data;
+                $scope.idUsuario = response.data.id;
             });
 
             $scope.autenticar = function () {
@@ -22,12 +23,12 @@
                     if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
                         flag = true;
                         $scope.user = $scope.users[item];
-                        $state.go('empleadosList', {}, {reload: true});
+                        $state.go('unEmpleado', {}, {reload: true});
                         break;
                     }
                 }
                 if (!flag) {
-                    $rootScope.alerts.push({type: "danger", msg: "Incorrect username or password."});
+                    $rootScope.alerts.push({type: "danger", msg: "Datos incorrectos."});
                 } else {
                     sessionStorage.token = $scope.user.token;
                     sessionStorage.setItem("username", $scope.user.user);

@@ -18,4 +18,14 @@
         "rol": "empleado",
         "token": 456
     }
+    ,
+    {
+        "id": 5000,
+        "name": "Juan",
+        "user": "j2",
+        "password": "juan123",
+        "birthDate": "1990/06/17",
+        "rol": "administrador",
+        "token": 456
+    }
 ]

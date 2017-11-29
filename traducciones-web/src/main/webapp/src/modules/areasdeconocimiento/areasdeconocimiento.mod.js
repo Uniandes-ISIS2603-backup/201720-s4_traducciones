@@ -25,7 +25,7 @@
                 },
                 data: {
                     requireLogin: false,
-                    roles: ['cliente', 'empleado']
+                    roles: ['cliente', 'empleado', 'administrador']
                 }
             });
         }]);
