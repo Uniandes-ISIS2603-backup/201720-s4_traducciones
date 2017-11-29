@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.traducciones.ejb;
+import co.edu.uniandes.csw.traducciones.entities.PropuestaEntity;
 import co.edu.uniandes.csw.traducciones.entities.TrabajoEntity;
 import co.edu.uniandes.csw.traducciones.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.traducciones.persistence.TrabajoPersistence;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -24,6 +27,8 @@ public class TrabajoLogic {
     @Inject
     private TrabajoPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
+        @Inject
+    private PropuestaLogic propuestaLogic;
     /**
      *
      * @param entity
@@ -95,6 +100,83 @@ public class TrabajoLogic {
     public boolean existeTrabajoId(Long id) {
         return persistence.find(id) != null;
     }
+    
+    
+     /**
+      * 
+      * Obtiene la lista de Propuestas de una hoja de vida
+      * @param trabajoId id de la hoja de vida
+      * @return la lista de Propuestas de la hojas
+      * @throws BusinessLogicException si no existe la hoja
+      */
+     public List<PropuestaEntity> getPropuestas(Long trabajoId) throws BusinessLogicException {
+        if(getTrabajoId(trabajoId) == null){
+            throw new BusinessLogicException("El trabajo no existe");
+        }
+        else
+        {
+            return getTrabajoId(trabajoId).getPropuesta();
+        }
+    }
+    /**
+     * Añade un Propuesta a la hoja de vida
+     * @param propuesta entity Propuesta a añadir a la hoja de vida
+     * @param trabajoId id de la hoja a la que se e añadira un Propuesta
+     * @param propuestaId
+     * @return entity del Propuesta agragado
+     * @throws BusinessLogicException si no existe la hoja de vida
+     */
+    public PropuestaEntity addPropuesta(PropuestaEntity propuesta, Long trabajoId,Long propuestaId) throws BusinessLogicException {
+        LOGGER.warning("PropuestaId:"+propuesta.getId()+" Name:"+propuesta.getName());
+        if(propuestaId==0)
+        {
+        propuesta.setTrabajo(getTrabajoId(trabajoId));
+        propuestaLogic.createPropuesta(propuesta);
+        ArrayList<PropuestaEntity> propuestas = new ArrayList<>();
+        propuestas.add(propuesta);
+        TrabajoEntity trabajo=getTrabajoId(trabajoId);
+        trabajo.setPropuesta(propuestas);
+        updateTrabajo(trabajoId, trabajo);
+        }
+        else
+        {
+        propuesta=propuestaLogic.getPropuesta(propuestaId);
+        propuesta.setTrabajo(getTrabajoId(trabajoId));
+        propuestaLogic.updatePropuesta(propuesta);
+        ArrayList<PropuestaEntity> propuestas = new ArrayList<>();
+        propuestas.add(propuesta);
+        TrabajoEntity trabajo=getTrabajoId(trabajoId);
+        trabajo.setPropuesta(propuestas);
+        
+        }
+        
+        
+        
+        return propuesta;
+    }
+    
+  
+    /**
+     * Elimina un Propuesta de una hoja de vida especifica
+     * @param PropuestaId id del Propuesta a borrar
+     * @param trabajoId id de la hoja de vida que contiene el Propuesta
+     * @throws BusinessLogicException si no existe aguna de las 2
+     */
+    public void removePropuesta(Long trabajoId) throws BusinessLogicException {
+        List<PropuestaEntity> Propuestas = getTrabajoId(trabajoId).getPropuesta();
+        boolean seBorro = false;
+        for(int i = 0; i<Propuestas.size() && !seBorro; i++){
+            
+                propuestaLogic.deletePropuesta(Propuestas.get(i).getId());
+                getTrabajoId(trabajoId).getPropuesta().remove(i);
+                seBorro = true;
+            
+        }
+        if(!seBorro){
+            throw new BusinessLogicException("Este trabajo no tiene un area de conocimiento con el id:");
+        }
+    }
+
 
 }
 

@@ -24,6 +24,10 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private EmpleadoEntity empleado;
+    
+    @PodamExclude
+    @ManyToOne()
+    private TrabajoEntity trabajo;
 
     /**
      * Estado de la propuesta, puede ser ACEPTADA, RECHAZADA o EN_REVISION
@@ -105,6 +109,20 @@ public class PropuestaEntity extends BaseEntity implements Serializable {
      */
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
+    }
+
+    /**
+     * @return the trabajo
+     */
+    public TrabajoEntity getTrabajo() {
+        return trabajo;
+    }
+
+    /**
+     * @param trabajo the trabajo to set
+     */
+    public void setTrabajo(TrabajoEntity trabajo) {
+        this.trabajo = trabajo;
     }
 
 }

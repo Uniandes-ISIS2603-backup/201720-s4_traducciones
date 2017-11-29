@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.traducciones.entities;
 
+import com.gs.collections.impl.list.fixed.AbstractArrayAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class TrabajoEntity extends BaseEntity implements Serializable {
+
+    
     
     private boolean terminado;
     
@@ -26,7 +29,25 @@ public class TrabajoEntity extends BaseEntity implements Serializable {
     @OneToMany(mappedBy = "trabajo", cascade = CascadeType.ALL, orphanRemoval = true)
     private  List<CalificacionEntity> calificaciones= new ArrayList<CalificacionEntity>();
     
+    @PodamExclude
+    @OneToMany(mappedBy = "trabajo")
+    private List<PropuestaEntity> propuesta= new ArrayList<PropuestaEntity>();
 
+    
+    /**
+     * @return the propuesta
+     */
+    public List<PropuestaEntity> getPropuesta() {
+        return propuesta;
+    }
+
+    /**
+     * @param propuesta the propuesta to set
+     */
+    public void setPropuesta(List<PropuestaEntity> propuesta) {
+        this.propuesta = propuesta;
+    } 
+    
     /**
      * @return the terminado
      */

@@ -25,6 +25,7 @@ public class PropuestaDetailDTO extends PropuestaDTO {
      */
     private EmpleadoDTO empleado;
 
+    private TrabajoDTO trabajo;
 
     /**
      * Conviertir Entity a DetailDTO (Crea un nuevo DetailDTO con los valores
@@ -93,6 +94,20 @@ public class PropuestaDetailDTO extends PropuestaDTO {
             entity.setEmpleado(empleado.toEntity());
         }
         return entity;
+    }
+
+    /**
+     * @return the trabajo
+     */
+    public TrabajoDTO getTrabajo() {
+        return trabajo;
+    }
+
+    /**
+     * @param trabajo the trabajo to set
+     */
+    public void setTrabajo(TrabajoDTO trabajo) {
+        this.trabajo = trabajo;
     }
 
 }
