@@ -20,10 +20,6 @@
             }).state('clientesList', {
                 url: '/clienteslist',
                 parent: 'clientes',
-                data: {
-                    requireLogin: true,
-                    roles: ['cliente']
-                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'clientes.list.html'
