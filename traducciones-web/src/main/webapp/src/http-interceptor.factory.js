@@ -1,9 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-(function () {
+(function (ng) {
     var appModule = angular.module('mainApp');
 
     appModule.factory('httpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
@@ -14,13 +9,12 @@
             $rootScope.closeAlert = function (index) {
                 $rootScope.alerts.splice(index, 1);
             };
+
             var interceptor = {
                 response: function (response) {
                     return response;
                 },
                 responseError: function (rejection) {
-
-                    
 
                     function showError(message, type) {
 
@@ -43,6 +37,5 @@
             $httpProvider.interceptors.push('httpInterceptor');
         }]);
 })(window.angular);
-
 
 
