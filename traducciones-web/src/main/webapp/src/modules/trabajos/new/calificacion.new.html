@@ -6,14 +6,14 @@
                 <form ng-submit="addCalificacion()" name="calificacion">
                     <div class="form-group row">
                         <div class="form-group col-md-12">
-                            <label for="calificacionValor" class="col-sm-2 labelBlanco">Calificacion:</label>
-                            <input id="calificacionValor" required ng-model="calificacionValor" class="col-sm-6">
+                            <label for="calificacionValor" class="col-sm-2 labelBlanco">Calificación:</label>
+                            <input id="calificacionValor" required ng-model="calificacionValor" class="col-sm-6 labelNegro">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-12">
                             <label for="calificacionComentario" class="col-sm-2 labelBlanco">Comentario:</label>
-                            <textarea  id="calificacionComentario" required ng-model="calificacionComentario" class="col-sm-6" name="comentario" rows="10" cols="30">
+                            <textarea  id="calificacionComentario" required ng-model="calificacionComentario" class="col-sm-6 labelNegro" name="comentario" rows="10" cols="30">
 
                             </textarea>
                         </div>
@@ -24,14 +24,14 @@
                         <div class="form-group col-sm-4" ng-if="!calificacion.$valid">
 
                             <div class="alert alert-warning" >
-                                <strong>Warning!</strong><p>All inputs are required*</p>
+                                <strong>Atención!</strong><p>Todos los campos deben llenarse*</p>
                             </div> 
                         </div> 
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="calificacion.$valid" type="submit" value="Save" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="trabajosList">Cancel</a>
+                            <a class="btn btn-info" ui-sref="trabajosList">Cancelar</a>
                         </div>
                     </div>
                 </form>

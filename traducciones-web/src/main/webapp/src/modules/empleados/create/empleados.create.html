@@ -7,7 +7,7 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="empleadoName" class="col-sm-2 labelBlanco">Nombre:</label>
-                           <input id="empleadoName" required ng-model="empleadoName" class="col-sm-6 labelNegro"/>
+                           <input class= "labelNegro" id="empleadoName" required ng-model="empleadoName" class="col-sm-6 labelNegro"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -15,9 +15,9 @@
                             <label for="empleadoTipo" class="col-sm-2 labelBlanco">Tipo:</label>
                               <select id="empleadoTipo" required ng-model="empleadoTipo" ng-init="empleadoTipo" class="col-sm-6 labelNegro">
                                <option></option>
-                               <option value=1>Traductor</option>
-                               <option value=2>Corrector</option>
-                               <option value=3>Ambos</option>
+                               <option class= "labelNegro" value=1>Traductor</option>
+                               <option class= "labelNegro" value=2>Corrector</option>
+                               <option class= "labelNegro" value=3>Ambos</option>
                               </select>                           
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <div class="form-group col-sm-4" ng-if="!empleado.$valid">
 
                             <div class="alert alert-warning" >
-                                <strong>Atencion</strong><p>Completar todos los campos</p>
+                                <strong>Atención</strong><p>Completar todos los campos</p>
                             </div> 
                         </div> 
                     </div> 

@@ -21,6 +21,10 @@
                     'listView': {
                         templateUrl: basePath + 'trabajos.list.html'
                     }
+                },
+                data: {
+                    requireLogin: true,
+                    roles: ['administrador', 'empleado']
                 }
             }).state('trabajosDetail', {
                 url: '/{trabajoId:int}/detail',
@@ -34,6 +38,10 @@
                         controller: 'trabajoCtrl',
                         controllerAs: 'ctrl'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['administrador', 'empleado']
                 }
             }).state('trabajoCreate', {
                 url: '/create',
@@ -43,6 +51,10 @@
                         templateUrl: basePath + '/new/trabajos.new.html',
                         controller: 'trabajosNewCtrl'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['administrador', 'empleado']
                 }
             }).state('trabajoUpdate', {
                 url: '/update/{trabajoId:int}',
@@ -55,6 +67,10 @@
                         templateUrl: basePath + '/update/trabajos.update.html',
                         controller: 'trabajosUpdateCtrl'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['administrador', 'empleado']
                 }
             }).state('trabajoDelete', {
                 url: '/delete/{trabajoId:int}',
@@ -67,6 +83,10 @@
                         templateUrl: basePath + '/delete/trabajos.delete.html',
                         controller: 'trabajosDeleteCtrl'
                     }
+                },
+                data: {
+                    requireLogin: false,
+                    roles: ['administrador', 'empleado']
                 }
             }).state('calificacionCreate', {
                 url: '/create/{trabajoId:int}/calificacion',

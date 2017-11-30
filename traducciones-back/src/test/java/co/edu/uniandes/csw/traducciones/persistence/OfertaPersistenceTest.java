@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.traducciones.persistence;
-
-import co.edu.uniandes.csw.traducciones.entities.OfertaEntityTest;
+import co.edu.uniandes.csw.traducciones.entities.OfertaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -43,7 +42,7 @@ public class OfertaPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(OfertaEntityTest.class.getPackage())
+                .addPackage(OfertaEntity.class.getPackage())
                 .addPackage(OfertaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
@@ -89,11 +88,11 @@ public class OfertaPersistenceTest {
     public void testCreate() throws Exception {
 
         PodamFactory factory = new PodamFactoryImpl();
-        OfertaEntityTest newEntity = factory.manufacturePojo(OfertaEntityTest.class);
-        OfertaEntityTest result = persistence.create(newEntity);
+        OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
+        OfertaEntity result = persistence.create(newEntity);
 
         Assert.assertNotNull(result);
-        OfertaEntityTest entity = em.find(OfertaEntityTest.class, result.getId());
+        OfertaEntity entity = em.find(OfertaEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
@@ -103,15 +102,15 @@ public class OfertaPersistenceTest {
      */
     @Test
     public void testUpdate() throws Exception {
-        OfertaEntityTest entity = data.get(0);
+        OfertaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        OfertaEntityTest newEntity = factory.manufacturePojo(OfertaEntityTest.class);
+        OfertaEntity newEntity = factory.manufacturePojo(OfertaEntity.class);
 
         newEntity.setId(entity.getId());
 
         persistence.update(newEntity);
 
-        OfertaEntityTest resp = em.find(OfertaEntityTest.class, entity.getId());
+        OfertaEntity resp = em.find(OfertaEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
@@ -122,9 +121,9 @@ public class OfertaPersistenceTest {
     @Test
     public void testDelete() throws Exception {
 
-        OfertaEntityTest entity = data.get(0);
+        OfertaEntity entity = data.get(0);
         persistence.delete(entity.getId());
-        OfertaEntityTest deleted = em.find(OfertaEntityTest.class, entity.getId());
+        OfertaEntity deleted = em.find(OfertaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
@@ -134,8 +133,8 @@ public class OfertaPersistenceTest {
     @Test
     public void testFind() throws Exception {
 
-        OfertaEntityTest entity = data.get(0);
-        OfertaEntityTest newEntity = persistence.find(entity.getId());
+        OfertaEntity entity = data.get(0);
+        OfertaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
@@ -146,8 +145,8 @@ public class OfertaPersistenceTest {
     @Test
     public void testFindByName () throws Exception {
 
-        OfertaEntityTest entity = data.get(0);
-        List<OfertaEntityTest> newEntity = persistence.findByName(entity.getName());
+        OfertaEntity entity = data.get(0);
+        List<OfertaEntity> newEntity = persistence.findByName(entity.getName());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.get(0).getName());
     }
@@ -158,11 +157,11 @@ public class OfertaPersistenceTest {
     @Test
     public void testFindAll() throws Exception {
 
-        List<OfertaEntityTest> list = persistence.findAll();
+        List<OfertaEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (OfertaEntityTest ent : list) {
+        for (OfertaEntity ent : list) {
             boolean found = false;
-            for (OfertaEntityTest entity : data) {
+            for (OfertaEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -195,7 +194,7 @@ public class OfertaPersistenceTest {
     /**
      *
      */
-    private List<OfertaEntityTest> data = new ArrayList<OfertaEntityTest>();
+    private List<OfertaEntity> data = new ArrayList<OfertaEntity>();
 
     private void clearData() {
         em.createQuery("delete from OfertaEntity").executeUpdate();
@@ -204,7 +203,7 @@ public class OfertaPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            OfertaEntityTest entity = factory.manufacturePojo(OfertaEntityTest.class);
+            OfertaEntity entity = factory.manufacturePojo(OfertaEntity.class);
 
             em.persist(entity);
             data.add(entity);
