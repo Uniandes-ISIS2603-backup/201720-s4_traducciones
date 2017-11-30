@@ -101,13 +101,13 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + 'delete/clientes.delete.html',
+                        templateUrl: basePath + 'delete/cliente.delete.html',
                         controller: 'clienteDeleteCtrl'
                     }
                 } ,
                 data: {
                     requireLogin: true,
-                    roles: ['cliente']
+                    roles: ['administrador']
                 }
             }).state('clienteCreate', {
                 url: '/clienteCreate',

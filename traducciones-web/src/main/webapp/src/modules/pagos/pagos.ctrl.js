@@ -3,6 +3,8 @@
     mod.constant("pagosContext", "api/pagos");
     mod.controller('pagoCtrl', ['$scope', '$http', 'pagosContext', '$state',
         function ($scope, $http, pagosContext, $state) {
+            
+            $scope.pagosRecords = [];
             $http.get(pagosContext).then(function (response) {
                 $scope.pagosRecords = response.data;
             });

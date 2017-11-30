@@ -20,7 +20,9 @@
                 parent: 'pagos',
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'pagos.list.html'
+                        templateUrl: basePath + 'pagos.list.html',
+                        controller: 'pagoCtrl',
+                        controllerAs: 'ctrl'
                     }
                 },data: {
                     requireLogin: true,

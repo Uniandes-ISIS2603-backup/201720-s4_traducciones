@@ -89,7 +89,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/ofertas.delete.html',
+                        templateUrl: basePath + '/delete/oferta.delete2.html',
                         controller: 'ofertaDelete2Ctrl'
                     }
                 },

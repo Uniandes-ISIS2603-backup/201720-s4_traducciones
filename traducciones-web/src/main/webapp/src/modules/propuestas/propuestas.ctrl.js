@@ -16,7 +16,7 @@
 
             // inicialmente el listado de ofertas está vacio
             $scope.propuestasRecords = [];
-            // carga las ofertas
+            // carga las propuestas
             $http.get(propuestasContext).then(function (response) {
                 $scope.propuestasRecords = response.data;
             });

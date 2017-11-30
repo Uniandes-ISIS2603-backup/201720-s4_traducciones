@@ -1,8 +1,8 @@
 <div class="center-block well text-center">
-    <h1>¿Está seguro qué desea eliminar este cliente?</h1>
-    <button id="confirm-delete" ng-click="deleteCliente()" class="btn btn-danger" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Eliminar</button>
-    <a id="cancel-delete" ui-sref="clientesList" class="btn btn-info" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()" >Cancelar</a>
-</div>
+    <div><h3 ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">¿Realmente deseas eliminar este cliente?</h3>
+        <button id="confirm-delete" ng-click="deleteCliente()" class="btn btn-danger" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Eliminar</button>
+        <a id="cancel-delete" ui-sref="clientesList" class="btn btn-info" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">Cancelar</a>
+    </div>
     <div class="container" ng-if="isAuthenticated() && !hasPermissions()">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -11,3 +11,4 @@
             </div>
         </div>
     </div>
+</div>

@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="no-more-tables">
-                        <table class="table table-striped table-bordered text-justify table-hover table-responsive labelDetail">
+                        <table class=" labelBlanco table table-striped table-bordered text-justify table-hover table-responsive labelDetail">
                             <thead>
                                 <tr>
                                     <th>Empleado</th>    
@@ -20,11 +20,11 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="pago in pagosRecords">
-                                    <td data-title="Empleado:" id="{{$index}}-idEmpleado"><a ui-sref="empleadoDetail({empleadoId: pago.idEmpleado})">{{pago.idEmpleado}}</a></td>
-                                    <td data-title="Solicitud:" id="{{$index}}-idSolicitud">{{pago.idSolicitud}}</td>
-                                    <td data-title="Acciones:" id="{{$index}}-actions">
-                                        <a class="btn btn-default btn-sm" ui-sref="pagoUpdate({pagoId: pago.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a class="btn btn-danger btn-sm" ui-sref="pagoDelete({pagoId: pago.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <td class = labelblanco data-title="Empleado:" id="{{$index}}-idEmpleado"><a ui-sref="empleadoDetail({empleadoId: pago.idEmpleado})">{{pago.id}}</a></td>
+                                    <td class = labelblanco id="{{$index}}-solicitud">{{pago.idSolicitud}}</td>
+                                    <td class = labelblanco data-title="Acciones:" id="{{$index}}-actions">
+                                        <a class="btn btn-default btn-sm" ui-sref="pagoUpdate({pagoId: pago.id})"><span class="glyphicon glyphicon-edit">Editar</span></a>
+                                        <a class="btn btn-danger btn-sm" ui-sref="pagoDelete({pagoId: pago.id})"><span class="glyphicon glyphicon-trash">Eliminar</span></a>
                                     </td>
                                 </tr>
                             </tbody>
