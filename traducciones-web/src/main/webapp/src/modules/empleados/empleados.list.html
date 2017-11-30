@@ -39,13 +39,13 @@
                                                 <li><a  class="labelBlanco" ui-sref="empleadoAreas({empleadoId: empleado.id})">Areas de conocimiento</a></li>
                                                 <li><a  class="labelBlanco"ui-sref="empleadoOfertas({empleadoId: empleado.id})">Ofertas</a></li>
                                                 <li><a class="labelBlanco" ui-sref="empleadoPropuestas({empleadoId: empleado.id})">Propuestas</a></li>
-                                                <li ng-if="empleado.hojadevida.length>0"><a class="labelBlanco" ui-sref="empleadoHojas({empleadoId: empleado.id , empleadoHoja: empleado.hojadevida[0].id})">Hoja de vida</a></li>
+                                                <li ng-if="empleado.hojadevida.length===1"><a class="labelBlanco" ui-sref="empleadoHojas({empleadoId: empleado.id , empleadoHoja: empleado.hojadevida[0].id})">Hoja de vida</a></li>
                                                 <li role="separator" class="divider"></li>
                                                 
 
-                                                <li><a class="labelBlanco" ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
+                                                
                                                 <li><a class="labelBlanco" ui-sref="empleadoSolicitudes({empleadoId: empleado.id})">Cargar Solicitudes</a></li>
-                                               <li ng-if="empleado.hojadevida.length<=0"><a class="labelBlanco" ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
+                                               <li ng-if="empleado.hojadevida.length!===1"><a class="labelBlanco" ui-sref="empleadoHojasCreate({empleadoId: empleado.id})">Crear Hoja de vida</a></li>
                                             </ul>
                                         </div>       
                                     </td>    
