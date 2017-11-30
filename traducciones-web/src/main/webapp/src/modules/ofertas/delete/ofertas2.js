@@ -10,7 +10,7 @@
         function ($scope, $http, ofertasContext, $state) {
             var idOferta = $state.params.ofertaId;
             
-            $scope.deleteOferta = function () {
+            $scope.deleteOferta2 = function () {
                
                 $http.delete(ofertasContext + '/' + idOferta, {}).then(function (response) {
                     $state.go('ofertasList', {reload: true});
